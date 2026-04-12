@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>兼喜会全国大会 懇親会マニュアル</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Hiragino Kaku Gothic ProN','Yu Gothic','Meiryo',sans-serif;background:#f5f0eb;color:#333;line-height:1.7;}
+
+  /* ===== Print ===== */
+  @media print{body{background:#fff;font-size:11pt;}.no-print{display:none!important;}.scene{break-inside:avoid;}}
+
+  /* ===== Header ===== */
+  .header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);color:#fff;text-align:center;padding:36px 20px 28px;}
+  .header h1{font-size:1.6rem;letter-spacing:.12em;margin-bottom:4px;}
+  .header .sub{font-size:.95rem;opacity:.85;}
+  .header .badges{margin-top:14px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
+  .header .badges span{font-size:.78rem;background:rgba(255,255,255,.15);padding:4px 14px;border-radius:16px;}
+
+  /* ===== Tab Navigation ===== */
+  .tab-bar{background:#fff;border-bottom:2px solid #0f3460;position:sticky;top:0;z-index:200;padding:0 16px;}
+  .tab-bar-inner{max-width:1100px;margin:0 auto;display:flex;gap:0;}
+  .tab-btn{padding:12px 24px;font-size:.9rem;font-weight:bold;cursor:pointer;border:none;background:transparent;color:#666;border-bottom:3px solid transparent;transition:.2s;}
+  .tab-btn:hover{color:#0f3460;background:#f0f4fa;}
+  .tab-btn.active{color:#0f3460;border-bottom-color:#0f3460;background:#f0f4fa;}
+
+  .tab-content{display:none;}
+  .tab-content.active{display:block;}
+
+  /* ===== Sub Nav (for scenario tab) ===== */
+  .toc{background:#f8f6f3;border-bottom:1px solid #ddd;padding:10px 16px;}
+  .toc-inner{max-width:1100px;margin:0 auto;display:flex;gap:6px;flex-wrap:wrap;align-items:center;}
+  .toc a{font-size:.73rem;color:#0f3460;text-decoration:none;padding:3px 9px;border-radius:12px;background:#e8ecf2;transition:.15s;}
+  .toc a:hover{background:#0f3460;color:#fff;}
+  .toc .toc-label{font-size:.7rem;font-weight:bold;color:#999;margin-right:4px;}
+
+  .container{max-width:1100px;margin:0 auto;padding:20px 16px 60px;}
+
+  /* ===== OVERVIEW TAB STYLES ===== */
+  .overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:28px;}
+  .overview .card{background:#fff;border-radius:12px;padding:18px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .overview .card .label{font-size:.78rem;color:#888;margin-bottom:3px;}
+  .overview .card .value{font-size:1.1rem;font-weight:bold;}
+
+  h2{font-size:1.2rem;margin:28px 0 14px;padding-left:12px;border-left:4px solid #0f3460;}
+  h3{font-size:1rem;margin:12px 0 8px;color:#0f3460;}
+
+  .roles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:28px;}
+  .role-card{background:#fff;border-radius:10px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.06);text-align:center;}
+  .role-card .role-name{font-weight:bold;font-size:.95rem;margin-bottom:3px;}
+  .role-card .role-count{font-size:.82rem;color:#888;}
+  .role-card .role-person{font-size:.85rem;color:#0f3460;margin-top:3px;}
+
+  /* Timeline */
+  .timeline{position:relative;padding-left:40px;}
+  .timeline::before{content:'';position:absolute;left:18px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,#0f3460,#e2b714,#0f3460);border-radius:2px;}
+  .tl-item{position:relative;margin-bottom:4px;padding:14px 18px;background:#fff;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.06);transition:transform .15s;}
+  .tl-item:hover{transform:translateX(4px);}
+  .tl-item::before{content:'';position:absolute;left:-30px;top:18px;width:13px;height:13px;border-radius:50%;background:#fff;border:3px solid #0f3460;}
+  .tl-item.highlight::before{background:#e2b714;border-color:#e2b714;}
+  .tl-item.entertainment::before{background:#c0392b;border-color:#c0392b;}
+  .tl-item.ceremony::before{background:#0f3460;border-color:#0f3460;}
+  .tl-time{display:inline-block;font-size:.85rem;font-weight:bold;color:#fff;background:#0f3460;padding:2px 10px;border-radius:12px;margin-right:8px;}
+  .tl-item.highlight .tl-time{background:#b8860b;}
+  .tl-item.entertainment .tl-time{background:#c0392b;}
+  .tl-duration{display:inline-block;font-size:.75rem;color:#888;background:#f0f0f0;padding:2px 8px;border-radius:10px;margin-right:6px;}
+  .tl-title{font-weight:bold;font-size:1.05rem;margin:6px 0 2px;}
+  .tl-person{font-size:.85rem;color:#555;}
+  .tl-detail{font-size:.82rem;color:#777;margin-top:4px;}
+  .tl-notes{margin-top:6px;padding:8px 12px;background:#fdf6e3;border-left:3px solid #e2b714;border-radius:4px;font-size:.82rem;color:#666;}
+
+  /* Link to scenario */
+  .tl-link{display:inline-block;margin-top:6px;font-size:.78rem;color:#0f3460;cursor:pointer;text-decoration:underline;}
+  .tl-link:hover{color:#e2b714;}
+
+  /* Section box */
+  .section-box{background:#fff;border-radius:12px;padding:18px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:18px;}
+  .section-box ul{padding-left:20px;}
+  .section-box li{margin-bottom:5px;font-size:.88rem;}
+
+  /* Light table */
+  .light-table{width:100%;border-collapse:collapse;font-size:.85rem;}
+  .light-table thead tr{background:#0f3460;color:#fff;}
+  .light-table th,.light-table td{padding:7px 10px;text-align:left;}
+  .light-table td{border-bottom:1px solid #eee;}
+  .light-table tbody tr:nth-child(even){background:#fafafa;}
+  .on{color:#2e7d32;font-weight:bold;}
+  .off{color:#c62828;font-weight:bold;}
+
+  /* QA */
+  .qa-item{margin-bottom:10px;}
+  .qa-item .q{font-weight:bold;font-size:.88rem;}
+  .qa-item .a{font-size:.83rem;color:#555;margin-top:2px;padding-left:16px;}
+
+  /* ===== SCENARIO TAB STYLES ===== */
+  .legend-box{background:#fff;border-radius:12px;padding:16px 20px;margin-bottom:24px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .legend-box h2{margin:0 0 10px;border:none;padding:0;}
+  .legend-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;}
+  .legend-item{display:flex;align-items:center;gap:8px;font-size:.83rem;}
+  .legend-item .swatch{width:32px;height:20px;border-radius:4px;flex-shrink:0;}
+  .sw-mc{background:#1b5e20;}.sw-slide{background:#1a237e;}.sw-staff{background:#e65100;}.sw-light{background:#4a148c;}.sw-note{background:#fdf6e3;border:1px solid #e2b714;}
+
+  .scene{background:#fff;border-radius:14px;margin-bottom:22px;box-shadow:0 2px 10px rgba(0,0,0,.07);overflow:hidden;}
+  .scene-header{display:flex;align-items:center;gap:14px;padding:14px 20px;background:linear-gradient(135deg,#0f3460,#1a1a2e);color:#fff;}
+  .scene-num{font-size:1.5rem;font-weight:900;opacity:.5;line-height:1;}
+  .scene-title{font-size:1.1rem;font-weight:bold;}
+  .scene-time{font-size:.82rem;opacity:.8;margin-top:2px;}
+  .scene-body{padding:18px 20px;}
+
+  /* Slide Preview */
+  .slide-frame{background:linear-gradient(135deg,#0d1b3e,#162447);color:#fff;border-radius:10px;padding:0;margin-bottom:14px;aspect-ratio:16/9;max-width:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;border:3px solid #e2b714;}
+  .slide-frame .slide-top{font-size:.65rem;letter-spacing:.15em;opacity:.6;position:absolute;top:10px;left:0;right:0;}
+  .slide-frame .slide-main{font-size:1.4rem;font-weight:bold;letter-spacing:.1em;text-shadow:0 2px 12px rgba(0,0,0,.5);}
+  .slide-frame .slide-sub{font-size:.8rem;margin-top:6px;opacity:.8;letter-spacing:.05em;}
+  .slide-frame .slide-bottom{font-size:.6rem;opacity:.5;position:absolute;bottom:8px;left:0;right:0;}
+  .slide-frame.slide-gold{background:linear-gradient(135deg,#3e2723,#4e342e);border-color:#e2b714;}
+  .slide-frame.slide-red{background:linear-gradient(135deg,#4a0000,#6d0000);border-color:#ff6f00;}
+  .slide-frame.slide-green{background:linear-gradient(135deg,#1b3a1b,#2e5a2e);border-color:#66bb6a;}
+  .slide-label{font-size:.73rem;color:#1a237e;font-weight:bold;margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+  .slide-label::before{content:'';display:inline-block;width:8px;height:8px;background:#1a237e;border-radius:2px;}
+
+  /* MC Script */
+  .mc-block{background:#e8f5e9;border-left:4px solid #1b5e20;border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:12px;}
+  .mc-block .mc-label{font-size:.73rem;font-weight:bold;color:#1b5e20;margin-bottom:5px;}
+  .mc-block .mc-text{font-size:.92rem;line-height:1.9;color:#1b3a1b;}
+  .mc-block .mc-text em{font-style:normal;background:#c8e6c9;padding:1px 4px;border-radius:3px;font-size:.78rem;color:#2e7d32;}
+  .mc-block .mc-text .pause{display:inline-block;color:#999;font-size:.72rem;margin:0 4px;}
+
+  /* Staff Action */
+  .staff-actions{margin-bottom:12px;}
+  .staff-actions .sa-title{font-size:.73rem;font-weight:bold;color:#e65100;margin-bottom:5px;display:flex;align-items:center;gap:6px;}
+  .staff-actions .sa-title::before{content:'';display:inline-block;width:8px;height:8px;background:#e65100;border-radius:2px;}
+  .sa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:7px;}
+  .sa-item{background:#fff3e0;border-radius:6px;padding:7px 10px;font-size:.8rem;display:flex;align-items:flex-start;gap:7px;}
+  .sa-item .sa-role{flex-shrink:0;font-size:.68rem;font-weight:bold;color:#fff;background:#e65100;padding:2px 7px;border-radius:10px;white-space:nowrap;margin-top:1px;}
+  .sa-item .sa-role.r-light{background:#4a148c;}
+  .sa-item .sa-role.r-all{background:#c62828;}
+
+  /* Light Cue */
+  .light-cue{background:#f3e5f5;border-left:4px solid #4a148c;border-radius:0 8px 8px 0;padding:9px 13px;margin-bottom:12px;font-size:.8rem;color:#4a148c;}
+  .light-cue strong{font-size:.88rem;}
+
+  /* Note */
+  .note-box{background:#fdf6e3;border-left:4px solid #e2b714;border-radius:0 8px 8px 0;padding:9px 13px;margin-bottom:12px;font-size:.8rem;color:#6d5a00;}
+
+  /* Phase Divider */
+  .phase-divider{text-align:center;padding:24px 0 10px;font-size:.83rem;color:#888;letter-spacing:.1em;}
+  .phase-divider span{background:#fff;padding:0 16px;position:relative;}
+  .phase-divider::before{content:'';display:block;border-top:1px dashed #ccc;position:relative;top:36px;}
+
+  .footer{text-align:center;padding:20px;font-size:.75rem;color:#999;}
+
+  @media(max-width:600px){
+    .header h1{font-size:1.2rem;}
+    .tab-btn{padding:10px 14px;font-size:.8rem;}
+    .slide-frame{max-width:100%;}
+    .slide-frame .slide-main{font-size:1rem;}
+    .sa-grid{grid-template-columns:1fr;}
+    .toc-inner{gap:4px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<div class="header">
+  <h1>懇親会マニュアル</h1>
+  <div class="sub">全国連合兼喜会 第68回定時総会 北陸大会（金沢）</div>
+  <div class="badges">
+    <span>2026年4月12日（日）</span>
+    <span>開場 17:30 ／ 懇親会 18:00〜20:30</span>
+    <span>司会：富 優香子 アナウンサー</span>
+  </div>
+</div>
+
+<!-- ========== TAB BAR ========== -->
+<div class="tab-bar no-print">
+  <div class="tab-bar-inner">
+    <button class="tab-btn active" onclick="switchTab('overview')">全体フロー</button>
+    <button class="tab-btn" onclick="switchTab('scenario')">司会シナリオ・スライド・運営</button>
+  </div>
+</div>
+
+<!-- ================================================================ -->
+<!--  TAB 1 : 全体フロー                                              -->
+<!-- ================================================================ -->
+<div class="tab-content active" id="tab-overview">
+<div class="container">
+
+  <div class="overview">
+    <div class="card"><div class="label">開場</div><div class="value">17:30</div></div>
+    <div class="card"><div class="label">開会</div><div class="value">18:00</div></div>
+    <div class="card"><div class="label">閉会</div><div class="value">20:30</div></div>
+    <div class="card"><div class="label">二次会</div><div class="value">20:30〜22:00</div></div>
+    <div class="card"><div class="label">運営スタッフ</div><div class="value">12名体制</div></div>
+  </div>
+
+  <h2>担当割（12名体制）</h2>
+  <div class="roles-grid">
+    <div class="role-card"><div class="role-name">全体統括</div><div class="role-count">1名</div><div class="role-person">本田</div></div>
+    <div class="role-card"><div class="role-name">司会者</div><div class="role-count">1名</div><div class="role-person">富 優香子</div></div>
+    <div class="role-card"><div class="role-name">進行</div><div class="role-count">2名</div></div>
+    <div class="role-card"><div class="role-name">映像・音響</div><div class="role-count">1名</div></div>
+    <div class="role-card"><div class="role-name">レセプタント</div><div class="role-count">2名</div></div>
+    <div class="role-card"><div class="role-name">芸妓</div><div class="role-count">1名</div></div>
+    <div class="role-card"><div class="role-name">来賓</div><div class="role-count">1名</div></div>
+    <div class="role-card"><div class="role-name">総務</div><div class="role-count">2名</div></div>
+    <div class="role-card"><div class="role-name">二次会</div><div class="role-count">1名</div></div>
+  </div>
+
+  <!-- 準備フェーズ -->
+  <h2>準備フェーズ（8:00〜17:30）</h2>
+  <div class="section-box">
+    <h3>8:00〜12:00 リハーサル</h3>
+    <ul>
+      <li>プロジェクター設置・画像確認（映像・音響）</li>
+      <li>全員参加でリハーサル</li>
+    </ul>
+    <h3>12:00〜17:00 準備・申し合わせ</h3>
+    <ul>
+      <li>ステージ進行、司会者・映像・音響との打合せ（進行）</li>
+      <li>席の割り振り、席札変更、テーブルセット確認（総務）</li>
+      <li>レセプタントとの打合せ</li>
+      <li>芸妓との打合せ（出演者・演目確認・時間）</li>
+      <li>来賓者確認、会長セク（来賓）</li>
+      <li>司会者との打合せ</li>
+    </ul>
+    <h3>16:30〜17:30 直前準備</h3>
+    <ul>
+      <li>ホテル側準備（プロジェクター設置・画像確認）</li>
+      <li>席札配置（総務）</li>
+      <li>ステージ準備（進行）</li>
+    </ul>
+  </div>
+
+  <!-- 本番タイムライン -->
+  <h2>本番タイムライン</h2>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px;font-size:.83rem;">
+    <span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;border-radius:50%;background:#0f3460;display:inline-block;"></span>式典・挨拶</span>
+    <span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;border-radius:50%;background:#c0392b;display:inline-block;"></span>アトラクション</span>
+    <span style="display:flex;align-items:center;gap:5px;"><span style="width:12px;height:12px;border-radius:50%;background:#e2b714;display:inline-block;"></span>重要イベント</span>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <span class="tl-time">17:30</span><span class="tl-duration">30分</span>
+      <div class="tl-title">開場</div>
+      <div class="tl-detail">レセプタントお迎え・席次表案内・携帯電話消音案内</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s0')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item ceremony">
+      <span class="tl-time">18:00</span><span class="tl-duration">1分</span>
+      <div class="tl-title">開会宣言</div>
+      <div class="tl-person">司会者（富 優香子）</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s1')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item ceremony">
+      <span class="tl-time">18:01</span><span class="tl-duration">3分</span>
+      <div class="tl-title">来賓入場</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s2')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item entertainment">
+      <span class="tl-time">18:04</span><span class="tl-duration">10分</span>
+      <div class="tl-title">芸妓 素囃子（オープニングセレモニー）</div>
+      <div class="tl-detail">暗転 → スポットON・行燈ON → 演奏 → 照明ON</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s3')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item ceremony">
+      <span class="tl-time">18:14</span><span class="tl-duration">5分</span>
+      <div class="tl-title">歓迎の挨拶</div>
+      <div class="tl-person">北陸 青山会長</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s4')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item ceremony">
+      <span class="tl-time">18:19</span><span class="tl-duration">3分</span>
+      <div class="tl-title">挨拶</div>
+      <div class="tl-person">全国 青木会長</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s5')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item ceremony">
+      <span class="tl-time">18:22</span><span class="tl-duration">15分</span>
+      <div class="tl-title">祝辞</div>
+      <div class="tl-person">SC 井上会長</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s6')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item highlight">
+      <span class="tl-time">18:37</span><span class="tl-duration">5分</span>
+      <div class="tl-title">乾杯</div>
+      <div class="tl-person">SC 堤副社長</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s7')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item highlight">
+      <span class="tl-time">18:42</span><span class="tl-duration">20分</span>
+      <div class="tl-title">開宴 ー 自席で食事・撮影</div>
+      <div class="tl-detail">各支部挨拶巡回開始 ／ 19時まで着席依頼</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s8')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item entertainment">
+      <span class="tl-time">19:02</span><span class="tl-duration">10分</span>
+      <div class="tl-title">太鼓演奏</div>
+      <div class="tl-detail">暗転 → スポットON・行燈ON → 演奏 → 照明ON</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s9')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item entertainment">
+      <span class="tl-time">19:12</span><span class="tl-duration">10分</span>
+      <div class="tl-title">太鼓体験</div>
+      <div class="tl-detail">3グループに分けて順番に体験</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s10')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-time">19:22</span><span class="tl-duration">25分</span>
+      <div class="tl-title">歓談（各支部 → SC挨拶）</div>
+      <div class="tl-detail">事務局が順番に会長・社長テーブルへの挨拶を促す</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s11')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item entertainment">
+      <span class="tl-time">19:47</span><span class="tl-duration">20分</span>
+      <div class="tl-title">踊り（さわぎ、風雅）</div>
+      <div class="tl-detail">スポットON（会場は暗くしない）／参加者は着席</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s12')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item ceremony">
+      <span class="tl-time">20:07</span><span class="tl-duration">5分</span>
+      <div class="tl-title">次期開催支部挨拶</div>
+      <div class="tl-person">北海道 嶋守会長</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s13')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item ceremony">
+      <span class="tl-time">20:12</span><span class="tl-duration">5分</span>
+      <div class="tl-title">中締め・万歳</div>
+      <div class="tl-person">SC 齋藤副社長</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s14')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item ceremony">
+      <span class="tl-time">20:17</span><span class="tl-duration">5分</span>
+      <div class="tl-title">返礼万歳</div>
+      <div class="tl-person">北陸 高村理事</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s15')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item ceremony">
+      <span class="tl-time">20:22</span><span class="tl-duration">5分</span>
+      <div class="tl-title">閉会挨拶</div>
+      <div class="tl-person">北陸 中橋副会長</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s16')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item">
+      <span class="tl-time">20:27</span><span class="tl-duration">3分</span>
+      <div class="tl-title">来賓退場</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s17')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item ceremony">
+      <span class="tl-time">20:30</span>
+      <div class="tl-title">閉会</div>
+      <div class="tl-person">司会者より閉会の辞</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s18')">詳細・司会セリフを見る</span>
+    </div>
+    <div class="tl-item highlight">
+      <span class="tl-time">20:30</span><span class="tl-duration">約1.5時間</span>
+      <div class="tl-title">二次会（〜22:00）</div>
+      <div class="tl-detail">登録証で参加者チェック ／ 挨拶・乾杯なし ／ 1〜1.5時間で閉会</div>
+      <span class="tl-link" onclick="jumpTo('scenario','s19')">詳細を見る</span>
+    </div>
+  </div>
+
+  <!-- 照明切替表 -->
+  <h2>照明・演出の切替ポイント</h2>
+  <div class="section-box" style="overflow-x:auto;">
+    <table class="light-table">
+      <thead><tr><th>タイミング</th><th>照明</th><th>スポット</th><th>行燈</th><th>備考</th></tr></thead>
+      <tbody>
+        <tr><td>18:04 素囃子開始</td><td class="off">OFF</td><td></td><td></td><td>暗転</td></tr>
+        <tr><td>素囃子 紹介後</td><td></td><td class="on">ON</td><td class="on">ON</td><td>ステージ照射</td></tr>
+        <tr><td>素囃子終了後</td><td></td><td class="off">OFF</td><td class="off">OFF</td><td></td></tr>
+        <tr><td>片付け後</td><td class="on">ON</td><td class="on">ON（司会席）</td><td></td><td>徐々に明るく</td></tr>
+        <tr><td>18:37 乾杯後</td><td></td><td class="off">OFF</td><td></td><td></td></tr>
+        <tr><td>19:02 太鼓演奏</td><td class="off">OFF</td><td class="on">ON</td><td class="on">ON</td><td>暗転</td></tr>
+        <tr><td>太鼓演奏終了</td><td class="on">ON</td><td class="off">OFF</td><td class="off">OFF</td><td></td></tr>
+        <tr><td>19:47 踊り開始</td><td></td><td class="on">ON</td><td></td><td>会場は暗くしない</td></tr>
+        <tr><td>20:07 次期支部挨拶</td><td></td><td class="on">ON</td><td></td><td></td></tr>
+        <tr><td>20:27 来賓退場</td><td class="off">OFF</td><td></td><td></td><td>退場演出</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 要確認事項 -->
+  <h2>要確認事項（Q&A）</h2>
+  <div class="section-box">
+    <div class="qa-item"><div class="q">Q1. 素囃子・太鼓体験・踊りの所要時間は？</div><div class="a">A. 各10分程度。太鼓体験は挨拶の終わった支部の方から順に。</div></div>
+    <div class="qa-item"><div class="q">Q2. 各支部挨拶のアテンド人員は？</div><div class="a">A. 各支部に2人配置。連絡調整方法の検討が必要（インカム要検討）。</div></div>
+    <div class="qa-item"><div class="q">Q3. SCの方の食事時間は？</div><div class="a">A. ホテル・SC・お茶屋の女将と相談して調整。</div></div>
+    <div class="qa-item"><div class="q">Q4. 二次会設定は？</div><div class="a">A. お茶屋3軒（はん家・八の福・仲の家）＋リエグループ＋ANAクラウン19Fアストラル。</div></div>
+    <div class="qa-item"><div class="q">Q5. 返礼挨拶は？</div><div class="a">A. 北陸 高村理事に決定。</div></div>
+    <div class="qa-item"><div class="q">Q6. 演目の舞台は？</div><div class="a">A. 会場正面の舞台を使用。移動作業は不要。</div></div>
+    <div class="qa-item"><div class="q">Q7. 太鼓体験はSCも参加？</div><div class="a">A. 強制ではなく流れに任せる。食事もあるので長くしない。</div></div>
+    <div class="qa-item"><div class="q">Q8. 乾杯酒は日本酒？</div><div class="a">A. ホテルと要確認（4/12更新）。</div></div>
+  </div>
+
+</div><!-- /container -->
+</div><!-- /tab-overview -->
+
+
+<!-- ================================================================ -->
+<!--  TAB 2 : 司会シナリオ・スライド・運営マニュアル                    -->
+<!-- ================================================================ -->
+<div class="tab-content" id="tab-scenario">
+
+<nav class="toc no-print">
+  <div class="toc-inner">
+    <span class="toc-label">目次</span>
+    <a href="#s0" onclick="ensureTab('scenario')">開場</a>
+    <a href="#s1" onclick="ensureTab('scenario')">開会</a>
+    <a href="#s2" onclick="ensureTab('scenario')">来賓入場</a>
+    <a href="#s3" onclick="ensureTab('scenario')">素囃子</a>
+    <a href="#s4" onclick="ensureTab('scenario')">歓迎挨拶</a>
+    <a href="#s5" onclick="ensureTab('scenario')">全国会長</a>
+    <a href="#s6" onclick="ensureTab('scenario')">SC祝辞</a>
+    <a href="#s7" onclick="ensureTab('scenario')">乾杯</a>
+    <a href="#s8" onclick="ensureTab('scenario')">開宴</a>
+    <a href="#s9" onclick="ensureTab('scenario')">太鼓演奏</a>
+    <a href="#s10" onclick="ensureTab('scenario')">太鼓体験</a>
+    <a href="#s11" onclick="ensureTab('scenario')">歓談</a>
+    <a href="#s12" onclick="ensureTab('scenario')">踊り</a>
+    <a href="#s13" onclick="ensureTab('scenario')">次期支部</a>
+    <a href="#s14" onclick="ensureTab('scenario')">中締め</a>
+    <a href="#s15" onclick="ensureTab('scenario')">返礼万歳</a>
+    <a href="#s16" onclick="ensureTab('scenario')">閉会挨拶</a>
+    <a href="#s17" onclick="ensureTab('scenario')">来賓退場</a>
+    <a href="#s18" onclick="ensureTab('scenario')">閉会</a>
+    <a href="#s19" onclick="ensureTab('scenario')">二次会</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="legend-box">
+    <h2>このマニュアルの読み方</h2>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="swatch sw-mc"></span>司会者が読み上げるセリフ</div>
+      <div class="legend-item"><span class="swatch sw-slide"></span>背景スライドのイメージ</div>
+      <div class="legend-item"><span class="swatch sw-staff"></span>スタッフの動き（担当別）</div>
+      <div class="legend-item"><span class="swatch sw-light"></span>照明・演出の切替指示</div>
+      <div class="legend-item"><span class="swatch sw-note"></span>補足・注意事項</div>
+    </div>
+  </div>
+
+  <!-- SCENE 0 -->
+  <div class="scene" id="s0"><div class="scene-header"><div class="scene-num">00</div><div><div class="scene-title">開場</div><div class="scene-time">17:30〜18:00（30分間）</div></div></div><div class="scene-body">
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame"><div class="slide-top">WELCOME</div><div class="slide-main">全国連合兼喜会<br>第68回定時総会<br>北陸大会 懇親会</div><div class="slide-sub">2026年4月12日（日）</div><div class="slide-bottom">会場にお入りの際は、席次表をご確認ください</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（BGMの合間に繰り返し）</div><div class="mc-text">皆さま、本日は全国連合兼喜会 第68回定時総会 北陸大会懇親会にご出席いただきまして、誠にありがとうございます。<span class="pause">（間）</span><br>お手元の席次表をご確認のうえ、お席にお着きくださいませ。<span class="pause">（間）</span><br>なお、開会は18時を予定しております。<br>また、恐れ入りますが、携帯電話はマナーモードに設定いただきますよう、お願い申し上げます。</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">映像・音響</span>「全国〜大会懇親会」スライド表示</div>
+      <div class="sa-item"><span class="sa-role">レセプタント</span>会場ドアを開ける（2つだけ）・入口でお迎え</div>
+      <div class="sa-item"><span class="sa-role">総務</span>席次表を手に持ち、会場内案内</div>
+      <div class="sa-item"><span class="sa-role">芸妓担当</span>素囃子の準備依頼・確認</div>
+      <div class="sa-item"><span class="sa-role">来賓</span>来賓者の着席確認・遅参者の把握</div>
+      <div class="sa-item"><span class="sa-role">進行</span>来賓者遅参者の確認・素囃子準備確認</div>
+    </div></div>
+    <div class="note-box">テーブルの立て札（名札）は全員がそろうまで取らないようホテルに指示する（遅参者に分かるように）。</div>
+  </div></div>
+
+  <!-- SCENE 1 -->
+  <div class="scene" id="s1"><div class="scene-header"><div class="scene-num">01</div><div><div class="scene-title">開会宣言</div><div class="scene-time">18:00〜18:01（1分）</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">皆さま、大変長らくお待たせいたしました。<span class="pause">（間）</span><br>ただいまより、全国連合兼喜会 第68回定時総会 北陸大会 懇親会を開会いたします。<span class="pause">（間）</span><br>本日、司会を務めさせていただきます、富 優香子と申します。<br>どうぞよろしくお願いいたします。<span class="pause">（一礼）</span><br><br>それでは早速ではございますが、ご来賓の皆さまをお迎えしたいと存じます。</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">進行</span>司会者に開会の指示出し</div>
+      <div class="sa-item"><span class="sa-role">来賓</span>来賓者の入場準備を最終確認</div>
+      <div class="sa-item"><span class="sa-role">レセプタント</span>各テーブルへの配置完了</div>
+    </div></div>
+  </div></div>
+
+  <!-- SCENE 2 -->
+  <div class="scene" id="s2"><div class="scene-header"><div class="scene-num">02</div><div><div class="scene-title">来賓入場</div><div class="scene-time">18:01〜18:04（3分）</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、ご来賓の皆さまにご入場いただきます。<span class="pause">（間）</span><br>皆さま、盛大な拍手でお迎えくださいませ。<span class="pause">（拍手）</span></div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓</span>来賓者を案内・着席確認</div>
+      <div class="sa-item"><span class="sa-role">総務</span>遅参者の確認・対応</div>
+      <div class="sa-item"><span class="sa-role">レセプタント</span>各テーブルでのお迎え</div>
+    </div></div>
+  </div></div>
+
+  <!-- SCENE 3 -->
+  <div class="scene" id="s3"><div class="scene-header"><div class="scene-num">03</div><div><div class="scene-title">芸妓 素囃子（オープニングセレモニー）</div><div class="scene-time">18:04〜18:14（10分）</div></div></div><div class="scene-body">
+    <div class="light-cue"><strong>照明OFF（暗転）</strong> → 司会者紹介後 → <strong>スポットON・行燈ON</strong></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（暗転前）</div><div class="mc-text">皆さま、ご来賓の皆さまをお迎えしたところで、<br>本日のオープニングセレモニーをお届けいたします。<span class="pause">（間）</span><br><br>ここ金沢が誇る伝統芸能、芸妓による「素囃子」でございます。<span class="pause">（間）</span><br>それでは、会場の照明を落とさせていただきます。<br>皆さま、しばしの間、金沢の雅な調べをお楽しみください。</div></div>
+    <div class="slide-label">背景スライド（暗転後）</div>
+    <div class="slide-frame slide-gold"><div class="slide-top">OPENING CEREMONY</div><div class="slide-main">素 囃 子</div><div class="slide-sub">金沢芸妓</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role r-light">映像・音響</span>照明OFF → 「素囃子」スライド → スポットON・行燈ON</div>
+      <div class="sa-item"><span class="sa-role">総務</span>会場ドアを閉める</div>
+      <div class="sa-item"><span class="sa-role">来賓</span>遅参者を会場外で対応（終了まで入れない）</div>
+    </div></div>
+    <div class="phase-divider"><span>〜 素囃子 演奏中 〜</span></div>
+    <div class="light-cue">素囃子終了 → <strong>スポットOFF・行燈OFF</strong> → 芸妓退場 → <strong>照明ON（徐々に明るく）</strong></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text"><em>（拍手を促す）</em><span class="pause">（間）</span><br>素晴らしい素囃子をありがとうございました。<span class="pause">（拍手）</span><br>金沢ならではの優美な音色で、懇親会の幕開けを飾っていただきました。</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き（終了後）</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role r-light">映像・音響</span>スポットOFF・行燈OFF → 懐中電灯で芸妓退場照らす → 照明ON</div>
+      <div class="sa-item"><span class="sa-role">進行</span>金屏風を取り除く</div>
+      <div class="sa-item"><span class="sa-role">総務</span>ステージ片付け・スタンドマイク設置</div>
+      <div class="sa-item"><span class="sa-role">来賓</span>遅参者を入れる</div>
+      <div class="sa-item"><span class="sa-role">レセプタント</span>テーブル立て札を下げるよう指示</div>
+    </div></div>
+  </div></div>
+
+  <!-- SCENE 4 -->
+  <div class="scene" id="s4"><div class="scene-header"><div class="scene-num">04</div><div><div class="scene-title">歓迎の挨拶</div><div class="scene-time">18:14〜18:19（5分）</div></div></div><div class="scene-body">
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame"><div class="slide-top">GREETING</div><div class="slide-main">歓迎の言葉</div><div class="slide-sub">北陸兼喜会 会長　青山 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、開催地を代表いたしまして、<br>北陸兼喜会 会長 青山様より、歓迎のご挨拶を頂戴いたします。<span class="pause">（間）</span><br>青山会長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓</span>青山会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">映像・音響</span>「歓迎の言葉」スライド → 青山会長を映す</div>
+    </div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">青山会長、ありがとうございました。<span class="pause">（拍手）</span></div></div>
+  </div></div>
+
+  <!-- SCENE 5 -->
+  <div class="scene" id="s5"><div class="scene-header"><div class="scene-num">05</div><div><div class="scene-title">全国連合兼喜会 会長挨拶</div><div class="scene-time">18:19〜18:22（3分）</div></div></div><div class="scene-body">
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame"><div class="slide-top">GREETING</div><div class="slide-main">全国連合兼喜会<br>会長挨拶</div><div class="slide-sub">全国連合兼喜会 会長　青木 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、全国連合兼喜会 会長 青木様より、ご挨拶を頂戴いたします。<span class="pause">（間）</span><br>青木会長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓</span>青木会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">映像・音響</span>「全国連合兼喜会会長挨拶」スライド → 映す</div>
+    </div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">青木会長、ありがとうございました。<span class="pause">（拍手）</span></div></div>
+  </div></div>
+
+  <!-- SCENE 6 -->
+  <div class="scene" id="s6"><div class="scene-header"><div class="scene-num">06</div><div><div class="scene-title">祝辞</div><div class="scene-time">18:22〜18:37（15分）</div></div></div><div class="scene-body">
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame"><div class="slide-top">CONGRATULATORY ADDRESS</div><div class="slide-main">祝 辞</div><div class="slide-sub">清水建設株式会社 会長　井上 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、清水建設株式会社 会長 井上様より、<br>祝辞を頂戴いたします。<span class="pause">（間）</span><br>井上会長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓</span>井上会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">映像・音響</span>「祝辞」スライド → 井上会長を映す</div>
+    </div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">井上会長、誠にありがとうございました。<span class="pause">（拍手）</span><br><br>さて、皆さま、それではお待ちかねの乾杯に移りたいと存じます。</div></div>
+  </div></div>
+
+  <!-- SCENE 7 -->
+  <div class="scene" id="s7"><div class="scene-header"><div class="scene-num">07</div><div><div class="scene-title">乾杯</div><div class="scene-time">18:37〜18:42（5分）</div></div></div><div class="scene-body">
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame slide-gold"><div class="slide-top">TOAST</div><div class="slide-main">乾 杯</div><div class="slide-sub">清水建設株式会社 副社長　堤 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、乾杯のご発声を頂戴いたします。<span class="pause">（間）</span><br>清水建設株式会社 副社長 堤様、よろしくお願いいたします。<span class="pause">（拍手）</span><br><br><em>※堤副社長の乾杯ご挨拶を待つ</em><br><br>皆さま、グラスのご用意はよろしいでしょうか。<span class="pause">（間）</span><br><em>※「乾杯！」→ 会場全体で乾杯</em></div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓</span>堤副社長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">映像・音響</span>「乾杯」スライド → 乾杯酒ボトル表示 → 副社長を映す</div>
+      <div class="sa-item"><span class="sa-role">レセプタント</span>乾杯後すぐにビール給仕の準備</div>
+    </div></div>
+    <div class="note-box">乾杯酒は日本酒の可能性あり（ホテルと要確認）。</div>
+  </div></div>
+
+  <!-- SCENE 8 -->
+  <div class="scene" id="s8"><div class="scene-header"><div class="scene-num">08</div><div><div class="scene-title">開宴 ー 自席で食事・撮影</div><div class="scene-time">18:42〜19:02（20分）</div></div></div><div class="scene-body">
+    <div class="light-cue">乾杯後 → <strong>スポットOFF</strong>（通常照明で食事）</div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（乾杯直後）</div><div class="mc-text">ありがとうございました。<span class="pause">（拍手）</span><br><br>それでは皆さま、どうぞお食事をお楽しみください。<span class="pause">（間）</span><br>本日のお料理は、北陸の豊かな食材をふんだんに使ったお品をご用意しております。<span class="pause">（間）</span><br><br>なお、皆さまにお願いがございます。<br>この後、各テーブルに写真撮影が回ってまいります。<br><strong>19時頃まではお席にてお過ごしいただきますよう</strong>、ご協力をお願いいたします。<span class="pause">（間）</span><br><br>また、会長・社長テーブルへのご挨拶につきましては、事務局よりご案内いたしますので、しばらくお待ちくださいませ。</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">レセプタント</span>ビール給仕を指示・手伝い</div>
+      <div class="sa-item"><span class="sa-role">進行</span>ステージ片付け → 金屏風 → 太鼓演奏に備える</div>
+      <div class="sa-item"><span class="sa-role">芸妓担当</span>太鼓演奏の準備確認・音出し確認</div>
+      <div class="sa-item"><span class="sa-role">進行</span>各支部挨拶巡回の段取り開始</div>
+    </div></div>
+  </div></div>
+
+  <!-- SCENE 9 -->
+  <div class="scene" id="s9"><div class="scene-header"><div class="scene-num">09</div><div><div class="scene-title">太鼓演奏</div><div class="scene-time">19:02〜19:12（10分）</div></div></div><div class="scene-body">
+    <div class="light-cue">着席確認後 → <strong>照明OFF（暗転）</strong> → <strong>スポットON・行燈ON</strong></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（演奏前）</div><div class="mc-text">皆さま、お食事はお楽しみいただけておりますでしょうか。<span class="pause">（間）</span><br><br>さて、ここで本日のアトラクションのお時間でございます。<br>皆さま、恐れ入りますが、<strong>お席にお着きくださいませ</strong>。<span class="pause">（間）</span><br><br>続いてのアトラクションは、迫力ある太鼓演奏をお届けいたします。<span class="pause">（間）</span><br>それでは会場の照明を落とさせていただきます。<br>皆さま、力強い太鼓の響きをどうぞご堪能ください。</div></div>
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame slide-red"><div class="slide-top">ATTRACTION</div><div class="slide-main">太 鼓 演 奏</div><div class="slide-sub">金沢芸妓</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">芸妓担当</span>準備完了・音出し確認</div>
+      <div class="sa-item"><span class="sa-role">総務</span>出席者に着席を促す</div>
+      <div class="sa-item"><span class="sa-role">レセプタント</span>着席を促す手伝い</div>
+      <div class="sa-item"><span class="sa-role r-light">映像・音響</span>照明OFF → スライド → スポットON・行燈ON</div>
+      <div class="sa-item"><span class="sa-role r-all">全体（本田）</span>開始タイミング最終判断</div>
+    </div></div>
+    <div class="phase-divider"><span>〜 太鼓演奏中 〜</span></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text"><em>（終了合図＝本田さん → 拍手）</em><br><br>素晴らしい太鼓演奏をありがとうございました！<span class="pause">（拍手）</span><br>迫力ある演奏に、会場が一体となりましたね。</div></div>
+    <div class="light-cue">演奏終了 → <strong>スポットOFF・行燈OFF → 照明ON</strong></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き（終了後）</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role r-light">映像・音響</span>照明ON → スポットOFF・行燈OFF</div>
+      <div class="sa-item"><span class="sa-role">進行</span>ステージ片付け → 太鼓体験準備</div>
+    </div></div>
+  </div></div>
+
+  <!-- SCENE 10 -->
+  <div class="scene" id="s10"><div class="scene-header"><div class="scene-num">10</div><div><div class="scene-title">太鼓体験</div><div class="scene-time">19:12〜19:22（10分）</div></div></div><div class="scene-body">
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame slide-red"><div class="slide-top">EXPERIENCE</div><div class="slide-main">太 鼓 体 験</div><div class="slide-sub">皆さまもぜひ太鼓の響きを体感してください</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">さて、続きまして皆さまにも太鼓を体験していただきたいと思います。<span class="pause">（間）</span><br>グループごとにステージにお上がりいただきます。<span class="pause">（間）</span><br><br>それでは、まず<strong>第1グループ</strong>の皆さま、ステージへどうぞ！<span class="pause">（拍手）</span><br><br><em>※第1グループ体験後</em><br>ありがとうございました！続いて、<strong>第2グループ</strong>の皆さま、お願いいたします！<span class="pause">（拍手）</span><br><br><em>※第2グループ体験後</em><br>ありがとうございました！最後に、<strong>第3グループ</strong>の皆さま、どうぞ！<span class="pause">（拍手）</span><br><br><em>※全グループ終了後</em><br>皆さま、素晴らしい太鼓体験でしたね。ありがとうございました。<span class="pause">（拍手）</span></div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">レセプタント</span>各グループの登壇を誘導</div>
+      <div class="sa-item"><span class="sa-role">進行</span>グループ分け・順番管理</div>
+      <div class="sa-item"><span class="sa-role">芸妓担当</span>太鼓体験サポート</div>
+    </div></div>
+    <div class="note-box">太鼓体験は強制ではなく流れに任せる形。食事もあるので長くならないよう注意。</div>
+  </div></div>
+
+  <!-- SCENE 11 -->
+  <div class="scene" id="s11"><div class="scene-header"><div class="scene-num">11</div><div><div class="scene-title">歓談（各支部 → SC挨拶）</div><div class="scene-time">19:22〜19:47（25分）</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">皆さま、引き続きお食事とご歓談をお楽しみください。<span class="pause">（間）</span><br><br>なお、この後、事務局より各テーブルにお声がけいたしますので、順番に会長・社長テーブルへのご挨拶をお願いいたします。</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">進行</span>各テーブルに順番に「会長・社長への挨拶」を促す</div>
+      <div class="sa-item"><span class="sa-role">芸妓担当</span>踊りの準備確認・時間調整</div>
+      <div class="sa-item"><span class="sa-role">レセプタント</span>各テーブルのケア</div>
+    </div></div>
+  </div></div>
+
+  <!-- SCENE 12 -->
+  <div class="scene" id="s12"><div class="scene-header"><div class="scene-num">12</div><div><div class="scene-title">踊り（さわぎ、風雅）</div><div class="scene-time">19:47〜20:07（20分）</div></div></div><div class="scene-body">
+    <div class="light-cue"><strong>スポットON</strong>（会場は暗くしない）</div>
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame slide-gold"><div class="slide-top">ATTRACTION</div><div class="slide-main">踊 り</div><div class="slide-sub">さわぎ・風雅　／　金沢芸妓</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">皆さま、ここで再び金沢の伝統芸能をお届けいたします。<span class="pause">（間）</span><br>恐れ入りますが、<strong>お席にお戻りくださいませ</strong>。<span class="pause">（間）</span><br><br>続いてのアトラクションは、金沢芸妓による踊り、「さわぎ」と「風雅」でございます。<span class="pause">（間）</span><br>華やかな舞をどうぞお楽しみください。</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">進行</span>タイミングを見て司会者にキュー出し</div>
+      <div class="sa-item"><span class="sa-role r-light">映像・音響</span>スポットON → 踊り開始指示</div>
+      <div class="sa-item"><span class="sa-role">レセプタント</span>デザートの持ち運び開始</div>
+      <div class="sa-item"><span class="sa-role">二次会</span>二次会会場へ移動開始</div>
+    </div></div>
+    <div class="phase-divider"><span>〜 踊り 演技中 〜</span></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">美しい踊りをありがとうございました。<span class="pause">（拍手）</span><br>金沢ならではの華やかな舞に、心が洗われるひとときでございました。<span class="pause">（間）</span><br><br>さて皆さま、宴もたけなわではございますが、この後は閉会に向けてのお時間となります。</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き（終了後）</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">二次会</span>二次会会場の準備</div>
+      <div class="sa-item"><span class="sa-role">進行</span>ステージ片付け・スタンドマイク設置</div>
+    </div></div>
+  </div></div>
+
+  <!-- SCENE 13 -->
+  <div class="scene" id="s13"><div class="scene-header"><div class="scene-num">13</div><div><div class="scene-title">次期開催支部挨拶</div><div class="scene-time">20:07〜20:12（5分）</div></div></div><div class="scene-body">
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame slide-green"><div class="slide-top">NEXT CONVENTION</div><div class="slide-main">次期開催支部<br>ご挨拶</div><div class="slide-sub">北海道兼喜会 会長　嶋守 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、次回の全国大会を開催される支部より、ご挨拶を頂戴いたします。<span class="pause">（間）</span><br>北海道兼喜会 会長 嶋守様、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓</span>嶋守会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">映像・音響</span>「次期開催支部」スライド → 映す</div>
+      <div class="sa-item"><span class="sa-role">二次会</span>二次会会場スタンバイ確認</div>
+    </div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">嶋守会長、ありがとうございました。<span class="pause">（拍手）</span><br>来年の北海道大会、皆さま楽しみにいたしましょう。</div></div>
+    <div class="note-box">メインテーブルの料理がデザートまで進んだら締めの用意を開始。</div>
+  </div></div>
+
+  <!-- SCENE 14 -->
+  <div class="scene" id="s14"><div class="scene-header"><div class="scene-num">14</div><div><div class="scene-title">中締め・万歳</div><div class="scene-time">20:12〜20:17（5分）</div></div></div><div class="scene-body">
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame"><div class="slide-top">CLOSING</div><div class="slide-main">中 締 め</div><div class="slide-sub">清水建設株式会社 副社長　齋藤 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">皆さま、宴もたけなわではございますが、ここで中締めのお時間とさせていただきます。<span class="pause">（間）</span><br><br>清水建設株式会社 副社長 齋藤様に、万歳のご発声をお願いいたします。<span class="pause">（間）</span><br>皆さま、ご起立をお願いいたします。<span class="pause">（起立）</span><br><br>齋藤副社長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓</span>齋藤副社長に声掛け・マイク位置へ誘導</div>
+      <div class="sa-item"><span class="sa-role">芸妓担当</span>芸妓をステージ前に待機</div>
+      <div class="sa-item"><span class="sa-role">進行</span>拍子木を準備</div>
+      <div class="sa-item"><span class="sa-role">映像・音響</span>「中締め」スライド → 映す</div>
+    </div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">齋藤副社長、ありがとうございました。<span class="pause">（拍手）</span><br>皆さま、ご着席くださいませ。</div></div>
+  </div></div>
+
+  <!-- SCENE 15 -->
+  <div class="scene" id="s15"><div class="scene-header"><div class="scene-num">15</div><div><div class="scene-title">返礼万歳</div><div class="scene-time">20:17〜20:22（5分）</div></div></div><div class="scene-body">
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame"><div class="slide-top">CLOSING</div><div class="slide-main">返 礼 万 歳</div><div class="slide-sub">北陸兼喜会 理事　高村 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、開催地 北陸兼喜会より、返礼の万歳をお届けいたします。<span class="pause">（間）</span><br>北陸兼喜会 理事 高村様、よろしくお願いいたします。<span class="pause">（間）</span><br>皆さま、もう一度ご起立をお願いいたします。<span class="pause">（起立・拍手）</span></div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓</span>高村理事に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">映像・音響</span>「返礼万歳」スライド → 映す</div>
+    </div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">高村理事、ありがとうございました。<span class="pause">（拍手）</span></div></div>
+  </div></div>
+
+  <!-- SCENE 16 -->
+  <div class="scene" id="s16"><div class="scene-header"><div class="scene-num">16</div><div><div class="scene-title">閉会挨拶</div><div class="scene-time">20:22〜20:27（5分）</div></div></div><div class="scene-body">
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame"><div class="slide-top">CLOSING ADDRESS</div><div class="slide-main">閉 会 挨 拶</div><div class="slide-sub">北陸兼喜会 副会長　中橋 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、閉会にあたりまして、<br>北陸兼喜会 副会長 中橋様より、ご挨拶を頂戴いたします。<span class="pause">（間）</span><br>中橋副会長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓</span>中橋副会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">映像・音響</span>「閉会挨拶」スライド → 映す</div>
+      <div class="sa-item"><span class="sa-role">レセプタント</span>10名程度を二次会会場へ移動準備</div>
+    </div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">中橋副会長、ありがとうございました。<span class="pause">（拍手）</span></div></div>
+  </div></div>
+
+  <!-- SCENE 17 -->
+  <div class="scene" id="s17"><div class="scene-header"><div class="scene-num">17</div><div><div class="scene-title">来賓退場</div><div class="scene-time">20:27〜20:30（3分）</div></div></div><div class="scene-body">
+    <div class="light-cue"><strong>照明OFF</strong>（退場演出）</div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、ご来賓の皆さまのご退場でございます。<span class="pause">（間）</span><br>皆さま、盛大な拍手でお見送りくださいませ。<span class="pause">（拍手）</span></div></div>
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame"><div class="slide-top">全国連合兼喜会 第68回定時総会</div><div class="slide-main">北陸大会 懇親会</div><div class="slide-sub">本日はありがとうございました</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role r-light">映像・音響</span>照明OFF → 退場スライド表示</div>
+      <div class="sa-item"><span class="sa-role">来賓</span>来賓を出口まで案内</div>
+      <div class="sa-item"><span class="sa-role">レセプタント</span>会場ドア開ける（2つだけ）</div>
+      <div class="sa-item"><span class="sa-role">総務</span>エレベーターホールに待機・2台確保</div>
+    </div></div>
+  </div></div>
+
+  <!-- SCENE 18 -->
+  <div class="scene" id="s18"><div class="scene-header"><div class="scene-num">18</div><div><div class="scene-title">閉会の辞</div><div class="scene-time">20:30</div></div></div><div class="scene-body">
+    <div class="slide-label">背景スライド</div>
+    <div class="slide-frame"><div class="slide-main">またお会いしましょう</div><div class="slide-sub">全国連合兼喜会 第68回定時総会 北陸大会</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">以上をもちまして、全国連合兼喜会 第68回定時総会 北陸大会 懇親会を閉会とさせていただきます。<span class="pause">（間）</span><br><br>本日は遠方よりお越しの皆さまも多くいらっしゃいます。どうかお気をつけてお帰りくださいませ。<span class="pause">（間）</span><br><br>なお、二次会にご参加の皆さまは、スタッフがご案内いたしますので、そのまま会場出口付近でお待ちくださいませ。<span class="pause">（間）</span><br><br>本日は誠にありがとうございました。<span class="pause">（一礼）</span></div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">総務</span>二次会担当者を二次会会場へ</div>
+      <div class="sa-item"><span class="sa-role">来賓</span>二次会会場来賓者の案内</div>
+      <div class="sa-item"><span class="sa-role">レセプタント</span>全ドア開放・退場案内</div>
+      <div class="sa-item"><span class="sa-role">映像・音響</span>「またお会いしましょう」スライド</div>
+    </div></div>
+  </div></div>
+
+  <!-- SCENE 19 -->
+  <div class="scene" id="s19"><div class="scene-header"><div class="scene-num">19</div><div><div class="scene-title">二次会</div><div class="scene-time">20:30〜22:00（約1時間半）</div></div></div><div class="scene-body">
+    <div class="note-box"><strong>二次会の会場割振り：</strong><br>・お茶屋（はん家、八の福、仲の家）→ SC役員＋北陸兼喜会幹部<br>・リエグループ → 連合兼喜会幹部<br>・ANAクラウン19F アストラル → その他</div>
+    <div class="mc-block"><div class="mc-label">二次会での進行</div><div class="mc-text"><em>挨拶・乾杯などの進行は特になし。カジュアルな雰囲気で歓談。</em></div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">二次会</span>登録証で参加者チェック・案内</div>
+      <div class="sa-item"><span class="sa-role">レセプタント</span>おつまみ配置・飲み物リクエスト対応</div>
+      <div class="sa-item"><span class="sa-role">総務</span>エレベーター2台確保 → お茶屋への誘導</div>
+    </div></div>
+    <div class="note-box">二次会は1時間〜1時間半程度で閉会とする。</div>
+  </div></div>
+
+</div><!-- /container -->
+</div><!-- /tab-scenario -->
+
+<div class="footer">
+  全国連合兼喜会 第68回定時総会 北陸大会 懇親会マニュアル<br>
+  最終更新: 2026/03/26
+</div>
+
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(el => {
+    if ((tab === 'overview' && el.textContent.includes('全体')) ||
+        (tab === 'scenario' && el.textContent.includes('司会'))) {
+      el.classList.add('active');
+    }
+  });
+  window.scrollTo(0, 0);
+}
+
+function jumpTo(tab, id) {
+  switchTab(tab);
+  setTimeout(() => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
+}
+
+function ensureTab(tab) {
+  switchTab(tab);
+}
+</script>
+
+</body>
+</html>
