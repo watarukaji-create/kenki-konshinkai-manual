@@ -149,6 +149,32 @@
   .phase-divider span{background:#fff;padding:0 16px;position:relative;}
   .phase-divider::before{content:'';display:block;border-top:1px dashed #ccc;position:relative;top:36px;}
 
+  /* ===== Seating Tab ===== */
+  .seat-layout{margin-bottom:32px;}
+  .seat-row-label{font-size:.85rem;font-weight:bold;color:#0f3460;margin:18px 0 8px;padding:4px 12px;background:#e8ecf2;border-radius:6px;display:inline-block;}
+  .seat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:16px;}
+  .seat-table{background:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 1px 4px rgba(0,0,0,.06);font-size:.78rem;border-top:3px solid #0f3460;}
+  .seat-table.vip{border-top-color:#e2b714;background:#fffdf5;}
+  .seat-table.sc{border-top-color:#c62828;}
+  .seat-table .st-num{font-size:1rem;font-weight:900;color:#0f3460;margin-bottom:4px;}
+  .seat-table.vip .st-num{color:#b8860b;}
+  .seat-table .st-member{display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px dotted #eee;}
+  .seat-table .st-member:last-child{border:none;}
+  .st-name{font-weight:bold;}
+  .st-title{color:#888;font-size:.72rem;}
+  .st-org{color:#0f3460;font-size:.7rem;font-weight:bold;}
+  .seat-stage{text-align:center;padding:16px;background:linear-gradient(135deg,#1a1a2e,#0f3460);color:#fff;border-radius:10px;margin-bottom:16px;font-size:1rem;letter-spacing:.3em;}
+  .seat-mc{text-align:center;font-size:.85rem;color:#1b5e20;margin-bottom:10px;font-weight:bold;}
+  .speaker-card{background:#fff;border-radius:10px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.06);margin-bottom:8px;display:flex;gap:12px;align-items:center;}
+  .speaker-card .sp-table{flex-shrink:0;width:48px;height:48px;border-radius:50%;background:#0f3460;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:bold;text-align:center;line-height:1.1;}
+  .speaker-card.sp-vip .sp-table{background:#b8860b;}
+  .speaker-card .sp-info{flex:1;}
+  .speaker-card .sp-role{font-size:.72rem;color:#fff;background:#e65100;padding:1px 8px;border-radius:8px;display:inline-block;margin-bottom:3px;}
+  .speaker-card .sp-name{font-size:1rem;font-weight:bold;}
+  .speaker-card .sp-name ruby rt{font-size:.55rem;}
+  .speaker-card .sp-title-full{font-size:.78rem;color:#555;}
+  ruby rt{font-size:.6em;}
+
   .footer{text-align:center;padding:20px;font-size:.75rem;color:#999;}
 
   @media(max-width:600px){
@@ -178,6 +204,7 @@
 <div class="tab-bar no-print">
   <div class="tab-bar-inner">
     <button class="tab-btn active" onclick="switchTab('overview')">全体フロー</button>
+    <button class="tab-btn" onclick="switchTab('seating')">座席表</button>
     <button class="tab-btn" onclick="switchTab('scenario')">司会シナリオ・スライド・運営</button>
   </div>
 </div>
@@ -269,25 +296,25 @@
     <div class="tl-item ceremony">
       <span class="tl-time">18:14</span><span class="tl-duration">5分</span>
       <div class="tl-title">歓迎の挨拶</div>
-      <div class="tl-person">北陸 青山会長</div>
+      <div class="tl-person">北陸 <ruby>青山<rt>あおやま</rt></ruby> <ruby>悟<rt>さとる</rt></ruby> 会長</div>
       <span class="tl-link" onclick="jumpTo('scenario','s4')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item ceremony">
       <span class="tl-time">18:19</span><span class="tl-duration">3分</span>
       <div class="tl-title">挨拶</div>
-      <div class="tl-person">全国 青木会長</div>
+      <div class="tl-person">全国 <ruby>青木<rt>あおき</rt></ruby> <ruby>茂<rt>しげる</rt></ruby> 会長</div>
       <span class="tl-link" onclick="jumpTo('scenario','s5')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item ceremony">
       <span class="tl-time">18:22</span><span class="tl-duration">15分</span>
       <div class="tl-title">祝辞</div>
-      <div class="tl-person">SC 井上会長</div>
+      <div class="tl-person">SC <ruby>井上<rt>いのうえ</rt></ruby> <ruby>和幸<rt>かずゆき</rt></ruby> 会長</div>
       <span class="tl-link" onclick="jumpTo('scenario','s6')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item highlight">
       <span class="tl-time">18:37</span><span class="tl-duration">5分</span>
       <div class="tl-title">乾杯</div>
-      <div class="tl-person">SC 堤副社長</div>
+      <div class="tl-person">SC <ruby>堤<rt>つつみ</rt></ruby> <ruby>義人<rt>よしと</rt></ruby> 副社長</div>
       <span class="tl-link" onclick="jumpTo('scenario','s7')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item highlight">
@@ -323,25 +350,25 @@
     <div class="tl-item ceremony">
       <span class="tl-time">20:07</span><span class="tl-duration">5分</span>
       <div class="tl-title">次期開催支部挨拶</div>
-      <div class="tl-person">北海道 嶋守会長</div>
+      <div class="tl-person">北海道 <ruby>嶋守<rt>しまもり</rt></ruby> <ruby>吉範<rt>よしのり</rt></ruby> 会長</div>
       <span class="tl-link" onclick="jumpTo('scenario','s13')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item ceremony">
       <span class="tl-time">20:12</span><span class="tl-duration">5分</span>
       <div class="tl-title">中締め・万歳</div>
-      <div class="tl-person">SC 齋藤副社長</div>
+      <div class="tl-person">SC <ruby>齋藤<rt>さいとう</rt></ruby> <ruby>武文<rt>たけふみ</rt></ruby> 副社長</div>
       <span class="tl-link" onclick="jumpTo('scenario','s14')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item ceremony">
       <span class="tl-time">20:17</span><span class="tl-duration">5分</span>
       <div class="tl-title">返礼万歳</div>
-      <div class="tl-person">北陸 高村理事</div>
+      <div class="tl-person">北陸 <ruby>高村<rt>たかむら</rt></ruby> <ruby>明彦<rt>あきひこ</rt></ruby> 副会長</div>
       <span class="tl-link" onclick="jumpTo('scenario','s15')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item ceremony">
       <span class="tl-time">20:22</span><span class="tl-duration">5分</span>
       <div class="tl-title">閉会挨拶</div>
-      <div class="tl-person">北陸 中橋副会長</div>
+      <div class="tl-person">北陸 <ruby>中橋<rt>なかはし</rt></ruby> <ruby>隆文<rt>たかふみ</rt></ruby> 副会長</div>
       <span class="tl-link" onclick="jumpTo('scenario','s16')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item">
@@ -390,7 +417,7 @@
     <div class="qa-item"><div class="q">Q2. 各支部挨拶のアテンド人員は？</div><div class="a">A. 各支部に2人配置。連絡調整方法の検討が必要（インカム要検討）。</div></div>
     <div class="qa-item"><div class="q">Q3. SCの方の食事時間は？</div><div class="a">A. ホテル・SC・お茶屋の女将と相談して調整。</div></div>
     <div class="qa-item"><div class="q">Q4. 二次会設定は？</div><div class="a">A. お茶屋3軒（はん家・八の福・仲の家）＋リエグループ＋ANAクラウン19Fアストラル。</div></div>
-    <div class="qa-item"><div class="q">Q5. 返礼挨拶は？</div><div class="a">A. 北陸 高村理事に決定。</div></div>
+    <div class="qa-item"><div class="q">Q5. 返礼挨拶は？</div><div class="a">A. 北陸 <ruby>高村<rt>たかむら</rt></ruby> <ruby>明彦<rt>あきひこ</rt></ruby> 副会長に決定。</div></div>
     <div class="qa-item"><div class="q">Q6. 演目の舞台は？</div><div class="a">A. 会場正面の舞台を使用。移動作業は不要。</div></div>
     <div class="qa-item"><div class="q">Q7. 太鼓体験はSCも参加？</div><div class="a">A. 強制ではなく流れに任せる。食事もあるので長くしない。</div></div>
     <div class="qa-item"><div class="q">Q8. 乾杯酒は日本酒？</div><div class="a">A. ホテルと要確認（4/12更新）。</div></div>
@@ -399,9 +426,199 @@
 </div><!-- /container -->
 </div><!-- /tab-overview -->
 
+<!-- ================================================================ -->
+<!--  TAB : 座席表                                                     -->
+<!-- ================================================================ -->
+<div class="tab-content" id="tab-seating">
+<div class="container">
+
+  <h2>登壇者一覧（座席表より）</h2>
+  <div class="note-box" style="margin-bottom:18px;">座席表に記載の正式名称です。振り仮名は推定を含みます。実際のご本人に確認のうえご使用ください。</div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;margin-bottom:28px;">
+    <div class="speaker-card sp-vip"><div class="sp-table">T5<br>席1</div><div class="sp-info"><span class="sp-role">祝辞</span><div class="sp-name"><ruby>井上<rt>いのうえ</rt></ruby> <ruby>和幸<rt>かずゆき</rt></ruby></div><div class="sp-title-full">清水建設株式会社 代表取締役会長</div></div></div>
+    <div class="speaker-card sp-vip"><div class="sp-table">T4<br>席1</div><div class="sp-info"><span class="sp-role" style="background:#555;">（社長）</span><div class="sp-name"><ruby>新村<rt>にいむら</rt></ruby> <ruby>達也<rt>たつや</rt></ruby></div><div class="sp-title-full">清水建設株式会社 代表取締役社長</div></div></div>
+    <div class="speaker-card sp-vip"><div class="sp-table">T6<br>席1</div><div class="sp-info"><span class="sp-role">乾杯</span><div class="sp-name"><ruby>堤<rt>つつみ</rt></ruby> <ruby>義人<rt>よしと</rt></ruby></div><div class="sp-title-full">清水建設株式会社 副社長執行役員 建築総本部長</div></div></div>
+    <div class="speaker-card sp-vip"><div class="sp-table">T3<br>席1</div><div class="sp-info"><span class="sp-role">中締め</span><div class="sp-name"><ruby>齋藤<rt>さいとう</rt></ruby> <ruby>武文<rt>たけふみ</rt></ruby></div><div class="sp-title-full">清水建設株式会社 副社長執行役員 土木総本部長</div></div></div>
+    <div class="speaker-card"><div class="sp-table">T5<br>席4</div><div class="sp-info"><span class="sp-role">歓迎挨拶</span><div class="sp-name"><ruby>青山<rt>あおやま</rt></ruby> <ruby>悟<rt>さとる</rt></ruby></div><div class="sp-title-full">北陸兼喜会 会長</div></div></div>
+    <div class="speaker-card"><div class="sp-table">T5<br>席3</div><div class="sp-info"><span class="sp-role">挨拶</span><div class="sp-name"><ruby>青木<rt>あおき</rt></ruby> <ruby>茂<rt>しげる</rt></ruby></div><div class="sp-title-full">全国連合兼喜会 会長</div></div></div>
+    <div class="speaker-card"><div class="sp-table">T5<br>席5</div><div class="sp-info"><span class="sp-role">次期支部</span><div class="sp-name"><ruby>嶋守<rt>しまもり</rt></ruby> <ruby>吉範<rt>よしのり</rt></ruby></div><div class="sp-title-full">北海道兼喜会 会長</div></div></div>
+    <div class="speaker-card"><div class="sp-table">T6<br>席3</div><div class="sp-info"><span class="sp-role">返礼万歳</span><div class="sp-name"><ruby>高村<rt>たかむら</rt></ruby> <ruby>明彦<rt>あきひこ</rt></ruby></div><div class="sp-title-full">北陸兼喜会 副会長</div></div></div>
+    <div class="speaker-card"><div class="sp-table">T4<br>席3</div><div class="sp-info"><span class="sp-role">閉会挨拶</span><div class="sp-name"><ruby>中橋<rt>なかはし</rt></ruby> <ruby>隆文<rt>たかふみ</rt></ruby></div><div class="sp-title-full">北陸兼喜会 副会長</div></div></div>
+  </div>
+
+  <h2>会場レイアウト（全37テーブル）</h2>
+
+  <div class="seat-layout">
+    <div class="seat-stage">壇　　上　（ステージ）</div>
+    <div class="seat-mc">司会：<ruby>富<rt>とみ</rt></ruby> <ruby>優香子<rt>ゆかこ</rt></ruby> アナウンサー</div>
+
+    <!-- Row 1: Tables 1-9 (VIP/SC row closest to stage) -->
+    <div class="seat-row-label">前列（テーブル1〜9）ステージ側 ー SC役員・各支部会長</div>
+    <div class="seat-grid">
+      <div class="seat-table sc"><div class="st-num">T1</div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">西口 大良</span></div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">岡田 直之</span></div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">渡辺 美樹</span></div>
+        <div class="st-member"><span class="st-org">東京</span><span class="st-name">沖 哲也 他5名</span></div>
+      </div>
+      <div class="seat-table"><div class="st-num">T2</div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">塚田 泰三</span></div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">陰山 昭徳</span></div>
+        <div class="st-member"><span class="st-title">各支部副会長 8名</span></div>
+      </div>
+      <div class="seat-table sc"><div class="st-num">T3</div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name" style="color:#c62828;font-weight:900;">齋藤 武文【中締め】</span></div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">菅原 竜也</span></div>
+        <div class="st-member"><span class="st-title">各支部副会長 8名</span></div>
+      </div>
+      <div class="seat-table vip"><div class="st-num">T4 ★主賓</div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name" style="color:#c62828;font-weight:900;">新村 達也（社長）</span></div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">近藤 秀之</span></div>
+        <div class="st-member"><span class="st-org">北陸</span><span class="st-name" style="color:#c62828;font-weight:900;">中橋 隆文【閉会挨拶】</span></div>
+        <div class="st-member"><span class="st-org">全国</span><span class="st-name">石井 映雄（副会長）</span></div>
+        <div class="st-member"><span class="st-title">各支部会長 4名</span></div>
+      </div>
+      <div class="seat-table vip"><div class="st-num">T5 ★最上席</div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name" style="color:#c62828;font-weight:900;">井上 和幸（会長）【祝辞】</span></div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">角野 淳一郎（支店長）</span></div>
+        <div class="st-member"><span class="st-org">全国</span><span class="st-name" style="color:#c62828;font-weight:900;">青木 茂（会長）【挨拶】</span></div>
+        <div class="st-member"><span class="st-org">北陸</span><span class="st-name" style="color:#c62828;font-weight:900;">青山 悟（会長）【歓迎】</span></div>
+        <div class="st-member"><span class="st-org">北海道</span><span class="st-name" style="color:#c62828;font-weight:900;">嶋守 吉範（会長）【次期】</span></div>
+        <div class="st-member"><span class="st-title">各支部会長 4名</span></div>
+      </div>
+      <div class="seat-table vip"><div class="st-num">T6 ★主賓</div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name" style="color:#c62828;font-weight:900;">堤 義人（副社長）【乾杯】</span></div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">内山 秀樹</span></div>
+        <div class="st-member"><span class="st-org">北陸</span><span class="st-name" style="color:#c62828;font-weight:900;">高村 明彦（副会長）【返礼】</span></div>
+        <div class="st-member"><span class="st-title">各支部会長 3名、副会長 3名</span></div>
+      </div>
+      <div class="seat-table"><div class="st-num">T7</div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">原田 知明</span></div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">江口 将司</span></div>
+        <div class="st-member"><span class="st-title">各支部副会長 7名</span></div>
+      </div>
+      <div class="seat-table"><div class="st-num">T8</div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">山岡 正徳</span></div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">佐藤 彰</span></div>
+        <div class="st-member"><span class="st-title">各支部副会長 8名</span></div>
+      </div>
+      <div class="seat-table sc"><div class="st-num">T9</div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">常田 美奈</span></div>
+        <div class="st-member"><span class="st-org">清水</span><span class="st-name">黒岩 重夫・高瀨 正人</span></div>
+        <div class="st-member"><span class="st-org">北海道</span><span class="st-title">理事 6名</span></div>
+      </div>
+    </div>
+
+    <!-- Row 2: Tables 10-18 -->
+    <div class="seat-row-label">2列目（テーブル10〜18）各支部理事・青年部</div>
+    <div class="seat-grid">
+      <div class="seat-table"><div class="st-num">T10</div><div class="st-member"><span class="st-org">東京</span><span class="st-title">理事・会計監事 6名</span></div><div class="st-member"><span class="st-org">横浜</span><span class="st-title">会計理事他 4名</span></div></div>
+      <div class="seat-table"><div class="st-num">T11</div><div class="st-member"><span class="st-org">横浜</span><span class="st-title">理事・青年部 9名</span></div></div>
+      <div class="seat-table"><div class="st-num">T12</div><div class="st-member"><span class="st-org">関東</span><span class="st-title">理事 9名</span></div></div>
+      <div class="seat-table"><div class="st-num">T13</div><div class="st-member"><span class="st-org">広島</span><span class="st-title">理事・同伴者 9名</span></div></div>
+      <div class="seat-table"><div class="st-num">T14</div><div class="st-member"><span class="st-org">清水</span><span class="st-name">橋本 俊二（調達部）</span></div><div class="st-member"><span class="st-org">名古屋</span><span class="st-title">副会長・常任理事他 8名</span></div></div>
+      <div class="seat-table"><div class="st-num">T15</div><div class="st-member"><span class="st-org">清水</span><span class="st-name">谷口 和義（九州調達部長）</span></div><div class="st-member"><span class="st-org">九州</span><span class="st-title">理事・支部長 8名</span></div></div>
+      <div class="seat-table"><div class="st-num">T16</div><div class="st-member"><span class="st-org">近畿</span><span class="st-title">常任理事・理事 9名</span></div></div>
+      <div class="seat-table"><div class="st-num">T17</div><div class="st-member"><span class="st-org">北海道</span><span class="st-title">理事 2名</span></div><div class="st-member"><span class="st-org">東北</span><span class="st-title">理事・監事 7名</span></div></div>
+      <div class="seat-table"><div class="st-num">T18</div><div class="st-member"><span class="st-org">北海道</span><span class="st-title">青年部 9名</span></div></div>
+    </div>
+
+    <!-- Row 3: Tables 19-27 -->
+    <div class="seat-row-label">3列目（テーブル19〜27）北陸理事・広島・名古屋・九州・千葉・近畿・四国</div>
+    <div class="seat-grid">
+      <div class="seat-table"><div class="st-num">T19</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">理事 10名</span></div></div>
+      <div class="seat-table"><div class="st-num">T20</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">相談役・監事・理事 10名</span></div></div>
+      <div class="seat-table"><div class="st-num">T21</div><div class="st-member"><span class="st-org">広島</span><span class="st-title">理事 5名</span></div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">総務・会計理事 5名</span></div></div>
+      <div class="seat-table"><div class="st-num">T22</div><div class="st-member"><span class="st-org">広島</span><span class="st-title">理事・同伴者 9名</span></div></div>
+      <div class="seat-table"><div class="st-num">T23</div><div class="st-member"><span class="st-org">名古屋</span><span class="st-title">常任理事・理事 9名</span></div></div>
+      <div class="seat-table"><div class="st-num">T24</div><div class="st-member"><span class="st-org">九州</span><span class="st-title">支部長 4名</span></div><div class="st-member"><span class="st-org">千葉</span><span class="st-title">理事 5名</span></div></div>
+      <div class="seat-table"><div class="st-num">T25</div><div class="st-member"><span class="st-org">近畿</span><span class="st-title">理事 9名</span></div></div>
+      <div class="seat-table"><div class="st-num">T26</div><div class="st-member"><span class="st-org">近畿</span><span class="st-title">監査役・青年部長 2名</span></div><div class="st-member"><span class="st-org">四国</span><span class="st-title">理事 7名</span></div></div>
+      <div class="seat-table"><div class="st-num">T27</div><div class="st-member"><span class="st-org">四国</span><span class="st-title">理事・会計 6名</span></div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">3名</span></div></div>
+    </div>
+
+    <!-- Row 4: Tables 28-37 -->
+    <div class="seat-row-label">4列目（テーブル28〜37）北陸会員・事務局 ー 会場奥</div>
+    <div class="seat-grid">
+      <div class="seat-table"><div class="st-num">T28</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 10名</span></div></div>
+      <div class="seat-table"><div class="st-num">T29</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 10名</span></div></div>
+      <div class="seat-table"><div class="st-num">T30</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 10名</span></div></div>
+      <div class="seat-table"><div class="st-num">T31</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 10名</span></div></div>
+      <div class="seat-table"><div class="st-num">T32</div><div class="st-member"><span class="st-org">各支部</span><span class="st-title">事務局 9名</span></div></div>
+      <div class="seat-table"><div class="st-num">T33</div><div class="st-member"><span class="st-org">名古屋</span><span class="st-title">理事 5名</span></div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">4名</span></div></div>
+      <div class="seat-table"><div class="st-num">T34</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 9名</span></div></div>
+      <div class="seat-table"><div class="st-num">T35</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 9名</span></div></div>
+      <div class="seat-table"><div class="st-num">T36</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 5名（空席あり）</span></div></div>
+      <div class="seat-table"><div class="st-num">T37</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">（予備テーブル）</span></div></div>
+    </div>
+  </div>
+
+  <h2>テーブル4・5・6 詳細（主賓席）</h2>
+  <div class="section-box">
+    <h3>テーブル5（最上席）</h3>
+    <table class="light-table">
+      <thead><tr><th>席</th><th>所属</th><th>肩書</th><th>氏名</th><th>登壇</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>清水建設</td><td>代表取締役会長</td><td><ruby>井上<rt>いのうえ</rt></ruby> <ruby>和幸<rt>かずゆき</rt></ruby></td><td style="color:#c62828;font-weight:bold;">祝辞</td></tr>
+        <tr><td>2</td><td>清水建設</td><td>執行役員 北陸支店長</td><td><ruby>角野<rt>かどの</rt></ruby> <ruby>淳一郎<rt>じゅんいちろう</rt></ruby></td><td></td></tr>
+        <tr><td>3</td><td>全国連合兼喜会</td><td>会長</td><td><ruby>青木<rt>あおき</rt></ruby> <ruby>茂<rt>しげる</rt></ruby></td><td style="color:#c62828;font-weight:bold;">挨拶</td></tr>
+        <tr><td>4</td><td>北陸兼喜会</td><td>会長</td><td><ruby>青山<rt>あおやま</rt></ruby> <ruby>悟<rt>さとる</rt></ruby></td><td style="color:#c62828;font-weight:bold;">歓迎挨拶</td></tr>
+        <tr><td>5</td><td>北海道兼喜会</td><td>会長</td><td><ruby>嶋守<rt>しまもり</rt></ruby> <ruby>吉範<rt>よしのり</rt></ruby></td><td style="color:#c62828;font-weight:bold;">次期支部</td></tr>
+        <tr><td>6</td><td>九州兼喜会</td><td>会長</td><td><ruby>篠森<rt>しのもり</rt></ruby> <ruby>義晴<rt>よしはる</rt></ruby></td><td></td></tr>
+        <tr><td>7</td><td>近畿兼喜会</td><td>会長</td><td><ruby>岩田<rt>いわた</rt></ruby> <ruby>正吾<rt>しょうご</rt></ruby></td><td></td></tr>
+        <tr><td>8</td><td>横浜兼喜会</td><td>会長</td><td><ruby>浅岡<rt>あさおか</rt></ruby> <ruby>新二<rt>しんじ</rt></ruby></td><td></td></tr>
+        <tr><td>9</td><td>東京兼喜会</td><td>相談役</td><td><ruby>中橋<rt>なかはし</rt></ruby> <ruby>博治<rt>ひろはる</rt></ruby></td><td></td></tr>
+      </tbody>
+    </table>
+    <h3 style="margin-top:16px;">テーブル4（主賓席）</h3>
+    <table class="light-table">
+      <thead><tr><th>席</th><th>所属</th><th>肩書</th><th>氏名</th><th>登壇</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>清水建設</td><td>代表取締役社長</td><td><ruby>新村<rt>にいむら</rt></ruby> <ruby>達也<rt>たつや</rt></ruby></td><td></td></tr>
+        <tr><td>2</td><td>清水建設</td><td>北陸支店 副支店長</td><td><ruby>近藤<rt>こんどう</rt></ruby> <ruby>秀之<rt>ひでゆき</rt></ruby></td><td></td></tr>
+        <tr><td>3</td><td>北陸兼喜会</td><td>副会長</td><td><ruby>中橋<rt>なかはし</rt></ruby> <ruby>隆文<rt>たかふみ</rt></ruby></td><td style="color:#c62828;font-weight:bold;">閉会挨拶</td></tr>
+        <tr><td>4</td><td>全国連合兼喜会</td><td>副会長</td><td><ruby>石井<rt>いしい</rt></ruby> <ruby>映雄<rt>てるお</rt></ruby></td><td></td></tr>
+        <tr><td>5</td><td>名古屋兼喜会</td><td>会長</td><td><ruby>江崎<rt>えさき</rt></ruby> <ruby>竜優<rt>たつまさ</rt></ruby></td><td></td></tr>
+        <tr><td>6</td><td>東北兼喜会</td><td>会長</td><td><ruby>岑<rt>みね</rt></ruby> <ruby>直樹<rt>なおき</rt></ruby></td><td></td></tr>
+        <tr><td>7</td><td>北海道兼喜会</td><td>副会長</td><td><ruby>長谷川<rt>はせがわ</rt></ruby> <ruby>将志<rt>まさし</rt></ruby></td><td></td></tr>
+        <tr><td>8</td><td>四国兼喜会</td><td>会長</td><td>武田 美治</td><td></td></tr>
+        <tr><td>10</td><td>関東兼喜会</td><td>副会長</td><td><ruby>佐藤<rt>さとう</rt></ruby> <ruby>栄作<rt>えいさく</rt></ruby></td><td></td></tr>
+      </tbody>
+    </table>
+    <h3 style="margin-top:16px;">テーブル6（主賓席）</h3>
+    <table class="light-table">
+      <thead><tr><th>席</th><th>所属</th><th>肩書</th><th>氏名</th><th>登壇</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>清水建設</td><td>副社長執行役員 建築総本部長</td><td><ruby>堤<rt>つつみ</rt></ruby> <ruby>義人<rt>よしと</rt></ruby></td><td style="color:#c62828;font-weight:bold;">乾杯</td></tr>
+        <tr><td>2</td><td>清水建設</td><td>北陸支店 副支店長</td><td><ruby>内山<rt>うちやま</rt></ruby> <ruby>秀樹<rt>ひでき</rt></ruby></td><td></td></tr>
+        <tr><td>3</td><td>北陸兼喜会</td><td>副会長</td><td><ruby>高村<rt>たかむら</rt></ruby> <ruby>明彦<rt>あきひこ</rt></ruby></td><td style="color:#c62828;font-weight:bold;">返礼万歳</td></tr>
+        <tr><td>4</td><td>関東兼喜会</td><td>会長</td><td><ruby>饗場<rt>あいば</rt></ruby> <ruby>紀仁<rt>のりひと</rt></ruby></td><td></td></tr>
+        <tr><td>5</td><td>千葉兼喜会</td><td>会長</td><td><ruby>梶原<rt>かじわら</rt></ruby> <ruby>博<rt>ひろし</rt></ruby></td><td></td></tr>
+        <tr><td>6</td><td>広島兼喜会</td><td>副会長</td><td><ruby>川頭<rt>かわがしら</rt></ruby> <ruby>康弘<rt>やすひろ</rt></ruby></td><td></td></tr>
+        <tr><td>7</td><td>東北兼喜会</td><td>副会長</td><td><ruby>江村<rt>えむら</rt></ruby> <ruby>克志<rt>かつし</rt></ruby></td><td></td></tr>
+        <tr><td>8</td><td>千葉兼喜会</td><td>副会長</td><td><ruby>樋脇<rt>ひわき</rt></ruby> <ruby>毅<rt>たけし</rt></ruby></td><td></td></tr>
+        <tr><td>9</td><td>横浜兼喜会</td><td>副会長</td><td><ruby>池田<rt>いけだ</rt></ruby> <ruby>直熊<rt>なおくま</rt></ruby></td><td></td></tr>
+      </tbody>
+    </table>
+    <h3 style="margin-top:16px;">テーブル3</h3>
+    <table class="light-table">
+      <thead><tr><th>席</th><th>所属</th><th>肩書</th><th>氏名</th><th>登壇</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>清水建設</td><td>副社長執行役員 土木総本部長</td><td><ruby>齋藤<rt>さいとう</rt></ruby> <ruby>武文<rt>たけふみ</rt></ruby></td><td style="color:#c62828;font-weight:bold;">中締め</td></tr>
+        <tr><td>2</td><td>清水建設</td><td>北陸支店 副支店長</td><td><ruby>菅原<rt>すがわら</rt></ruby> <ruby>竜也<rt>たつや</rt></ruby></td><td></td></tr>
+        <tr><td>3</td><td>東京兼喜会</td><td>副会長</td><td><ruby>多賀谷<rt>たがや</rt></ruby> <ruby>充<rt>みつる</rt></ruby></td><td></td></tr>
+        <tr><td>4</td><td>北陸兼喜会</td><td>副会長</td><td><ruby>栗山<rt>くりやま</rt></ruby> <ruby>公伸<rt>きみのぶ</rt></ruby></td><td></td></tr>
+        <tr><td>5-10</td><td colspan="3">千葉・関東・近畿・四国 副会長 6名</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /container -->
+</div><!-- /tab-seating -->
 
 <!-- ================================================================ -->
-<!--  TAB 2 : 司会シナリオ・スライド・運営マニュアル                    -->
+<!--  TAB 3 : 司会シナリオ・スライド・運営マニュアル                    -->
 <!-- ================================================================ -->
 <div class="tab-content" id="tab-scenario">
 
@@ -506,46 +723,46 @@
   <!-- SCENE 4 -->
   <div class="scene" id="s4"><div class="scene-header"><div class="scene-num">04</div><div><div class="scene-title">歓迎の挨拶</div><div class="scene-time">18:14〜18:19（5分）</div></div></div><div class="scene-body">
     <div class="slide-label">背景スライド</div>
-    <div class="slide-frame"><div class="slide-top">GREETING</div><div class="slide-main">歓迎の言葉</div><div class="slide-sub">北陸兼喜会 会長　青山 様</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、開催地を代表いたしまして、<br>北陸兼喜会 会長 青山様より、歓迎のご挨拶を頂戴いたします。<span class="pause">（間）</span><br>青山会長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="slide-frame"><div class="slide-top">GREETING</div><div class="slide-main">歓迎の言葉</div><div class="slide-sub">北陸兼喜会 会長　<ruby>青山<rt>あおやま</rt></ruby> <ruby>悟<rt>さとる</rt></ruby> 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、開催地を代表いたしまして、<br>北陸兼喜会 会長 <ruby>青山<rt>あおやま</rt></ruby> <ruby>悟<rt>さとる</rt></ruby>様より、歓迎のご挨拶を頂戴いたします。<span class="pause">（間）</span><br>青山会長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
     <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓</span>青山会長に声掛け・登壇誘導</div>
-      <div class="sa-item"><span class="sa-role">映像・音響</span>「歓迎の言葉」スライド → 青山会長を映す</div>
+      <div class="sa-item"><span class="sa-role">来賓</span><ruby>青山<rt>あおやま</rt></ruby>会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">映像・音響</span>「歓迎の言葉」スライド → <ruby>青山<rt>あおやま</rt></ruby>会長を映す</div>
     </div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">青山会長、ありがとうございました。<span class="pause">（拍手）</span></div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text"><ruby>青山<rt>あおやま</rt></ruby>会長、ありがとうございました。<span class="pause">（拍手）</span></div></div>
   </div></div>
 
   <!-- SCENE 5 -->
   <div class="scene" id="s5"><div class="scene-header"><div class="scene-num">05</div><div><div class="scene-title">全国連合兼喜会 会長挨拶</div><div class="scene-time">18:19〜18:22（3分）</div></div></div><div class="scene-body">
     <div class="slide-label">背景スライド</div>
-    <div class="slide-frame"><div class="slide-top">GREETING</div><div class="slide-main">全国連合兼喜会<br>会長挨拶</div><div class="slide-sub">全国連合兼喜会 会長　青木 様</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、全国連合兼喜会 会長 青木様より、ご挨拶を頂戴いたします。<span class="pause">（間）</span><br>青木会長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="slide-frame"><div class="slide-top">GREETING</div><div class="slide-main">全国連合兼喜会<br>会長挨拶</div><div class="slide-sub">全国連合兼喜会 会長　<ruby>青木<rt>あおき</rt></ruby> <ruby>茂<rt>しげる</rt></ruby> 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、全国連合兼喜会 会長 <ruby>青木<rt>あおき</rt></ruby> <ruby>茂<rt>しげる</rt></ruby>様より、ご挨拶を頂戴いたします。<span class="pause">（間）</span><br>青木会長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
     <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓</span>青木会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">来賓</span><ruby>青木<rt>あおき</rt></ruby>会長に声掛け・登壇誘導</div>
       <div class="sa-item"><span class="sa-role">映像・音響</span>「全国連合兼喜会会長挨拶」スライド → 映す</div>
     </div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">青木会長、ありがとうございました。<span class="pause">（拍手）</span></div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text"><ruby>青木<rt>あおき</rt></ruby>会長、ありがとうございました。<span class="pause">（拍手）</span></div></div>
   </div></div>
 
   <!-- SCENE 6 -->
   <div class="scene" id="s6"><div class="scene-header"><div class="scene-num">06</div><div><div class="scene-title">祝辞</div><div class="scene-time">18:22〜18:37（15分）</div></div></div><div class="scene-body">
     <div class="slide-label">背景スライド</div>
-    <div class="slide-frame"><div class="slide-top">CONGRATULATORY ADDRESS</div><div class="slide-main">祝 辞</div><div class="slide-sub">清水建設株式会社 会長　井上 様</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、清水建設株式会社 会長 井上様より、<br>祝辞を頂戴いたします。<span class="pause">（間）</span><br>井上会長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="slide-frame"><div class="slide-top">CONGRATULATORY ADDRESS</div><div class="slide-main">祝 辞</div><div class="slide-sub">清水建設株式会社 代表取締役会長　<ruby>井上<rt>いのうえ</rt></ruby> <ruby>和幸<rt>かずゆき</rt></ruby> 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、清水建設株式会社 代表取締役会長 <ruby>井上<rt>いのうえ</rt></ruby> <ruby>和幸<rt>かずゆき</rt></ruby>様より、<br>祝辞を頂戴いたします。<span class="pause">（間）</span><br>井上会長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
     <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓</span>井上会長に声掛け・登壇誘導</div>
-      <div class="sa-item"><span class="sa-role">映像・音響</span>「祝辞」スライド → 井上会長を映す</div>
+      <div class="sa-item"><span class="sa-role">来賓</span><ruby>井上<rt>いのうえ</rt></ruby>会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">映像・音響</span>「祝辞」スライド → <ruby>井上<rt>いのうえ</rt></ruby>会長を映す</div>
     </div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">井上会長、誠にありがとうございました。<span class="pause">（拍手）</span><br><br>さて、皆さま、それではお待ちかねの乾杯に移りたいと存じます。</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text"><ruby>井上<rt>いのうえ</rt></ruby>会長、誠にありがとうございました。<span class="pause">（拍手）</span><br><br>さて、皆さま、それではお待ちかねの乾杯に移りたいと存じます。</div></div>
   </div></div>
 
   <!-- SCENE 7 -->
   <div class="scene" id="s7"><div class="scene-header"><div class="scene-num">07</div><div><div class="scene-title">乾杯</div><div class="scene-time">18:37〜18:42（5分）</div></div></div><div class="scene-body">
     <div class="slide-label">背景スライド</div>
-    <div class="slide-frame slide-gold"><div class="slide-top">TOAST</div><div class="slide-main">乾 杯</div><div class="slide-sub">清水建設株式会社 副社長　堤 様</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、乾杯のご発声を頂戴いたします。<span class="pause">（間）</span><br>清水建設株式会社 副社長 堤様、よろしくお願いいたします。<span class="pause">（拍手）</span><br><br><em>※堤副社長の乾杯ご挨拶を待つ</em><br><br>皆さま、グラスのご用意はよろしいでしょうか。<span class="pause">（間）</span><br><em>※「乾杯！」→ 会場全体で乾杯</em></div></div>
+    <div class="slide-frame slide-gold"><div class="slide-top">TOAST</div><div class="slide-main">乾 杯</div><div class="slide-sub">清水建設株式会社 副社長執行役員　<ruby>堤<rt>つつみ</rt></ruby> <ruby>義人<rt>よしと</rt></ruby> 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、乾杯のご発声を頂戴いたします。<span class="pause">（間）</span><br>清水建設株式会社 副社長執行役員 <ruby>堤<rt>つつみ</rt></ruby> <ruby>義人<rt>よしと</rt></ruby>様、よろしくお願いいたします。<span class="pause">（拍手）</span><br><br><em>※堤副社長の乾杯ご挨拶を待つ</em><br><br>皆さま、グラスのご用意はよろしいでしょうか。<span class="pause">（間）</span><br><em>※「乾杯！」→ 会場全体で乾杯</em></div></div>
     <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓</span>堤副社長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">来賓</span><ruby>堤<rt>つつみ</rt></ruby>副社長に声掛け・登壇誘導</div>
       <div class="sa-item"><span class="sa-role">映像・音響</span>「乾杯」スライド → 乾杯酒ボトル表示 → 副社長を映す</div>
       <div class="sa-item"><span class="sa-role">レセプタント</span>乾杯後すぐにビール給仕の準備</div>
     </div></div>
@@ -632,54 +849,54 @@
   <!-- SCENE 13 -->
   <div class="scene" id="s13"><div class="scene-header"><div class="scene-num">13</div><div><div class="scene-title">次期開催支部挨拶</div><div class="scene-time">20:07〜20:12（5分）</div></div></div><div class="scene-body">
     <div class="slide-label">背景スライド</div>
-    <div class="slide-frame slide-green"><div class="slide-top">NEXT CONVENTION</div><div class="slide-main">次期開催支部<br>ご挨拶</div><div class="slide-sub">北海道兼喜会 会長　嶋守 様</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、次回の全国大会を開催される支部より、ご挨拶を頂戴いたします。<span class="pause">（間）</span><br>北海道兼喜会 会長 嶋守様、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="slide-frame slide-green"><div class="slide-top">NEXT CONVENTION</div><div class="slide-main">次期開催支部<br>ご挨拶</div><div class="slide-sub">北海道兼喜会 会長　<ruby>嶋守<rt>しまもり</rt></ruby> <ruby>吉範<rt>よしのり</rt></ruby> 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、次回の全国大会を開催される支部より、ご挨拶を頂戴いたします。<span class="pause">（間）</span><br>北海道兼喜会 会長 <ruby>嶋守<rt>しまもり</rt></ruby> <ruby>吉範<rt>よしのり</rt></ruby>様、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
     <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓</span>嶋守会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">来賓</span><ruby>嶋守<rt>しまもり</rt></ruby>会長に声掛け・登壇誘導</div>
       <div class="sa-item"><span class="sa-role">映像・音響</span>「次期開催支部」スライド → 映す</div>
       <div class="sa-item"><span class="sa-role">二次会</span>二次会会場スタンバイ確認</div>
     </div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">嶋守会長、ありがとうございました。<span class="pause">（拍手）</span><br>来年の北海道大会、皆さま楽しみにいたしましょう。</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text"><ruby>嶋守<rt>しまもり</rt></ruby>会長、ありがとうございました。<span class="pause">（拍手）</span><br>来年の北海道大会、皆さま楽しみにいたしましょう。</div></div>
     <div class="note-box">メインテーブルの料理がデザートまで進んだら締めの用意を開始。</div>
   </div></div>
 
   <!-- SCENE 14 -->
   <div class="scene" id="s14"><div class="scene-header"><div class="scene-num">14</div><div><div class="scene-title">中締め・万歳</div><div class="scene-time">20:12〜20:17（5分）</div></div></div><div class="scene-body">
     <div class="slide-label">背景スライド</div>
-    <div class="slide-frame"><div class="slide-top">CLOSING</div><div class="slide-main">中 締 め</div><div class="slide-sub">清水建設株式会社 副社長　齋藤 様</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">皆さま、宴もたけなわではございますが、ここで中締めのお時間とさせていただきます。<span class="pause">（間）</span><br><br>清水建設株式会社 副社長 齋藤様に、万歳のご発声をお願いいたします。<span class="pause">（間）</span><br>皆さま、ご起立をお願いいたします。<span class="pause">（起立）</span><br><br>齋藤副社長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="slide-frame"><div class="slide-top">CLOSING</div><div class="slide-main">中 締 め</div><div class="slide-sub">清水建設株式会社 副社長執行役員　<ruby>齋藤<rt>さいとう</rt></ruby> <ruby>武文<rt>たけふみ</rt></ruby> 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">皆さま、宴もたけなわではございますが、ここで中締めのお時間とさせていただきます。<span class="pause">（間）</span><br><br>清水建設株式会社 副社長執行役員 <ruby>齋藤<rt>さいとう</rt></ruby> <ruby>武文<rt>たけふみ</rt></ruby>様に、万歳のご発声をお願いいたします。<span class="pause">（間）</span><br>皆さま、ご起立をお願いいたします。<span class="pause">（起立）</span><br><br>齋藤副社長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
     <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓</span>齋藤副社長に声掛け・マイク位置へ誘導</div>
+      <div class="sa-item"><span class="sa-role">来賓</span><ruby>齋藤<rt>さいとう</rt></ruby>副社長に声掛け・マイク位置へ誘導</div>
       <div class="sa-item"><span class="sa-role">芸妓担当</span>芸妓をステージ前に待機</div>
       <div class="sa-item"><span class="sa-role">進行</span>拍子木を準備</div>
       <div class="sa-item"><span class="sa-role">映像・音響</span>「中締め」スライド → 映す</div>
     </div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">齋藤副社長、ありがとうございました。<span class="pause">（拍手）</span><br>皆さま、ご着席くださいませ。</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text"><ruby>齋藤<rt>さいとう</rt></ruby>副社長、ありがとうございました。<span class="pause">（拍手）</span><br>皆さま、ご着席くださいませ。</div></div>
   </div></div>
 
   <!-- SCENE 15 -->
   <div class="scene" id="s15"><div class="scene-header"><div class="scene-num">15</div><div><div class="scene-title">返礼万歳</div><div class="scene-time">20:17〜20:22（5分）</div></div></div><div class="scene-body">
     <div class="slide-label">背景スライド</div>
-    <div class="slide-frame"><div class="slide-top">CLOSING</div><div class="slide-main">返 礼 万 歳</div><div class="slide-sub">北陸兼喜会 理事　高村 様</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、開催地 北陸兼喜会より、返礼の万歳をお届けいたします。<span class="pause">（間）</span><br>北陸兼喜会 理事 高村様、よろしくお願いいたします。<span class="pause">（間）</span><br>皆さま、もう一度ご起立をお願いいたします。<span class="pause">（起立・拍手）</span></div></div>
+    <div class="slide-frame"><div class="slide-top">CLOSING</div><div class="slide-main">返 礼 万 歳</div><div class="slide-sub">北陸兼喜会 副会長　<ruby>高村<rt>たかむら</rt></ruby> <ruby>明彦<rt>あきひこ</rt></ruby> 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、開催地 北陸兼喜会より、返礼の万歳をお届けいたします。<span class="pause">（間）</span><br>北陸兼喜会 副会長 <ruby>高村<rt>たかむら</rt></ruby> <ruby>明彦<rt>あきひこ</rt></ruby>様、よろしくお願いいたします。<span class="pause">（間）</span><br>皆さま、もう一度ご起立をお願いいたします。<span class="pause">（起立・拍手）</span></div></div>
     <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓</span>高村理事に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">来賓</span><ruby>高村<rt>たかむら</rt></ruby>副会長に声掛け・登壇誘導</div>
       <div class="sa-item"><span class="sa-role">映像・音響</span>「返礼万歳」スライド → 映す</div>
     </div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">高村理事、ありがとうございました。<span class="pause">（拍手）</span></div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text"><ruby>高村<rt>たかむら</rt></ruby>副会長、ありがとうございました。<span class="pause">（拍手）</span></div></div>
   </div></div>
 
   <!-- SCENE 16 -->
   <div class="scene" id="s16"><div class="scene-header"><div class="scene-num">16</div><div><div class="scene-title">閉会挨拶</div><div class="scene-time">20:22〜20:27（5分）</div></div></div><div class="scene-body">
     <div class="slide-label">背景スライド</div>
-    <div class="slide-frame"><div class="slide-top">CLOSING ADDRESS</div><div class="slide-main">閉 会 挨 拶</div><div class="slide-sub">北陸兼喜会 副会長　中橋 様</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、閉会にあたりまして、<br>北陸兼喜会 副会長 中橋様より、ご挨拶を頂戴いたします。<span class="pause">（間）</span><br>中橋副会長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="slide-frame"><div class="slide-top">CLOSING ADDRESS</div><div class="slide-main">閉 会 挨 拶</div><div class="slide-sub">北陸兼喜会 副会長　<ruby>中橋<rt>なかはし</rt></ruby> <ruby>隆文<rt>たかふみ</rt></ruby> 様</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、閉会にあたりまして、<br>北陸兼喜会 副会長 <ruby>中橋<rt>なかはし</rt></ruby> <ruby>隆文<rt>たかふみ</rt></ruby>様より、ご挨拶を頂戴いたします。<span class="pause">（間）</span><br>中橋副会長、よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
     <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓</span>中橋副会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role">来賓</span><ruby>中橋<rt>なかはし</rt></ruby>副会長に声掛け・登壇誘導</div>
       <div class="sa-item"><span class="sa-role">映像・音響</span>「閉会挨拶」スライド → 映す</div>
       <div class="sa-item"><span class="sa-role">レセプタント</span>10名程度を二次会会場へ移動準備</div>
     </div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">中橋副会長、ありがとうございました。<span class="pause">（拍手）</span></div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text"><ruby>中橋<rt>なかはし</rt></ruby>副会長、ありがとうございました。<span class="pause">（拍手）</span></div></div>
   </div></div>
 
   <!-- SCENE 17 -->
@@ -736,6 +953,7 @@ function switchTab(tab) {
   document.getElementById('tab-' + tab).classList.add('active');
   document.querySelectorAll('.tab-btn').forEach(el => {
     if ((tab === 'overview' && el.textContent.includes('全体')) ||
+        (tab === 'seating' && el.textContent.includes('座席')) ||
         (tab === 'scenario' && el.textContent.includes('司会'))) {
       el.classList.add('active');
     }
