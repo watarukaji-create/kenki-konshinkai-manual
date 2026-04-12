@@ -153,7 +153,17 @@
   .seat-layout{margin-bottom:32px;}
   .seat-row-label{font-size:.85rem;font-weight:bold;color:#0f3460;margin:18px 0 8px;padding:4px 12px;background:#e8ecf2;border-radius:6px;display:inline-block;}
   .seat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin-bottom:16px;}
-  .seat-table{background:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 1px 4px rgba(0,0,0,.06);font-size:.78rem;border-top:3px solid #0f3460;}
+  .seat-table{background:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 1px 4px rgba(0,0,0,.06);font-size:.78rem;border-top:3px solid #0f3460;cursor:pointer;transition:box-shadow .2s;}
+  .seat-table:hover{box-shadow:0 3px 12px rgba(0,0,0,.15);}
+  .seat-table .st-summary{display:flex;justify-content:space-between;align-items:center;}
+  .seat-table .st-summary .st-arrow{font-size:.7rem;color:#999;transition:transform .2s;}
+  .seat-table.open .st-arrow{transform:rotate(180deg);}
+  .seat-table .st-detail{display:none;margin-top:8px;padding-top:8px;border-top:1px solid #eee;}
+  .seat-table.open .st-detail{display:block;}
+  .st-detail table{width:100%;border-collapse:collapse;}
+  .st-detail th,.st-detail td{padding:3px 6px;text-align:left;font-size:.75rem;border-bottom:1px solid #f0f0f0;}
+  .st-detail th{background:#f8f6f3;font-size:.7rem;color:#666;}
+  .st-detail .sp{color:#c62828;font-weight:bold;}
   .seat-table.vip{border-top-color:#e2b714;background:#fffdf5;}
   .seat-table.sc{border-top-color:#c62828;}
   .seat-table .st-num{font-size:1rem;font-weight:900;color:#0f3460;margin-bottom:4px;}
@@ -432,8 +442,9 @@
 <div class="tab-content" id="tab-seating">
 <div class="container">
 
+  <div class="note-box" style="margin-bottom:18px;">各テーブルをクリック（タップ）すると、全メンバーの詳細が表示されます。<br>振り仮名は推定を含みます。実際のご本人に確認のうえご使用ください。</div>
+
   <h2>登壇者一覧（座席表より）</h2>
-  <div class="note-box" style="margin-bottom:18px;">座席表に記載の正式名称です。振り仮名は推定を含みます。実際のご本人に確認のうえご使用ください。</div>
 
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px;margin-bottom:28px;">
     <div class="speaker-card sp-vip"><div class="sp-table">T5<br>席1</div><div class="sp-info"><span class="sp-role">祝辞</span><div class="sp-name"><ruby>井上<rt>いのうえ</rt></ruby> <ruby>和幸<rt>かずゆき</rt></ruby></div><div class="sp-title-full">清水建設株式会社 代表取締役会長</div></div></div>
@@ -448,170 +459,12 @@
   </div>
 
   <h2>会場レイアウト（全37テーブル）</h2>
+  <p style="font-size:.82rem;color:#888;margin-bottom:12px;">各テーブルをクリックすると全メンバーが表示されます。もう一度クリックで閉じます。</p>
 
   <div class="seat-layout">
     <div class="seat-stage">壇　　上　（ステージ）</div>
     <div class="seat-mc">司会：<ruby>富<rt>とみ</rt></ruby> <ruby>優香子<rt>ゆかこ</rt></ruby> アナウンサー</div>
-
-    <!-- Row 1: Tables 1-9 (VIP/SC row closest to stage) -->
-    <div class="seat-row-label">前列（テーブル1〜9）ステージ側 ー SC役員・各支部会長</div>
-    <div class="seat-grid">
-      <div class="seat-table sc"><div class="st-num">T1</div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">西口 大良</span></div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">岡田 直之</span></div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">渡辺 美樹</span></div>
-        <div class="st-member"><span class="st-org">東京</span><span class="st-name">沖 哲也 他5名</span></div>
-      </div>
-      <div class="seat-table"><div class="st-num">T2</div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">塚田 泰三</span></div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">陰山 昭徳</span></div>
-        <div class="st-member"><span class="st-title">各支部副会長 8名</span></div>
-      </div>
-      <div class="seat-table sc"><div class="st-num">T3</div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name" style="color:#c62828;font-weight:900;">齋藤 武文【中締め】</span></div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">菅原 竜也</span></div>
-        <div class="st-member"><span class="st-title">各支部副会長 8名</span></div>
-      </div>
-      <div class="seat-table vip"><div class="st-num">T4 ★主賓</div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name" style="color:#c62828;font-weight:900;">新村 達也（社長）</span></div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">近藤 秀之</span></div>
-        <div class="st-member"><span class="st-org">北陸</span><span class="st-name" style="color:#c62828;font-weight:900;">中橋 隆文【閉会挨拶】</span></div>
-        <div class="st-member"><span class="st-org">全国</span><span class="st-name">石井 映雄（副会長）</span></div>
-        <div class="st-member"><span class="st-title">各支部会長 4名</span></div>
-      </div>
-      <div class="seat-table vip"><div class="st-num">T5 ★最上席</div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name" style="color:#c62828;font-weight:900;">井上 和幸（会長）【祝辞】</span></div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">角野 淳一郎（支店長）</span></div>
-        <div class="st-member"><span class="st-org">全国</span><span class="st-name" style="color:#c62828;font-weight:900;">青木 茂（会長）【挨拶】</span></div>
-        <div class="st-member"><span class="st-org">北陸</span><span class="st-name" style="color:#c62828;font-weight:900;">青山 悟（会長）【歓迎】</span></div>
-        <div class="st-member"><span class="st-org">北海道</span><span class="st-name" style="color:#c62828;font-weight:900;">嶋守 吉範（会長）【次期】</span></div>
-        <div class="st-member"><span class="st-title">各支部会長 4名</span></div>
-      </div>
-      <div class="seat-table vip"><div class="st-num">T6 ★主賓</div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name" style="color:#c62828;font-weight:900;">堤 義人（副社長）【乾杯】</span></div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">内山 秀樹</span></div>
-        <div class="st-member"><span class="st-org">北陸</span><span class="st-name" style="color:#c62828;font-weight:900;">高村 明彦（副会長）【返礼】</span></div>
-        <div class="st-member"><span class="st-title">各支部会長 3名、副会長 3名</span></div>
-      </div>
-      <div class="seat-table"><div class="st-num">T7</div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">原田 知明</span></div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">江口 将司</span></div>
-        <div class="st-member"><span class="st-title">各支部副会長 7名</span></div>
-      </div>
-      <div class="seat-table"><div class="st-num">T8</div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">山岡 正徳</span></div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">佐藤 彰</span></div>
-        <div class="st-member"><span class="st-title">各支部副会長 8名</span></div>
-      </div>
-      <div class="seat-table sc"><div class="st-num">T9</div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">常田 美奈</span></div>
-        <div class="st-member"><span class="st-org">清水</span><span class="st-name">黒岩 重夫・高瀨 正人</span></div>
-        <div class="st-member"><span class="st-org">北海道</span><span class="st-title">理事 6名</span></div>
-      </div>
-    </div>
-
-    <!-- Row 2: Tables 10-18 -->
-    <div class="seat-row-label">2列目（テーブル10〜18）各支部理事・青年部</div>
-    <div class="seat-grid">
-      <div class="seat-table"><div class="st-num">T10</div><div class="st-member"><span class="st-org">東京</span><span class="st-title">理事・会計監事 6名</span></div><div class="st-member"><span class="st-org">横浜</span><span class="st-title">会計理事他 4名</span></div></div>
-      <div class="seat-table"><div class="st-num">T11</div><div class="st-member"><span class="st-org">横浜</span><span class="st-title">理事・青年部 9名</span></div></div>
-      <div class="seat-table"><div class="st-num">T12</div><div class="st-member"><span class="st-org">関東</span><span class="st-title">理事 9名</span></div></div>
-      <div class="seat-table"><div class="st-num">T13</div><div class="st-member"><span class="st-org">広島</span><span class="st-title">理事・同伴者 9名</span></div></div>
-      <div class="seat-table"><div class="st-num">T14</div><div class="st-member"><span class="st-org">清水</span><span class="st-name">橋本 俊二（調達部）</span></div><div class="st-member"><span class="st-org">名古屋</span><span class="st-title">副会長・常任理事他 8名</span></div></div>
-      <div class="seat-table"><div class="st-num">T15</div><div class="st-member"><span class="st-org">清水</span><span class="st-name">谷口 和義（九州調達部長）</span></div><div class="st-member"><span class="st-org">九州</span><span class="st-title">理事・支部長 8名</span></div></div>
-      <div class="seat-table"><div class="st-num">T16</div><div class="st-member"><span class="st-org">近畿</span><span class="st-title">常任理事・理事 9名</span></div></div>
-      <div class="seat-table"><div class="st-num">T17</div><div class="st-member"><span class="st-org">北海道</span><span class="st-title">理事 2名</span></div><div class="st-member"><span class="st-org">東北</span><span class="st-title">理事・監事 7名</span></div></div>
-      <div class="seat-table"><div class="st-num">T18</div><div class="st-member"><span class="st-org">北海道</span><span class="st-title">青年部 9名</span></div></div>
-    </div>
-
-    <!-- Row 3: Tables 19-27 -->
-    <div class="seat-row-label">3列目（テーブル19〜27）北陸理事・広島・名古屋・九州・千葉・近畿・四国</div>
-    <div class="seat-grid">
-      <div class="seat-table"><div class="st-num">T19</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">理事 10名</span></div></div>
-      <div class="seat-table"><div class="st-num">T20</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">相談役・監事・理事 10名</span></div></div>
-      <div class="seat-table"><div class="st-num">T21</div><div class="st-member"><span class="st-org">広島</span><span class="st-title">理事 5名</span></div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">総務・会計理事 5名</span></div></div>
-      <div class="seat-table"><div class="st-num">T22</div><div class="st-member"><span class="st-org">広島</span><span class="st-title">理事・同伴者 9名</span></div></div>
-      <div class="seat-table"><div class="st-num">T23</div><div class="st-member"><span class="st-org">名古屋</span><span class="st-title">常任理事・理事 9名</span></div></div>
-      <div class="seat-table"><div class="st-num">T24</div><div class="st-member"><span class="st-org">九州</span><span class="st-title">支部長 4名</span></div><div class="st-member"><span class="st-org">千葉</span><span class="st-title">理事 5名</span></div></div>
-      <div class="seat-table"><div class="st-num">T25</div><div class="st-member"><span class="st-org">近畿</span><span class="st-title">理事 9名</span></div></div>
-      <div class="seat-table"><div class="st-num">T26</div><div class="st-member"><span class="st-org">近畿</span><span class="st-title">監査役・青年部長 2名</span></div><div class="st-member"><span class="st-org">四国</span><span class="st-title">理事 7名</span></div></div>
-      <div class="seat-table"><div class="st-num">T27</div><div class="st-member"><span class="st-org">四国</span><span class="st-title">理事・会計 6名</span></div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">3名</span></div></div>
-    </div>
-
-    <!-- Row 4: Tables 28-37 -->
-    <div class="seat-row-label">4列目（テーブル28〜37）北陸会員・事務局 ー 会場奥</div>
-    <div class="seat-grid">
-      <div class="seat-table"><div class="st-num">T28</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 10名</span></div></div>
-      <div class="seat-table"><div class="st-num">T29</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 10名</span></div></div>
-      <div class="seat-table"><div class="st-num">T30</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 10名</span></div></div>
-      <div class="seat-table"><div class="st-num">T31</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 10名</span></div></div>
-      <div class="seat-table"><div class="st-num">T32</div><div class="st-member"><span class="st-org">各支部</span><span class="st-title">事務局 9名</span></div></div>
-      <div class="seat-table"><div class="st-num">T33</div><div class="st-member"><span class="st-org">名古屋</span><span class="st-title">理事 5名</span></div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">4名</span></div></div>
-      <div class="seat-table"><div class="st-num">T34</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 9名</span></div></div>
-      <div class="seat-table"><div class="st-num">T35</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 9名</span></div></div>
-      <div class="seat-table"><div class="st-num">T36</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">会員 5名（空席あり）</span></div></div>
-      <div class="seat-table"><div class="st-num">T37</div><div class="st-member"><span class="st-org">北陸</span><span class="st-title">（予備テーブル）</span></div></div>
-    </div>
-  </div>
-
-  <h2>テーブル4・5・6 詳細（主賓席）</h2>
-  <div class="section-box">
-    <h3>テーブル5（最上席）</h3>
-    <table class="light-table">
-      <thead><tr><th>席</th><th>所属</th><th>肩書</th><th>氏名</th><th>登壇</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>清水建設</td><td>代表取締役会長</td><td><ruby>井上<rt>いのうえ</rt></ruby> <ruby>和幸<rt>かずゆき</rt></ruby></td><td style="color:#c62828;font-weight:bold;">祝辞</td></tr>
-        <tr><td>2</td><td>清水建設</td><td>執行役員 北陸支店長</td><td><ruby>角野<rt>かどの</rt></ruby> <ruby>淳一郎<rt>じゅんいちろう</rt></ruby></td><td></td></tr>
-        <tr><td>3</td><td>全国連合兼喜会</td><td>会長</td><td><ruby>青木<rt>あおき</rt></ruby> <ruby>茂<rt>しげる</rt></ruby></td><td style="color:#c62828;font-weight:bold;">挨拶</td></tr>
-        <tr><td>4</td><td>北陸兼喜会</td><td>会長</td><td><ruby>青山<rt>あおやま</rt></ruby> <ruby>悟<rt>さとる</rt></ruby></td><td style="color:#c62828;font-weight:bold;">歓迎挨拶</td></tr>
-        <tr><td>5</td><td>北海道兼喜会</td><td>会長</td><td><ruby>嶋守<rt>しまもり</rt></ruby> <ruby>吉範<rt>よしのり</rt></ruby></td><td style="color:#c62828;font-weight:bold;">次期支部</td></tr>
-        <tr><td>6</td><td>九州兼喜会</td><td>会長</td><td><ruby>篠森<rt>しのもり</rt></ruby> <ruby>義晴<rt>よしはる</rt></ruby></td><td></td></tr>
-        <tr><td>7</td><td>近畿兼喜会</td><td>会長</td><td><ruby>岩田<rt>いわた</rt></ruby> <ruby>正吾<rt>しょうご</rt></ruby></td><td></td></tr>
-        <tr><td>8</td><td>横浜兼喜会</td><td>会長</td><td><ruby>浅岡<rt>あさおか</rt></ruby> <ruby>新二<rt>しんじ</rt></ruby></td><td></td></tr>
-        <tr><td>9</td><td>東京兼喜会</td><td>相談役</td><td><ruby>中橋<rt>なかはし</rt></ruby> <ruby>博治<rt>ひろはる</rt></ruby></td><td></td></tr>
-      </tbody>
-    </table>
-    <h3 style="margin-top:16px;">テーブル4（主賓席）</h3>
-    <table class="light-table">
-      <thead><tr><th>席</th><th>所属</th><th>肩書</th><th>氏名</th><th>登壇</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>清水建設</td><td>代表取締役社長</td><td><ruby>新村<rt>しんむら</rt></ruby> <ruby>達也<rt>たつや</rt></ruby></td><td></td></tr>
-        <tr><td>2</td><td>清水建設</td><td>北陸支店 副支店長</td><td><ruby>近藤<rt>こんどう</rt></ruby> <ruby>秀之<rt>ひでゆき</rt></ruby></td><td></td></tr>
-        <tr><td>3</td><td>北陸兼喜会</td><td>副会長</td><td><ruby>中橋<rt>なかはし</rt></ruby> <ruby>隆文<rt>たかふみ</rt></ruby></td><td style="color:#c62828;font-weight:bold;">閉会挨拶</td></tr>
-        <tr><td>4</td><td>全国連合兼喜会</td><td>副会長</td><td><ruby>石井<rt>いしい</rt></ruby> <ruby>映雄<rt>てるお</rt></ruby></td><td></td></tr>
-        <tr><td>5</td><td>名古屋兼喜会</td><td>会長</td><td><ruby>江崎<rt>えさき</rt></ruby> <ruby>竜優<rt>たつまさ</rt></ruby></td><td></td></tr>
-        <tr><td>6</td><td>東北兼喜会</td><td>会長</td><td><ruby>岑<rt>みね</rt></ruby> <ruby>直樹<rt>なおき</rt></ruby></td><td></td></tr>
-        <tr><td>7</td><td>北海道兼喜会</td><td>副会長</td><td><ruby>長谷川<rt>はせがわ</rt></ruby> <ruby>将志<rt>まさし</rt></ruby></td><td></td></tr>
-        <tr><td>8</td><td>四国兼喜会</td><td>会長</td><td>武田 美治</td><td></td></tr>
-        <tr><td>10</td><td>関東兼喜会</td><td>副会長</td><td><ruby>佐藤<rt>さとう</rt></ruby> <ruby>栄作<rt>えいさく</rt></ruby></td><td></td></tr>
-      </tbody>
-    </table>
-    <h3 style="margin-top:16px;">テーブル6（主賓席）</h3>
-    <table class="light-table">
-      <thead><tr><th>席</th><th>所属</th><th>肩書</th><th>氏名</th><th>登壇</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>清水建設</td><td>副社長執行役員 建築総本部長</td><td><ruby>堤<rt>つつみ</rt></ruby> <ruby>義人<rt>よしと</rt></ruby></td><td style="color:#c62828;font-weight:bold;">乾杯</td></tr>
-        <tr><td>2</td><td>清水建設</td><td>北陸支店 副支店長</td><td><ruby>内山<rt>うちやま</rt></ruby> <ruby>秀樹<rt>ひでき</rt></ruby></td><td></td></tr>
-        <tr><td>3</td><td>北陸兼喜会</td><td>副会長</td><td><ruby>高村<rt>たかむら</rt></ruby> <ruby>明彦<rt>あきひこ</rt></ruby></td><td style="color:#c62828;font-weight:bold;">返礼万歳</td></tr>
-        <tr><td>4</td><td>関東兼喜会</td><td>会長</td><td><ruby>饗場<rt>あいば</rt></ruby> <ruby>紀仁<rt>のりひと</rt></ruby></td><td></td></tr>
-        <tr><td>5</td><td>千葉兼喜会</td><td>会長</td><td><ruby>梶原<rt>かじわら</rt></ruby> <ruby>博<rt>ひろし</rt></ruby></td><td></td></tr>
-        <tr><td>6</td><td>広島兼喜会</td><td>副会長</td><td><ruby>川頭<rt>かわがしら</rt></ruby> <ruby>康弘<rt>やすひろ</rt></ruby></td><td></td></tr>
-        <tr><td>7</td><td>東北兼喜会</td><td>副会長</td><td><ruby>江村<rt>えむら</rt></ruby> <ruby>克志<rt>かつし</rt></ruby></td><td></td></tr>
-        <tr><td>8</td><td>千葉兼喜会</td><td>副会長</td><td><ruby>樋脇<rt>ひわき</rt></ruby> <ruby>毅<rt>たけし</rt></ruby></td><td></td></tr>
-        <tr><td>9</td><td>横浜兼喜会</td><td>副会長</td><td><ruby>池田<rt>いけだ</rt></ruby> <ruby>直熊<rt>なおくま</rt></ruby></td><td></td></tr>
-      </tbody>
-    </table>
-    <h3 style="margin-top:16px;">テーブル3</h3>
-    <table class="light-table">
-      <thead><tr><th>席</th><th>所属</th><th>肩書</th><th>氏名</th><th>登壇</th></tr></thead>
-      <tbody>
-        <tr><td>1</td><td>清水建設</td><td>副社長執行役員 土木総本部長</td><td><ruby>齋藤<rt>さいとう</rt></ruby> <ruby>武文<rt>たけふみ</rt></ruby></td><td style="color:#c62828;font-weight:bold;">中締め</td></tr>
-        <tr><td>2</td><td>清水建設</td><td>北陸支店 副支店長</td><td><ruby>菅原<rt>すがわら</rt></ruby> <ruby>竜也<rt>たつや</rt></ruby></td><td></td></tr>
-        <tr><td>3</td><td>東京兼喜会</td><td>副会長</td><td><ruby>多賀谷<rt>たがや</rt></ruby> <ruby>充<rt>みつる</rt></ruby></td><td></td></tr>
-        <tr><td>4</td><td>北陸兼喜会</td><td>副会長</td><td><ruby>栗山<rt>くりやま</rt></ruby> <ruby>公伸<rt>きみのぶ</rt></ruby></td><td></td></tr>
-        <tr><td>5-10</td><td colspan="3">千葉・関東・近畿・四国 副会長 6名</td><td></td></tr>
-      </tbody>
-    </table>
+    <div id="seating-render"></div>
   </div>
 
 </div><!-- /container -->
@@ -972,6 +825,59 @@ function jumpTo(tab, id) {
 function ensureTab(tab) {
   switchTab(tab);
 }
+
+// === Seating Data & Renderer ===
+const SEATS={"1":[[1,"清水","購買本部 副本部長","西口　大良"],[2,"清水","建築総本部 購買本部 SC強化センター長","岡田　直之"],[3,"清水","建築総本部 購買本部 SC強化センター","渡辺　美樹"],[4,"東京","常任理事","沖　哲也"],[5,"東京","常任理事","木下　清輝"],[6,"東京","常任理事","蛭間　正道"],[7,"東京","常任理事","岡野　道正"],[8,"東京","常任理事","帆足　徹"],[10,"東京","理事","柳田　竜幸"]],"2":[[1,"清水","安全環境本部長","塚田　泰三"],[2,"清水","北陸支店 副支店長","陰山　昭徳"],[3,"広島","副会長","石崎　成一郎"],[4,"名古屋","副会長","大竹　喜一郎"],[5,"横浜","副会長","井上　達治"],[6,"九州","副会長","日高　輝幸"],[7,"東京","副会長","細井　一司"],[8,"四国","副会長","新田　国男"],[9,"関東","副会長","佐伯　一"],[10,"関東","副会長","君山　毅"]],"3":[[1,"清水","副社長執行役員 土木総本部長","齋藤　武文"],[2,"清水","北陸支店 副支店長","菅原　竜也"],[3,"東京","副会長","多賀谷　充"],[4,"北陸","副会長","栗山　公伸"],[5,"千葉","副会長","原田　雅章"],[6,"関東","副会長","大久保　公雄"],[7,"関東","副会長","金田　剛"],[8,"近畿","副会長","森　致光"],[9,"四国","副会長","北岡　守男"]],"4":[[1,"清水","代表取締役社長","新村　達也"],[2,"清水","北陸支店 副支店長","近藤　秀之"],[3,"北陸","副会長","中橋　隆文"],[4,"東京","全国連合兼喜会 副会長","石井　映雄"],[5,"名古屋","会長","江崎　竜優"],[6,"東北","会長","岑　直樹"],[7,"北海道","副会長","長谷川　将志"],[8,"四国","会長","武田　美治"],[10,"関東","副会長","佐藤　栄作"]],"5":[[1,"清水","代表取締役会長","井上　和幸"],[2,"清水","執行役員 北陸支店長","角野　淳一郎"],[3,"東京","全国連合兼喜会 会長","青木　茂"],[4,"北陸","会長","青山　悟"],[5,"北海道","会長","嶋守　吉範"],[6,"九州","会長","篠森　義晴"],[7,"近畿","会長","岩田　正吾"],[8,"横浜","会長","浅岡　新二"],[9,"東京","相談役","中橋　博治"]],"6":[[1,"清水","副社長執行役員 建築総本部長","堤　義人"],[2,"清水","北陸支店 副支店長","内山　秀樹"],[3,"北陸","副会長","高村　明彦"],[4,"関東","会長","饗場　紀仁"],[5,"千葉","会長","梶原　博"],[6,"広島","副会長","川頭　康弘"],[7,"東北","副会長","江村　克志"],[8,"千葉","副会長","樋脇　毅"],[9,"横浜","副会長","池田　直熊"]],"7":[[1,"清水","建築総本部 購買担当","原田　知明"],[2,"清水","北陸支店 調達部長","江口　将司"],[3,"北陸","副会長","伊藤　潔"],[4,"近畿","副会長","堀内　偉也"],[5,"東京","副会長","鈴木　寛"],[6,"名古屋","副会長","青山　巧"],[7,"九州","副会長","島田　茂"],[8,"北海道","副会長","佐々木　道志"],[9,"広島","副会長","藤原　透"]],"8":[[1,"清水","購買本部長","山岡　正徳"],[2,"清水","北陸支店 安全環境部長","佐藤　彰"],[3,"四国","副会長","中野　良紀"],[4,"北海道","副会長","長谷川　雄一"],[5,"千葉","副会長","市川　利夫"],[6,"広島","副会長","長崎　邦彦"],[7,"九州","副会長","日高　輝幸"],[8,"近畿","副会長","渡邉　寛明"],[9,"東京","副会長","前橋　一登"],[10,"近畿","副会長","伊藤　元雄"]],"9":[[1,"清水","購買本部 管理部 主査","常田　美奈"],[2,"清水","購買本部 管理部","黒岩　重夫"],[3,"清水","北陸支店 調達部主査","高瀨　正人"],[4,"北海道","会計理事","荒井　竜一"],[5,"北海道","理事","竹林　真左光"],[6,"北海道","理事","村上　仁"],[7,"北海道","理事","増井　信一"],[8,"北海道","理事","中塚　佳愛"],[9,"北海道","理事","三上　雄司"]],"10":[[1,"東京","理事","太田　剛"],[2,"東京","理事","柏﨑　剛彦"],[3,"東京","理事","河野　豊"],[4,"東京","理事","黒川　大輔"],[5,"東京","会計監事","葭原　隆雄"],[6,"東京","会計監事","桑原　成浩"],[7,"横浜","会計理事","青木　泰政"],[8,"横浜","会計理事","𠮷武　伸紀"],[10,"横浜","理事","関口　昭治"]],"11":[[1,"横浜","理事","山本　裕宣"],[2,"横浜","理事","山下　富美雄"],[3,"横浜","2028横浜大会担当","田畑　博章"],[4,"横浜","会員","酒井　剛"],[5,"横浜","会員","福羅　博行"],[6,"横浜","青年部","鈴木　亮太"],[7,"横浜","青年部","小野寺　翔吾"],[8,"横浜","青年部","下山　直樹"],[9,"横浜","理事","西澤　貴"]],"12":[[1,"関東","理事","増田　久仁彦"],[2,"関東","理事","長坂　圭"],[3,"関東","理事","平林　努"],[4,"関東","理事","涌井　佑一"],[5,"関東","理事","波多野　健壽"],[6,"関東","理事","古川　憲幸"],[7,"関東","理事","岩永　大樹"],[8,"関東","会計監査","西山　光久"],[9,"関東","理事","沼田　文次"]],"13":[[1,"広島","理事","高柳　直也"],[2,"広島","同伴者","渡橋　真奈美"],[3,"広島","同伴者","高柳　さつき"],[4,"広島","理事","渡橋　博"],[5,"広島","理事","高橋　秀彦"],[6,"広島","理事","三宅　学"],[7,"広島","同伴者","高橋　和奈"],[8,"広島","理事","津村　佳寛"],[9,"広島","理事","土屋　孝明"]],"14":[[1,"清水","調達部","橋本　俊二"],[2,"名古屋","副会長","石原　貴志"],[3,"名古屋","常任理事","後藤　寛明"],[4,"名古屋","同伴者","石原　真澄"],[5,"名古屋","常任理事","柳　一幸"],[6,"名古屋","常任理事","松岡　純司"],[7,"名古屋","相談役","玉木　信介"],[8,"名古屋","同伴者","松岡　ひかる"],[9,"名古屋","同伴者","玉木　美智子"]],"15":[[1,"清水","九州支店 調達部長","谷口　和義"],[2,"九州","理事","西村　誠"],[3,"九州","理事","山元　健蔵"],[4,"九州","理事","杉山　英治"],[5,"九州","理事兼鹿児島支部長","橋之口　一善"],[6,"九州","理事兼佐賀支部長","坂村　將隆"],[7,"九州","理事","秋永　正信"],[8,"九州","会計監査兼熊本支部長","永井　毅"],[9,"九州","北九州支部長","清原　寿雄"]],"16":[[1,"近畿","常任理事","石渡　年樹"],[2,"近畿","常任理事","亀井　清"],[3,"近畿","常任理事","五嶋　久仁"],[4,"近畿","常任理事","下川　裕司"],[5,"近畿","常任理事","赤坂　志郎"],[6,"近畿","常任理事","守田　真也"],[7,"近畿","常任理事","山辺　元康"],[8,"近畿","常任理事","北浦　雄之助"],[9,"近畿","理事","杉浦　茂樹"]],"17":[[1,"北海道","理事","佐藤　友昭"],[2,"北海道","理事","坂田　暁洋"],[3,"東北","理事","藤澤　正義"],[4,"東北","理事","佐藤　隆彦"],[5,"東北","理事","仙波　弘行"],[6,"東北","理事","古川　文雄"],[7,"東北","理事","菊田　潔"],[8,"東北","監事","三上　龍治"]],"18":[[1,"北海道","青年部副部長","藤井　隆裕"],[2,"北海道","青年部副部長","櫻田　泰己"],[3,"北海道","青年部会計幹事","黒澤　文恵"],[4,"北海道","青年部幹事","高野　文孝"],[5,"北海道","青年部幹事","目黒　拓哉"],[6,"北海道","青年部幹事","奥村　英明"],[7,"北海道","青年部幹事","青木　徹"],[8,"北海道","青年部幹事","内海　大"],[9,"北海道","青年部幹事","金山　英勢"]],"19":[[1,"北陸","理事","小林　一清"],[2,"北陸","理事","渋谷　卓也"],[3,"北陸","理事","後藤　真"],[4,"北陸","理事","霜田　英一"],[5,"北陸","理事","朝倉　潤一"],[6,"北陸","","岡部　隆"],[7,"北陸","","高橋　弘之"],[8,"北陸","","五十嵐　公一"],[9,"北陸","","山上　大輔"]],"20":[[1,"北陸","相談役","豊蔵　世紀"],[2,"北陸","監事","本田　誠一"],[3,"北陸","理事","青山　毅士"],[4,"北陸","理事","石動　嘉信"],[5,"北陸","理事","北川　文洋"],[6,"北陸","理事","雪城　勉"],[7,"北陸","理事","在田　吉宏"],[8,"北陸","理事","大坂　善春"],[9,"北陸","理事","酒井　修"]],"21":[[1,"広島","理事","宮崎　隆"],[2,"広島","理事","田嶋　広美"],[3,"広島","理事","姫田　靖彦"],[4,"広島","理事","廣岩　勝彦"],[5,"広島","理事","嶋原　邦浩"],[6,"北陸","総務理事","辻　匡"],[7,"北陸","会計理事","南　志郎"],[8,"北陸","総務理事","豊蔵　享一"],[9,"北陸","監事","石森　良隆"]],"22":[[1,"広島","理事","岡本　利治"],[2,"広島","同伴者","岡﨑　美智子"],[3,"広島","同伴者","岡本　道子"],[4,"広島","理事","岡﨑　憲治"],[5,"広島","理事","古志野　功"],[6,"広島","同伴者","安田　博子"],[7,"広島","同伴者","古志野　純子"],[8,"広島","理事","安田　郁夫"]],"23":[[1,"名古屋","常任理事","近藤　信秀"],[2,"名古屋","常任理事","佐川　元規"],[3,"名古屋","理事","東條　真也"],[4,"名古屋","理事","石上　眞司"],[5,"名古屋","理事","内藤　敏之"],[6,"名古屋","理事","尾関　光正"],[7,"名古屋","理事","加藤　礼子"],[8,"名古屋","理事","山口　洋平"],[9,"名古屋","理事","木村　亮一"]],"24":[[1,"九州","長崎支部長","折式田　一豊"],[2,"九州","大分支部長","佐藤　清隆"],[3,"九州","宮崎支部長","景山　孝"],[4,"九州","沖縄支部長","池間　秀勝"],[5,"千葉","理事","君塚　太"],[6,"千葉","理事","上村　昭久"],[7,"千葉","理事","石原　力也"],[8,"千葉","理事","櫻井　龍介"],[9,"千葉","理事","奥山　栄臣"]],"25":[[1,"近畿","理事","小漆間　繁雄"],[2,"近畿","理事","松浦　博之"],[3,"近畿","理事","五藤　晃弘"],[4,"近畿","理事","西田　欣泰"],[5,"近畿","理事","竹田　幸平"],[6,"近畿","理事","森原　和夫"],[7,"近畿","理事","馬場園　憲一"],[8,"近畿","理事","金山　明憲"],[9,"近畿","理事","林　真志"]],"26":[[1,"近畿","監査役","佐々木　正洋"],[2,"近畿","青年部長","籠谷　裕介"],[3,"四国","理事","美登　剛一"],[4,"四国","理事","岡村　真史"],[5,"四国","理事","永瀬　勝太郎"],[6,"四国","理事","伊藤　壽一"],[7,"四国","理事","窪田　博年"],[8,"四国","理事","青木　聡太"],[9,"四国","理事","伊東　孝浩"]],"27":[[1,"四国","理事","西真田　公"],[2,"四国","理事","木村　義治"],[3,"四国","理事","中平　博章"],[4,"四国","理事","田所　竜一郎"],[5,"四国","会計理事","藤谷　直樹"],[6,"四国","会計監査","矢代　雄二"]],"28":[],"29":[[1,"北陸","","峯岸　康則"],[2,"北陸","","林　実"],[3,"北陸","","五十嵐　雅和"],[4,"北陸","","桜井　誠"],[5,"北陸","","海藤　直樹"],[6,"北陸","","諸橋　和彦"],[7,"北陸","","渋谷　博"],[8,"北陸","","平林　健恒"]],"30":[[1,"北陸","","田伏　真二郎"],[2,"北陸","","永井　秀宗"],[3,"北陸","","細田　雅裕"],[4,"北陸","","近藤　浩之"],[5,"北陸","","中村　謙吾"],[6,"北陸","","四井　慎一"],[7,"北陸","","中村　肇"],[8,"北陸","","池田　竜一"],[9,"北陸","","酒井　基成"]],"31":[[1,"北陸","","大森　鐘成"],[2,"北陸","","大湯　義秀"],[3,"北陸","","額谷　伸幸"],[4,"北陸","","冨久尾　裕喜"],[5,"北陸","","小杉　和史"],[6,"北陸","","桐畑　剛"],[7,"北陸","","岡本　茂夫"],[8,"北陸","","鍛治　渉"],[9,"北陸","","吉田　修治"]],"32":[[1,"東京","事務局","石森　真紀"],[2,"東京","事務局","高橋　早希"],[3,"東京","事務局","菅原　一恵"],[4,"北海道","事務局","細川　眞弓"],[5,"東北","事務局","山内　裕子"],[6,"千葉","事務局","岡﨑　美保"],[7,"横浜","事務局","保坂　康子"],[8,"名古屋","事務局","服部　芳美"],[9,"近畿","事務局","宮地　晶子"]],"33":[[1,"名古屋","理事","佐野　吉一"],[2,"名古屋","理事","金神　徹尚"],[3,"名古屋","理事","樋渡　直樹"],[4,"名古屋","理事","野添　幹正"],[5,"名古屋","会計監事","後藤　毅"],[6,"北陸","","細川　征秋"],[7,"北陸","","操川　友佑"],[8,"北陸","","西能　徹"],[9,"北陸","","鹿瀬島　隆一"]],"34":[[1,"北陸","","平野　勝之"],[2,"北陸","","坪田　大輝"],[3,"北陸","","小村　弘充"],[4,"北陸","","萩野　充弘"],[5,"北陸","","氷見山　茂喜"],[6,"北陸","","松下　常雄"],[7,"北陸","","相馬　宏昭"],[8,"北陸","","吉田　良"],[9,"北陸","","土井　信博"]],"35":[[1,"北陸","","近藤　祐樹"],[2,"北陸","","森國　茂治"],[3,"北陸","","平野　宏之"],[4,"北陸","","児島　利彦"],[5,"北陸","","水間　弘樹"],[6,"北陸","","長谷川　岳史"],[7,"北陸","","西村　幸治"],[8,"北陸","","細井　勝弘"],[9,"北陸","","髙橋　隆男"]],"36":[[1,"北陸","","松下　哲也"],[2,"北陸","","村上　重則"],[3,"北陸","","鵜飼　等志"],[4,"北陸","","小林　俊介"],[5,"北陸","","吉田　宗久"]],"37":[]};
+
+const SPEAKERS={"井上　和幸":"祝辞","堤　義人":"乾杯","齋藤　武文":"中締め","青山　悟":"歓迎挨拶","青木　茂":"挨拶","嶋守　吉範":"次期支部","高村　明彦":"返礼万歳","中橋　隆文":"閉会挨拶","新村　達也":"社長"};
+const VIP=[3,4,5,6];
+const SC_TABLES=[1,9];
+const ROWS=[
+  {label:"前列（T1〜T9）SC役員・各支部会長",tables:[1,2,3,4,5,6,7,8,9]},
+  {label:"2列目（T10〜T18）各支部理事・青年部",tables:[10,11,12,13,14,15,16,17,18]},
+  {label:"3列目（T19〜T27）北陸理事・広島・名古屋他",tables:[19,20,21,22,23,24,25,26,27]},
+  {label:"4列目（T28〜T37）北陸会員・事務局",tables:[28,29,30,31,32,33,34,35,36,37]}
+];
+
+function renderSeating(){
+  const root=document.getElementById('seating-render');
+  if(!root)return;
+  let html='';
+  for(const row of ROWS){
+    html+=`<div class="seat-row-label">${row.label}</div><div class="seat-grid">`;
+    for(const t of row.tables){
+      const members=SEATS[t]||[];
+      const isVip=VIP.includes(t);
+      const isSc=SC_TABLES.includes(t);
+      const cls=isVip?'seat-table vip':isSc?'seat-table sc':'seat-table';
+      const label=t===5?'T5 ★最上席':t===4||t===6?`T${t} ★主賓`:`T${t}`;
+      // Build summary: count + main orgs
+      const orgs={};
+      members.forEach(m=>{orgs[m[1]]=(orgs[m[1]]||0)+1;});
+      const orgSummary=Object.entries(orgs).map(([k,v])=>`<span class="st-org">${k}</span>${v}名`).join('　');
+      // Build detail table
+      let detail='<table><thead><tr><th>席</th><th>所属</th><th>肩書</th><th>氏名</th></tr></thead><tbody>';
+      for(const m of members){
+        const sp=SPEAKERS[m[3]];
+        const spCls=sp?` class="sp"`:'';
+        const spTag=sp?`<span style="color:#c62828;font-size:.68rem;font-weight:bold;margin-left:4px;">【${sp}】</span>`:'';
+        const title=m[2]&&!m[2].match(/^[0-9]+$/)?m[2]:'';
+        detail+=`<tr><td>${m[0]}</td><td>${m[1]}</td><td>${title}</td><td${spCls}>${m[3]}${spTag}</td></tr>`;
+      }
+      detail+='</tbody></table>';
+      const count=members.length;
+      html+=`<div class="${cls}" onclick="this.classList.toggle('open')">`;
+      html+=`<div class="st-summary"><div><div class="st-num">${label}</div>`;
+      html+=`<div style="font-size:.72rem;color:#888;margin-top:2px;">${orgSummary||'（予備）'}</div></div>`;
+      html+=`<span class="st-arrow">${count?count+'名 ▼':'—'}</span></div>`;
+      if(count) html+=`<div class="st-detail">${detail}</div>`;
+      html+=`</div>`;
+    }
+    html+=`</div>`;
+  }
+  root.innerHTML=html;
+}
+document.addEventListener('DOMContentLoaded',renderSeating);
 </script>
 
 </body>
