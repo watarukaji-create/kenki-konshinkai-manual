@@ -259,7 +259,10 @@
   .pv-points strong{color:#c62828;}
   .pv-points ul{margin:6px 0 0 18px;padding:0;}
   .pv-points li{margin-bottom:4px;line-height:1.5;}
-  .pv-contact{margin-top:12px;padding:8px 12px;background:#f8f6f3;border-radius:6px;font-size:.78rem;color:#555;}
+  .pv-contact{display:flex;align-items:center;gap:8px;margin-top:12px;padding:12px 14px;background:linear-gradient(135deg,#1b5e20,#2e7d32);border-radius:8px;font-size:.95rem;color:#fff;text-decoration:none;font-weight:bold;box-shadow:0 2px 6px rgba(27,94,32,.25);}
+  .pv-contact:hover,.pv-contact:active{background:linear-gradient(135deg,#2e7d32,#388e3c);}
+  .pv-contact .pc-icon{font-size:1.2rem;}
+  .pv-contact .pc-sub{font-size:.7rem;font-weight:normal;opacity:.85;margin-left:auto;}
   .pv-time-toggle{margin-top:14px;padding:10px 14px;background:#f0f4fa;border-radius:8px;font-size:.78rem;color:#555;}
   .pv-time-toggle label{display:flex;align-items:center;gap:6px;cursor:pointer;}
   .pv-time-toggle input{margin:0;}
@@ -1236,7 +1239,7 @@ const STAFF=[
      {t:'18:00',task:'懇親会'},
      {t:'20:30',task:'二次会：仲の家（主計）',loc:'お茶屋 仲の家',hint:'計8名／齊藤SC副社長・塚田SC本部長・(清水SC専務?)・菅原SC副支店長・朝倉さん〇・新潟2名（高橋・伊藤亮）〇'},
    ]},
-  {id:'kuriyama',name:'栗山 公伸',full:'栗山 公伸（きみのぶ）',group:'exec',role:'北陸 副会長（閉会の辞）',company:'',sokai:true,niji:'はん家（西）',
+  {id:'kuriyama',name:'栗山 公伸',full:'栗山 公伸（きみのぶ）',group:'exec',role:'北陸 副会長（閉会の辞）',company:'',contact:'080-4250-2196',sokai:true,niji:'はん家（西）',
    schedule:[
      {t:'14:00',task:'リハーサル'},{t:'16:00',task:'定時総会出席（閉会の辞 17:28〜）'},
      {t:'18:00',task:'懇親会'},
@@ -1264,7 +1267,7 @@ const STAFF=[
      {t:'20:20',task:'★お茶屋 はん家へ先発（出迎え待機）',loc:'お茶屋 はん家',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。'},
      {t:'20:30',task:'二次会：はん家（西）',loc:'お茶屋 はん家'},
    ]},
-  {id:'minami',name:'南 志郎',full:'南 志郎',group:'exec',role:'北陸 会計理事',company:'金太',sokai:true,niji:'八の福（東）',welcome:true,
+  {id:'minami',name:'南 志郎',full:'南 志郎',group:'exec',role:'北陸 会計理事',company:'金太',contact:'090-2127-4688',sokai:true,niji:'八の福（東）',welcome:true,
    schedule:[
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
@@ -1296,7 +1299,7 @@ const STAFF=[
    points:['Q出しは時間軸基本。登壇者・会長・社長不在の場合は待機','各担当の休憩は北川裕・吉田が適宜交代','二次会では支部別人数カウントが青年部の主役割']},
 
   // ===== 緑チーム：案内（金沢駅→ANA） =====
-  {id:'yoshida',name:'吉田 有祐',short:'吉田',full:'吉田 有祐',group:'green',role:'案内リーダー（緑チーム）',company:'三幸電設',incom:true,
+  {id:'yoshida',name:'吉田 有祐',short:'吉田',full:'吉田 有祐',group:'green',role:'案内リーダー（緑チーム）',company:'三幸電設',contact:'090-7099-3347',incom:true,
    schedule:[
      {t:'10:00',task:'リーダー朝礼',loc:'ANA 2階'},
      {t:'13:00',task:'案内準備'},
@@ -1306,7 +1309,7 @@ const STAFF=[
      {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェック。'},
    ],
    points:['各担当の休憩は北川裕・吉田が適宜交代','二次会では支部別人数カウントが主役割']},
-  {id:'oyu',name:'大湯 義秀',short:'大湯',full:'大湯 義秀',group:'green',role:'①金沢駅新幹線改札',company:'大湯板金',sokai:true,
+  {id:'oyu',name:'大湯 義秀',short:'大湯',full:'大湯 義秀',group:'green',role:'①金沢駅新幹線改札',company:'大湯板金',contact:'090-1634-6910',sokai:true,
    schedule:[
      {t:'13:00',task:'全体朝礼',loc:'ANA 2階'},
      {t:'14:00',task:'案内準備'},
@@ -1314,7 +1317,7 @@ const STAFF=[
      {t:'16:00',task:'定時総会出席',loc:'音楽堂2階 邦楽ホール'},
      {t:'18:00',task:'懇親会',loc:'ANA 3階 鳳の間'},
    ]},
-  {id:'misogawa',name:'操川 友佑',short:'操川',full:'操川 友佑',group:'green',role:'②金沢駅兼六園口',company:'城西運輸機工',sokai:true,
+  {id:'misogawa',name:'操川 友佑',short:'操川',full:'操川 友佑',group:'green',role:'②金沢駅兼六園口',company:'城西運輸機工',contact:'090-1631-7437',sokai:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
@@ -1322,7 +1325,7 @@ const STAFF=[
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'fukuo',name:'冨久尾 裕喜',short:'富久尾',full:'冨久尾 裕喜',group:'green',role:'③金沢駅モニュメント',company:'金沢セメント商事',sokai:true,
+  {id:'fukuo',name:'冨久尾 裕喜',short:'富久尾',full:'冨久尾 裕喜',group:'green',role:'③金沢駅モニュメント',company:'金沢セメント商事',contact:'090-9762-8801',sokai:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
@@ -1330,7 +1333,7 @@ const STAFF=[
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'arita',name:'在田 吉宏',short:'在田',full:'在田 吉宏',group:'green',role:'④ANA曲がり角（青年部副部長）',company:'アリタ',sokai:true,
+  {id:'arita',name:'在田 吉宏',short:'在田',full:'在田 吉宏',group:'green',role:'④ANA曲がり角（青年部副部長）',company:'アリタ',contact:'080-6364-3051',sokai:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
@@ -1338,7 +1341,7 @@ const STAFF=[
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'kirihata',name:'桐畑 剛',short:'桐畑',full:'桐畑 剛',group:'green',role:'⑤ANA曲がり角',company:'桐畑',sokai:true,
+  {id:'kirihata',name:'桐畑 剛',short:'桐畑',full:'桐畑 剛',group:'green',role:'⑤ANA曲がり角',company:'桐畑',contact:'090-3885-6875',sokai:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
@@ -1346,7 +1349,7 @@ const STAFF=[
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'honda',name:'本田 誠一',short:'本田',full:'本田 誠一（ほんだ せいいち）',group:'green',role:'⑥ANA出入口（全体統括）',company:'本田鉄工',sokai:true,niji:'八の福（東）',
+  {id:'honda',name:'本田 誠一',short:'本田',full:'本田 誠一（ほんだ せいいち）',group:'green',role:'⑥ANA出入口（全体統括）',company:'本田鉄工',contact:'090-4309-9650',sokai:true,niji:'八の福（東）',
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
@@ -1356,7 +1359,7 @@ const STAFF=[
      {t:'20:30',task:'二次会：八の福（東）',loc:'お茶屋 八の福'},
    ],
    points:['本田・石森は青チーム（受付）と協力する','西能の指示に従う']},
-  {id:'ishimori',name:'石森 良隆',short:'石森',full:'石森 良隆',group:'green',role:'⑥ANA出入口（北陸監事）',company:'石森木工',sokai:true,
+  {id:'ishimori',name:'石森 良隆',short:'石森',full:'石森 良隆',group:'green',role:'⑥ANA出入口（北陸監事）',company:'石森木工',contact:'090-6813-1169',sokai:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
@@ -1367,7 +1370,7 @@ const STAFF=[
    points:['本田・石森は青チーム（受付）と協力する','西能の指示に従う']},
 
   // ===== 青チーム：受付（→17時 黄チーム 案内 音楽堂→ANA） =====
-  {id:'sainou',name:'西能 立',short:'西能',full:'西能 立',group:'blue',role:'受付リーダー（青年部幹事）',company:'第一交易',incom:true,
+  {id:'sainou',name:'西能 立',short:'西能',full:'西能 立',group:'blue',role:'受付リーダー（青年部幹事）',company:'第一交易',contact:'090-3763-0201',incom:true,
    schedule:[
      {t:'10:00',task:'リーダー朝礼',loc:'ANA 2階'},
      {t:'13:00',task:'全体朝礼',loc:'ANA 2階'},
@@ -1379,7 +1382,7 @@ const STAFF=[
      {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェックし合計が合うように管理。'},
    ],
    points:['各担当の休憩は西能が適宜交代','受付時刻（16時）を過ぎての参加者は大島と斉藤が残って対応','二次会では支部別人数カウントが主役割']},
-  {id:'oshima',name:'大島 成友',short:'大島',full:'大島 成友',group:'blue',role:'受付（北陸 76名）',company:'日本板硝子S&S',
+  {id:'oshima',name:'大島 成友',short:'大島',full:'大島 成友',group:'blue',role:'受付（北陸 76名）',company:'日本板硝子S&S',contact:'090-2375-7709',
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
@@ -1388,7 +1391,7 @@ const STAFF=[
      {t:'20:00',task:'二次会（ANA 3階 瑞雲）受入準備'},
      {t:'20:30',task:'二次会（ANA 3階 瑞雲）：支部別 人数カウント・店側との突合',loc:'ANA 3階 瑞雲',hint:'各支部からの入店人数をチェックし合計が合うように管理。'},
    ]},
-  {id:'asakura',name:'朝倉 洵平',short:'朝倉',full:'朝倉 洵平',group:'blue',role:'受付（北陸 76名）',company:'朝倉',niji:'仲の家（主計）',welcome:true,
+  {id:'asakura',name:'朝倉 洵平',short:'朝倉',full:'朝倉 洵平',group:'blue',role:'受付（北陸 76名）',company:'朝倉',contact:'080-1253-3892',niji:'仲の家（主計）',welcome:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
@@ -1398,7 +1401,7 @@ const STAFF=[
      {t:'20:20',task:'★お茶屋 仲の家へ先発（出迎え待機）',loc:'お茶屋 仲の家',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。'},
      {t:'20:30',task:'二次会：仲の家（主計）',loc:'お茶屋 仲の家'},
    ]},
-  {id:'himiyama',name:'氷見山 和喜',short:'氷見山',full:'氷見山 和喜',group:'blue',role:'受付（北海道 22名）',company:'氷見山工業',
+  {id:'himiyama',name:'氷見山 和喜',short:'氷見山',full:'氷見山 和喜',group:'blue',role:'受付（北海道 22名）',company:'氷見山工業',contact:'090-4324-2222',
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
@@ -1407,7 +1410,7 @@ const STAFF=[
      {t:'18:00',task:'懇親会：芸妓担当',loc:'ANA 3階 鳳の間'},
      {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェック。'},
    ]},
-  {id:'kondo',name:'近藤 武士',short:'近藤',full:'近藤 武士',group:'blue',role:'受付（東北・関東 19名）',company:'岸建販',
+  {id:'kondo',name:'近藤 武士',short:'近藤',full:'近藤 武士',group:'blue',role:'受付（東北・関東 19名）',company:'岸建販',contact:'090-1394-5765',
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
@@ -1416,7 +1419,7 @@ const STAFF=[
      {t:'18:00',task:'懇親会：レセプタント担当',loc:'ANA 3階 鳳の間'},
      {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェック。'},
    ]},
-  {id:'saito',name:'斉藤 康弘',short:'斉藤',full:'斉藤 康弘',group:'blue',role:'受付（東京 22名）',company:'ヨシダ宣伝',
+  {id:'saito',name:'斉藤 康弘',short:'斉藤',full:'斉藤 康弘',group:'blue',role:'受付（東京 22名）',company:'ヨシダ宣伝',contact:'090-6276-1607',
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
@@ -1426,7 +1429,7 @@ const STAFF=[
      {t:'20:00',task:'二次会（利恵）受入準備'},
      {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェック。'},
    ]},
-  {id:'taniguchi',name:'谷口 正輝',short:'谷口',full:'谷口 正輝',group:'blue',role:'受付（千葉・横浜 18名）',company:'S-LAP',
+  {id:'taniguchi',name:'谷口 正輝',short:'谷口',full:'谷口 正輝',group:'blue',role:'受付（千葉・横浜 18名）',company:'S-LAP',contact:'090-2121-7322',
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
@@ -1435,7 +1438,7 @@ const STAFF=[
      {t:'17:00',task:'案内 ①音楽堂2階ホール（黄チーム）',loc:'音楽堂'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'kamada',name:'鎌田 直樹',short:'鎌田',full:'鎌田 直樹',group:'blue',role:'受付（名古屋 23名）',company:'ホクコンマテリアル',
+  {id:'kamada',name:'鎌田 直樹',short:'鎌田',full:'鎌田 直樹',group:'blue',role:'受付（名古屋 23名）',company:'ホクコンマテリアル',contact:'070-4418-9971',
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
@@ -1444,7 +1447,7 @@ const STAFF=[
      {t:'17:00',task:'案内 ②音楽堂1階ホール（黄チーム）',loc:'音楽堂'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'ekawa',name:'江川 晃司',short:'江川',full:'江川 晃司',group:'blue',role:'受付（近畿 26名）',company:'オカモトハツリ',
+  {id:'ekawa',name:'江川 晃司',short:'江川',full:'江川 晃司',group:'blue',role:'受付（近畿 26名）',company:'オカモトハツリ',contact:'090-7599-3454',
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
@@ -1452,7 +1455,7 @@ const STAFF=[
      {t:'17:00',task:'案内 ⑦ANA出入口（黄チーム）',loc:'ANA'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'ishii',name:'石井 佑莉',short:'石井',full:'石井 佑莉',group:'blue',role:'受付（広島 19名）',company:'富源商事',
+  {id:'ishii',name:'石井 佑莉',short:'石井',full:'石井 佑莉',group:'blue',role:'受付（広島 19名）',company:'富源商事',contact:'080-5856-0680',
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
@@ -1460,7 +1463,7 @@ const STAFF=[
      {t:'17:00',task:'案内 ⑧ANA1階EVホール（黄チーム）',loc:'ANA 1階'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'takahashi_m',name:'高橋 護',short:'高橋',full:'高橋 護（青年部副部長／新潟）',group:'blue',role:'受付（四国 17名・青年部副部長）',company:'新日建業',niji:'仲の家（主計）',welcome:true,
+  {id:'takahashi_m',name:'高橋 護',short:'高橋',full:'高橋 護（青年部副部長／新潟）',group:'blue',role:'受付（四国 17名・青年部副部長）',company:'新日建業',contact:'090-7259-7443',niji:'仲の家（主計）',welcome:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
@@ -1470,7 +1473,7 @@ const STAFF=[
      {t:'20:20',task:'★お茶屋 仲の家へ先発（出迎え待機）',loc:'お茶屋 仲の家',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。'},
      {t:'20:30',task:'二次会：仲の家（主計）',loc:'お茶屋 仲の家'},
    ]},
-  {id:'ito_ryo',name:'伊藤 亮',short:'伊藤',full:'伊藤 亮（青年部 会計／新潟）',group:'blue',role:'受付（九州 16名）',company:'アステック',niji:'仲の家（主計）',welcome:true,
+  {id:'ito_ryo',name:'伊藤 亮',short:'伊藤',full:'伊藤 亮（青年部 会計／新潟）',group:'blue',role:'受付（九州 16名）',company:'アステック',contact:'080-1307-8566',niji:'仲の家（主計）',welcome:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
@@ -1492,7 +1495,7 @@ const STAFF=[
      {t:'18:00',task:'懇親会',loc:'ANA 3階 鳳の間'},
    ],
    points:['名札を着用していない方に声掛け、受付状況をインカムで西能と共有','関係者以外の入場をブロック','各担当の休憩は中橋が適宜交代']},
-  {id:'tsubota',name:'坪田 大輝',short:'坪田',full:'坪田 大輝',group:'red',role:'②音楽堂通路',company:'ツボ電気工事',sokai:true,
+  {id:'tsubota',name:'坪田 大輝',short:'坪田',full:'坪田 大輝',group:'red',role:'②音楽堂通路',company:'ツボ電気工事',contact:'090-3569-0953',sokai:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
@@ -1500,7 +1503,7 @@ const STAFF=[
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'aoyama_t',name:'青山 毅士',short:'青山(青年部)',full:'青山 毅士',group:'red',role:'③音楽堂通路',company:'青山',sokai:true,
+  {id:'aoyama_t',name:'青山 毅士',short:'青山(青年部)',full:'青山 毅士',group:'red',role:'③音楽堂通路',company:'青山',contact:'090-5172-4333',sokai:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
@@ -1508,7 +1511,7 @@ const STAFF=[
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'hagino',name:'萩野 充弘',short:'萩野',full:'萩野 充弘',group:'red',role:'①音楽堂横断歩道',company:'萩野塗装',sokai:true,
+  {id:'hagino',name:'萩野 充弘',short:'萩野',full:'萩野 充弘',group:'red',role:'①音楽堂横断歩道',company:'萩野塗装',contact:'090-2032-9094',sokai:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
@@ -1517,7 +1520,7 @@ const STAFF=[
      {t:'18:00',task:'懇親会'},
      {t:'20:30',task:'二次会'},
    ]},
-  {id:'isurugi',name:'石動 嘉信',short:'石動',full:'石動 嘉信',group:'red',role:'⑤音楽堂西口',company:'イスルギ',sokai:true,
+  {id:'isurugi',name:'石動 嘉信',short:'石動',full:'石動 嘉信',group:'red',role:'⑤音楽堂西口',company:'イスルギ',contact:'080-2951-0477',sokai:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
@@ -1525,7 +1528,7 @@ const STAFF=[
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'kitagawa_f',name:'北川 文洋',short:'北川文',full:'北川 文洋',group:'red',role:'④音楽堂通路',company:'北川瀝青工業',sokai:true,niji:'八の福（東）※要確認',welcome:true,
+  {id:'kitagawa_f',name:'北川 文洋',short:'北川文',full:'北川 文洋',group:'red',role:'④音楽堂通路',company:'北川瀝青工業',contact:'090-2377-5551',sokai:true,niji:'八の福（東）※要確認',welcome:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
@@ -1535,7 +1538,7 @@ const STAFF=[
      {t:'20:20',task:'★お茶屋 八の福へ先発（出迎え待機・要確認）',loc:'お茶屋 八の福',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。※事務局より「？」付きで連絡あり、要本人確認。'},
      {t:'20:30',task:'二次会：八の福（東）※要確認',loc:'お茶屋 八の福'},
    ]},
-  {id:'tanaka',name:'田中 陽介',short:'田中',full:'田中 陽介（青年部副部長）',group:'red',role:'⑦音楽堂2階ホール',company:'タッセイ',sokai:true,
+  {id:'tanaka',name:'田中 陽介',short:'田中',full:'田中 陽介（青年部副部長）',group:'red',role:'⑦音楽堂2階ホール',company:'タッセイ',contact:'090-5686-1343',sokai:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
@@ -1712,7 +1715,7 @@ function openPersonal(id){
       ${pointsHtml}
       ${(s.group==='green'||s.group==='red')?`<button class="pv-map-link" onclick="openMapForStaff('${(s.short||s.name).replace(/[ 　].*/,'').replace(/'/g,'')}','pre')">📍 受付前 配置図で位置を確認</button>`:''}
       ${(s.group==='blue')?`<button class="pv-map-link" onclick="openMapForStaff('${(s.short||s.name).replace(/[ 　].*/,'').replace(/'/g,'')}','post')">📍 総会後の案内配置図（黄チーム）で位置を確認</button>`:''}
-      ${s.contact?`<div class="pv-contact">📞 ${s.contact}</div>`:''}
+      ${s.contact?`<a class="pv-contact" href="tel:${s.contact.replace(/[^0-9+]/g,'')}"><span class="pc-icon">📞</span><span>${s.contact}</span><span class="pc-sub">タップで発信</span></a>`:''}
       <div class="pv-time-toggle ${overrideOn?'on':''}" id="pv-time-toggle">
         <label><input type="checkbox" ${overrideOn?'checked':''} onchange="toggleOverride(this)"> 時刻をシミュレートして確認する（テスト用）</label>
         <div class="pv-time-input"><input type="time" id="override-time" value="${overrideVal||'18:00'}"><button onclick="applyOverride()">適用</button>${overrideOn?`<button onclick="setOverride(null);openPersonal('${s.id}')" style="background:#888;">解除</button>`:''}</div>
