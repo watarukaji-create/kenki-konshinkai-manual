@@ -290,6 +290,40 @@
   .now-banner{background:linear-gradient(135deg,#e2b714,#d49a00);color:#fff;padding:10px 16px;border-radius:8px;margin-bottom:14px;font-size:.85rem;font-weight:bold;text-align:center;display:none;}
   .now-banner.show{display:block;}
 
+  /* ===== 案内地図タブ ===== */
+  .map-section{background:#fff;border-radius:12px;padding:16px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  .map-section h3{margin-bottom:8px;color:#0f3460;font-size:1rem;}
+  .map-section .map-hint{font-size:.82rem;color:#666;margin-bottom:10px;line-height:1.6;}
+  .map-wrap{position:relative;width:100%;border:1px solid #ddd;border-radius:8px;overflow:hidden;background:#000;}
+  .map-wrap img{display:block;width:100%;height:auto;}
+  .map-pin{position:absolute;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:bold;color:#fff;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.5);cursor:pointer;z-index:5;}
+  .map-pin.green{background:#43a047;}
+  .map-pin.red{background:#c62828;}
+  .map-pin.yellow{background:#f9a825;color:#000;border-color:#000;}
+  .map-pin.blue{background:#1976d2;}
+  .map-pin.highlight{transform:translate(-50%,-50%) scale(1.5);box-shadow:0 0 0 6px rgba(255,235,59,.7),0 2px 12px rgba(0,0,0,.5);z-index:10;animation:pinpulse 1.4s ease-in-out infinite;}
+  @keyframes pinpulse{0%,100%{box-shadow:0 0 0 6px rgba(255,235,59,.7),0 2px 12px rgba(0,0,0,.5);}50%{box-shadow:0 0 0 14px rgba(255,235,59,.2),0 2px 12px rgba(0,0,0,.5);}}
+  .map-legend{margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px;font-size:.78rem;}
+  .map-legend .leg{display:flex;align-items:center;gap:6px;padding:5px 8px;background:#f8f6f3;border-radius:6px;}
+  .map-legend .leg.highlight{background:#fff3cd;border:1.5px solid #e2b714;}
+  .map-legend .leg-num{flex-shrink:0;width:22px;height:22px;border-radius:50%;color:#fff;font-weight:bold;font-size:.72rem;display:flex;align-items:center;justify-content:center;border:1.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3);}
+  .map-legend .leg-num.green{background:#43a047;}
+  .map-legend .leg-num.red{background:#c62828;}
+  .map-legend .leg-num.yellow{background:#f9a825;color:#000;border-color:#000;}
+  .map-legend .leg-text{flex:1;line-height:1.3;}
+  .map-legend .leg-text .leg-label{font-size:.78rem;}
+  .map-legend .leg-text .leg-name{font-size:.7rem;color:#666;margin-top:1px;}
+  .map-toggle{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap;}
+  .map-toggle button{padding:8px 14px;font-size:.83rem;border:2px solid #0f3460;background:#fff;color:#0f3460;border-radius:20px;cursor:pointer;font-weight:bold;}
+  .map-toggle button.active{background:#0f3460;color:#fff;}
+  .floor-img{margin-top:14px;}
+  .floor-img img{width:100%;border:1px solid #ddd;border-radius:8px;display:block;}
+  .floor-img .fcap{font-size:.78rem;color:#666;margin-top:4px;text-align:center;}
+
+  /* Personal view: link to map */
+  .pv-map-link{display:inline-block;background:#0f3460;color:#fff;padding:8px 14px;border-radius:20px;font-size:.82rem;font-weight:bold;cursor:pointer;border:none;margin-top:10px;}
+  .pv-map-link:hover{background:#16213e;}
+
   /* ===== 確認事項タブ ===== */
   .check-badge{display:none;background:#c0392b;color:#fff;font-size:.65rem;padding:1px 6px;border-radius:8px;margin-left:5px;font-weight:bold;vertical-align:middle;}
   .check-badge.show{display:inline-block;}
@@ -344,6 +378,7 @@
   <div class="tab-bar-inner" style="overflow-x:auto;">
     <button class="tab-btn active" data-tab="staff" onclick="switchTab('staff')">あなたの担当</button>
     <button class="tab-btn" data-tab="master" onclick="switchTab('master')">全体タイム</button>
+    <button class="tab-btn" data-tab="map" onclick="switchTab('map')">📍 案内地図</button>
     <button class="tab-btn" data-tab="overview" onclick="switchTab('overview')">懇親会フロー</button>
     <button class="tab-btn" data-tab="seating" onclick="switchTab('seating')">座席表</button>
     <button class="tab-btn" data-tab="scenario" onclick="switchTab('scenario')">司会シナリオ</button>
@@ -392,6 +427,44 @@
   <div class="master-tl" id="master-konshin"></div>
   <h2>二次会（20:30〜22:00）</h2>
   <div class="master-tl" id="master-niji"></div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!--  TAB MAP : 案内配置図                                            -->
+<!-- ================================================================ -->
+<div class="tab-content" id="tab-map">
+<div class="container">
+  <div class="staff-hero">
+    <h2>📍 案内 配置図</h2>
+    <div class="hint">青年部の配置位置を時間帯別に表示します。各位置の番号をタップすると担当者が表示されます。<br>※青年部役割説明.pptx（4/22版）から作成。</div>
+  </div>
+  <div class="map-toggle">
+    <button id="mt-pre" class="active" onclick="switchMap('pre')">受付前（緑＋赤チーム）</button>
+    <button id="mt-post" onclick="switchMap('post')">総会後→懇親会移動（黄チーム）</button>
+  </div>
+
+  <div id="map-pre" class="map-section">
+    <h3>受付前 〜 総会開始まで</h3>
+    <div class="map-hint">参加者が金沢駅・各経路から音楽堂に到着する時間帯。<br><span style="color:#43a047;font-weight:bold;">●緑チーム</span>＝金沢駅→ANA案内（14:30〜）／<span style="color:#c62828;font-weight:bold;">●赤チーム</span>＝音楽堂内案内（14:30〜）</div>
+    <div class="map-wrap">
+      <img src="assets/maps/area_map.png" alt="金沢駅・音楽堂・ANA 全体マップ" id="map-img-pre">
+      <div id="map-pins-pre"></div>
+    </div>
+    <div class="map-legend" id="map-legend-pre"></div>
+    <div class="floor-img"><img src="assets/maps/ongakudo_1f.png" alt="音楽堂1階フロア図"><div class="fcap">音楽堂 1階フロア図（参考）</div></div>
+  </div>
+
+  <div id="map-post" class="map-section" style="display:none;">
+    <h3>総会後 〜 懇親会会場移動</h3>
+    <div class="map-hint">17:30 総会終了 → 18:00 懇親会開始までの間。<br><span style="color:#f9a825;font-weight:bold;">●黄チーム</span>＝青チーム（受付）が案内に切り替わり。音楽堂2F→ANA鳳の間まで参加者を誘導。</div>
+    <div class="map-wrap">
+      <img src="assets/maps/area_map.png" alt="金沢駅・音楽堂・ANA 全体マップ" id="map-img-post">
+      <div id="map-pins-post"></div>
+    </div>
+    <div class="map-legend" id="map-legend-post"></div>
+    <div class="floor-img"><img src="assets/maps/ongakudo_2f.png" alt="音楽堂2階フロア図"><div class="fcap">音楽堂 2階フロア図（参考）</div></div>
+  </div>
 </div>
 </div>
 
@@ -1132,6 +1205,7 @@ const MASTER_NIJI=[
   {t:'20:30',task:'仲の家（主計）受入：計8名',impl:'齊藤SC副社長／塚田SC本部長／(清水SC専務?)／菅原SC副支店長／伊藤副会長／朝倉〇／高橋護〇／伊藤亮〇（〇＝20:20先発）'},
   {t:'20:30',task:'リエグループ受入',impl:'連合幹部・中橋副会長など'},
   {t:'20:30',task:'ANAクラウン19F アストラル受入',impl:'その他参加者'},
+  {t:'20:30',task:'★【青年部 全員】支部別人数カウント',impl:'各メンバーが担当支部の入店人数をひたすらチェック・報告。店側の入店人数と合計が合致するように。青年部メンバー自身の入店カウントは北陸兼喜会が担当。'},
   {t:'22:00',task:'二次会閉会',impl:''},
 ];
 
@@ -1207,9 +1281,9 @@ const STAFF=[
      {t:'16:00',task:'案内（支部長）',loc:'音楽堂'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会：来賓入場の先導・登壇者声掛け',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会（利恵）リーダー'},
+     {t:'20:30',task:'二次会（利恵）リーダー：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェックし合計が合うように管理。北陸兼喜会の入店カウントも担当。'},
    ],
-   points:['Q出し5分前に登壇者にお声がけ','会長・社長がトイレへ立たれる際は出入口に大島、トイレ前に斉藤を配置']},
+   points:['Q出し5分前に登壇者にお声がけ','会長・社長がトイレへ立たれる際は出入口に大島、トイレ前に斉藤を配置','二次会では支部別人数カウントが青年部の主役割']},
   {id:'kitagawa_h',name:'北川 裕章',short:'北川裕',full:'北川 裕章',group:'leader',role:'懇親会リーダー（副部長）',company:'菱機工業',contact:'080-8692-9503',incom:true,
    schedule:[
      {t:'10:00',task:'リーダー朝礼',loc:'ANA 2階'},
@@ -1217,9 +1291,9 @@ const STAFF=[
      {t:'14:00',task:'案内（金沢駅バス乗り場）',loc:'金沢駅 金沢港口バス乗り場',hint:'小松空港からのバス到着時間に合わせて待機'},
      {t:'17:00',task:'懇親会準備',loc:'ANA 3階 鳳の間'},
      {t:'18:00',task:'懇親会：司会者へのQ出し',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会（ANA 3階 瑞雲）リーダー'},
+     {t:'20:30',task:'二次会（ANA 3階 瑞雲）リーダー：支部別 人数カウント・店側との突合',loc:'ANA 3階 瑞雲',hint:'各支部からの入店人数をチェックし合計が合うように管理。北陸兼喜会の入店カウントも担当。'},
    ],
-   points:['Q出しは時間軸基本。登壇者・会長・社長不在の場合は待機','各担当の休憩は北川裕・吉田が適宜交代']},
+   points:['Q出しは時間軸基本。登壇者・会長・社長不在の場合は待機','各担当の休憩は北川裕・吉田が適宜交代','二次会では支部別人数カウントが青年部の主役割']},
 
   // ===== 緑チーム：案内（金沢駅→ANA） =====
   {id:'yoshida',name:'吉田 有祐',short:'吉田',full:'吉田 有祐',group:'green',role:'案内リーダー（緑チーム）',company:'三幸電設',incom:true,
@@ -1229,9 +1303,9 @@ const STAFF=[
      {t:'14:00',task:'案内（緑チーム全体統括）'},
      {t:'17:00',task:'懇親会準備',loc:'ANA 3階 鳳の間'},
      {t:'18:00',task:'懇親会：映像・音響',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会（利恵）'},
+     {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェック。'},
    ],
-   points:['各担当の休憩は北川裕・吉田が適宜交代']},
+   points:['各担当の休憩は北川裕・吉田が適宜交代','二次会では支部別人数カウントが主役割']},
   {id:'oyu',name:'大湯 義秀',short:'大湯',full:'大湯 義秀',group:'green',role:'①金沢駅新幹線改札',company:'大湯板金',sokai:true,
    schedule:[
      {t:'13:00',task:'全体朝礼',loc:'ANA 2階'},
@@ -1301,16 +1375,18 @@ const STAFF=[
      {t:'14:30',task:'受付（全体統括）',loc:'音楽堂'},
      {t:'17:00',task:'懇親会準備',loc:'ANA 3階 鳳の間'},
      {t:'18:00',task:'懇親会：進行',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会（利恵）20時から受入準備'},
+     {t:'20:00',task:'二次会（利恵）受入準備'},
+     {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェックし合計が合うように管理。'},
    ],
-   points:['各担当の休憩は西能が適宜交代','受付時刻（16時）を過ぎての参加者は大島と斉藤が残って対応']},
+   points:['各担当の休憩は西能が適宜交代','受付時刻（16時）を過ぎての参加者は大島と斉藤が残って対応','二次会では支部別人数カウントが主役割']},
   {id:'oshima',name:'大島 成友',short:'大島',full:'大島 成友',group:'blue',role:'受付（北陸 76名）',company:'日本板硝子S&S',
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
      {t:'14:30',task:'受付（北陸 76名担当）',loc:'音楽堂'},
      {t:'18:00',task:'懇親会：来賓入場の扉開け',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会（ANA 3階 瑞雲）20時から準備'},
+     {t:'20:00',task:'二次会（ANA 3階 瑞雲）受入準備'},
+     {t:'20:30',task:'二次会（ANA 3階 瑞雲）：支部別 人数カウント・店側との突合',loc:'ANA 3階 瑞雲',hint:'各支部からの入店人数をチェックし合計が合うように管理。'},
    ]},
   {id:'asakura',name:'朝倉 洵平',short:'朝倉',full:'朝倉 洵平',group:'blue',role:'受付（北陸 76名）',company:'朝倉',niji:'仲の家（主計）',welcome:true,
    schedule:[
@@ -1329,7 +1405,7 @@ const STAFF=[
      {t:'14:30',task:'受付（北海道 22名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ③音楽堂通路（黄チームリーダー）',loc:'音楽堂'},
      {t:'18:00',task:'懇親会：芸妓担当',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会（利恵）'},
+     {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェック。'},
    ]},
   {id:'kondo',name:'近藤 武士',short:'近藤',full:'近藤 武士',group:'blue',role:'受付（東北・関東 19名）',company:'岸建販',
    schedule:[
@@ -1338,7 +1414,7 @@ const STAFF=[
      {t:'14:30',task:'受付（東北・関東 19名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ④音楽堂通路（黄チーム）',loc:'音楽堂'},
      {t:'18:00',task:'懇親会：レセプタント担当',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会（利恵）'},
+     {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェック。'},
    ]},
   {id:'saito',name:'斉藤 康弘',short:'斉藤',full:'斉藤 康弘',group:'blue',role:'受付（東京 22名）',company:'ヨシダ宣伝',
    schedule:[
@@ -1347,7 +1423,8 @@ const STAFF=[
      {t:'14:30',task:'受付（東京 22名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ⑤音楽堂横断歩道（黄チーム）',loc:'音楽堂'},
      {t:'18:00',task:'懇親会：来賓入場の扉開け',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会（利恵）20時から受入準備'},
+     {t:'20:00',task:'二次会（利恵）受入準備'},
+     {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェック。'},
    ]},
   {id:'taniguchi',name:'谷口 正輝',short:'谷口',full:'谷口 正輝',group:'blue',role:'受付（千葉・横浜 18名）',company:'S-LAP',
    schedule:[
@@ -1633,6 +1710,8 @@ function openPersonal(id){
       <div class="pv-section-title">あなたの1日のスケジュール</div>
       <div class="pv-tl">${timeline}</div>
       ${pointsHtml}
+      ${(s.group==='green'||s.group==='red')?`<button class="pv-map-link" onclick="openMapForStaff('${(s.short||s.name).replace(/[ 　].*/,'').replace(/'/g,'')}','pre')">📍 受付前 配置図で位置を確認</button>`:''}
+      ${(s.group==='blue')?`<button class="pv-map-link" onclick="openMapForStaff('${(s.short||s.name).replace(/[ 　].*/,'').replace(/'/g,'')}','post')">📍 総会後の案内配置図（黄チーム）で位置を確認</button>`:''}
       ${s.contact?`<div class="pv-contact">📞 ${s.contact}</div>`:''}
       <div class="pv-time-toggle ${overrideOn?'on':''}" id="pv-time-toggle">
         <label><input type="checkbox" ${overrideOn?'checked':''} onchange="toggleOverride(this)"> 時刻をシミュレートして確認する（テスト用）</label>
@@ -1684,6 +1763,73 @@ function refreshAll(){
   });
 }
 
+// ====== 案内地図 配置データ ======
+// 座標は area_map.png に対する相対％（PPT slide4/slide10 から抽出）
+const MAP_PRE=[
+  // 緑チーム（金沢駅→ANA→音楽堂）
+  {team:'green',num:'①',label:'金沢駅 新幹線改札',name:'大湯',x:83.63,y:14.50},
+  {team:'green',num:'②',label:'金沢駅 兼六園口',name:'操川',x:83.63,y:26.75},
+  {team:'green',num:'③',label:'金沢駅 モニュメント',name:'冨久尾',x:62.46,y:24.76},
+  {team:'green',num:'④',label:'ANA 曲がり角',name:'在田',x:60.38,y:54.26},
+  {team:'green',num:'⑤',label:'ANA 曲がり角',name:'桐畑',x:48.82,y:53.99},
+  {team:'green',num:'⑥',label:'ANA 出入口',name:'本田 / 石森',x:50.51,y:65.33},
+  // 赤チーム（音楽堂内案内）
+  {team:'red',num:'①',label:'音楽堂 横断歩道',name:'萩野',x:7.45,y:28.44},
+  {team:'red',num:'②',label:'音楽堂 通路',name:'坪田',x:30.74,y:27.30},
+  {team:'red',num:'③',label:'音楽堂 通路',name:'青山(青年部)',x:51.88,y:27.30},
+  {team:'red',num:'④',label:'音楽堂 通路',name:'北川 文洋',x:4.48,y:39.07},
+  {team:'red',num:'⑤',label:'音楽堂 西口',name:'石動',x:7.76,y:36.07},
+  {team:'red',num:'⑥',label:'音楽堂 1階ホール（リーダー）',name:'鍛治',x:7.76,y:49.78},
+  {team:'red',num:'⑦',label:'音楽堂 2階ホール',name:'田中',x:12.10,y:49.78},
+];
+
+const MAP_POST=[
+  // 黄チーム（音楽堂→懇親会場）
+  {team:'yellow',num:'①',label:'音楽堂 2階ホール',name:'谷口',x:8.29,y:49.78},
+  {team:'yellow',num:'②',label:'音楽堂 1階ホール',name:'鎌田',x:12.58,y:49.83},
+  {team:'yellow',num:'③',label:'音楽堂 通路（リーダー）',name:'氷見山',x:7.45,y:28.44},
+  {team:'yellow',num:'④',label:'音楽堂 通路',name:'近藤',x:51.88,y:27.30},
+  {team:'yellow',num:'⑤',label:'音楽堂 横断歩道',name:'斉藤',x:60.38,y:36.84},
+  {team:'yellow',num:'⑥',label:'ANA 曲がり角',name:'朝倉',x:60.38,y:54.26},
+  {team:'yellow',num:'⑦',label:'ANA 出入口',name:'江川',x:50.51,y:65.33},
+  {team:'yellow',num:'⑧',label:'ANA 1階EVホール',name:'石井',x:38.10,y:65.33},
+  {team:'yellow',num:'⑨',label:'ANA 3階EVホール',name:'高橋',x:38.10,y:72.09},
+  {team:'yellow',num:'⑩',label:'ANA 懇親会会場',name:'伊藤(亮)',x:38.10,y:78.86},
+];
+
+function renderMap(which,highlightName){
+  const data=which==='pre'?MAP_PRE:MAP_POST;
+  const pinsRoot=document.getElementById('map-pins-'+which);
+  const legendRoot=document.getElementById('map-legend-'+which);
+  if(!pinsRoot||!legendRoot)return;
+  let pinsHtml='',legendHtml='';
+  data.forEach((p,i)=>{
+    const hl=highlightName&&p.name.includes(highlightName)?' highlight':'';
+    pinsHtml+=`<div class="map-pin ${p.team}${hl}" style="left:${p.x}%;top:${p.y}%;" title="${p.num} ${p.label} - ${p.name}" onclick="document.getElementById('leg-${which}-${i}').scrollIntoView({behavior:'smooth',block:'center'})">${p.num}</div>`;
+    legendHtml+=`<div class="leg${hl}" id="leg-${which}-${i}"><div class="leg-num ${p.team}">${p.num}</div><div class="leg-text"><div class="leg-label">${p.label}</div><div class="leg-name">${p.name}</div></div></div>`;
+  });
+  pinsRoot.innerHTML=pinsHtml;
+  legendRoot.innerHTML=legendHtml;
+}
+
+function switchMap(which){
+  document.getElementById('map-pre').style.display=which==='pre'?'block':'none';
+  document.getElementById('map-post').style.display=which==='post'?'block':'none';
+  document.getElementById('mt-pre').classList.toggle('active',which==='pre');
+  document.getElementById('mt-post').classList.toggle('active',which==='post');
+  renderMap(which);
+}
+
+// 個人ビューから地図を開く（自分の位置をハイライト）
+function openMapForStaff(staffShort,which){
+  switchTab('map');
+  setTimeout(()=>{
+    switchMap(which);
+    setTimeout(()=>renderMap(which,staffShort),50);
+  },50);
+  closePersonal();
+}
+
 // ====== 確認事項チェックリスト ======
 const CHECK_ITEMS=[
   {id:'c1',cat:'high',title:'赤チーム（音楽堂案内）の番号と担当場所が PPT と 個人別タイムテーブルでズレている',
@@ -1696,8 +1842,6 @@ const CHECK_ITEMS=[
    detail:`シナリオドラフトに「芸<strong>姑</strong>担当」との記載あり。<br>正しくは「芸<strong>妓</strong>担当」（本マニュアルでは「芸妓」で統一済み）`},
   {id:'c5',cat:'mid',title:'清水建設 副社長 さいとう氏の表記揺れ',
    detail:`コア資料「<strong>齊</strong>藤」／既存座席表「<strong>齋</strong>藤」<br>同一人物（土木総本部 副総本部長 さいとう たけふみ）。<br>司会台本でも要統一。`},
-  {id:'c6',cat:'mid',title:'リーダーの名字 鍛治 vs 鍛冶',
-   detail:`個人別タイムテーブル：「鍛<strong>冶</strong>」／青年部参加者リスト・本人：「鍛<strong>治</strong>」<br>→ 本マニュアルでは「鍛治」で統一`},
   {id:'c7',cat:'mid',title:'個人別タイムテーブルの「役員写真」時刻',
    detail:`個人別では16時帯に表示されているが、司会台本では総会終了後（17:30〜）が正しい。<br>個人別タイムテーブルは「その時間帯の活動ラベル」として概略のみで、正確な時刻はコア資料・司会台本を参照。`},
   {id:'c8',cat:'low',title:'二次会の場所空欄',
@@ -1774,6 +1918,8 @@ function resetChecks(){
 document.addEventListener('DOMContentLoaded',()=>{
   renderStaffGroups();
   renderChecks();
+  renderMap('pre');
+  renderMap('post');
   refreshAll();
   setInterval(refreshAll,30000); // 30秒ごと
 });
