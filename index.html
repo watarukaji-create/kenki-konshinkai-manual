@@ -1125,9 +1125,12 @@ const MASTER_KONSHIN=[
 ];
 
 const MASTER_NIJI=[
+  {t:'20:20',task:'★お茶屋 出迎え担当 先発',impl:'豊蔵享一・辻匡 → はん家／南志郎・北川文洋(?) → 八の福／朝倉洵平・高橋護・伊藤亮 → 仲の家'},
   {t:'20:30',task:'二次会開始（バス2台で利恵へ移動）',impl:'青年部 二次会担当（北川裕章・大島）'},
-  {t:'20:30',task:'お茶屋（はん家・八の福・仲の家）受入',impl:'SC役員＋北陸幹部'},
-  {t:'20:30',task:'リエグループ受入',impl:'連合幹部'},
+  {t:'20:30',task:'はん家（西）受入：計8名',impl:'新村SC社長／山岡SC本部長／近藤SC副支店長／八幡SC／青山会長／栗山副会長／豊蔵総務理事〇／辻総務理事〇'},
+  {t:'20:30',task:'八の福（東）受入：計8名',impl:'井上SC会長／原田SC専務／角野SC支店長／江口SC部長／高村副会長／南会計理事〇／北川文洋?〇／本田'},
+  {t:'20:30',task:'仲の家（主計）受入：計8名',impl:'齊藤SC副社長／塚田SC本部長／(清水SC専務?)／菅原SC副支店長／伊藤副会長／朝倉〇／高橋護〇／伊藤亮〇（〇＝20:20先発）'},
+  {t:'20:30',task:'リエグループ受入',impl:'連合幹部・中橋副会長など'},
   {t:'20:30',task:'ANAクラウン19F アストラル受入',impl:'その他参加者'},
   {t:'22:00',task:'二次会閉会',impl:''},
 ];
@@ -1136,50 +1139,63 @@ const MASTER_NIJI=[
 // schedule: 各ブロックの開始時刻と内容。endTimeは次のブロック開始まで or 終端時刻。
 const STAFF=[
   // ===== 北陸兼喜会 役員（総会・懇親会出席） =====
-  {id:'aoyama_s',name:'青山 悟',full:'青山 悟（あおやま さとる）',group:'exec',role:'北陸兼喜会 会長',company:'北陸',sokai:true,
+  {id:'aoyama_s',name:'青山 悟',full:'青山 悟（あおやま さとる）',group:'exec',role:'北陸兼喜会 会長',company:'北陸',sokai:true,niji:'はん家（西）',
    schedule:[
      {t:'14:00',task:'リハーサル',loc:'ANA 3階'},
      {t:'15:00',task:'支部長会議',loc:'ANA 3階'},
      {t:'16:00',task:'役員集合写真',loc:'音楽堂'},
      {t:'16:00',task:'定時総会出席（議長／歓迎挨拶／震災義援金寄付報告／大会宣言）',loc:'音楽堂2階 邦楽ホール'},
      {t:'18:00',task:'懇親会（歓迎の挨拶 18:14〜）',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会',loc:'お茶屋'},
+     {t:'20:30',task:'二次会：はん家（西）',loc:'お茶屋 はん家',hint:'計8名／新村SC社長・山岡SC本部長・近藤SC副支店長・八幡SC・栗山さん・豊蔵さん〇・辻さん〇'},
    ]},
-  {id:'nakahashi_t',name:'中橋 隆文',full:'中橋 隆文（なかはし たかふみ）',group:'exec',role:'北陸 副会長（閉会挨拶）',company:'中橋タイル',sokai:true,
+  {id:'nakahashi_t',name:'中橋 隆文',full:'中橋 隆文（なかはし たかふみ）',group:'exec',role:'北陸 副会長（閉会挨拶）',company:'中橋タイル',sokai:true,niji:'利恵',
    schedule:[
      {t:'14:00',task:'リハーサル'},{t:'15:00',task:'支部長会議'},{t:'16:00',task:'役員集合写真'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会（閉会挨拶 20:22〜）',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会（利恵）'},
+     {t:'20:30',task:'二次会（利恵）リーダー'},
    ]},
-  {id:'ito_kiyoshi',name:'伊藤 潔',full:'伊藤 潔（きよし）',group:'exec',role:'北陸 副会長（開会の辞）',company:'',sokai:true,
+  {id:'ito_kiyoshi',name:'伊藤 潔',full:'伊藤 潔（きよし）',group:'exec',role:'北陸 副会長（開会の辞）',company:'',sokai:true,niji:'仲の家（主計）',
    schedule:[
      {t:'14:00',task:'リハーサル'},{t:'15:00',task:'支部長会議'},{t:'16:00',task:'役員集合写真'},
      {t:'16:00',task:'定時総会出席（開会の辞 16:00〜）'},
      {t:'18:00',task:'懇親会'},
-     {t:'20:30',task:'二次会'},
+     {t:'20:30',task:'二次会：仲の家（主計）',loc:'お茶屋 仲の家',hint:'計8名／齊藤SC副社長・塚田SC本部長・(清水SC専務?)・菅原SC副支店長・朝倉さん〇・新潟2名（高橋・伊藤亮）〇'},
    ]},
-  {id:'kuriyama',name:'栗山 公伸',full:'栗山 公伸（きみのぶ）',group:'exec',role:'北陸 副会長（閉会の辞）',company:'',sokai:true,
+  {id:'kuriyama',name:'栗山 公伸',full:'栗山 公伸（きみのぶ）',group:'exec',role:'北陸 副会長（閉会の辞）',company:'',sokai:true,niji:'はん家（西）',
    schedule:[
      {t:'14:00',task:'リハーサル'},{t:'16:00',task:'定時総会出席（閉会の辞 17:28〜）'},
-     {t:'18:00',task:'懇親会'},{t:'20:30',task:'二次会'},
+     {t:'18:00',task:'懇親会'},
+     {t:'20:30',task:'二次会：はん家（西）',loc:'お茶屋 はん家'},
    ]},
-  {id:'takamura',name:'高村 明彦',full:'高村 明彦（たかむら あきひこ）',group:'exec',role:'北陸 副会長（返礼万歳）',company:'',sokai:true,
+  {id:'takamura',name:'高村 明彦',full:'高村 明彦（たかむら あきひこ）',group:'exec',role:'北陸 副会長（返礼万歳）',company:'',sokai:true,niji:'八の福（東）',
    schedule:[
      {t:'14:00',task:'リハーサル'},{t:'16:00',task:'定時総会出席'},
-     {t:'18:00',task:'懇親会（返礼万歳 20:17〜）'},{t:'20:30',task:'二次会'},
+     {t:'18:00',task:'懇親会（返礼万歳 20:17〜）'},
+     {t:'20:30',task:'二次会：八の福（東）',loc:'お茶屋 八の福',hint:'計8名／井上SC会長・原田SC専務・角野SC支店長・江口SC部長・南さん〇・北川文洋さん?〇・本田さん'},
    ]},
-  {id:'toyokura',name:'豊蔵 享一',full:'豊蔵 享一',group:'exec',role:'北陸 総務理事（大会宣言）',company:'',sokai:true,
+  {id:'toyokura',name:'豊蔵 享一',full:'豊蔵 享一',group:'exec',role:'北陸 総務理事（大会宣言）',company:'',sokai:true,niji:'はん家（西）',welcome:true,
    schedule:[
      {t:'16:00',task:'定時総会出席（大会宣言 17:17〜）'},
-     {t:'18:00',task:'懇親会'},{t:'20:30',task:'二次会'},
+     {t:'18:00',task:'懇親会'},
+     {t:'20:20',task:'★お茶屋 はん家へ先発（出迎え待機）',loc:'お茶屋 はん家',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。'},
+     {t:'20:30',task:'二次会：はん家（西）',loc:'お茶屋 はん家'},
    ]},
-  {id:'tsuji',name:'辻 匡',full:'辻 匡（つじ ただし）',group:'exec',role:'北陸 総務理事（総会司会）',company:'',sokai:true,
+  {id:'tsuji',name:'辻 匡',full:'辻 匡（つじ ただし）',group:'exec',role:'北陸 総務理事（総会司会）',company:'',sokai:true,niji:'はん家（西）',welcome:true,
    schedule:[
      {t:'14:00',task:'リハーサル'},
      {t:'15:50',task:'総会司会準備（インカム確認）'},
      {t:'16:00',task:'定時総会 司会'},
-     {t:'18:00',task:'懇親会'},{t:'20:30',task:'二次会'},
+     {t:'18:00',task:'懇親会'},
+     {t:'20:20',task:'★お茶屋 はん家へ先発（出迎え待機）',loc:'お茶屋 はん家',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。'},
+     {t:'20:30',task:'二次会：はん家（西）',loc:'お茶屋 はん家'},
+   ]},
+  {id:'minami',name:'南 志郎',full:'南 志郎',group:'exec',role:'北陸 会計理事',company:'金太',sokai:true,niji:'八の福（東）',welcome:true,
+   schedule:[
+     {t:'16:00',task:'定時総会出席'},
+     {t:'18:00',task:'懇親会'},
+     {t:'20:20',task:'★お茶屋 八の福へ先発（出迎え待機）',loc:'お茶屋 八の福',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。'},
+     {t:'20:30',task:'二次会：八の福（東）',loc:'お茶屋 八の福'},
    ]},
 
   // ===== リーダー =====
@@ -1256,13 +1272,14 @@ const STAFF=[
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'honda',name:'本田 誠一',short:'本田',full:'本田 誠一（ほんだ せいいち）',group:'green',role:'⑥ANA出入口（全体統括）',company:'本田鉄工',sokai:true,
+  {id:'honda',name:'本田 誠一',short:'本田',full:'本田 誠一（ほんだ せいいち）',group:'green',role:'⑥ANA出入口（全体統括）',company:'本田鉄工',sokai:true,niji:'八の福（東）',
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
      {t:'14:30',task:'案内 ⑥ANA出入口・受付整理',loc:'ANA 1階'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
+     {t:'20:30',task:'二次会：八の福（東）',loc:'お茶屋 八の福'},
    ],
    points:['本田・石森は青チーム（受付）と協力する','西能の指示に従う']},
   {id:'ishimori',name:'石森 良隆',short:'石森',full:'石森 良隆',group:'green',role:'⑥ANA出入口（北陸監事）',company:'石森木工',sokai:true,
@@ -1295,13 +1312,15 @@ const STAFF=[
      {t:'18:00',task:'懇親会：来賓入場の扉開け',loc:'ANA 3階 鳳の間'},
      {t:'20:30',task:'二次会（ANA 3階 瑞雲）20時から準備'},
    ]},
-  {id:'asakura',name:'朝倉 洵平',short:'朝倉',full:'朝倉 洵平',group:'blue',role:'受付（北陸 76名）',company:'朝倉',
+  {id:'asakura',name:'朝倉 洵平',short:'朝倉',full:'朝倉 洵平',group:'blue',role:'受付（北陸 76名）',company:'朝倉',niji:'仲の家（主計）',welcome:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
      {t:'14:30',task:'受付（北陸 76名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ⑥ ANA曲がり角（黄チーム）',loc:'ANA 周辺'},
      {t:'18:00',task:'懇親会'},
+     {t:'20:20',task:'★お茶屋 仲の家へ先発（出迎え待機）',loc:'お茶屋 仲の家',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。'},
+     {t:'20:30',task:'二次会：仲の家（主計）',loc:'お茶屋 仲の家'},
    ]},
   {id:'himiyama',name:'氷見山 和喜',short:'氷見山',full:'氷見山 和喜',group:'blue',role:'受付（北海道 22名）',company:'氷見山工業',
    schedule:[
@@ -1364,21 +1383,25 @@ const STAFF=[
      {t:'17:00',task:'案内 ⑧ANA1階EVホール（黄チーム）',loc:'ANA 1階'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'takahashi_m',name:'高橋 護',short:'高橋',full:'高橋 護',group:'blue',role:'受付（四国 17名・青年部副部長）',company:'新日建業',
+  {id:'takahashi_m',name:'高橋 護',short:'高橋',full:'高橋 護（青年部副部長／新潟）',group:'blue',role:'受付（四国 17名・青年部副部長）',company:'新日建業',niji:'仲の家（主計）',welcome:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
      {t:'14:30',task:'受付（四国 17名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ⑨ANA3階EVホール（黄チーム）',loc:'ANA 3階'},
      {t:'18:00',task:'懇親会'},
+     {t:'20:20',task:'★お茶屋 仲の家へ先発（出迎え待機）',loc:'お茶屋 仲の家',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。'},
+     {t:'20:30',task:'二次会：仲の家（主計）',loc:'お茶屋 仲の家'},
    ]},
-  {id:'ito_ryo',name:'伊藤 亮',short:'伊藤',full:'伊藤 亮（青年部 会計）',group:'blue',role:'受付（九州 16名）',company:'アステック',
+  {id:'ito_ryo',name:'伊藤 亮',short:'伊藤',full:'伊藤 亮（青年部 会計／新潟）',group:'blue',role:'受付（九州 16名）',company:'アステック',niji:'仲の家（主計）',welcome:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'受付準備'},
      {t:'14:30',task:'受付（九州 16名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ⑩ANA懇親会会場（黄チーム）',loc:'ANA 3階 鳳の間'},
      {t:'18:00',task:'懇親会'},
+     {t:'20:20',task:'★お茶屋 仲の家へ先発（出迎え待機）',loc:'お茶屋 仲の家',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。'},
+     {t:'20:30',task:'二次会：仲の家（主計）',loc:'お茶屋 仲の家'},
    ]},
 
   // ===== 赤チーム：案内（音楽堂） =====
@@ -1425,13 +1448,15 @@ const STAFF=[
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'kitagawa_f',name:'北川 文洋',short:'北川文',full:'北川 文洋',group:'red',role:'④音楽堂通路',company:'北川瀝青工業',sokai:true,
+  {id:'kitagawa_f',name:'北川 文洋',short:'北川文',full:'北川 文洋',group:'red',role:'④音楽堂通路',company:'北川瀝青工業',sokai:true,niji:'八の福（東）※要確認',welcome:true,
    schedule:[
      {t:'13:00',task:'全体朝礼'},
      {t:'14:00',task:'案内準備'},
      {t:'14:30',task:'案内 ④音楽堂通路',loc:'音楽堂'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
+     {t:'20:20',task:'★お茶屋 八の福へ先発（出迎え待機・要確認）',loc:'お茶屋 八の福',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。※事務局より「？」付きで連絡あり、要本人確認。'},
+     {t:'20:30',task:'二次会：八の福（東）※要確認',loc:'お茶屋 八の福'},
    ]},
   {id:'tanaka',name:'田中 陽介',short:'田中',full:'田中 陽介（青年部副部長）',group:'red',role:'⑦音楽堂2階ホール',company:'タッセイ',sokai:true,
    schedule:[
@@ -1587,6 +1612,8 @@ function openPersonal(id){
 
   const incomBadge=s.incom?'<span style="display:inline-block;background:#43a047;color:#fff;font-size:.65rem;padding:1px 7px;border-radius:8px;margin-left:6px;vertical-align:middle;">インカム</span>':'';
   const sokaiBadge=s.sokai?'<span style="display:inline-block;background:#1976d2;color:#fff;font-size:.65rem;padding:1px 7px;border-radius:8px;margin-left:6px;vertical-align:middle;">総会出席</span>':'';
+  const welcomeBadge=s.welcome?'<span style="display:inline-block;background:#c0392b;color:#fff;font-size:.65rem;padding:1px 7px;border-radius:8px;margin-left:6px;vertical-align:middle;">★20:20先発</span>':'';
+  const nijiInfo=s.niji?`<div class="pv-meta" style="margin-top:3px;font-size:.78rem;background:rgba(255,255,255,.15);padding:4px 10px;border-radius:6px;display:inline-block;">🍶 二次会：${s.niji}</div>`:'';
   const groupName=GROUP_INFO[s.group]?GROUP_INFO[s.group].name:'';
 
   const overrideOn=!!localStorage.getItem('overrideTime');
@@ -1595,9 +1622,10 @@ function openPersonal(id){
   card.innerHTML=`
     <div class="pv-header">
       <button class="pv-close" onclick="closePersonal()">✕</button>
-      <div class="pv-name">${s.full||s.name}${incomBadge}${sokaiBadge}</div>
+      <div class="pv-name">${s.full||s.name}${incomBadge}${sokaiBadge}${welcomeBadge}</div>
       <div class="pv-meta">${s.role||''}${s.company?` ／ ${s.company}`:''}</div>
       <div class="pv-meta" style="margin-top:3px;font-size:.75rem;">${groupName}</div>
+      ${nijiInfo}
     </div>
     <div class="pv-body">
       ${nowCard}
@@ -1682,6 +1710,12 @@ const CHECK_ITEMS=[
    detail:`コア資料・個人別：「定時総会 16:00〜」<br>司会台本：「15:55来賓入場・15:58開会、16:00総会本体」<br>→ 推奨表記：「開場 15:15／受付完了 15:55／開会 15:58／総会 16:00〜」`},
   {id:'c12',cat:'low',title:'リハーサル・支部長会議の時刻精度',
    detail:`個人別タイムテーブル上の時刻は概略（15分単位の枠）。<br>リハーサル＝14:00〜、支部長会議＝15:00〜と本マニュアルでは表記しているが、当日の正確な時刻は要確認。`},
+  {id:'c13',cat:'high',title:'お茶屋 八の福：北川文洋さんの参加可否（？付き）',
+   detail:`事務局からの二次会割り振り連絡で「北川文洋さん？」と疑問符付き。本人への確認が必要。<br>八の福（東）は現状7名確定＋北川文洋?の8名予定。`},
+  {id:'c14',cat:'high',title:'お茶屋 仲の家：(清水SC専務?)の人物確定',
+   detail:`事務局からの二次会割り振り連絡で「(清水SC専務？)」と未確定。仲の家は現状7名確定＋(清水SC専務?)で8名予定。<br>該当する清水建設専務は誰か要確認。`},
+  {id:'c15',cat:'mid',title:'お茶屋 出迎え担当（20:20先発）の懇親会途中退出',
+   detail:`〇印が付いた7名（豊蔵・辻・南・北川文洋(?)・朝倉・高橋・伊藤亮）は懇親会終了前(20:20頃)にホテルを出る必要あり。<br>退出のタイミング・経路（バスか徒歩か）の事前周知、および懇親会司会への共有が必要。`},
 ];
 
 function loadChecks(){return JSON.parse(localStorage.getItem('checkState')||'{}');}
