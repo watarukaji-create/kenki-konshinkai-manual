@@ -297,15 +297,15 @@
   .map-section{background:#fff;border-radius:12px;padding:16px;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
   .map-section h3{margin-bottom:8px;color:#0f3460;font-size:1rem;}
   .map-section .map-hint{font-size:.82rem;color:#666;margin-bottom:10px;line-height:1.6;}
-  .map-wrap{position:relative;width:100%;border:1px solid #ddd;border-radius:8px;overflow:hidden;background:#000;}
+  .map-wrap{position:relative;width:100%;border:1px solid #ddd;border-radius:8px;overflow:hidden;background:#000;touch-action:pinch-zoom;}
   .map-wrap img{display:block;width:100%;height:auto;}
-  .map-pin{position:absolute;transform:translate(-50%,-50%);width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:bold;color:#fff;border:2.5px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.5);cursor:pointer;z-index:5;}
+  .map-pin{position:absolute;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:bold;color:#fff;border:1.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.5);cursor:pointer;z-index:5;line-height:1;}
   .map-pin.green{background:#43a047;}
   .map-pin.red{background:#c62828;}
   .map-pin.yellow{background:#f9a825;color:#000;border-color:#000;}
   .map-pin.blue{background:#1976d2;}
-  .map-pin.highlight{transform:translate(-50%,-50%) scale(1.5);box-shadow:0 0 0 6px rgba(255,235,59,.7),0 2px 12px rgba(0,0,0,.5);z-index:10;animation:pinpulse 1.4s ease-in-out infinite;}
-  @keyframes pinpulse{0%,100%{box-shadow:0 0 0 6px rgba(255,235,59,.7),0 2px 12px rgba(0,0,0,.5);}50%{box-shadow:0 0 0 14px rgba(255,235,59,.2),0 2px 12px rgba(0,0,0,.5);}}
+  .map-pin.highlight{transform:translate(-50%,-50%) scale(1.6);box-shadow:0 0 0 4px rgba(255,235,59,.7),0 2px 8px rgba(0,0,0,.5);z-index:10;animation:pinpulse 1.4s ease-in-out infinite;}
+  @keyframes pinpulse{0%,100%{box-shadow:0 0 0 4px rgba(255,235,59,.7),0 2px 8px rgba(0,0,0,.5);}50%{box-shadow:0 0 0 9px rgba(255,235,59,.2),0 2px 8px rgba(0,0,0,.5);}}
   .map-legend{margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px;font-size:.78rem;}
   .map-legend .leg{display:flex;align-items:center;gap:6px;padding:5px 8px;background:#f8f6f3;border-radius:6px;}
   .map-legend .leg.highlight{background:#fff3cd;border:1.5px solid #e2b714;}
@@ -370,7 +370,7 @@
   <h1>懇親会マニュアル</h1>
   <div class="sub">全国連合兼喜会 第68回定時総会 北陸大会（金沢）</div>
   <div class="badges">
-    <span>2026年4月12日（日）</span>
+    <span>2026年5月15日（金）</span>
     <span>開場 17:30 ／ 懇親会 18:00〜20:30</span>
     <span>司会：富 優香子 アナウンサー</span>
   </div>
@@ -422,8 +422,10 @@
   <div class="now-banner" id="now-banner-master"></div>
   <div class="staff-hero">
     <h2>🕐 全体タイムスケジュール</h2>
-    <div class="hint">2026年4月12日（日）／開場 15:15 → 総会 16:00〜17:30 → 懇親会 18:00〜20:30 → 二次会 20:30〜22:00<br>当日は現在進行中の項目が黄色でハイライトされます。</div>
+    <div class="hint">2026年5月15日（金）／開場 15:15 → 総会 16:00〜17:30 → 懇親会 18:00〜20:30 → 二次会 20:30〜22:00<br>当日は現在進行中の項目が黄色でハイライトされます。</div>
   </div>
+  <h2>準備フェーズ（前日 5/14 13:00〜／当日 5/15 9:00〜）</h2>
+  <div class="master-tl" id="master-prep"></div>
   <h2>定時総会（16:00〜17:30）<span style="font-size:.7rem;color:#888;font-weight:normal;margin-left:10px;">司会：北陸 辻 匡 総務理事</span></h2>
   <div class="master-tl" id="master-sokai"></div>
   <h2>懇親会（18:00〜20:30）<span style="font-size:.7rem;color:#888;font-weight:normal;margin-left:10px;">司会：富 優香子 アナウンサー</span></h2>
@@ -443,29 +445,75 @@
     <div class="hint">青年部の配置位置を時間帯別に表示します。各位置の番号をタップすると担当者が表示されます。<br>※青年部役割説明.pptx（4/22版）から作成。</div>
   </div>
   <div class="map-toggle">
-    <button id="mt-pre" class="active" onclick="switchMap('pre')">受付前（緑＋赤チーム）</button>
-    <button id="mt-post" onclick="switchMap('post')">総会後→懇親会移動（黄チーム）</button>
+    <button id="mt-green" class="active" onclick="switchMap('green')"><span style="color:#43a047;">●</span> 緑チーム（金沢駅→ANA）</button>
+    <button id="mt-red" onclick="switchMap('red')"><span style="color:#c62828;">●</span> 赤チーム（ANA→音楽堂）</button>
+    <button id="mt-yellow" onclick="switchMap('yellow')"><span style="color:#f9a825;">●</span> 黄チーム（音楽堂→ANA戻り）</button>
   </div>
 
-  <div id="map-pre" class="map-section">
-    <h3>受付前 〜 総会開始まで</h3>
-    <div class="map-hint">参加者が金沢駅・各経路から音楽堂に到着する時間帯。<br><span style="color:#43a047;font-weight:bold;">●緑チーム</span>＝金沢駅→ANA案内（14:30〜）／<span style="color:#c62828;font-weight:bold;">●赤チーム</span>＝音楽堂内案内（14:30〜）</div>
+  <div id="map-green" class="map-section">
+    <h3>緑チーム：金沢駅→ANAクラウンプラザホテル 案内（14:30〜16:00）</h3>
+    <div class="map-hint">新幹線・小松空港バスで到着した参加者を金沢駅から ANA まで誘導する役割です。<br>※14:30 開始 → <strong>16:00 で案内終了</strong>（事前に切り上げ時刻を周知）。<br>📱 <strong>地図はピンチで拡大できます</strong>。番号と凡例を照らし合わせてください。</div>
     <div class="map-wrap">
-      <img src="assets/maps/area_map.png" alt="金沢駅・音楽堂・ANA 全体マップ" id="map-img-pre">
-      <div id="map-pins-pre"></div>
+      <img src="assets/maps/area_map.png" alt="金沢駅→ANA 動線マップ" id="map-img-green">
+      <div id="map-pins-green"></div>
     </div>
-    <div class="map-legend" id="map-legend-pre"></div>
+    <div class="map-legend" id="map-legend-green"></div>
+    <div class="pv-points" style="margin-top:14px;">
+      <strong>⚠ 緑チーム ポイント</strong>
+      <ul>
+        <li>リーダー：吉田（インカム1台保持／全体統括・休憩は中橋と適宜交代）</li>
+        <li>石森（金沢港口バス乗り場）は<strong>小松空港バスの到着時間に合わせて待機</strong>（時刻は事務局で確認）</li>
+        <li>本田・南は青チーム（受付）と近距離で動くため、<strong>西能（受付リーダー）の指示</strong>でも協力</li>
+        <li>金沢駅構内ではハッピー着用 NG → <strong>青色ジャンパー</strong>で対応／旗・プラカードの準備状況は要確認</li>
+        <li>16:00 ぴったりで案内終了 → 来た方は遅刻参加として総会会場へ直行</li>
+        <li>インカム不通時は<strong>スマホで電話連絡</strong>／参加者とすれ違う際は<strong>笑顔で「こんにちは」</strong></li>
+      </ul>
+    </div>
+    <div class="floor-img"><img src="assets/maps/kanazawa_st.jpg" alt="金沢駅 兼六園口"><div class="fcap">金沢駅 兼六園口（参考）</div></div>
+  </div>
+
+  <div id="map-red" class="map-section" style="display:none;">
+    <h3>赤チーム：ANAクラウンプラザホテル→石川県立音楽堂 案内（14:30〜16:00）</h3>
+    <div class="map-hint">受付（ANA 1階）から音楽堂2階 邦楽ホール（総会会場）までの動線を確保します。<br>※14:30 開始 → <strong>16:00 で案内終了</strong>。<br>📱 <strong>地図はピンチで拡大できます</strong>。番号と凡例を照らし合わせてください。</div>
+    <div class="map-wrap">
+      <img src="assets/maps/area_map.png" alt="ANA→音楽堂 配置マップ" id="map-img-red">
+      <div id="map-pins-red"></div>
+    </div>
+    <div class="map-legend" id="map-legend-red"></div>
+    <div class="pv-points" style="margin-top:14px;">
+      <strong>⚠ 赤チーム ポイント</strong>
+      <ul>
+        <li>リーダー：鍛治（インカム1台保持）／配置は<strong>⑥音楽堂1階ホール</strong>（当初の横断歩道担当から変更）</li>
+        <li><strong>名札を着用していない参加者に声掛け</strong>し、受付完了状況を西能とインカムで共有</li>
+        <li>関係者以外（音楽ホールでのリハーサル参加者など）の入場をブロック</li>
+        <li>遅刻参加者は受付を通らず直接総会会場へ向かう可能性あり → ⑥での声掛けが要</li>
+        <li>休憩は中橋が適宜交代</li>
+        <li>赤チーム終了後、鍛治はインカムを<strong>清水建設 調達部（中村さん）</strong>へ受け渡し</li>
+        <li>16:00 で案内終了／インカム不通時はスマホで電話連絡</li>
+      </ul>
+    </div>
     <div class="floor-img"><img src="assets/maps/ongakudo_1f.png" alt="音楽堂1階フロア図"><div class="fcap">音楽堂 1階フロア図（参考）</div></div>
   </div>
 
-  <div id="map-post" class="map-section" style="display:none;">
-    <h3>総会後 〜 懇親会会場移動</h3>
-    <div class="map-hint">17:30 総会終了 → 18:00 懇親会開始までの間。<br><span style="color:#f9a825;font-weight:bold;">●黄チーム</span>＝青チーム（受付）が案内に切り替わり。音楽堂2F→ANA鳳の間まで参加者を誘導。</div>
+  <div id="map-yellow" class="map-section" style="display:none;">
+    <h3>黄チーム：音楽堂→ANAクラウンプラザホテル 案内（17:30〜18:00）</h3>
+    <div class="map-hint">17:30 総会終了 → 18:00 懇親会開始までの間。青チーム（受付）が案内役へ切り替わります。<br>音楽堂2階 邦楽ホール → ANA 3階 鳳の間まで参加者を誘導。<br>📱 <strong>地図はピンチで拡大できます</strong>。番号と凡例を照らし合わせてください。</div>
     <div class="map-wrap">
-      <img src="assets/maps/area_map.png" alt="金沢駅・音楽堂・ANA 全体マップ" id="map-img-post">
-      <div id="map-pins-post"></div>
+      <img src="assets/maps/area_map.png" alt="音楽堂→ANA 戻りマップ" id="map-img-yellow">
+      <div id="map-pins-yellow"></div>
     </div>
-    <div class="map-legend" id="map-legend-post"></div>
+    <div class="map-legend" id="map-legend-yellow"></div>
+    <div class="pv-points" style="margin-top:14px;">
+      <strong>⚠ 黄チーム ポイント</strong>
+      <ul>
+        <li>リーダー：氷見山／時間ではなく<strong>「周りを見て参加者がいなくなったら帰る」</strong>方式</li>
+        <li>①総会会場側から順に「もういない」と判断したら次の番号の人と合流して引き上げる</li>
+        <li>最終的に懇親会会場（ANA 3階 鳳の間）へ全員集合</li>
+        <li>⑩ANA 懇親会会場周辺はほぼ不要（北川・西能が既にスタンバイ済み → スタンバイ組と協力）</li>
+        <li>来た道を戻るだけなので、過剰な配置は避け臨機応変に対応</li>
+        <li>インカム不通時はスマホで電話連絡／笑顔で「こんにちは」</li>
+      </ul>
+    </div>
     <div class="floor-img"><img src="assets/maps/ongakudo_2f.png" alt="音楽堂2階フロア図"><div class="fcap">音楽堂 2階フロア図（参考）</div></div>
   </div>
 </div>
@@ -695,7 +743,8 @@
     <div class="qa-item"><div class="q">Q1. 素囃子・太鼓体験・踊りの所要時間は？</div><div class="a">A. 各10分程度。太鼓体験は挨拶の終わった支部の方から順に。</div></div>
     <div class="qa-item"><div class="q">Q2. 各支部挨拶のアテンド人員は？</div><div class="a">A. 各支部に2人配置。連絡調整方法の検討が必要（インカム要検討）。</div></div>
     <div class="qa-item"><div class="q">Q3. SCの方の食事時間は？</div><div class="a">A. ホテル・SC・お茶屋の女将と相談して調整。</div></div>
-    <div class="qa-item"><div class="q">Q4. 二次会設定は？</div><div class="a">A. お茶屋3軒（はん家・八の福・仲の家）＋リエグループ＋ANAクラウン19Fアストラル。</div></div>
+    <div class="qa-item"><div class="q">Q4. 二次会設定は？</div><div class="a">A. <strong>3会場</strong>に分かれます：<br>① お茶屋3軒（はん家・八の福・仲の家）：清水建設社長クラス＋親会役員のみ／各8名<br>② リエグループ（片町）：利恵 ＋ セレブール（同グループの別フロア）／約60名 ／ バス2台で移動・分乗<br>③ ANA クラウン 3階 瑞雲：約50名（その他参加者）<br><strong>※会計は各支部から後日請求のため、青年部担当は人数確認のみで OK。</strong></div></div>
+    <div class="qa-item"><div class="q">Q9. 二次会の案内はいつ告知？</div><div class="a">A. <strong>懇親会中の司会では案内しない方針</strong>のため、名札・席上に簡単な印刷物（A3 → クリアファイル等）を事前準備。</div></div>
     <div class="qa-item"><div class="q">Q5. 返礼挨拶は？</div><div class="a">A. 北陸 <ruby>高村<rt>たかむら</rt></ruby> <ruby>明彦<rt>あきひこ</rt></ruby> 副会長に決定。</div></div>
     <div class="qa-item"><div class="q">Q6. 演目の舞台は？</div><div class="a">A. 会場正面の舞台を使用。移動作業は不要。</div></div>
     <div class="qa-item"><div class="q">Q7. 太鼓体験はSCも参加？</div><div class="a">A. 強制ではなく流れに任せる。食事もあるので長くしない。</div></div>
@@ -786,7 +835,7 @@
   <!-- SCENE 0 -->
   <div class="scene" id="s0"><div class="scene-header"><div class="scene-num">00</div><div><div class="scene-title">開場</div><div class="scene-time">17:30〜18:00（30分間）</div></div></div><div class="scene-body">
     <div class="slide-label">背景スライド</div>
-    <div class="slide-frame"><div class="slide-top">WELCOME</div><div class="slide-main">全国連合兼喜会<br>第68回定時総会<br>北陸大会 懇親会</div><div class="slide-sub">2026年4月12日（日）</div><div class="slide-bottom">会場にお入りの際は、席次表をご確認ください</div></div>
+    <div class="slide-frame"><div class="slide-top">WELCOME</div><div class="slide-main">全国連合兼喜会<br>第68回定時総会<br>北陸大会 懇親会</div><div class="slide-sub">2026年5月15日（金）</div><div class="slide-bottom">会場にお入りの際は、席次表をご確認ください</div></div>
     <div class="mc-block"><div class="mc-label">司会者セリフ（BGMの合間に繰り返し）</div><div class="mc-text">本日はご来場いただきまして誠にありがとうございます。<span class="pause">（間）</span><br>開演は18時ちょうどを予定しております。<br>5分前にはご着席いただきますようお願いいたします。<br>時間までしばらくお待ちください。</div></div>
     <div class="mc-block"><div class="mc-label">司会者セリフ（開宴直前）</div><div class="mc-text">まもなく開宴となります。<span class="pause">（間）</span><br>このあと会場後方より清水建設、ご来賓が入場されます。<br>ご起立のうえ、大きな拍手でお迎えください。</div></div>
     <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
@@ -1149,6 +1198,19 @@ document.addEventListener('DOMContentLoaded',renderSeating);
    ===================================================================== */
 
 // 全体タイム（コア資料・司会台本ベース）
+const MASTER_PREP=[
+  {t:'前日13:00',task:'前日（5/14）資料作り集合',impl:'9時集合メンバー＋資料準備担当（江口部長の判断で時刻調整可）'},
+  {t:'09:00',task:'集合・リーダー朝礼',impl:'リーダー陣（中橋R・北川裕・吉田・西能・鍛治）／石川県メンバー'},
+  {t:'10:00',task:'懇親会リハーサル',impl:'リーダー＋石川メンバー（協力）'},
+  {t:'12:00',task:'全体朝礼（遠方組も合流）',impl:'青年部 全員（在田・田中・谷口・鎌田・江川・石井・高橋・伊藤亮・朝倉が12時集合）'},
+  {t:'13:00',task:'総会リハーサル（中橋R）／案内準備（緑・赤）／受付準備（青）／懇親会準備（北川裕は13〜15時フリー枠）',impl:'各チームに分かれて準備'},
+  {t:'13:00',task:'役員：総会リハーサル',impl:'青山会長／中橋T副会長／伊藤潔副会長／栗山副会長／高村副会長／辻総務理事'},
+  {t:'14:00',task:'案内開始（緑：金沢駅→ANA／赤：ANA→音楽堂）／受付開始（音楽堂）',impl:'14:30頃 参加者到着開始（新幹線・小松空港バス）'},
+  {t:'14:00',task:'役員：支部長会議',impl:'青山会長／中橋T副会長／伊藤潔副会長'},
+  {t:'15:00',task:'役員：役員集合写真',impl:'青山・中橋T・伊藤潔・栗山・高村'},
+  {t:'15:15',task:'音楽堂 開場（→ 定時総会セクション参照）',impl:''},
+];
+
 const MASTER_SOKAI=[
   {t:'15:15',task:'開場',impl:''},
   {t:'15:50',task:'会場ドア閉鎖準備・着座呼びかけ',impl:'司会／青年部'},
@@ -1202,12 +1264,13 @@ const MASTER_KONSHIN=[
 
 const MASTER_NIJI=[
   {t:'20:20',task:'★お茶屋 出迎え担当 先発',impl:'豊蔵享一・辻匡 → はん家／南志郎・北川文洋(?) → 八の福／朝倉洵平・高橋護・伊藤亮 → 仲の家'},
-  {t:'20:30',task:'二次会開始（バス2台で利恵へ移動）',impl:'青年部 二次会担当（北川裕章・大島）'},
+  {t:'20:30',task:'二次会開始（バス2台で片町（リエグループ）へ移動）',impl:'バス2台はリエ組／セレブール組で分けて乗車 → 現地で各クラブへ。約60名。'},
   {t:'20:30',task:'はん家（西）受入：計8名',impl:'新村SC社長／山岡SC本部長／近藤SC副支店長／八幡SC／青山会長／栗山副会長／豊蔵総務理事〇／辻総務理事〇'},
   {t:'20:30',task:'八の福（東）受入：計8名',impl:'井上SC会長／原田SC専務／角野SC支店長／江口SC部長／高村副会長／南会計理事〇／北川文洋?〇／本田'},
   {t:'20:30',task:'仲の家（主計）受入：計8名',impl:'齊藤SC副社長／塚田SC本部長／(清水SC専務?)／菅原SC副支店長／伊藤副会長／朝倉〇／高橋護〇／伊藤亮〇（〇＝20:20先発）'},
-  {t:'20:30',task:'リエグループ受入',impl:'連合幹部・中橋副会長など'},
-  {t:'20:30',task:'ANAクラウン19F アストラル受入',impl:'その他参加者'},
+  {t:'20:30',task:'リエグループ 利恵 受入（青年部担当：中橋R・近藤・氷見山）',impl:'連合幹部・中橋副会長など。会計は支部ごと後日請求のため人数確認のみ。'},
+  {t:'20:30',task:'リエグループ セレブール 受入（青年部担当：西能・吉田・斉藤）',impl:'リエグループ内の別フロアのクラブ。会計は支部ごと後日請求のため人数確認のみ。'},
+  {t:'20:30',task:'ANA 3階 瑞雲 受入：約50名（青年部担当：北川裕・大島）',impl:'レセプタント常駐のためほぼお任せ。会計不要、出欠確認のみ。控え室の忘れ物確認も担当。'},
   {t:'20:30',task:'★【青年部 全員】支部別人数カウント',impl:'各メンバーが担当支部の入店人数をひたすらチェック・報告。店側の入店人数と合計が合致するように。青年部メンバー自身の入店カウントは北陸兼喜会が担当。'},
   {t:'22:00',task:'二次会閉会',impl:''},
 ];
@@ -1218,36 +1281,37 @@ const STAFF=[
   // ===== 北陸兼喜会 役員（総会・懇親会出席） =====
   {id:'aoyama_s',name:'青山 悟',full:'青山 悟（あおやま さとる）',group:'exec',role:'北陸兼喜会 会長',company:'北陸',sokai:true,niji:'はん家（西）',
    schedule:[
-     {t:'14:00',task:'リハーサル',loc:'ANA 3階'},
-     {t:'15:00',task:'支部長会議',loc:'ANA 3階'},
-     {t:'16:00',task:'役員集合写真',loc:'音楽堂'},
+     {t:'13:00',task:'リハーサル',loc:'ANA 3階'},
+     {t:'14:00',task:'支部長会議',loc:'ANA 3階'},
+     {t:'15:00',task:'役員集合写真',loc:'音楽堂'},
      {t:'16:00',task:'定時総会出席（議長／歓迎挨拶／震災義援金寄付報告／大会宣言）',loc:'音楽堂2階 邦楽ホール'},
      {t:'18:00',task:'懇親会（歓迎の挨拶 18:14〜）',loc:'ANA 3階 鳳の間'},
      {t:'20:30',task:'二次会：はん家（西）',loc:'お茶屋 はん家',hint:'計8名／新村SC社長・山岡SC本部長・近藤SC副支店長・八幡SC・栗山さん・豊蔵さん〇・辻さん〇'},
    ]},
   {id:'nakahashi_t',name:'中橋 隆文',full:'中橋 隆文（なかはし たかふみ）',group:'exec',role:'北陸 副会長（閉会挨拶）',company:'中橋タイル',sokai:true,niji:'利恵',
    schedule:[
-     {t:'14:00',task:'リハーサル'},{t:'15:00',task:'支部長会議'},{t:'16:00',task:'役員集合写真'},
+     {t:'13:00',task:'リハーサル'},{t:'14:00',task:'支部長会議'},{t:'15:00',task:'役員集合写真'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会（閉会挨拶 20:22〜）',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会（利恵）リーダー'},
+     {t:'20:30',task:'二次会（利恵）リーダー',loc:'リエグループ 利恵'},
+     {t:'06:30',task:'【翌日】ゴルフコンペ：ANA → 小松CC → 小松空港 → 金沢駅 全行程同行',hint:'2026/5/16(土) 6:30 ANA発のバスに乗車・小松カントリーまで同行 → ゴルフ後バスで小松空港経由で金沢駅まで全員を見送り。日曜に車を取りに行く運用。'},
    ]},
   {id:'ito_kiyoshi',name:'伊藤 潔',full:'伊藤 潔（きよし）',group:'exec',role:'北陸 副会長（開会の辞）',company:'',sokai:true,niji:'仲の家（主計）',
    schedule:[
-     {t:'14:00',task:'リハーサル'},{t:'15:00',task:'支部長会議'},{t:'16:00',task:'役員集合写真'},
+     {t:'13:00',task:'リハーサル'},{t:'14:00',task:'支部長会議'},{t:'15:00',task:'役員集合写真'},
      {t:'16:00',task:'定時総会出席（開会の辞 16:00〜）'},
      {t:'18:00',task:'懇親会'},
      {t:'20:30',task:'二次会：仲の家（主計）',loc:'お茶屋 仲の家',hint:'計8名／齊藤SC副社長・塚田SC本部長・(清水SC専務?)・菅原SC副支店長・朝倉さん〇・新潟2名（高橋・伊藤亮）〇'},
    ]},
   {id:'kuriyama',name:'栗山 公伸',full:'栗山 公伸（きみのぶ）',group:'exec',role:'北陸 副会長（閉会の辞）',company:'',contact:'080-4250-2196',sokai:true,niji:'はん家（西）',
    schedule:[
-     {t:'14:00',task:'リハーサル'},{t:'16:00',task:'定時総会出席（閉会の辞 17:28〜）'},
+     {t:'13:00',task:'リハーサル'},{t:'16:00',task:'定時総会出席（閉会の辞 17:28〜）'},
      {t:'18:00',task:'懇親会'},
      {t:'20:30',task:'二次会：はん家（西）',loc:'お茶屋 はん家'},
    ]},
   {id:'takamura',name:'高村 明彦',full:'高村 明彦（たかむら あきひこ）',group:'exec',role:'北陸 副会長（返礼万歳）',company:'',sokai:true,niji:'八の福（東）',
    schedule:[
-     {t:'14:00',task:'リハーサル'},{t:'16:00',task:'定時総会出席'},
+     {t:'13:00',task:'リハーサル'},{t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会（返礼万歳 20:17〜）'},
      {t:'20:30',task:'二次会：八の福（東）',loc:'お茶屋 八の福',hint:'計8名／井上SC会長・原田SC専務・角野SC支店長・江口SC部長・南さん〇・北川文洋さん?〇・本田さん'},
    ]},
@@ -1260,7 +1324,7 @@ const STAFF=[
    ]},
   {id:'tsuji',name:'辻 匡',full:'辻 匡（つじ ただし）',group:'exec',role:'北陸 総務理事（総会司会）',company:'',sokai:true,niji:'はん家（西）',welcome:true,
    schedule:[
-     {t:'14:00',task:'リハーサル'},
+     {t:'13:00',task:'リハーサル'},
      {t:'15:50',task:'総会司会準備（インカム確認）'},
      {t:'16:00',task:'定時総会 司会'},
      {t:'18:00',task:'懇親会'},
@@ -1273,129 +1337,145 @@ const STAFF=[
      {t:'18:00',task:'懇親会'},
      {t:'20:20',task:'★お茶屋 八の福へ先発（出迎え待機）',loc:'お茶屋 八の福',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。'},
      {t:'20:30',task:'二次会：八の福（東）',loc:'お茶屋 八の福'},
+     {t:'07:30',task:'【翌日】ゴルフコンペ：小松カントリー 降車確認',loc:'小松カントリー',hint:'2026/5/16(土) 7:30頃 小松カントリーに到着するゴルフバスの降車を確認。中橋父より直接依頼。'},
    ]},
 
   // ===== リーダー =====
-  {id:'nakahashi_r',name:'中橋 隆一郎',short:'中橋R',full:'中橋 隆一郎',group:'leader',role:'全体リーダー（書記・会計）',company:'中橋タイル',contact:'080-2127-6273',incom:true,
+  {id:'nakahashi_r',name:'中橋 隆一郎',short:'中橋R',full:'中橋 隆一郎',group:'leader',role:'全体リーダー（青年部・書記・会計）',company:'中橋タイル',contact:'080-2127-6273',incom:true,
    schedule:[
-     {t:'10:00',task:'リーダー朝礼',loc:'ANA 2階'},
-     {t:'13:00',task:'全体朝礼',loc:'ANA 2階'},
-     {t:'14:00',task:'リハーサル',loc:'音楽堂 邦楽ホール'},
+     {t:'09:00',task:'集合・リーダー朝礼',loc:'ANA 2階'},
+     {t:'10:00',task:'懇親会リハーサル',loc:'ANA 3階 鳳の間'},
+     {t:'12:00',task:'全体朝礼',loc:'ANA 2階'},
+     {t:'13:00',task:'総会リハーサル',loc:'音楽堂 邦楽ホール'},
      {t:'16:00',task:'案内（支部長）',loc:'音楽堂'},
-     {t:'16:00',task:'定時総会出席'},
+     {t:'16:00',task:'定時総会出席（トラブル対応で備える／鎌田・谷口と3名体制）'},
      {t:'18:00',task:'懇親会：来賓入場の先導・登壇者声掛け',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会（利恵）リーダー：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェックし合計が合うように管理。北陸兼喜会の入店カウントも担当。'},
+     {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'リエグループ 利恵（片町）',hint:'リエグループ。バス2台で ANA から片町近くまで移動し、現地でセレブール組と分かれる。各支部からの入店人数をチェック。北陸兼喜会の入店カウントも担当。'},
    ],
-   points:['Q出し5分前に登壇者にお声がけ','会長・社長がトイレへ立たれる際は出入口に大島、トイレ前に斉藤を配置','二次会では支部別人数カウントが青年部の主役割']},
-  {id:'kitagawa_h',name:'北川 裕章',short:'北川裕',full:'北川 裕章',group:'leader',role:'懇親会リーダー（副部長）',company:'菱機工業',contact:'080-8692-9503',incom:true,
+   points:['インカムは終日装着（4名：中橋・北川裕・吉田・西能）','Q出し5分前に登壇者にお声がけ（会長・社長 不在ならイベント進行不可 → リスケ）','会長・社長がトイレへ立たれる際は出入口に大島、トイレ前に斉藤を配置','各案内チームの休憩は中橋が適宜交代（赤チーム）／西能（青チーム）／吉田（緑チーム）','インカム不通時はスマホで電話連絡','参加者とすれ違う際は笑顔で「こんにちは」をルール化','シナリオ進行を妨げる事象は迷わず各リーダーへ即報告','二次会はリエグループの利恵担当（バス2台のうち利恵組を統括）','翌日 6:30 ゴルフコンペバス出発（鍛治が乗車確認 → 父・中橋隆文が小松CC・小松空港・金沢駅まで同行）']},
+  {id:'kitagawa_h',name:'北川 裕章',short:'北川裕',full:'北川 裕章',group:'leader',role:'全体サブリーダー兼 懇親会リーダー（副部長）',company:'菱機工業',contact:'080-8692-9503',incom:true,
    schedule:[
-     {t:'10:00',task:'リーダー朝礼',loc:'ANA 2階'},
-     {t:'13:00',task:'全体朝礼',loc:'ANA 2階'},
-     {t:'14:00',task:'案内（金沢駅バス乗り場）',loc:'金沢駅 金沢港口バス乗り場',hint:'小松空港からのバス到着時間に合わせて待機'},
+     {t:'09:00',task:'集合・リーダー朝礼',loc:'ANA 2階'},
+     {t:'10:00',task:'懇親会リハーサル',loc:'ANA 3階 鳳の間'},
+     {t:'12:00',task:'全体朝礼',loc:'ANA 2階'},
+     {t:'13:00',task:'懇親会準備（13〜15時はフリー枠だが、実質懇親会の準備対応）'},
      {t:'17:00',task:'懇親会準備',loc:'ANA 3階 鳳の間'},
      {t:'18:00',task:'懇親会：司会者へのQ出し',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会（ANA 3階 瑞雲）リーダー：支部別 人数カウント・店側との突合',loc:'ANA 3階 瑞雲',hint:'各支部からの入店人数をチェックし合計が合うように管理。北陸兼喜会の入店カウントも担当。'},
+     {t:'20:30',task:'二次会（ANA 3階 瑞雲）リーダー：参加人数約50名の出欠確認',loc:'ANA 3階 瑞雲',hint:'参加人数約50名。レセプタント常駐のためほぼお任せで、何かあったら対応。会計不要、出欠確認のみ。控え室（ANA 2階 テレビ・音楽堂2階 楽屋）の忘れ物確認も担当。'},
    ],
-   points:['Q出しは時間軸基本。登壇者・会長・社長不在の場合は待機','各担当の休憩は北川裕・吉田が適宜交代','二次会では支部別人数カウントが青年部の主役割']},
+   points:['インカムは終日装着（4名：中橋・北川裕・吉田・西能）','Q出しは時間軸基本。登壇者・会長・社長不在の場合は進行不可 → リスケ','各案内チームの休憩は北川裕・吉田が適宜交代','二次会（ANA瑞雲）担当は会計不要・出欠確認のみ／控え室の忘れ物チェックも担当','参加者とすれ違う際は笑顔で「こんにちは」']},
 
   // ===== 緑チーム：案内（金沢駅→ANA） =====
   {id:'yoshida',name:'吉田 有祐',short:'吉田',full:'吉田 有祐',group:'green',role:'案内リーダー（緑チーム）',company:'三幸電設',contact:'090-7099-3347',incom:true,
    schedule:[
-     {t:'10:00',task:'リーダー朝礼',loc:'ANA 2階'},
+     {t:'09:00',task:'集合・リーダー朝礼',loc:'ANA 2階'},
+     {t:'10:00',task:'懇親会リハーサル',loc:'ANA 3階 鳳の間'},
+     {t:'12:00',task:'全体朝礼',loc:'ANA 2階'},
      {t:'13:00',task:'案内準備'},
      {t:'14:00',task:'案内（緑チーム全体統括）'},
      {t:'17:00',task:'懇親会準備',loc:'ANA 3階 鳳の間'},
-     {t:'18:00',task:'懇親会：映像・音響',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェック。'},
+     {t:'18:00',task:'懇親会：映像・音響（パワーポイント操作）',loc:'ANA 3階 鳳の間'},
+     {t:'20:30',task:'二次会（セレブール）：支部別 人数カウント・店側との突合',loc:'リエグループ セレブール（片町）',hint:'リエグループ内の別フロアのクラブ。各支部からの入店人数をチェック。'},
    ],
-   points:['各担当の休憩は北川裕・吉田が適宜交代','二次会では支部別人数カウントが主役割']},
+   points:['緑チームのリーダーとしてインカム1台保持／終日装着','石森（金沢港口バス乗り場）は小松空港バス到着時間に合わせて待機','本田・南は青チーム（受付）と協力。西能の指示にも従う','各担当の休憩は北川裕・吉田が適宜交代','懇親会ではタイミング指示に合わせてパワーポイント操作','二次会はリエグループのセレブール担当（利恵と別フロア）']},
   {id:'oyu',name:'大湯 義秀',short:'大湯',full:'大湯 義秀',group:'green',role:'①金沢駅新幹線改札',company:'大湯板金',contact:'090-1634-6910',sokai:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼',loc:'ANA 2階'},
-     {t:'14:00',task:'案内準備'},
-     {t:'14:30',task:'案内 ①金沢駅 新幹線改札',loc:'金沢駅'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼',loc:'ANA 2階'},
+     {t:'13:00',task:'案内準備'},
+     {t:'14:00',task:'案内 ①金沢駅 新幹線改札',loc:'金沢駅'},
      {t:'16:00',task:'定時総会出席',loc:'音楽堂2階 邦楽ホール'},
      {t:'18:00',task:'懇親会',loc:'ANA 3階 鳳の間'},
    ]},
   {id:'misogawa',name:'操川 友佑',short:'操川',full:'操川 友佑',group:'green',role:'②金沢駅兼六園口',company:'城西運輸機工',contact:'090-1631-7437',sokai:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'案内準備'},
-     {t:'14:30',task:'案内 ②金沢駅 兼六園口',loc:'金沢駅'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'案内準備'},
+     {t:'14:00',task:'案内 ②金沢駅 兼六園口',loc:'金沢駅'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
   {id:'fukuo',name:'冨久尾 裕喜',short:'富久尾',full:'冨久尾 裕喜',group:'green',role:'③金沢駅モニュメント',company:'金沢セメント商事',contact:'090-9762-8801',sokai:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'案内準備'},
-     {t:'14:30',task:'案内 ③金沢駅モニュメント',loc:'金沢駅'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'案内準備'},
+     {t:'14:00',task:'案内 ③金沢駅モニュメント',loc:'金沢駅'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
   {id:'arita',name:'在田 吉宏',short:'在田',full:'在田 吉宏',group:'green',role:'④ANA曲がり角（青年部副部長）',company:'アリタ',contact:'080-6364-3051',sokai:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'案内準備'},
-     {t:'14:30',task:'案内 ④ANA曲がり角',loc:'ANA 周辺'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'案内準備'},
+     {t:'14:00',task:'案内 ④ANA曲がり角',loc:'ANA 周辺'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
   {id:'kirihata',name:'桐畑 剛',short:'桐畑',full:'桐畑 剛',group:'green',role:'⑤ANA曲がり角',company:'桐畑',contact:'090-3885-6875',sokai:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'案内準備'},
-     {t:'14:30',task:'案内 ⑤ANA曲がり角',loc:'ANA 周辺'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'案内準備'},
+     {t:'14:00',task:'案内 ⑤ANA曲がり角',loc:'ANA 周辺'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
   {id:'honda',name:'本田 誠一',short:'本田',full:'本田 誠一（ほんだ せいいち）',group:'green',role:'⑥ANA出入口（全体統括）',company:'本田鉄工',contact:'090-4309-9650',sokai:true,niji:'八の福（東）',
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'案内準備'},
-     {t:'14:30',task:'案内 ⑥ANA出入口・受付整理',loc:'ANA 1階'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'案内準備'},
+     {t:'14:00',task:'案内 ⑥ANA出入口・受付整理',loc:'ANA 1階'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
      {t:'20:30',task:'二次会：八の福（東）',loc:'お茶屋 八の福'},
    ],
    points:['本田・石森は青チーム（受付）と協力する','西能の指示に従う']},
-  {id:'ishimori',name:'石森 良隆',short:'石森',full:'石森 良隆',group:'green',role:'⑥ANA出入口（北陸監事）',company:'石森木工',contact:'090-6813-1169',sokai:true,
+  {id:'ishimori',name:'石森 良隆',short:'石森',full:'石森 良隆',group:'green',role:'金沢港口バス乗り場（小松空港バス対応・北陸監事）',company:'石森木工',contact:'090-6813-1169',sokai:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'案内準備'},
-     {t:'14:30',task:'案内 ⑥ANA出入口・受付整理',loc:'ANA 1階'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'案内準備'},
+     {t:'14:00',task:'金沢駅 金沢港口バス乗り場で待機',loc:'金沢駅 金沢港口バス乗り場',hint:'小松空港からのバス到着時間に合わせて待機。バス到着時間は事務局で確認。バスから降りた参加者を ANA まで誘導。'},
+     {t:'15:00',task:'案内 ⑥ANA出入口・受付整理（バス組合流後）',loc:'ANA 1階'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ],
-   points:['本田・石森は青チーム（受付）と協力する','西能の指示に従う']},
+   points:['まず金沢港口バス乗り場で小松空港バス到着を待機 → バス組をANAまで誘導 → 本田と合流して⑥ANA出入口で受付整理','本田・石森は青チーム（受付）と協力する','受付の振り分けで本田が忙しい際は西能の指示にも従う']},
 
   // ===== 青チーム：受付（→17時 黄チーム 案内 音楽堂→ANA） =====
   {id:'sainou',name:'西能 立',short:'西能',full:'西能 立',group:'blue',role:'受付リーダー（青年部幹事）',company:'第一交易',contact:'090-3763-0201',incom:true,
    schedule:[
-     {t:'10:00',task:'リーダー朝礼',loc:'ANA 2階'},
-     {t:'13:00',task:'全体朝礼',loc:'ANA 2階'},
-     {t:'14:00',task:'受付準備'},
-     {t:'14:30',task:'受付（全体統括）',loc:'音楽堂'},
+     {t:'09:00',task:'集合・リーダー朝礼',loc:'ANA 2階'},
+     {t:'10:00',task:'懇親会リハーサル',loc:'ANA 3階 鳳の間'},
+     {t:'12:00',task:'全体朝礼',loc:'ANA 2階'},
+     {t:'13:00',task:'受付準備'},
+     {t:'14:00',task:'受付（全体統括）',loc:'音楽堂'},
      {t:'17:00',task:'懇親会準備',loc:'ANA 3階 鳳の間'},
      {t:'18:00',task:'懇親会：進行',loc:'ANA 3階 鳳の間'},
-     {t:'20:00',task:'二次会（利恵）受入準備'},
-     {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェックし合計が合うように管理。'},
+     {t:'20:00',task:'二次会（セレブール）受入準備'},
+     {t:'20:30',task:'二次会（セレブール）：支部別 人数カウント・店側との突合',loc:'リエグループ セレブール（片町）',hint:'リエグループ内の別フロアのクラブ。バスで利恵組と一緒に移動し、現地で利恵組と分かれる。各支部からの入店人数をチェック。会計は支部ごと後日請求のため人数確認のみ。'},
    ],
-   points:['各担当の休憩は西能が適宜交代','受付時刻（16時）を過ぎての参加者は大島と斉藤が残って対応','二次会では支部別人数カウントが主役割']},
-  {id:'oshima',name:'大島 成友',short:'大島',full:'大島 成友',group:'blue',role:'受付（北陸 76名）',company:'日本板硝子S&S',contact:'090-2375-7709',
+   points:['受付の振り分けは才能（西能）の判断で臨機応変に変更可','受付時刻（16時）を過ぎての参加者は大島と斉藤が残って対応','受付の質問対応は西能に集約し、本田が受付フォロー','各担当の休憩は西能が適宜交代','インカムは終日装着（中橋・北川裕・吉田・西能の4名）','参加者とすれ違う際は笑顔で「こんにちは」','二次会はリエグループのセレブール担当（利恵と別フロア）']},
+  {id:'oshima',name:'大島 成友',short:'大島',full:'大島 成友',group:'blue',role:'受付（北陸 76名）／16時以降の遅刻対応',company:'日本板硝子S&S',contact:'090-2375-7709',
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'受付準備'},
-     {t:'14:30',task:'受付（北陸 76名担当）',loc:'音楽堂'},
-     {t:'18:00',task:'懇親会：来賓入場の扉開け',loc:'ANA 3階 鳳の間'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'受付準備'},
+     {t:'14:00',task:'受付（北陸 76名担当・大島＋朝倉の2名体制）',loc:'音楽堂'},
+     {t:'16:00',task:'受付残り対応（遅刻参加者）：斉藤と2名で対応',loc:'音楽堂'},
+     {t:'18:00',task:'懇親会：来賓入場の扉開け／会長・社長がトイレに立たれる際は出入口に待機',loc:'ANA 3階 鳳の間'},
      {t:'20:00',task:'二次会（ANA 3階 瑞雲）受入準備'},
-     {t:'20:30',task:'二次会（ANA 3階 瑞雲）：支部別 人数カウント・店側との突合',loc:'ANA 3階 瑞雲',hint:'各支部からの入店人数をチェックし合計が合うように管理。'},
-   ]},
+     {t:'20:30',task:'二次会（ANA 3階 瑞雲）：出欠確認＋控え室の忘れ物確認',loc:'ANA 3階 瑞雲',hint:'参加人数約50名。レセプタント常駐のためほぼお任せ。会計不要、出欠確認のみ。控え室（ANA 2階 テレビ／音楽堂2階 楽屋）の忘れ物チェックも担当。'},
+   ],
+   points:['16時を過ぎて受付に来る参加者は斉藤とともに残って対応','懇親会では来賓入場の扉開け／会長・社長がトイレに立たれる際は出入口で待機','二次会（ANA瑞雲）担当は会計不要・出欠確認のみ／控え室の忘れ物チェックも担当']},
   {id:'asakura',name:'朝倉 洵平',short:'朝倉',full:'朝倉 洵平',group:'blue',role:'受付（北陸 76名）',company:'朝倉',contact:'080-1253-3892',niji:'仲の家（主計）',welcome:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'受付準備'},
-     {t:'14:30',task:'受付（北陸 76名担当）',loc:'音楽堂'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'受付準備'},
+     {t:'14:00',task:'受付（北陸 76名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ⑥ ANA曲がり角（黄チーム）',loc:'ANA 周辺'},
      {t:'18:00',task:'懇親会'},
      {t:'20:20',task:'★お茶屋 仲の家へ先発（出迎え待機）',loc:'お茶屋 仲の家',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。'},
@@ -1403,71 +1483,75 @@ const STAFF=[
    ]},
   {id:'himiyama',name:'氷見山 和喜',short:'氷見山',full:'氷見山 和喜',group:'blue',role:'受付（北海道 22名）',company:'氷見山工業',contact:'090-4324-2222',
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'受付準備'},
-     {t:'14:30',task:'受付（北海道 22名担当）',loc:'音楽堂'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'受付準備'},
+     {t:'14:00',task:'受付（北海道 22名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ③音楽堂通路（黄チームリーダー）',loc:'音楽堂'},
      {t:'18:00',task:'懇親会：芸妓担当',loc:'ANA 3階 鳳の間'},
      {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェック。'},
    ]},
   {id:'kondo',name:'近藤 武士',short:'近藤',full:'近藤 武士',group:'blue',role:'受付（東北・関東 19名）',company:'岸建販',contact:'090-1394-5765',
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'受付準備'},
-     {t:'14:30',task:'受付（東北・関東 19名担当）',loc:'音楽堂'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'受付準備'},
+     {t:'14:00',task:'受付（東北・関東 19名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ④音楽堂通路（黄チーム）',loc:'音楽堂'},
      {t:'18:00',task:'懇親会：レセプタント担当',loc:'ANA 3階 鳳の間'},
      {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェック。'},
    ]},
   {id:'saito',name:'斉藤 康弘',short:'斉藤',full:'斉藤 康弘',group:'blue',role:'受付（東京 22名）',company:'ヨシダ宣伝',contact:'090-6276-1607',
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'受付準備'},
-     {t:'14:30',task:'受付（東京 22名担当）',loc:'音楽堂'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'受付準備'},
+     {t:'14:00',task:'受付（東京 22名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ⑤音楽堂横断歩道（黄チーム）',loc:'音楽堂'},
-     {t:'18:00',task:'懇親会：来賓入場の扉開け',loc:'ANA 3階 鳳の間'},
-     {t:'20:00',task:'二次会（利恵）受入準備'},
-     {t:'20:30',task:'二次会（利恵）：支部別 人数カウント・店側との突合',loc:'お茶屋 利恵',hint:'各支部からの入店人数をチェック。'},
-   ]},
+     {t:'18:00',task:'懇親会：来賓入場の扉開け／中橋（全体リーダー）のサポート',loc:'ANA 3階 鳳の間'},
+     {t:'20:00',task:'二次会（セレブール）受入準備'},
+     {t:'20:30',task:'二次会（セレブール）：支部別 人数カウント・店側との突合',loc:'リエグループ セレブール（片町）',hint:'リエグループ内の別フロアのクラブ。各支部からの入店人数をチェック。'},
+   ],
+   points:['16時を過ぎて受付に来る参加者は大島とともに残って対応','懇親会では来賓入場時の扉開け・登壇者退場時の扉開けが主担当','二次会はリエグループのセレブール担当（利恵と別フロア）']},
   {id:'taniguchi',name:'谷口 正輝',short:'谷口',full:'谷口 正輝',group:'blue',role:'受付（千葉・横浜 18名）',company:'S-LAP',contact:'090-2121-7322',
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'受付準備'},
-     {t:'14:30',task:'受付（千葉・横浜 18名担当）',loc:'音楽堂'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'受付準備'},
+     {t:'14:00',task:'受付（千葉・横浜 18名担当）',loc:'音楽堂'},
      {t:'16:00',task:'定時総会出席'},
      {t:'17:00',task:'案内 ①音楽堂2階ホール（黄チーム）',loc:'音楽堂'},
      {t:'18:00',task:'懇親会'},
    ]},
   {id:'kamada',name:'鎌田 直樹',short:'鎌田',full:'鎌田 直樹',group:'blue',role:'受付（名古屋 23名）',company:'ホクコンマテリアル',contact:'070-4418-9971',
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'受付準備'},
-     {t:'14:30',task:'受付（名古屋 23名担当）',loc:'音楽堂'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'受付準備'},
+     {t:'14:00',task:'受付（名古屋 23名担当）',loc:'音楽堂'},
      {t:'16:00',task:'定時総会出席'},
      {t:'17:00',task:'案内 ②音楽堂1階ホール（黄チーム）',loc:'音楽堂'},
      {t:'18:00',task:'懇親会'},
    ]},
   {id:'ekawa',name:'江川 晃司',short:'江川',full:'江川 晃司',group:'blue',role:'受付（近畿 26名）',company:'オカモトハツリ',contact:'090-7599-3454',
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'受付準備'},
-     {t:'14:30',task:'受付（近畿 26名担当）',loc:'音楽堂'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'受付準備'},
+     {t:'14:00',task:'受付（近畿 26名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ⑦ANA出入口（黄チーム）',loc:'ANA'},
      {t:'18:00',task:'懇親会'},
    ]},
   {id:'ishii',name:'石井 佑莉',short:'石井',full:'石井 佑莉',group:'blue',role:'受付（広島 19名）',company:'富源商事',contact:'080-5856-0680',
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'受付準備'},
-     {t:'14:30',task:'受付（広島 19名担当）',loc:'音楽堂'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'受付準備'},
+     {t:'14:00',task:'受付（広島 19名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ⑧ANA1階EVホール（黄チーム）',loc:'ANA 1階'},
      {t:'18:00',task:'懇親会'},
    ]},
   {id:'takahashi_m',name:'高橋 護',short:'高橋',full:'高橋 護（青年部副部長／新潟）',group:'blue',role:'受付（四国 17名・青年部副部長）',company:'新日建業',contact:'090-7259-7443',niji:'仲の家（主計）',welcome:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'受付準備'},
-     {t:'14:30',task:'受付（四国 17名担当）',loc:'音楽堂'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'受付準備'},
+     {t:'14:00',task:'受付（四国 17名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ⑨ANA3階EVホール（黄チーム）',loc:'ANA 3階'},
      {t:'18:00',task:'懇親会'},
      {t:'20:20',task:'★お茶屋 仲の家へ先発（出迎え待機）',loc:'お茶屋 仲の家',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。'},
@@ -1475,9 +1559,9 @@ const STAFF=[
    ]},
   {id:'ito_ryo',name:'伊藤 亮',short:'伊藤',full:'伊藤 亮（青年部 会計／新潟）',group:'blue',role:'受付（九州 16名）',company:'アステック',contact:'080-1307-8566',niji:'仲の家（主計）',welcome:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'受付準備'},
-     {t:'14:30',task:'受付（九州 16名担当）',loc:'音楽堂'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'受付準備'},
+     {t:'14:00',task:'受付（九州 16名担当）',loc:'音楽堂'},
      {t:'17:00',task:'案内 ⑩ANA懇親会会場（黄チーム）',loc:'ANA 3階 鳳の間'},
      {t:'18:00',task:'懇親会'},
      {t:'20:20',task:'★お茶屋 仲の家へ先発（出迎え待機）',loc:'お茶屋 仲の家',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。'},
@@ -1487,52 +1571,59 @@ const STAFF=[
   // ===== 赤チーム：案内（音楽堂） =====
   {id:'kaji',name:'鍛治 渉',short:'鍛冶',full:'鍛治 渉（青年部 部長）',group:'red',role:'⑥音楽堂1階ホール／赤チームリーダー',company:'小松ウォールアイティ',contact:'090-9990-8411',incom:true,sokai:true,
    schedule:[
-     {t:'10:00',task:'リーダー朝礼',loc:'ANA 2階'},
-     {t:'13:00',task:'全体朝礼',loc:'ANA 2階'},
-     {t:'14:00',task:'案内準備',loc:'音楽堂'},
-     {t:'14:30',task:'案内 ⑥音楽堂1階ホール（リーダー）',loc:'音楽堂 1階ホール'},
-     {t:'16:00',task:'定時総会出席'},
+     {t:'09:00',task:'集合・リーダー朝礼',loc:'ANA 2階'},
+     {t:'10:00',task:'懇親会リハーサル',loc:'ANA 3階 鳳の間'},
+     {t:'12:00',task:'全体朝礼',loc:'ANA 2階'},
+     {t:'13:00',task:'案内準備',loc:'音楽堂'},
+     {t:'14:00',task:'案内 ⑥音楽堂1階ホール（リーダー・インカム）',loc:'音楽堂 1階ホール'},
+     {t:'16:00',task:'定時総会出席（赤チーム終了後、インカムを清水建設 調達部 中村さんへ受け渡し）'},
      {t:'18:00',task:'懇親会',loc:'ANA 3階 鳳の間'},
+     {t:'06:30',task:'【翌日】ゴルフコンペ：ANA 出発バスの乗車確認',loc:'ANA 出発口',hint:'2026/5/16(土) 6:30 出発のバス1台。名簿で乗車チェック → 確認後そのまま解散OK。'},
    ],
-   points:['名札を着用していない方に声掛け、受付状況をインカムで西能と共有','関係者以外の入場をブロック','各担当の休憩は中橋が適宜交代']},
+   points:['配置変更：当初①横断歩道 → ⑥音楽堂1階ホール（トラブル多発を想定して変更）','名札を着用していない方に声掛けし、受付状況をインカムで西能と共有','関係者以外の入場をブロック（音楽ホールはほぼ貸切でリハーサル中、関係者以外が紛れ込む可能性）','遅刻参加者は受付を通らず直接会場へ向かう可能性あり','各担当の休憩は中橋が適宜交代','赤チーム終了後、インカムは清水建設 調達部（中村さん）へ受け渡し（懇親会で清水側がインカム2つ使用）','翌日 6:30 ANA発のゴルフコンペバス乗車確認担当（中村さんが希望）']},
   {id:'tsubota',name:'坪田 大輝',short:'坪田',full:'坪田 大輝',group:'red',role:'②音楽堂通路',company:'ツボ電気工事',contact:'090-3569-0953',sokai:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'案内準備'},
-     {t:'14:30',task:'案内 ②音楽堂通路',loc:'音楽堂'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'案内準備'},
+     {t:'14:00',task:'案内 ②音楽堂通路',loc:'音楽堂'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
   {id:'aoyama_t',name:'青山 毅士',short:'青山(青年部)',full:'青山 毅士',group:'red',role:'③音楽堂通路',company:'青山',contact:'090-5172-4333',sokai:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'案内準備'},
-     {t:'14:30',task:'案内 ③音楽堂通路',loc:'音楽堂'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'案内準備'},
+     {t:'14:00',task:'案内 ③音楽堂通路',loc:'音楽堂'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
   {id:'hagino',name:'萩野 充弘',short:'萩野',full:'萩野 充弘',group:'red',role:'①音楽堂横断歩道',company:'萩野塗装',contact:'090-2032-9094',sokai:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'案内準備'},
-     {t:'14:30',task:'案内 ①音楽堂横断歩道',loc:'音楽堂前'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'案内準備'},
+     {t:'14:00',task:'案内 ①音楽堂横断歩道',loc:'音楽堂前'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
      {t:'20:30',task:'二次会'},
    ]},
   {id:'isurugi',name:'石動 嘉信',short:'石動',full:'石動 嘉信',group:'red',role:'⑤音楽堂西口',company:'イスルギ',contact:'080-2951-0477',sokai:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'案内準備'},
-     {t:'14:30',task:'案内 ⑤音楽堂西口（出入口）',loc:'音楽堂'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'案内準備'},
+     {t:'14:00',task:'案内 ⑤音楽堂西口（出入口）',loc:'音楽堂'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
   {id:'kitagawa_f',name:'北川 文洋',short:'北川文',full:'北川 文洋',group:'red',role:'④音楽堂通路',company:'北川瀝青工業',contact:'090-2377-5551',sokai:true,niji:'八の福（東）※要確認',welcome:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'案内準備'},
-     {t:'14:30',task:'案内 ④音楽堂通路',loc:'音楽堂'},
+     {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'案内準備'},
+     {t:'14:00',task:'案内 ④音楽堂通路',loc:'音楽堂'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
      {t:'20:20',task:'★お茶屋 八の福へ先発（出迎え待機・要確認）',loc:'お茶屋 八の福',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。※事務局より「？」付きで連絡あり、要本人確認。'},
@@ -1540,9 +1631,9 @@ const STAFF=[
    ]},
   {id:'tanaka',name:'田中 陽介',short:'田中',full:'田中 陽介（青年部副部長）',group:'red',role:'⑦音楽堂2階ホール',company:'タッセイ',contact:'090-5686-1343',sokai:true,
    schedule:[
-     {t:'13:00',task:'全体朝礼'},
-     {t:'14:00',task:'案内準備'},
-     {t:'14:30',task:'案内 ⑦音楽堂2階ホール',loc:'音楽堂 2階'},
+     {t:'12:00',task:'全体朝礼'},
+     {t:'13:00',task:'案内準備'},
+     {t:'14:00',task:'案内 ⑦音楽堂2階ホール',loc:'音楽堂 2階'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
@@ -1557,7 +1648,7 @@ const GROUP_INFO={
 };
 
 // ====== 時刻オーバーライド機構（テスト用） ======
-const EVENT_DATE='2026-04-12';
+const EVENT_DATE='2026-05-15';
 function getNow(){
   const o=localStorage.getItem('overrideTime');
   if(o){
@@ -1608,6 +1699,7 @@ function renderMaster(){
     });
     root.innerHTML=html;
   };
+  renderList(MASTER_PREP,'master-prep','prep');
   renderList(MASTER_SOKAI,'master-sokai','sokai');
   renderList(MASTER_KONSHIN,'master-konshin','konshin');
   renderList(MASTER_NIJI,'master-niji','niji');
@@ -1671,7 +1763,7 @@ function openPersonal(id){
   }else if(next){
     nowCard=`<div class="pv-now-card next-only"><div class="nc-label">⏱ まもなく開始</div><div class="nc-time">${next.t}〜</div><div class="nc-task">${next.task}</div>${next.loc?`<div class="nc-detail">📍 ${next.loc}</div>`:''}</div>`;
   }else if(now===null){
-    nowCard=`<div class="pv-now-card next-only"><div class="nc-label">📅 当日（2026/4/12）の予定</div><div class="nc-task">下のタイムラインで全体の動きを確認してください</div></div>`;
+    nowCard=`<div class="pv-now-card next-only"><div class="nc-label">📅 当日（2026/5/15）の予定</div><div class="nc-task">下のタイムラインで全体の動きを確認してください</div></div>`;
   }
 
   const nextMini=current&&next?`<div class="pv-next-mini"><div class="nm-label">▼ 次（${next.t}〜）</div><div class="nm-task">${next.task}</div>${next.loc?`<div style="font-size:.78rem;color:#666;margin-top:2px;">📍 ${next.loc}</div>`:''}</div>`:'';
@@ -1713,8 +1805,9 @@ function openPersonal(id){
       <div class="pv-section-title">あなたの1日のスケジュール</div>
       <div class="pv-tl">${timeline}</div>
       ${pointsHtml}
-      ${(s.group==='green'||s.group==='red')?`<button class="pv-map-link" onclick="openMapForStaff('${(s.short||s.name).replace(/[ 　].*/,'').replace(/'/g,'')}','pre')">📍 受付前 配置図で位置を確認</button>`:''}
-      ${(s.group==='blue')?`<button class="pv-map-link" onclick="openMapForStaff('${(s.short||s.name).replace(/[ 　].*/,'').replace(/'/g,'')}','post')">📍 総会後の案内配置図（黄チーム）で位置を確認</button>`:''}
+      ${(s.group==='green')?`<button class="pv-map-link" onclick="openMapForStaff('${(s.short||s.name).replace(/[ 　].*/,'').replace(/'/g,'')}','green')">📍 緑チーム配置図（金沢駅→ANA）で位置を確認</button>`:''}
+      ${(s.group==='red')?`<button class="pv-map-link" onclick="openMapForStaff('${(s.short||s.name).replace(/[ 　].*/,'').replace(/'/g,'')}','red')">📍 赤チーム配置図（ANA→音楽堂）で位置を確認</button>`:''}
+      ${(s.group==='blue')?`<button class="pv-map-link" onclick="openMapForStaff('${(s.short||s.name).replace(/[ 　].*/,'').replace(/'/g,'')}','yellow')">📍 黄チーム配置図（音楽堂→ANA戻り）で位置を確認</button>`:''}
       ${s.contact?`<a class="pv-contact" href="tel:${s.contact.replace(/[^0-9+]/g,'')}"><span class="pc-icon">📞</span><span>${s.contact}</span><span class="pc-sub">タップで発信</span></a>`:''}
       <div class="pv-time-toggle ${overrideOn?'on':''}" id="pv-time-toggle">
         <label><input type="checkbox" ${overrideOn?'checked':''} onchange="toggleOverride(this)"> 時刻をシミュレートして確認する（テスト用）</label>
@@ -1768,26 +1861,30 @@ function refreshAll(){
 
 // ====== 案内地図 配置データ ======
 // 座標は area_map.png に対する相対％（PPT slide4/slide10 から抽出）
-const MAP_PRE=[
-  // 緑チーム（金沢駅→ANA→音楽堂）
+// 緑・赤・黄を独立したリストとして保持し、各段階の配置をそれぞれ活かす
+const MAP_GREEN=[
+  // 緑チーム（金沢駅→ANA案内）14:30〜16:00
   {team:'green',num:'①',label:'金沢駅 新幹線改札',name:'大湯',x:83.63,y:14.50},
   {team:'green',num:'②',label:'金沢駅 兼六園口',name:'操川',x:83.63,y:26.75},
   {team:'green',num:'③',label:'金沢駅 モニュメント',name:'冨久尾',x:62.46,y:24.76},
   {team:'green',num:'④',label:'ANA 曲がり角',name:'在田',x:60.38,y:54.26},
   {team:'green',num:'⑤',label:'ANA 曲がり角',name:'桐畑',x:48.82,y:53.99},
-  {team:'green',num:'⑥',label:'ANA 出入口',name:'本田 / 石森',x:50.51,y:65.33},
-  // 赤チーム（音楽堂内案内）
+  {team:'green',num:'⑥',label:'ANA 出入口（受付協力）',name:'本田 / 石森',x:50.51,y:65.33},
+];
+
+const MAP_RED=[
+  // 赤チーム（ANA→音楽堂案内）14:30〜16:00
   {team:'red',num:'①',label:'音楽堂 横断歩道',name:'萩野',x:7.45,y:28.44},
   {team:'red',num:'②',label:'音楽堂 通路',name:'坪田',x:30.74,y:27.30},
   {team:'red',num:'③',label:'音楽堂 通路',name:'青山(青年部)',x:51.88,y:27.30},
   {team:'red',num:'④',label:'音楽堂 通路',name:'北川 文洋',x:4.48,y:39.07},
   {team:'red',num:'⑤',label:'音楽堂 西口',name:'石動',x:7.76,y:36.07},
-  {team:'red',num:'⑥',label:'音楽堂 1階ホール（リーダー）',name:'鍛治',x:7.76,y:49.78},
+  {team:'red',num:'⑥',label:'音楽堂 1階ホール（リーダー・インカム）',name:'鍛治',x:7.76,y:49.78},
   {team:'red',num:'⑦',label:'音楽堂 2階ホール',name:'田中',x:12.10,y:49.78},
 ];
 
-const MAP_POST=[
-  // 黄チーム（音楽堂→懇親会場）
+const MAP_YELLOW=[
+  // 黄チーム（音楽堂→ANA戻り案内）17:30〜18:00
   {team:'yellow',num:'①',label:'音楽堂 2階ホール',name:'谷口',x:8.29,y:49.78},
   {team:'yellow',num:'②',label:'音楽堂 1階ホール',name:'鎌田',x:12.58,y:49.83},
   {team:'yellow',num:'③',label:'音楽堂 通路（リーダー）',name:'氷見山',x:7.45,y:28.44},
@@ -1800,11 +1897,13 @@ const MAP_POST=[
   {team:'yellow',num:'⑩',label:'ANA 懇親会会場',name:'伊藤(亮)',x:38.10,y:78.86},
 ];
 
+const MAP_DATA={green:MAP_GREEN,red:MAP_RED,yellow:MAP_YELLOW};
+
 function renderMap(which,highlightName){
-  const data=which==='pre'?MAP_PRE:MAP_POST;
+  const data=MAP_DATA[which];
   const pinsRoot=document.getElementById('map-pins-'+which);
   const legendRoot=document.getElementById('map-legend-'+which);
-  if(!pinsRoot||!legendRoot)return;
+  if(!data||!pinsRoot||!legendRoot)return;
   let pinsHtml='',legendHtml='';
   data.forEach((p,i)=>{
     const hl=highlightName&&p.name.includes(highlightName)?' highlight':'';
@@ -1816,10 +1915,12 @@ function renderMap(which,highlightName){
 }
 
 function switchMap(which){
-  document.getElementById('map-pre').style.display=which==='pre'?'block':'none';
-  document.getElementById('map-post').style.display=which==='post'?'block':'none';
-  document.getElementById('mt-pre').classList.toggle('active',which==='pre');
-  document.getElementById('mt-post').classList.toggle('active',which==='post');
+  ['green','red','yellow'].forEach(t=>{
+    const sec=document.getElementById('map-'+t);
+    const btn=document.getElementById('mt-'+t);
+    if(sec)sec.style.display=(which===t)?'block':'none';
+    if(btn)btn.classList.toggle('active',which===t);
+  });
   renderMap(which);
 }
 
@@ -1863,6 +1964,26 @@ const CHECK_ITEMS=[
    detail:`事務局からの二次会割り振り連絡で「(清水SC専務？)」と未確定。仲の家は現状7名確定＋(清水SC専務?)で8名予定。<br>該当する清水建設専務は誰か要確認。`},
   {id:'c15',cat:'mid',title:'お茶屋 出迎え担当（20:20先発）の懇親会途中退出',
    detail:`〇印が付いた7名（豊蔵・辻・南・北川文洋(?)・朝倉・高橋・伊藤亮）は懇親会終了前(20:20頃)にホテルを出る必要あり。<br>退出のタイミング・経路（バスか徒歩か）の事前周知、および懇親会司会への共有が必要。`},
+  {id:'c16',cat:'high',title:'二次会案内の印刷物（懇親会中に司会で告知しない方針）',
+   detail:`<strong>4/26 リーダーミーティング決定事項：</strong> 二次会の案内を懇親会中に司会で行わない方針となった。<br>そのため、<strong>名札や席の上に簡単な印刷物（A3＋クリアファイルなど）</strong>を事前準備する必要がある。<br>担当・印刷物の体裁・部数の確定が必要。`},
+  {id:'c17',cat:'high',title:'金沢駅 案内用の旗・プラカードの準備状況',
+   detail:`<strong>4/26 リーダーミーティング指摘事項：</strong> 金沢駅構内ではハッピー着用 NG（青色ジャンパーのみ可）。<br>参加者から見つけやすくするため、旗・プラカードの準備有無を清水建設側に確認。<br>未準備の場合：A3 印刷＋クリアファイルなど低予算で対応 → 看板等は予算組み直し。`},
+  {id:'c18',cat:'mid',title:'各案内チームの 16:00 切り上げを事前周知',
+   detail:`<strong>4/26 リーダーミーティング決定事項：</strong> 緑・赤チームは「<strong>16:00 ぴったりで案内終了</strong>」を事前指示する。<br>これがないと総会に遅れて参加するべきか判断つかなくなるため。<br>黄チームのみ「人がいなくなったら順次帰る」方式（時間切り上げ不要）。`},
+  {id:'c19',cat:'mid',title:'清水建設 調達部（中村さん他）のスタッフ登録',
+   detail:`懇親会で清水建設 調達部側もインカム2つ使用予定。中村さん（フル稼働可能）他、調達部メンバーをスタッフ役割管理（マニュアルアプリ）に登録するか検討。<br>赤チーム終了後、鍛治のインカムは中村さんへ受け渡し。`},
+  {id:'c20',cat:'low',title:'富山・新潟勢の宿泊費補助の上限',
+   detail:`坂川副会長（？）に確認案件。<br>全員分の補助か、一定額（例：1人当たり ◯円）の上限を設けるか、運用方針を確定。`},
+  {id:'c21',cat:'mid',title:'インカムの通信距離テスト（金沢駅⇄ANA⇄音楽堂）',
+   detail:`ホテル側が用意するインカムが、金沢駅・音楽堂など外まで届くかが不明。<br>案内中の通信が必要なため、当日朝までに<strong>1回テスト</strong>必須。<br>不通時は <strong>スマホで電話連絡</strong> をルール化（要事前周知）。`},
+  {id:'c22',cat:'low',title:'ANA 19F アストラル と ANA 3階 瑞雲 の表記整合',
+   detail:`既存マニュアル QA に「ANA クラウン 19F アストラル」とあるが、個人別タイムテーブル・本会議録は「ANA 3階 瑞雲」を使用。<br>4/26 ミーティングでも「ANA 3階」で統一されており、瑞雲が正で QA を修正済み。`},
+  {id:'c23',cat:'low',title:'9時集合メンバーの「長老配慮」削除',
+   detail:`<strong>4/26 リーダーミーティング決定事項：</strong> 当日9時集合・前日13時準備の「長老配慮」（桐畑・南など）は不要に。配慮は<strong>遠方の方のみ</strong>（在田＝富山、田中＝福井、谷口＝福井、鎌田＝福井、江川＝富山、石井＝富山、高橋＝新潟、伊藤亮＝新潟、朝倉＝上越）。<br>※当マニュアルでは：<br>　・9時集合（リーダー＋石川県メンバー）：中橋R／北川裕／吉田／西能／鍛治／大湯／操川／冨久尾／桐畑／本田／石森／大島／氷見山／近藤／斉藤／坪田／青山(青)／萩野／石動／北川文洋<br>　・12時集合（遠方）：在田／朝倉／谷口／鎌田／江川／石井／高橋／伊藤亮／田中<br>※前日準備の進捗次第で、当日10時集合に変更可（江口部長の最終判断）。`},
+  {id:'c24',cat:'high',title:'開催日が 2026/5/15（金）に変更',
+   detail:`<strong>当初予定 2026/4/12（日）→ 2026/5/15（金）に変更</strong>。本マニュアル内の参照を全て更新済み。<br>翌日ゴルフコンペは <strong>2026/5/16（土）</strong>。<br>前日準備は <strong>2026/5/14（木）13:00〜</strong>。<br>各支部・ホテル・お茶屋・リエグループへの日程変更通知の完了確認が必要。`},
+  {id:'c25',cat:'mid',title:'集合・朝礼時刻のマスター整合（9:00 / 10:00 / 12:00 / 13:00）',
+   detail:`既存マニュアルでは10:00 リーダー朝礼／13:00 全体朝礼／14:00 リハーサル等と表示されていたが、<br>個人別タイムテーブル（マスター）と4/26 ミーティング決定事項に合わせて以下に修正済み：<br>・<strong>9:00</strong> 集合・リーダー朝礼（リーダー＋石川メンバー）<br>・<strong>10:00</strong> 懇親会リハーサル<br>・<strong>12:00</strong> 全体朝礼<br>・<strong>13:00</strong> 総会リハーサル（中橋R＋役員）／案内準備／受付準備<br>・<strong>14:00</strong> 案内開始／受付開始<br>・<strong>15:00</strong> 役員集合写真<br>・<strong>16:00</strong> 定時総会（変更なし）`},
 ];
 
 function loadChecks(){return JSON.parse(localStorage.getItem('checkState')||'{}');}
@@ -1921,8 +2042,9 @@ function resetChecks(){
 document.addEventListener('DOMContentLoaded',()=>{
   renderStaffGroups();
   renderChecks();
-  renderMap('pre');
-  renderMap('post');
+  renderMap('green');
+  renderMap('red');
+  renderMap('yellow');
   refreshAll();
   setInterval(refreshAll,30000); // 30秒ごと
 });
