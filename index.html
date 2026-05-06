@@ -299,7 +299,11 @@
   .mt-row.now{background:linear-gradient(90deg,rgba(226,183,20,.2),transparent);border-left:4px solid #e2b714;}
   .mt-row.past{opacity:.45;}
   .mt-row.next{border-left:4px solid #1976d2;background:linear-gradient(90deg,rgba(25,118,210,.08),transparent);}
-  .mt-time{flex-shrink:0;width:60px;font-weight:bold;color:#0f3460;font-size:.88rem;padding-top:1px;}
+  .mt-time{flex-shrink:0;width:78px;font-weight:bold;color:#0f3460;font-size:.88rem;padding-top:1px;display:flex;flex-direction:column;align-items:flex-start;gap:1px;}
+  .mt-date{font-size:.65rem;font-weight:bold;color:#fff;background:#0f3460;padding:1px 6px;border-radius:8px;letter-spacing:.02em;line-height:1.4;}
+  .mt-row.now .mt-date{background:#b8860b;}
+  .mt-row.next .mt-date{background:#1976d2;}
+  .mt-clock{font-size:.95rem;}
   .mt-row.now .mt-time{color:#b8860b;}
   .mt-row.next .mt-time{color:#1976d2;}
   .mt-task{flex:1;font-size:.9rem;}
@@ -446,7 +450,7 @@
     <h2>🕐 全体タイムスケジュール</h2>
     <div class="hint">2026年5月15日（金）／開場 15:15 → 総会 16:00〜17:30 → 懇親会 18:00〜20:30 → 二次会 20:30〜22:00<br>当日は現在進行中の項目が黄色でハイライトされます。</div>
   </div>
-  <h2>準備フェーズ（前日 5/14 13:00〜／当日 5/15 9:00〜）</h2>
+  <h2>準備フェーズ <span style="font-size:.7rem;color:#888;font-weight:normal;margin-left:10px;">5/14（前日）13:00〜 ／ 5/15（当日）9:00〜</span></h2>
   <div class="master-tl" id="master-prep"></div>
   <h2>定時総会（16:00〜17:30）<span style="font-size:.7rem;color:#888;font-weight:normal;margin-left:10px;">司会：北陸 辻 匡 総務理事</span></h2>
   <div class="master-tl" id="master-sokai"></div>
@@ -1307,16 +1311,16 @@ document.addEventListener('DOMContentLoaded',renderSeating);
 
 // 全体タイム（コア資料・司会台本ベース）
 const MASTER_PREP=[
-  {t:'前日13:00',task:'前日（5/14）資料作り集合',impl:'9時集合メンバー＋資料準備担当（江口部長の判断で時刻調整可）'},
-  {t:'09:00',task:'集合・リーダー朝礼',impl:'リーダー陣（中橋R・北川裕・吉田・西能・鍛治）／石川県メンバー'},
-  {t:'10:00',task:'懇親会リハーサル',impl:'リーダー＋石川メンバー（協力）'},
-  {t:'12:00',task:'全体朝礼（遠方組も合流）',impl:'青年部 全員（在田・田中・谷口・鎌田・江川・石井・高橋・伊藤亮・朝倉が12時集合）'},
-  {t:'13:00',task:'総会リハーサル（中橋R）／案内準備（緑・赤）／受付準備（青）／懇親会準備（北川裕は13〜15時フリー枠）',impl:'各チームに分かれて準備'},
-  {t:'13:00',task:'役員：総会リハーサル',impl:'青山会長／中橋T副会長／伊藤潔副会長／栗山副会長／高村副会長／辻総務理事'},
-  {t:'14:00',task:'案内開始（緑：金沢駅→ANA／赤：ANA→音楽堂）／受付開始（音楽堂）',impl:'14:30頃 参加者到着開始（新幹線・小松空港バス）'},
-  {t:'14:00',task:'役員：支部長会議',impl:'青山会長／中橋T副会長／伊藤潔副会長'},
-  {t:'15:00',task:'役員：役員集合写真',impl:'青山・中橋T・伊藤潔・栗山・高村'},
-  {t:'15:15',task:'音楽堂 開場（→ 定時総会セクション参照）',impl:''},
+  {t:'13:00',date:'5/14（前日）',task:'資料作り集合',impl:'9時集合メンバー＋資料準備担当（江口部長の判断で時刻調整可）'},
+  {t:'09:00',date:'5/15（当日）',task:'集合・リーダー朝礼',impl:'リーダー陣（中橋R・北川裕・吉田・西能・鍛治）／石川県メンバー'},
+  {t:'10:00',date:'5/15（当日）',task:'懇親会リハーサル',impl:'リーダー＋石川メンバー（協力）'},
+  {t:'12:00',date:'5/15（当日）',task:'全体朝礼（遠方組も合流）',impl:'青年部 全員（在田・田中・谷口・鎌田・江川・石井・高橋・伊藤亮・朝倉が12時集合）'},
+  {t:'13:00',date:'5/15（当日）',task:'総会リハーサル（中橋R）／案内準備（緑・赤）／受付準備（青）／懇親会準備（北川裕は13〜15時フリー枠）',impl:'各チームに分かれて準備'},
+  {t:'13:00',date:'5/15（当日）',task:'役員：総会リハーサル',impl:'青山会長／中橋T副会長／伊藤潔副会長／栗山副会長／高村副会長／辻総務理事'},
+  {t:'14:00',date:'5/15（当日）',task:'案内開始（緑：金沢駅→ANA／赤：ANA→音楽堂）／受付開始（音楽堂）',impl:'14:30頃 参加者到着開始（新幹線・小松空港バス）'},
+  {t:'14:00',date:'5/15（当日）',task:'役員：支部長会議',impl:'青山会長／中橋T副会長／伊藤潔副会長'},
+  {t:'15:00',date:'5/15（当日）',task:'役員：役員集合写真',impl:'青山・中橋T・伊藤潔・栗山・高村'},
+  {t:'15:15',date:'5/15（当日）',task:'音楽堂 開場（→ 定時総会セクション参照）',impl:''},
 ];
 
 const MASTER_SOKAI=[
@@ -1773,6 +1777,11 @@ function tToMinutes(t){
   const [h,m]=t.split(':').map(Number);
   return h*60+m;
 }
+function itemMinutes(it){
+  const base=tToMinutes(it.t);
+  if(it.date && it.date.includes('前日')) return base-24*60;
+  return base;
+}
 function nowMinutes(){
   const n=getNow();
   // If the actual current date doesn't match event date and no override, return null (no highlighting)
@@ -1794,7 +1803,7 @@ function renderMaster(){
     let nowIdx=-1,nextIdx=-1;
     if(now!==null){
       for(let i=0;i<items.length;i++){
-        if(tToMinutes(items[i].t)<=now)nowIdx=i;
+        if(itemMinutes(items[i])<=now)nowIdx=i;
       }
       if(nowIdx>=0&&nowIdx<items.length-1)nextIdx=nowIdx+1;
     }
@@ -1803,7 +1812,8 @@ function renderMaster(){
       if(i===nowIdx)cls+=' now';
       else if(i<nowIdx)cls+=' past';
       else if(i===nextIdx)cls+=' next';
-      html+=`<div class="${cls}"><div class="mt-time">${it.t}</div><div class="mt-task"><div class="mt-name">${it.task}${i===nowIdx?'<span class="mt-tag now">▶ 今</span>':''}</div>${it.impl?`<div class="mt-impl">${it.impl}</div>`:''}</div></div>`;
+      const dateLabel=it.date?`<span class="mt-date">${it.date}</span>`:'';
+      html+=`<div class="${cls}"><div class="mt-time">${dateLabel}<span class="mt-clock">${it.t}</span></div><div class="mt-task"><div class="mt-name">${it.task}${i===nowIdx?'<span class="mt-tag now">▶ 今</span>':''}</div>${it.impl?`<div class="mt-impl">${it.impl}</div>`:''}</div></div>`;
     });
     root.innerHTML=html;
   };
