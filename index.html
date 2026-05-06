@@ -131,6 +131,13 @@
   .slide-modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;padding:20px;cursor:zoom-out;}
   .slide-modal.show{display:flex;}
   .slide-modal img{max-width:100%;max-height:100%;object-fit:contain;}
+
+  /* シーン内のスライド画像（実物 PNG） */
+  .scene-slide{width:100%;max-width:520px;aspect-ratio:16/9;object-fit:contain;background:#000;border:2px solid #1a1a2e;border-radius:8px;display:block;cursor:zoom-in;margin-bottom:14px;}
+  /* ライブ映像切替フェーズ */
+  .phase-live{background:linear-gradient(90deg,#c0392b,#e74c3c);color:#fff;padding:8px 14px;border-radius:6px;margin:10px 0;font-weight:bold;font-size:.92rem;display:flex;align-items:center;gap:8px;}
+  .phase-back{background:#0f3460;color:#fff;padding:6px 12px;border-radius:5px;margin:10px 0;font-size:.83rem;display:flex;align-items:center;gap:6px;}
+  .phase-back-detail{font-size:.75rem;opacity:.85;font-weight:normal;margin-left:4px;}
   .slide-label{font-size:.73rem;color:#1a237e;font-weight:bold;margin-bottom:5px;display:flex;align-items:center;gap:6px;}
   .slide-label::before{content:'';display:inline-block;width:8px;height:8px;background:#1a237e;border-radius:2px;}
 
@@ -913,54 +920,62 @@
 
   <!-- SCENE 4 -->
   <div class="scene" id="s4"><div class="scene-header"><div class="scene-num">04</div><div><div class="scene-title">歓迎の挨拶</div><div class="scene-time">18:14〜18:19（5分）</div></div></div><div class="scene-body">
-    <div class="slide-label">背景スライド（SLIDE 4）</div>
-    <div class="slide-frame"><div class="slide-top">北陸兼喜会 会長</div><div class="slide-main"><ruby>青山<rt>あおやま</rt></ruby> <ruby>悟<rt>さとる</rt></ruby></div><div class="slide-sub">歓迎の挨拶</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">まずは北陸大会にご列席いただきました皆様に、開催支部を代表しまして北陸兼喜会　会長　<ruby>青山<rt>あおやま</rt></ruby>　<ruby>悟<rt>さとる</rt></ruby>（あおやま さとる）より歓迎のご挨拶を申し上げます。<br>青山会長よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
-    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓（中橋）</span>青山会長に声掛け</div>
-      <div class="sa-item"><span class="sa-role">映像・音響（吉田）</span>「歓迎の言葉」表示（パワーポイント）→ 青山会長を映す（プロジェクター）</div>
-      <div class="sa-item"><span class="sa-role">進行（西能）</span>進行サポート</div>
-    </div></div>
+    <div class="slide-label">① 紹介スライド（SLIDE 4） ー 司会が登壇者を紹介する間</div>
+    <img class="scene-slide" src="assets/slides_20260506/slide4.png" alt="SLIDE 4 北陸兼喜会 会長 青山 悟 歓迎の挨拶" onclick="openSlide(this.src)">
+    <div class="mc-block"><div class="mc-label">司会者セリフ（紹介）</div><div class="mc-text">まずは北陸大会にご列席いただきました皆様に、開催支部を代表しまして北陸兼喜会　会長　<ruby>青山<rt>あおやま</rt></ruby>　<ruby>悟<rt>さとる</rt></ruby>（あおやま さとる）より歓迎のご挨拶を申し上げます。<br>青山会長よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="phase-live">📹 ② 青山会長 ご挨拶 ー 映像・音響：会場カメラに切替、青山会長を映す</div>
     <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">青山会長ありがとうございました。<span class="pause">（拍手）</span></div></div>
+    <div class="phase-back">↩ ③ 次のスライドへ：<span class="phase-back-detail">SLIDE 5（青木会長 挨拶）紹介スライドへ直接切替（挨拶連続のためタイトルには戻さない）</span></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの 3 段階動作</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓（中橋）</span>青山会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role r-light">映像・音響（吉田）</span>① SLIDE 4 表示 → ② 会場カメラ → 青山会長を映す → ③ SLIDE 5 へ切替</div>
+      <div class="sa-item"><span class="sa-role">進行（西能）</span>進行サポート・キュー出し</div>
+    </div></div>
   </div></div>
 
   <!-- SCENE 5 -->
   <div class="scene" id="s5"><div class="scene-header"><div class="scene-num">05</div><div><div class="scene-title">全国連合兼喜会 会長挨拶</div><div class="scene-time">18:19〜18:22（3分）</div></div></div><div class="scene-body">
-    <div class="slide-label">背景スライド（SLIDE 5）</div>
-    <div class="slide-frame"><div class="slide-top">全国連合兼喜会 会長</div><div class="slide-main"><ruby>青木<rt>あおき</rt></ruby> <ruby>茂<rt>しげる</rt></ruby></div><div class="slide-sub">挨拶</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは開宴にあたり全国連合兼喜会　会長　<ruby>青木<rt>あおき</rt></ruby>　<ruby>茂<rt>しげる</rt></ruby>（あおき しげる）より挨拶申し上げます。<br>青木会長よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
-    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓（中橋）</span>青木会長に声掛け</div>
-      <div class="sa-item"><span class="sa-role">映像・音響（吉田）</span>「全国連合兼喜会会長挨拶」表示（パワーポイント）→ 青木会長を映す</div>
+    <div class="slide-label">① 紹介スライド（SLIDE 5） ー 司会が登壇者を紹介する間</div>
+    <img class="scene-slide" src="assets/slides_20260506/slide5.png" alt="SLIDE 5 全国連合兼喜会 会長 青木 茂 挨拶" onclick="openSlide(this.src)">
+    <div class="mc-block"><div class="mc-label">司会者セリフ（紹介）</div><div class="mc-text">それでは開宴にあたり全国連合兼喜会　会長　<ruby>青木<rt>あおき</rt></ruby>　<ruby>茂<rt>しげる</rt></ruby>（あおき しげる）より挨拶申し上げます。<br>青木会長よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="phase-live">📹 ② 青木会長 ご挨拶 ー 映像・音響：会場カメラに切替、青木会長を映す</div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">青木会長ありがとうございました。<span class="pause">（拍手）</span></div></div>
+    <div class="phase-back">↩ ③ 次のスライドへ：<span class="phase-back-detail">SLIDE 6（井上会長 ご祝辞）紹介スライドへ直接切替（挨拶連続のためタイトルには戻さない）</span></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの 3 段階動作</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓（中橋）</span>青木会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role r-light">映像・音響（吉田）</span>① SLIDE 5 表示 → ② 会場カメラ → 青木会長を映す → ③ SLIDE 6 へ切替</div>
       <div class="sa-item"><span class="sa-role">進行（西能）</span>進行サポート</div>
     </div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">青木会長ありがとうございました。<span class="pause">（拍手）</span></div></div>
   </div></div>
 
   <!-- SCENE 6 -->
-  <div class="scene" id="s6"><div class="scene-header"><div class="scene-num">06</div><div><div class="scene-title">ご祝辞（清水建設会長）</div><div class="scene-time">18:22〜18:37（15分）</div></div></div><div class="scene-body">
-    <div class="slide-label">背景スライド（SLIDE 6）</div>
-    <div class="slide-frame"><div class="slide-top">清水建設株式会社<br>代表取締役会長</div><div class="slide-main"><ruby>井上<rt>いのうえ</rt></ruby> <ruby>和幸<rt>かずゆき</rt></ruby> 様</div><div class="slide-sub">ご祝辞</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">ここで、ご多用のところご臨席いただきました清水建設のご来賓のみなさまを代表して、ご祝辞をたまわりたいと存じます。<br>ご祝辞は、清水建設株式会社 代表取締役　会長　<ruby>井上<rt>いのうえ</rt></ruby>　<ruby>和幸<rt>かずゆき</rt></ruby>（いのうえ かずゆき）様より頂戴したくお願い申し上げます。<br>井上会長よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
-    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓（中橋）</span>井上会長に声掛け</div>
-      <div class="sa-item"><span class="sa-role">映像・音響（吉田）</span>「清水建設株式会社会長言葉」表示（パワーポイント）→ 井上会長を映す（プロジェクター）</div>
-      <div class="sa-item"><span class="sa-role">進行（西能）</span>進行サポート</div>
+  <div class="scene" id="s6"><div class="scene-header"><div class="scene-num">06</div><div><div class="scene-title">ご祝辞(清水建設会長)</div><div class="scene-time">18:22〜18:37(15分)</div></div></div><div class="scene-body">
+    <div class="slide-label">① 紹介スライド(SLIDE 6) ー 司会が登壇者を紹介する間</div>
+    <img class="scene-slide" src="assets/slides_20260506/slide6.png" alt="SLIDE 6 清水建設 代表取締役会長 井上和幸 様 ご祝辞" onclick="openSlide(this.src)">
+    <div class="mc-block"><div class="mc-label">司会者セリフ(紹介)</div><div class="mc-text">ここで、ご多用のところご臨席いただきました清水建設のご来賓のみなさまを代表して、ご祝辞をたまわりたいと存じます。<br>ご祝辞は、清水建設株式会社 代表取締役　会長　<ruby>井上<rt>いのうえ</rt></ruby>　<ruby>和幸<rt>かずゆき</rt></ruby>(いのうえ かずゆき)様より頂戴したくお願い申し上げます。<br>井上会長よろしくお願いいたします。<span class="pause">(拍手)</span></div></div>
+    <div class="phase-live">📹 ② 井上会長 ご祝辞 ー 映像・音響：会場カメラに切替、井上会長を映す</div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ(終了後)</div><div class="mc-text">井上会長ありがとうございました。<span class="pause">(拍手)</span></div></div>
+    <div class="phase-back">↩ ③ 次のスライドへ：<span class="phase-back-detail">SLIDE 7(原田専務 乾杯)紹介スライドへ直接切替(乾杯へ連続移行)</span></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの 3 段階動作</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓(中橋)</span>井上会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role r-light">映像・音響(吉田)</span>① SLIDE 6 表示 → ② 会場カメラ → 井上会長を映す → ③ SLIDE 7 へ切替</div>
+      <div class="sa-item"><span class="sa-role">進行(西能)</span>進行サポート</div>
     </div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">井上会長ありがとうございました。<span class="pause">（拍手）</span></div></div>
   </div></div>
 
   <!-- SCENE 7 -->
   <div class="scene" id="s7"><div class="scene-header"><div class="scene-num">07</div><div><div class="scene-title">乾杯</div><div class="scene-time">18:37〜18:42（5分）</div></div></div><div class="scene-body">
-    <div class="slide-label">背景スライド（SLIDE 7）</div>
-    <div class="slide-frame slide-gold"><div class="slide-top">清水建設株式会社<br>専務執行役員 建築総本部 購買担当</div><div class="slide-main"><ruby>原田<rt>はらだ</rt></ruby> <ruby>知明<rt>ともあき</rt></ruby> 様</div><div class="slide-sub">乾杯</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは乾杯に移らせていただきます。皆様ご準備をお願いいたします。<span class="pause">（間）</span><br>今回の乾杯には能登にある数馬酒造の竹葉というお酒をご用意させていただきました。<br><br>乾杯のご発声は、清水建設株式会社　専務執行役員　建築総本部　購買担当　<ruby>原田<rt>はらだ</rt></ruby>　<ruby>知明<rt>ともあき</rt></ruby>（はらだ ともあき）様にお願い申し上げます。<br>原田専務よろしくお願いいたします。<span class="pause">（拍手）</span><br><br><em>※原田専務から乾杯挨拶、乾杯のご発声 → 会場全体で乾杯</em></div></div>
-    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">映像・音響（吉田）</span>「乾杯」表示（パワーポイント）→ 原田専務を映す（プロジェクター）</div>
+    <div class="slide-label">① 紹介スライド（SLIDE 7） ー 司会が登壇者を紹介する間</div>
+    <img class="scene-slide" src="assets/slides_20260506/slide7.png" alt="SLIDE 7 清水建設 専務 原田知明 様 乾杯" onclick="openSlide(this.src)">
+    <div class="mc-block"><div class="mc-label">司会者セリフ（紹介）</div><div class="mc-text">それでは乾杯に移らせていただきます。皆様ご準備をお願いいたします。<span class="pause">（間）</span><br>今回の乾杯には能登にある数馬酒造の竹葉というお酒をご用意させていただきました。<br><br>乾杯のご発声は、清水建設株式会社　専務執行役員　建築総本部　購買担当　<ruby>原田<rt>はらだ</rt></ruby>　<ruby>知明<rt>ともあき</rt></ruby>（はらだ ともあき）様にお願い申し上げます。<br>原田専務よろしくお願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="phase-live">📹 ② 原田専務 乾杯ご発声 ー 映像・音響：会場カメラに切替、原田専務を映す（「乾杯！」 → 会場全体で乾杯）</div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">原田専務ありがとうございました。<span class="pause">（拍手）</span></div></div>
+    <div class="phase-back">↩ ③ タイトルスライドへ戻す：<span class="phase-back-detail">SLIDE 8（北陸大会 懇親会タイトル）へ切替（開宴・歓談へ移行）</span></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの 3 段階動作</div><div class="sa-grid">
       <div class="sa-item"><span class="sa-role">来賓（中橋）</span>原田専務をマイク位置へ誘導</div>
+      <div class="sa-item"><span class="sa-role r-light">映像・音響（吉田）</span>① SLIDE 7 表示 → ② 会場カメラ → 原田専務を映す → ③ SLIDE 8（タイトル）へ戻す</div>
       <div class="sa-item"><span class="sa-role">レセプタント（近藤）</span>乾杯後すぐにビール給仕の準備</div>
     </div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">原田専務ありがとうございました。<span class="pause">（拍手）</span></div></div>
     <div class="note-box">乾杯酒：能登 数馬酒造「竹葉」</div>
   </div></div>
 
@@ -1015,55 +1030,63 @@
 
   <!-- SCENE 11 (旧 s13 / 次期開催) -->
   <div class="scene" id="s11"><div class="scene-header"><div class="scene-num">11</div><div><div class="scene-title">次期開催支部 会長挨拶</div><div class="scene-time">20:07〜20:12（5分）</div></div></div><div class="scene-body">
-    <div class="slide-label">背景スライド（SLIDE 10）</div>
-    <div class="slide-frame slide-green"><div class="slide-top">北海道兼喜会 会長</div><div class="slide-main"><ruby>嶋守<rt>しまもり</rt></ruby><ruby>吉範<rt>よしのり</rt></ruby></div><div class="slide-sub">次期開催支部挨拶</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">引き続きお席にお座りいただき、前方のスクリーンをご覧ください。<br>たったいま、全国連合兼喜会次回北海道開催へのスタートが切られました。<br>ここで次期開催地 北海道兼喜会 会長 <ruby>嶋守<rt>しまもり</rt></ruby><ruby>吉範<rt>よしのり</rt></ruby>（しまもり よしのり）より挨拶申し上げます。<br>嶋守会長お願いいたします。<span class="pause">（拍手）</span></div></div>
-    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓（中橋）</span>北海道嶋守兼喜会会長に声掛け</div>
-      <div class="sa-item"><span class="sa-role">映像・音響（吉田）</span>会長挨拶（プロジェクター）</div>
+    <div class="slide-label">① 紹介スライド（SLIDE 10） ー 司会が登壇者を紹介する間</div>
+    <img class="scene-slide" src="assets/slides_20260506/slide10.png" alt="SLIDE 10 北海道兼喜会 会長 嶋守吉範 次期開催支部挨拶" onclick="openSlide(this.src)">
+    <div class="mc-block"><div class="mc-label">司会者セリフ（紹介）</div><div class="mc-text">引き続きお席にお座りいただき、前方のスクリーンをご覧ください。<br>たったいま、全国連合兼喜会次回北海道開催へのスタートが切られました。<br>ここで次期開催地 北海道兼喜会 会長 <ruby>嶋守<rt>しまもり</rt></ruby><ruby>吉範<rt>よしのり</rt></ruby>（しまもり よしのり）より挨拶申し上げます。<br>嶋守会長お願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="phase-live">📹 ② 嶋守会長 ご挨拶 ー 映像・音響：会場カメラに切替、嶋守会長を映す</div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">嶋守会長ありがとうございました。<br>来年の北海道大会への大きな期待が盛り上がってきました。</div></div>
+    <div class="phase-back">↩ ③ 次のスライドへ：<span class="phase-back-detail">SLIDE 11（齊藤副社長 万歳三唱）紹介スライドへ直接切替（中締めへ連続移行）</span></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの 3 段階動作</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓（中橋）</span>北海道嶋守会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role r-light">映像・音響（吉田）</span>① SLIDE 10 表示 → ② 会場カメラ → 嶋守会長を映す → ③ SLIDE 11 へ切替</div>
       <div class="sa-item"><span class="sa-role">進行（西能）</span>司会者指示出し／メインテーブルの料理がデザートまで進んだら、締めの用意</div>
       <div class="sa-item"><span class="sa-role">二次会担当</span>二次会会場のスタンバイ確認</div>
     </div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">嶋守会長ありがとうございました。<br>来年の北海道大会への大きな期待が盛り上がってきました。</div></div>
   </div></div>
 
   <!-- SCENE 12 (旧 s14 / 中締め) -->
   <div class="scene" id="s12"><div class="scene-header"><div class="scene-num">12</div><div><div class="scene-title">中締め（万歳三唱）</div><div class="scene-time">20:12〜20:17（5分）</div></div></div><div class="scene-body">
-    <div class="slide-label">背景スライド（SLIDE 11）</div>
-    <div class="slide-frame"><div class="slide-top">清水建設株式会社<br>副社長執行役員 土木総本部 副総本部長</div><div class="slide-main"><ruby>齊藤<rt>さいとう</rt></ruby> <ruby>武文<rt>たけふみ</rt></ruby> 様</div><div class="slide-sub">万歳三唱</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">さて、清水建設様、また全国連合兼喜会の益々のご発展を祈念し、ここで万歳三唱とさせていただきます。<br>まずはご発声を<br>清水建設株式会社　副社長執行役員　土木総本部　副総本部長　<ruby>齊藤<rt>さいとう</rt></ruby>　<ruby>武文<rt>たけふみ</rt></ruby>（さいとう たけふみ）様にお願いいたします。<br>齊藤副社長お願いいたします。<span class="pause">（拍手）</span><br>皆様もどうぞご起立ください。<span class="pause">（起立）</span></div></div>
-    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓（中橋）</span>SC齋藤副社長に声掛け</div>
+    <div class="slide-label">① 紹介スライド（SLIDE 11） ー 司会が登壇者を紹介する間</div>
+    <img class="scene-slide" src="assets/slides_20260506/slide11.png" alt="SLIDE 11 清水建設 副社長 齊藤武文 様 万歳三唱" onclick="openSlide(this.src)">
+    <div class="mc-block"><div class="mc-label">司会者セリフ（紹介）</div><div class="mc-text">さて、清水建設様、また全国連合兼喜会の益々のご発展を祈念し、ここで万歳三唱とさせていただきます。<br>まずはご発声を<br>清水建設株式会社　副社長執行役員　土木総本部　副総本部長　<ruby>齊藤<rt>さいとう</rt></ruby>　<ruby>武文<rt>たけふみ</rt></ruby>（さいとう たけふみ）様にお願いいたします。<br>齊藤副社長お願いいたします。<span class="pause">（拍手）</span><br>皆様もどうぞご起立ください。<span class="pause">（起立）</span></div></div>
+    <div class="phase-live">📹 ② 齊藤副社長 万歳三唱 ー 映像・音響：会場カメラに切替、齊藤副社長を映す</div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">齊藤副社長ありがとうございました。<span class="pause">（拍手）</span></div></div>
+    <div class="phase-back">↩ ③ 次のスライドへ：<span class="phase-back-detail">SLIDE 12（高村副会長 返礼万歳）紹介スライドへ直接切替（返礼へ連続移行）</span></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの 3 段階動作</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓（中橋）</span>SC齋藤副社長に声掛け・マイク位置へ誘導</div>
       <div class="sa-item"><span class="sa-role">芸妓（氷見山）</span>芸妓ステージ前に待機</div>
       <div class="sa-item"><span class="sa-role">進行（西能）</span>拍子木を準備／スタンドマイク設置</div>
-      <div class="sa-item"><span class="sa-role">映像・音響（吉田）</span>SC齋藤副社長中締め、万歳（プロジェクター）</div>
+      <div class="sa-item"><span class="sa-role r-light">映像・音響（吉田）</span>① SLIDE 11 表示 → ② 会場カメラ → 齊藤副社長を映す → ③ SLIDE 12 へ切替</div>
     </div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">齊藤副社長ありがとうございました。<span class="pause">（拍手）</span></div></div>
   </div></div>
 
   <!-- SCENE 13 (旧 s15 / 返礼万歳) -->
   <div class="scene" id="s13"><div class="scene-header"><div class="scene-num">13</div><div><div class="scene-title">返礼万歳</div><div class="scene-time">20:17〜20:22（5分）</div></div></div><div class="scene-body">
-    <div class="slide-label">背景スライド（SLIDE 12）</div>
-    <div class="slide-frame"><div class="slide-top">北陸兼喜会 副会長</div><div class="slide-main"><ruby>高村<rt>たかむら</rt></ruby> <ruby>明彦<rt>あきひこ</rt></ruby></div><div class="slide-sub">万歳返礼</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">返礼の万歳を北陸兼喜会　副会長　<ruby>高村<rt>たかむら</rt></ruby>　<ruby>明彦<rt>あきひこ</rt></ruby>（たかむら あきひこ）より差し上げます。<br>高村副会長お願いいたします。<span class="pause">（拍手）</span></div></div>
-    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">来賓（中橋）</span>高村副会長に声掛け</div>
-      <div class="sa-item"><span class="sa-role">映像・音響（吉田）</span>高村副会長返礼万歳（プロジェクター）</div>
-    </div></div>
+    <div class="slide-label">① 紹介スライド（SLIDE 12） ー 司会が登壇者を紹介する間</div>
+    <img class="scene-slide" src="assets/slides_20260506/slide12.png" alt="SLIDE 12 北陸兼喜会 副会長 高村明彦 万歳返礼" onclick="openSlide(this.src)">
+    <div class="mc-block"><div class="mc-label">司会者セリフ（紹介）</div><div class="mc-text">返礼の万歳を北陸兼喜会　副会長　<ruby>高村<rt>たかむら</rt></ruby>　<ruby>明彦<rt>あきひこ</rt></ruby>（たかむら あきひこ）より差し上げます。<br>高村副会長お願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="phase-live">📹 ② 高村副会長 返礼万歳 ー 映像・音響：会場カメラに切替、高村副会長を映す</div>
     <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">高村副会長、ありがとうございました。<span class="pause">（拍手）</span></div></div>
+    <div class="phase-back">↩ ③ 次のスライドへ：<span class="phase-back-detail">SLIDE 13（中橋副会長 中締め）紹介スライドへ直接切替（閉会挨拶へ連続移行）</span></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの 3 段階動作</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">来賓（中橋）</span>高村副会長に声掛け・登壇誘導</div>
+      <div class="sa-item"><span class="sa-role r-light">映像・音響（吉田）</span>① SLIDE 12 表示 → ② 会場カメラ → 高村副会長を映す → ③ SLIDE 13 へ切替</div>
+    </div></div>
   </div></div>
 
   <!-- SCENE 14 (旧 s16 / 閉会挨拶) -->
   <div class="scene" id="s14"><div class="scene-header"><div class="scene-num">14</div><div><div class="scene-title">閉会挨拶</div><div class="scene-time">20:22〜20:27（5分）</div></div></div><div class="scene-body">
-    <div class="slide-label">背景スライド（SLIDE 13）</div>
-    <div class="slide-frame"><div class="slide-top">北陸兼喜会 副会長</div><div class="slide-main"><ruby>中橋<rt>なかはし</rt></ruby> <ruby>隆文<rt>たかふみ</rt></ruby></div><div class="slide-sub">中締め</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">全国連合兼喜会北陸大会は盛会のうちに開催されました。<br>名残惜しいところではありますが、ここで中締めとさせていただきます。<br>中締めは北陸兼喜会　副会長　<ruby>中橋<rt>なかはし</rt></ruby>　<ruby>隆文<rt>たかふみ</rt></ruby>（なかはし たかふみ）よりさせていただきます。中橋副会長お願いいたします。<span class="pause">（拍手）</span></div></div>
-    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+    <div class="slide-label">① 紹介スライド（SLIDE 13） ー 司会が登壇者を紹介する間</div>
+    <img class="scene-slide" src="assets/slides_20260506/slide13.png" alt="SLIDE 13 北陸兼喜会 副会長 中橋隆文 中締め" onclick="openSlide(this.src)">
+    <div class="mc-block"><div class="mc-label">司会者セリフ（紹介）</div><div class="mc-text">全国連合兼喜会北陸大会は盛会のうちに開催されました。<br>名残惜しいところではありますが、ここで中締めとさせていただきます。<br>中締めは北陸兼喜会　副会長　<ruby>中橋<rt>なかはし</rt></ruby>　<ruby>隆文<rt>たかふみ</rt></ruby>（なかはし たかふみ）よりさせていただきます。中橋副会長お願いいたします。<span class="pause">（拍手）</span></div></div>
+    <div class="phase-live">📹 ② 中橋副会長 閉会挨拶 ー 映像・音響：会場カメラに切替、中橋副会長を映す</div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">中橋副会長、ありがとうございました。<span class="pause">（拍手）</span><br>皆様ありがとうございました。<br>ご着席ください。</div></div>
+    <div class="phase-back">↩ ③ 「ありがとうございました」スライドへ：<span class="phase-back-detail">SLIDE 14（ありがとうございました）へ切替（来賓退場へ移行）</span></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの 3 段階動作</div><div class="sa-grid">
       <div class="sa-item"><span class="sa-role">来賓（中橋）</span>中橋副会長に声掛け（自身）</div>
-      <div class="sa-item"><span class="sa-role">映像・音響（吉田）</span>中橋副会長閉会挨拶（プロジェクター）</div>
+      <div class="sa-item"><span class="sa-role r-light">映像・音響（吉田）</span>① SLIDE 13 表示 → ② 会場カメラ → 中橋副会長を映す → ③ SLIDE 14（ありがとうございました）へ切替</div>
       <div class="sa-item"><span class="sa-role">レセプタント（近藤）</span>10名程度を二次会会場へ移動準備</div>
     </div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（終了後）</div><div class="mc-text">中橋副会長、ありがとうございました。<span class="pause">（拍手）</span><br>皆様ありがとうございました。<br>ご着席ください。</div></div>
   </div></div>
 
   <!-- SCENE 15 (旧 s17 / 来賓退場) -->
