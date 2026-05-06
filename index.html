@@ -117,6 +117,19 @@
   .slide-frame.slide-gold{background:linear-gradient(135deg,#3e2723,#4e342e);border-color:#e2b714;}
   .slide-frame.slide-red{background:linear-gradient(135deg,#4a0000,#6d0000);border-color:#ff6f00;}
   .slide-frame.slide-green{background:linear-gradient(135deg,#1b3a1b,#2e5a2e);border-color:#66bb6a;}
+
+  /* ===== Slide Cards (📺 投影スライド一覧 タブ) ===== */
+  .slides-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin-top:18px;}
+  .slide-card{background:#fff;border-radius:10px;padding:14px;box-shadow:0 2px 8px rgba(0,0,0,.08);display:flex;flex-direction:column;gap:8px;}
+  .slide-card .slide-card-num{font-size:.72rem;font-weight:bold;color:#888;letter-spacing:.1em;}
+  .slide-card .slide-frame{margin-bottom:0;max-width:100%;aspect-ratio:16/9;}
+  .slide-card .slide-frame .slide-main{font-size:1.05rem;}
+  .slide-card .slide-frame .slide-top{font-size:.55rem;}
+  .slide-card .slide-frame .slide-sub{font-size:.7rem;margin-top:4px;}
+  .slide-card-foot{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;}
+  .slide-card-time{color:#0f3460;font-weight:bold;}
+  .slide-card .tl-link{font-size:.78rem;color:#0f3460;cursor:pointer;text-decoration:underline;}
+  .slide-card .tl-link:hover{color:#e2b714;}
   .slide-label{font-size:.73rem;color:#1a237e;font-weight:bold;margin-bottom:5px;display:flex;align-items:center;gap:6px;}
   .slide-label::before{content:'';display:inline-block;width:8px;height:8px;background:#1a237e;border-radius:2px;}
 
@@ -385,6 +398,7 @@
     <button class="tab-btn" data-tab="overview" onclick="switchTab('overview')">懇親会フロー</button>
     <button class="tab-btn" data-tab="seating" onclick="switchTab('seating')">座席表</button>
     <button class="tab-btn" data-tab="scenario" onclick="switchTab('scenario')">司会シナリオ</button>
+    <button class="tab-btn" data-tab="slides" onclick="switchTab('slides')">📺 投影スライド</button>
     <button class="tab-btn" data-tab="check" onclick="switchTab('check')">⚠ 確認事項<span id="check-badge" class="check-badge"></span></button>
   </div>
 </div>
@@ -1090,6 +1104,120 @@
 
 </div><!-- /container -->
 </div><!-- /tab-scenario -->
+
+<!-- ========== TAB: 投影スライド一覧 ========== -->
+<div class="tab-content" id="tab-slides">
+<div class="container">
+  <h2>📺 懇親会 投影スライド一覧（全16枚）</h2>
+  <p style="font-size:.85rem;color:#666;margin-bottom:18px;">
+    『20260506懇親会スクリーン投影用スライド.pptx』を反映。各スライドの「対応シーンへ」をタップで司会シナリオの該当場面にジャンプします。
+  </p>
+
+  <div class="slides-grid">
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 1</div>
+      <div class="slide-frame"><div class="slide-main">清水建設全国連合兼喜会<br>北陸大会　懇親会</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">17:30〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s0'),50)">→ 開場（s00）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 2</div>
+      <div class="slide-frame"><div class="slide-main">来賓入場</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">18:01〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s2'),50)">→ 来賓入場（s02）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 3</div>
+      <div class="slide-frame slide-gold"><div class="slide-main">オープニングセレモニー</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">18:04〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s3'),50)">→ 素囃子（s03）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 4</div>
+      <div class="slide-frame"><div class="slide-top">北陸兼喜会 会長</div><div class="slide-main"><ruby>青山<rt>あおやま</rt></ruby> <ruby>悟<rt>さとる</rt></ruby></div><div class="slide-sub">歓迎の挨拶</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">18:14〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s4'),50)">→ 歓迎挨拶（s04）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 5</div>
+      <div class="slide-frame"><div class="slide-top">全国連合兼喜会 会長</div><div class="slide-main"><ruby>青木<rt>あおき</rt></ruby> <ruby>茂<rt>しげる</rt></ruby></div><div class="slide-sub">挨拶</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">18:19〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s5'),50)">→ 全国会長挨拶（s05）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 6</div>
+      <div class="slide-frame"><div class="slide-top">清水建設株式会社<br>代表取締役会長</div><div class="slide-main"><ruby>井上<rt>いのうえ</rt></ruby> <ruby>和幸<rt>かずゆき</rt></ruby> 様</div><div class="slide-sub">ご祝辞</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">18:22〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s6'),50)">→ ご祝辞（s06）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 7</div>
+      <div class="slide-frame slide-gold"><div class="slide-top">清水建設株式会社<br>専務執行役員 建築総本部 購買担当</div><div class="slide-main"><ruby>原田<rt>はらだ</rt></ruby> <ruby>知明<rt>ともあき</rt></ruby> 様</div><div class="slide-sub">乾杯</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">18:37〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s7'),50)">→ 乾杯（s07）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 8</div>
+      <div class="slide-frame"><div class="slide-main">清水建設全国連合兼喜会<br>北陸大会　懇親会</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">18:42〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s8'),50)">→ 開宴・写真撮影（s08）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 9</div>
+      <div class="slide-frame slide-gold"><div class="slide-main">踊 り</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">19:57〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s10'),50)">→ 踊り（s10）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 10</div>
+      <div class="slide-frame slide-green"><div class="slide-top">北海道兼喜会 会長</div><div class="slide-main"><ruby>嶋守<rt>しまもり</rt></ruby><ruby>吉範<rt>よしのり</rt></ruby></div><div class="slide-sub">次期開催支部挨拶</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">20:07〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s11'),50)">→ 次期開催挨拶（s11）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 11</div>
+      <div class="slide-frame"><div class="slide-top">清水建設株式会社<br>副社長執行役員 土木総本部 副総本部長</div><div class="slide-main"><ruby>齊藤<rt>さいとう</rt></ruby> <ruby>武文<rt>たけふみ</rt></ruby> 様</div><div class="slide-sub">万歳三唱</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">20:12〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s12'),50)">→ 中締め万歳（s12）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 12</div>
+      <div class="slide-frame"><div class="slide-top">北陸兼喜会 副会長</div><div class="slide-main"><ruby>高村<rt>たかむら</rt></ruby> <ruby>明彦<rt>あきひこ</rt></ruby></div><div class="slide-sub">万歳返礼</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">20:17〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s13'),50)">→ 返礼万歳（s13）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 13</div>
+      <div class="slide-frame"><div class="slide-top">北陸兼喜会 副会長</div><div class="slide-main"><ruby>中橋<rt>なかはし</rt></ruby> <ruby>隆文<rt>たかふみ</rt></ruby></div><div class="slide-sub">中締め</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">20:22〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s14'),50)">→ 閉会挨拶（s14）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 14</div>
+      <div class="slide-frame"><div class="slide-main">ありがとうございました</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">20:27〜</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s15'),50)">→ 来賓退場（s15）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 15</div>
+      <div class="slide-frame"><div class="slide-main">清水建設全国連合兼喜会<br>九州大会　懇親会</div><div class="slide-sub">またお会いしましょう</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">20:30</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s16'),50)">→ 閉会の辞（s16）へ</span></div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-card-num">SLIDE 16</div>
+      <div class="slide-frame"><div class="slide-main">清水建設全国連合兼喜会<br>九州大会　懇親会</div><div class="slide-sub">次回開催への引き継ぎ</div></div>
+      <div class="slide-card-foot"><span class="slide-card-time">20:30</span><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s16'),50)">→ 閉会の辞（s16）へ</span></div>
+    </div>
+
+  </div>
+
+  <p style="font-size:.78rem;color:#888;margin-top:24px;">
+    ※ 元データ：<code>_source/20260506懇親会スクリーン投影用スライド.pptx</code>
+  </p>
+</div>
+</div><!-- /tab-slides -->
 
 <div class="footer">
   全国連合兼喜会 第68回定時総会 北陸大会 懇親会マニュアル<br>
