@@ -410,6 +410,7 @@
     <button class="tab-btn active" data-tab="staff" onclick="switchTab('staff')">あなたの担当</button>
     <button class="tab-btn" data-tab="master" onclick="switchTab('master')">全体タイム</button>
     <button class="tab-btn" data-tab="map" onclick="switchTab('map')">📍 案内地図</button>
+    <button class="tab-btn" data-tab="sokai-scenario" onclick="switchTab('sokai-scenario')">📋 総会シナリオ</button>
     <button class="tab-btn" data-tab="overview" onclick="switchTab('overview')">懇親会フロー</button>
     <button class="tab-btn" data-tab="seating" onclick="switchTab('seating')">座席表</button>
     <button class="tab-btn" data-tab="scenario" onclick="switchTab('scenario')">司会シナリオ</button>
@@ -545,6 +546,245 @@
     </div>
     <div class="floor-img"><img src="assets/maps/ongakudo_2f.png" alt="音楽堂2階フロア図"><div class="fcap">音楽堂 2階フロア図（参考）</div></div>
   </div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!--  TAB SOKAI-SCENARIO : 総会 司会・議長シナリオ                        -->
+<!-- ================================================================ -->
+<div class="tab-content" id="tab-sokai-scenario">
+
+<nav class="toc no-print">
+  <div class="toc-inner">
+    <span class="toc-label">目次</span>
+    <a href="#k0" onclick="ensureTab('sokai-scenario')">開場準備</a>
+    <a href="#k1" onclick="ensureTab('sokai-scenario')">来賓入場</a>
+    <a href="#k2" onclick="ensureTab('sokai-scenario')">開会・成立報告</a>
+    <a href="#k3" onclick="ensureTab('sokai-scenario')">黙祷</a>
+    <a href="#k4" onclick="ensureTab('sokai-scenario')">開会の辞</a>
+    <a href="#k5" onclick="ensureTab('sokai-scenario')">会長挨拶</a>
+    <a href="#k6" onclick="ensureTab('sokai-scenario')">議長選出</a>
+    <a href="#k7" onclick="ensureTab('sokai-scenario')">議事進行（議長）</a>
+    <a href="#k8" onclick="ensureTab('sokai-scenario')">来賓紹介</a>
+    <a href="#k9" onclick="ensureTab('sokai-scenario')">歓迎の辞</a>
+    <a href="#k10" onclick="ensureTab('sokai-scenario')">震災義援金報告</a>
+    <a href="#k11" onclick="ensureTab('sokai-scenario')">来賓祝辞</a>
+    <a href="#k12" onclick="ensureTab('sokai-scenario')">助成金贈呈</a>
+    <a href="#k13" onclick="ensureTab('sokai-scenario')">大会宣言</a>
+    <a href="#k14" onclick="ensureTab('sokai-scenario')">会旗伝達</a>
+    <a href="#k15" onclick="ensureTab('sokai-scenario')">次期支部挨拶</a>
+    <a href="#k16" onclick="ensureTab('sokai-scenario')">閉会の辞</a>
+    <a href="#k17" onclick="ensureTab('sokai-scenario')">来賓退場・連絡事項</a>
+    <a href="#kg">議長シナリオ全文</a>
+    <a href="#kr">来賓ご紹介リスト</a>
+    <a href="#kdocs">関連資料</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="legend-box">
+    <h2>総会シナリオ（司会・議長）</h2>
+    <div style="font-size:.85rem;color:#555;margin-bottom:10px;line-height:1.7;">
+      第67回 全国連合兼喜会 定時総会 北陸大会／2026年5月15日（金）16:00〜17:30／音楽堂2階 邦楽ホール<br>
+      <strong>司会：</strong>北陸兼喜会 総務理事　辻 匡（つじ ただし）　／　<strong>議長：</strong>北陸兼喜会 会長　青山 悟（あおやま さとる）
+    </div>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="swatch sw-mc"></span>司会者が読み上げるセリフ</div>
+      <div class="legend-item"><span class="swatch sw-staff"></span>スタッフ動き</div>
+      <div class="legend-item"><span class="swatch sw-note"></span>補足・注意事項</div>
+    </div>
+    <div class="note-box" style="margin-top:10px;">
+      ⚠ <strong>5/8 司会シナリオ・5/7 議長シナリオより作成。</strong> 元資料は <code>_source/北陸大会_総会_司会シナリオ_20260508.docx</code> / <code>_source/北陸大会_総会_議長シナリオ_坂川_20260507.docx</code>。原文どおりに整理しているため、空欄（〇名・〇ページ等）は当日資料に合わせて差替が必要。
+    </div>
+  </div>
+
+  <!-- K0: 15:50 開場準備 -->
+  <div class="scene" id="k0"><div class="scene-header"><div class="scene-num">00</div><div><div class="scene-title">開場準備（着座呼びかけ）</div><div class="scene-time">15:50〜15:55</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ（着座呼びかけ／必要に応じて）</div><div class="mc-text">まもなく御来賓の皆様のご入場です。お席にお願い致します。</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（15:55 インカム確認後）</div><div class="mc-text">まもなく開会のお時間でございます。<span class="pause">（間）</span><br>お手持ちの携帯電話は電源をお切り頂くか、マナーモードに切り替えて頂きますよう、ご確認をお願い致します。<span class="pause">（間）</span><br>もうしばらく致しますと、ご来賓の方々がご入場されます。<br>ご入場の際には、歓迎の拍手をもってお迎えしたいと存じます。<br>皆様のご協力を宜しくお願い申し上げます。<br>今しばらくお待ちください。</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">司会（辻）</span>15:55 インカム確認</div>
+      <div class="sa-item"><span class="sa-role">青年部</span>会場ドア閉鎖準備・着座呼びかけ</div>
+    </div></div>
+  </div></div>
+
+  <!-- K1: 15:57 来賓入場 -->
+  <div class="scene" id="k1"><div class="scene-header"><div class="scene-num">01</div><div><div class="scene-title">来賓入場</div><div class="scene-time">15:57</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、大変お待たせ致しました。<br>ご来賓の方々のご入場でございます。<br>皆様、ご起立の上、盛大な拍手でお迎えください。<span class="pause">（インカム入場）</span><br><br><em>※来賓ご着席を確認</em><br><br>御着席下さい。</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">SC来賓ドアマン</span>音楽堂2F控室→邦楽ホール／のれん開閉</div>
+      <div class="sa-item"><span class="sa-role">青年部（中橋他）</span>誘導サポート</div>
+      <div class="sa-item"><span class="sa-role">補助担当（上馬）</span>SC来賓を席に誘導（動線・席次は事前説明済み）</div>
+    </div></div>
+  </div></div>
+
+  <!-- K2: 15:58 開会・成立報告 -->
+  <div class="scene" id="k2"><div class="scene-header"><div class="scene-num">02</div><div><div class="scene-title">開会・司会自己紹介・成立報告</div><div class="scene-time">15:58〜15:59</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">皆さま、大変ながらくお待たせいたしました。<br>時間となりましたので、次第に沿って本総会を進めさせて頂きたいと存じます。<span class="pause">（間）</span><br><br>大変申し遅れましたが、私、本日、司会の大役を仰せつかりました<br>北陸兼喜会、総務理事の辻 匡（つじ ただし）でございます。<br>大変不慣れではございますが何卒宜しくお願い申し上げます。<span class="pause">（間）</span><br><br>それではこれより、本総会の出席状況についてご報告申し上げます。<br>会則、第10条におきまして、総会は「各支部代表の出席により成立する」となっております。<br>本日は全支部の代表の方々にご出席頂いておりますので、本総会が適法に成立することをご報告申し上げます。</div></div>
+  </div></div>
+
+  <!-- K3: 黙祷 -->
+  <div class="scene" id="k3"><div class="scene-header"><div class="scene-num">03</div><div><div class="scene-title">物故会員 報告と黙祷</div><div class="scene-time">15:59</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">総会に先立ちまして、2025年度、会員物故者の方々のご冥福を祈り、黙祷を捧げたいと存じます。<span class="pause">（間）</span><br>総会資料の<strong>〇ページ</strong>に記載されております通り、2025年度は<strong>〇名</strong>の物故会員がおられます。<br>これらの方々に対し、謹んで哀悼の意を表し、黙祷を捧げたいと存じます。<span class="pause">（間）</span><br><br>皆様、恐れ入りますが、ご起立をお願い致します。<br><br><em>― 黙祷 ―</em><br><br>おなおり下さい。<br>ありがとうございました。<br>ご着席下さい。</div></div>
+    <div class="note-box">⚠ <strong>4/22 SC中村追記：</strong>「現場で亡くなられた方もいるのか？いないなら消す」未対応。<br>原文：「〇名の方々に対し、また中には<strong>現場で尊い命を失われた方々に対しもおられます</strong>。」 → 該当者なしの場合は赤字部分を削除。<br>当日までに <strong>物故者人数・現場死亡者の有無・該当ページ</strong> を確定すること。</div>
+  </div></div>
+
+  <!-- K4: 開会の辞 -->
+  <div class="scene" id="k4"><div class="scene-header"><div class="scene-num">04</div><div><div class="scene-title">開会の辞</div><div class="scene-time">16:00</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、次第に沿って進めて参ります。<br><br>まず初めに、開会の辞を、<br>本総会の担当支部であります、北陸兼喜会、副会長の伊藤 潔（いとう きよし）より申し上げます。<br>伊藤副会長よろしくお願い致します。<span class="pause">（間）</span><br><br><em>― 伊藤副会長 あいさつ ―</em><br><br>伊藤副会長 ありがとうございました。</div></div>
+  </div></div>
+
+  <!-- K5: 会長挨拶 -->
+  <div class="scene" id="k5"><div class="scene-header"><div class="scene-num">05</div><div><div class="scene-title">会長挨拶</div><div class="scene-time">16:01</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、会長挨拶を、<br>全国連合兼喜会、青木会長より頂戴したいと存じます。<br>青木会長、よろしくお願い申し上げます。<span class="pause">（間）</span><br><br><em>― 青木会長 あいさつ ―</em><br><br>青木会長 ありがとうございました。</div></div>
+  </div></div>
+
+  <!-- K6: 議長選出 -->
+  <div class="scene" id="k6"><div class="scene-header"><div class="scene-num">06</div><div><div class="scene-title">議長選出</div><div class="scene-time">16:08</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">次に議長の選出でございます。<br>慣例によりまして、議長につきましては、<br>担当支部の会長に「議長を務めていただく事」となっておりますので、<br>北陸兼喜会の青山会長に議長をお願い致したいと存じます。<br><br>それでは青山会長、議長席へお願い致します。</div></div>
+    <div class="note-box">→ ここから議事進行は <strong>議長（青山会長）</strong> へバトンタッチ。詳細は下部「議長シナリオ全文」を参照。</div>
+  </div></div>
+
+  <!-- K7: 議事進行 -->
+  <div class="scene" id="k7"><div class="scene-header"><div class="scene-num">07</div><div><div class="scene-title">議事進行（議長進行）</div><div class="scene-time">16:10〜16:31</div></div></div><div class="scene-body">
+    <div class="note-box">議長：<strong>青山 悟 会長</strong>。議案は議長が進行し、各議案担当が登壇。<br>司会は議長が議事を終え降壇するまで原則控える。</div>
+    <table class="light-table" style="margin-top:8px;"><thead><tr><th>時刻</th><th>議案</th><th>担当</th></tr></thead><tbody>
+      <tr><td>16:10</td><td>(1) 2025年度事業報告</td><td>石井（いしい）副会長</td></tr>
+      <tr><td>16:18</td><td>(2) 2025年度決算報告 ※(3)と一括審議</td><td>多賀谷（たがや）副会長</td></tr>
+      <tr><td>16:21</td><td>(3) 2025年度会計認証</td><td>浅岡（あさおか）会計監事</td></tr>
+      <tr><td>16:23</td><td>(4) 2026年度事業計画案 ※「えさき」</td><td>江崎（えさき）副会長</td></tr>
+      <tr><td>16:26</td><td>(5) 2026年度予算案</td><td>多賀谷（たがや）副会長</td></tr>
+      <tr><td>16:28</td><td>(6) 次期総会開催支部の決定</td><td>青木（あおき）会長 → 北海道支部</td></tr>
+      <tr><td>16:30</td><td>(7) 各支部代表提案</td><td>提案ある支部のみ</td></tr>
+    </tbody></table>
+    <div class="mc-block" style="margin-top:14px;"><div class="mc-label">司会者セリフ（議長降壇後）</div><div class="mc-text">青山会長 ありがとうございました。<br>全ての議案は無事に承認されました。</div></div>
+  </div></div>
+
+  <!-- K8: 来賓紹介 -->
+  <div class="scene" id="k8"><div class="scene-header"><div class="scene-num">08</div><div><div class="scene-title">来賓ご紹介</div><div class="scene-time">16:32</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ（導入）</div><div class="mc-text">それではここで、本日、大変お忙しい中、本総会にお越し頂き、<br>華を添えて頂いております、御来賓の方々をご紹介させていただきます。</div></div>
+    <div class="note-box">紹介する方々の <strong>役職・氏名・読み方</strong> は下部「来賓ご紹介リスト」を参照。<br>本社（7名）→ 北陸支店（8名）の順。読み間違いに注意（齊藤＝さいとう、山岡＝やまおか・正德 など）。</div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（紹介後）</div><div class="mc-text">以上、ご来賓の方々をご紹介させていただきました。<br>改めまして盛大な拍手をお願い致します。<span class="pause">（拍手）</span><br>有難うございました。</div></div>
+  </div></div>
+
+  <!-- K9: 歓迎の辞 -->
+  <div class="scene" id="k9"><div class="scene-header"><div class="scene-num">09</div><div><div class="scene-title">歓迎の辞 + 能登復興QRコード案内</div><div class="scene-time">16:37</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それではここで、本日、全国各地よりお集まり頂きました皆様に、<br>北陸支店を代表いたしまして、<br><br>清水建設株式会社<br>執行役員 北陸支店長 角野 淳一郎（かくの じゅんいちろう）様<br><br>より歓迎の挨拶をさせて頂きます。<br>角野支店長様、宜しくお願い致します。<span class="pause">（間）</span><br><br><em>― 角野支店長 あいさつ ―</em><br><br>角野支店長様、ありがとうございました。<br><br>皆様にお配りしております資料の中に『<strong>能登復興関連QRコード一覧</strong>』がございます。各種QRコードを読み込んでいただきますと、能登半島地震発災当初からの復興記録がご覧いただけますので、ぜひご活用ください。</div></div>
+    <div class="note-box">★ <strong>新規追加（5/8 司会シナリオ）：</strong> 能登復興関連QRコード一覧の案内が追加。資料の準備・印刷を要確認。</div>
+  </div></div>
+
+  <!-- K10: 震災義援金 -->
+  <div class="scene" id="k10"><div class="scene-header"><div class="scene-num">10</div><div><div class="scene-title">能登半島地震 震災義援金 寄付報告</div><div class="scene-time">16:49</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">引き続き、この場をお借りしまして、<br>北陸兼喜会 会長 青山 悟（あおやま さとる）より、<br><br>みなさま、全国連合兼喜会よりご寄付いただきました、<br>令和6年能登半島地震 震災義援金寄付の報告をさせていただきます。<br>青山会長、宜しくお願い致します。<span class="pause">（間）</span><br><br><em>― 青山会長 北國新聞社でのセレモニー 報告写真の投影 ―</em><br><br>青山会長、ありがとうございました。</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role r-light">映像・音響</span>北國新聞社セレモニー報告写真の投影</div>
+    </div></div>
+  </div></div>
+
+  <!-- K11: 来賓祝辞 -->
+  <div class="scene" id="k11"><div class="scene-header"><div class="scene-num">11</div><div><div class="scene-title">来賓祝辞</div><div class="scene-time">16:54</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、御来賓を代表いたしまして、<br>代表取締役社長 新村 達也（しんむら たつや）様より<br>ご祝辞を頂戴いたしたいと存じます。<br>それでは新村社長様、よろしくお願い申し上げます。<span class="pause">（間）</span><br><br><em>― 新村社長 あいさつ ―</em><br><br>新村社長様、ありがとうございました。</div></div>
+  </div></div>
+
+  <!-- K12: 助成金贈呈 -->
+  <div class="scene" id="k12"><div class="scene-header"><div class="scene-num">12</div><div><div class="scene-title">助成金 贈呈</div><div class="scene-time">17:14</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">つづきまして、助成金の贈呈を行います。<br>青木会長、壇上、前方へお願い致します。<span class="pause">（スタンドマイク設置）</span><br><br>この助成金は、兼喜会の事業遂行の為、<br>清水建設本社様より贈呈されるものでございます。<br>おそれいりますが、新村社長様、壇上中央へお願い致します。<span class="pause">（贈呈）</span><br><br>新村社長様、青木会長、ありがとうございました。<span class="pause">（スタンドマイク撤収）</span></div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">総務</span>スタンドマイク 設置 → 撤収</div>
+    </div></div>
+  </div></div>
+
+  <!-- K13: 大会宣言 -->
+  <div class="scene" id="k13"><div class="scene-header"><div class="scene-num">13</div><div><div class="scene-title">大会宣言</div><div class="scene-time">17:17</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">続きまして、大会宣言に移ります。<br>皆様におかれましてはお手元の資料 <strong>〇〇ページ</strong> をご参照ください。<br><br>北陸兼喜会 総務理事 豊蔵 享一（とよくら きょういち）が大会宣言を致します。<br><br>豊蔵理事、宜しくお願い致します。<span class="pause">（間）</span><br><br><em>― 豊蔵理事 大会宣言 ―</em><br><br>豊蔵理事、ありがとうございました。</div></div>
+    <div class="note-box">★ 例年は会長担務だが、能登震災の関係で本年は特例で総務理事担当。</div>
+  </div></div>
+
+  <!-- K14: 会旗伝達 -->
+  <div class="scene" id="k14"><div class="scene-header"><div class="scene-num">14</div><div><div class="scene-title">会旗の伝達</div><div class="scene-time">17:22</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">つづきまして、会旗の伝達を行います。<br>全国連合兼喜会の会旗が、北陸支部より青木会長に渡され、<br>次期総会開催支部であります、北海道兼喜会へと渡されます。<br><br>恐れ入りますが、青木会長と北陸兼喜会、青山会長は壇上の前方へお願い致します。<br>会旗を受け取ります、北海道兼喜会、嶋守会長も壇上の前方へお願い致します。<br>そして北海道兼喜会 <strong>〇〇副会長</strong> は介添えの準備をお願い致します。<br><br>それでは宜しくお願い致します。<span class="pause">（伝達）</span><br><br>会旗の伝達が無事に終了しました。<br>みなさま、盛大な拍手をお願い致します。<br>お席にお戻りください。</div></div>
+    <div class="note-box">⚠ 北海道兼喜会 介添え副会長の氏名が空欄。当日までに北海道支部より確認。</div>
+  </div></div>
+
+  <!-- K15: 次期支部挨拶 -->
+  <div class="scene" id="k15"><div class="scene-header"><div class="scene-num">15</div><div><div class="scene-title">次期総会開催支部 挨拶</div><div class="scene-time">17:25</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それではここで次期総会、開催支部であります、<br>北海道兼喜会、嶋守会長より、ご挨拶を頂戴いたしたいと存じます。<span class="pause">（間）</span><br><br><em>― 嶋守会長 あいさつ ―</em><br><br>嶋守会長、ありがとうございました。<br>北海道支部のみなさま、来年、どうぞよろしくお願いいたします。</div></div>
+  </div></div>
+
+  <!-- K16: 閉会の辞 -->
+  <div class="scene" id="k16"><div class="scene-header"><div class="scene-num">16</div><div><div class="scene-title">閉会の辞</div><div class="scene-time">17:28</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">それでは、本総会もいよいよ閉会を迎えることとなりました。<br>閉会の辞を、北陸兼喜会 副会長 栗山 公伸（くりやま きみのぶ）より申し上げます。<br>栗山副会長よろしくお願いいたします。<span class="pause">（間）</span><br><br>栗山副会長、ありがとうございました。<br>これをもちまして、<br>清水建設、全国連合兼喜会、第67回定時総会、北陸大会を終了させていただきます。<br>本日は誠に有難うございました。</div></div>
+    <div class="note-box">⚠ 司会原稿は <strong>「第67回」</strong>。現マニュアルヘッダ表記「第68回」と差異あり。当日までに確認。</div>
+  </div></div>
+
+  <!-- K17: 来賓退場・連絡事項 -->
+  <div class="scene" id="k17"><div class="scene-header"><div class="scene-num">17</div><div><div class="scene-title">来賓退場・連絡事項</div><div class="scene-time">17:30</div></div></div><div class="scene-body">
+    <div class="mc-block"><div class="mc-label">司会者セリフ（来賓退場）</div><div class="mc-text">それでは御来賓の皆様のご退場でございます。<br>御来賓の皆様におかれましては、本総会へのご参加、誠にありがとうございました。<br><br>盛大な拍手でお見送りしたいと存じます。<br>皆様、恐れ入りますが、ご起立をお願い致します。<span class="pause">（拍手・お見送り）</span><br><br>皆様、有難うございました。<br>恐れ入りますが、一度御着席下さい。</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（連絡事項①：会長・副会長）</div><div class="mc-text">この時間をおかりしまして、司会より数点ご連絡をさせて頂きます。<br><br>この後のスケジュールでございますが、<br>この後すぐに、壇上におられます兼喜会会長の皆様と、各支部の副会長の皆様は、清水建設の御来賓の皆様との写真撮影がございます。<br>誠に恐れいりますが、速やかな御移動をお願い致します。<br><br>その他の皆様におかれましては、連絡事項やホテルのカギの受け渡しがございますので今しばらくそのまま御着席を願います。<br><br>それでは、会長、副会長の皆様は御移動をお願い致します。</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（連絡事項②：名刺交換会）</div><div class="mc-text">それでは、連絡事項を申し上げます。<br><br>この後、この会場を出られまして<strong>正面のお部屋</strong>で、御来賓の皆様との名刺交換の場を設けさせて頂いております。<br>この名刺交換は、会長、副会長だけでなく、<strong>全員を対象とした</strong>名刺交換の場であります。<br>お一人でも多くの方に、足を運んで頂けると幸いであります。<br>懇親会におきまして、清水建設御来賓の皆様に食事と会話を楽しんで頂けるよう、<strong>極力名刺交換はこの後の名刺交換会場でお済ませ頂ければ幸いでございます。</strong><br>写真撮影の関係で少しお待たせするかもしれませんが、是非この機会に名刺交換をして頂ければと思います。<br>皆様のご協力、宜しくお願い致します。</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（連絡事項③：懇親会案内）</div><div class="mc-text">その後、チェックインをお済ませ頂き、<br><strong>18時より懇親会</strong>を始めさせて頂きたいと考えております。<br>会場は、受付のございましたお隣の<br><strong>ANAクラウンプラザホテル金沢 3F 鳳の間</strong>でございます。<span class="pause">（同じ、こちらの会場でございます）</span><br><br>今から懇親会の準備を致しまして、<strong>17時40分ごろ開場</strong>させて頂きたいと思います。<br>タイトなスケジュールでございますが、お時間に御留意頂き、お集まり頂ければ幸いでございます。<br><br>名札の裏に懇親会のテーブルが記載されておりますので、ご確認をお願い致します。<br><br>懇親会におきましては、<strong>各支部テーブル毎に、青年部員が記念写真のご案内</strong>をいたしますので、乾杯の後、<strong>30分程度は、着席にてお食事とお酒をお楽しみ頂き、会場内のご挨拶などはお控え下さればと存じます</strong>。<br>ご理解、ご協力のほどお願い申し上げます。</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（連絡事項④：明日のゴルフ）</div><div class="mc-text">明日ゴルフをされる方には、資料の中に組み合わせやスタート時間のご案内が同封されております。行き帰りのバスのご案内も載っておりますのでご確認をお願い致します。<br>バスは、ANAクラウンプラザホテル金沢、他 <strong>〇〇〇</strong> に参ります。<strong>〇〇〇〇〇</strong>ではありませんのでご注意をお願い致します。<br>バスは、<strong>〇台</strong>用意してございます。お間違え、乗り遅れのないよう宜しくお願い致します。<br>ゴルフ場からのお帰りは、…</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（連絡事項⑤：カギ受け渡し・終了）</div><div class="mc-text">それでは大変長らくお待たせいたしました。<br>これより事務局が各支部の代表の方へホテルのカギをお渡しさせて頂きます。<br>カギを受け取られた方から皆様順次、名刺交換会場ANAクラウンプラザホテルへご移動をお願い致します。<br><br>それではこれを持ちまして終了とさせて頂きます。<br>本日の総会へのご参加、誠に有難うございました。</div></div>
+    <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role">事務局</span>各支部代表へホテルのカギ受け渡し</div>
+      <div class="sa-item"><span class="sa-role">SC来賓担当</span>江口部長 誘導で 音楽堂→ANA へ移動</div>
+      <div class="sa-item"><span class="sa-role">青年部</span>17:40 ANA 鳳の間 開場準備</div>
+      <div class="sa-item"><span class="sa-role">山田主査</span>17:23 金沢駅 清水康次郎 専務お出迎え（直接ANAへ）</div>
+    </div></div>
+    <div class="note-box">⚠ ゴルフバス案内に空欄「〇〇〇」「〇〇〇〇〇」「〇台」あり。当日までに行き先・誤誘導注意先・台数を確定要。</div>
+  </div></div>
+
+  <!-- 議長シナリオ全文 -->
+  <div class="scene" id="kg"><div class="scene-header"><div class="scene-num">議長</div><div><div class="scene-title">議長シナリオ全文（青山会長 進行）</div><div class="scene-time">議長就任〜降壇</div></div></div><div class="scene-body">
+    <div class="note-box">出典：<code>北陸大会_総会_議長シナリオ_坂川_20260507.docx</code>。司会から議長を引き継いだ後、議長（青山会長）が下記の流れで議事を進める。</div>
+    <div class="mc-block"><div class="mc-label">議長セリフ（就任挨拶）</div><div class="mc-text">ただいま議長に任命されました、北陸兼喜会 青山でございます。<br>このような大役は不慣れでございます。<br>皆様方のご協力をよろしくお願いを申し上げます。<span class="pause">（間）</span><br><br>審議事項につきましては、ご質問のある方は挙手をしていただき、支部名・会社名・お名前ののちにご質問をお願い申しあげます。<br>各審議事項にご賛同いただける方は、拍手にてご賛同の意思を表明願います。<br><br>2025年度決算報告（2号議案）また会計認証（3号議案）につきましては関連しておりますので、<strong>一括での審議</strong>とさせていただきます。<br><br>それでは議案審議に入らせていただきます。</div></div>
+    <div class="mc-block"><div class="mc-label">議長セリフ（議案1）</div><div class="mc-text">（1）2025年度事業報告　石井（いしい）副会長、よろしくお願い致します。<span class="pause">（報告）</span><br>※ありがとうございました。<br><br>ただいまの2025年度事業報告につきまして、何かご質問のある方はいらっしゃいますか。<br>なければ拍手をもってご承認をよろしくお願い致します。<span class="pause">（拍手）</span><br>※ありがとうございました。<br>2025年度事業報告、承認されました。</div></div>
+    <div class="mc-block"><div class="mc-label">議長セリフ（議案2・3 一括）</div><div class="mc-text">つづきまして、2025年度決算報告 並びに 2025年度会計認証の件。<br>まずは多賀谷（たがや）副会長、よろしくお願い致します。<span class="pause">（報告）</span><br>※ありがとうございます。<br><br>それでは2025年度会計認証につきまして、浅岡（あさおか）会計監事、よろしくお願い致します。<span class="pause">（報告）</span><br>※ありがとうございました。<br><br>ただいま、2025年度決算報告 並びに 2025年度会計認証の件、ご報告がありました。<br>これにつきましてご質問ある方はいらっしゃいますか。<br>ご賛同いただけるようであれば拍手をもって承認お願いします。<span class="pause">（拍手）</span><br>2025年度決算報告 並びに 2025年度会計認証の件、承認されました。</div></div>
+    <div class="mc-block"><div class="mc-label">議長セリフ（議案4）</div><div class="mc-text">続きまして、2026年度事業計画案、江崎（えさき）副会長 お願い致します。<span class="pause">※「えざき」ではなく「えさき」</span><br>※ありがとうございました。<br><br>ただいまの2026年度事業計画案についてご質問等ございますか。<br>なければ拍手をもって承認お願い致します。<span class="pause">（拍手）</span></div></div>
+    <div class="mc-block"><div class="mc-label">議長セリフ（議案5）</div><div class="mc-text">続きまして、2026年度予算案、多賀谷（たがや）副会長 お願い致します。<span class="pause">（報告）</span><br>ただいまの2026年度予算案についてご質問等ございますか。<br>なければ拍手をもって承認お願い致します。<span class="pause">（拍手）</span></div></div>
+    <div class="mc-block"><div class="mc-label">議長セリフ（議案6）</div><div class="mc-text">続きまして、第6号議案 次期開催支部について、青木（あおき）会長 お願い致します。<span class="pause">（決定）</span><br><br>青木会長より開催支部の決定がありました。ご賛同いただける方は拍手をもって承認お願いします。<span class="pause">（拍手）</span><br>※ありがとうございます。<br>来年、北海道支部よろしくお願い致します。</div></div>
+    <div class="mc-block"><div class="mc-label">議長セリフ（議案7・降壇）</div><div class="mc-text">第7号議案 各支部提案事項。各支部提案事項をお持ちの支部はいらっしゃいますでしょうか。<span class="pause">（提案受付）</span><br><br>皆様のご協力によりまして、審議事項は全て承認いただきました。<br>これにて議長の席を退任させていただきます。<br>どうもありがとうございました。</div></div>
+  </div></div>
+
+  <!-- 来賓ご紹介リスト -->
+  <div class="scene" id="kr"><div class="scene-header"><div class="scene-num">紹介</div><div><div class="scene-title">来賓 ご紹介リスト（読み上げ順）</div><div class="scene-time">16:32 シーン用</div></div></div><div class="scene-body">
+    <div class="note-box">司会セリフでは「まず初めに、本社の御来賓の方々をご紹介申し上げます」→「続きまして、北陸支店の御来賓の方々をご紹介させていただきます」の順で読み上げ。</div>
+    <h3 style="margin-top:14px;">本社（清水建設）— 7名</h3>
+    <table class="light-table"><thead><tr><th>役職</th><th>氏名</th><th>読み</th></tr></thead><tbody>
+      <tr><td>代表取締役会長</td><td>井上 和幸 様</td><td>いのうえ かずゆき</td></tr>
+      <tr><td>代表取締役社長</td><td>新村 達也 様</td><td>しんむら たつや</td></tr>
+      <tr><td>代表取締役副社長／建築総本部長</td><td>堤 義人 様</td><td>つつみ よしと</td></tr>
+      <tr><td>副社長執行役員／土木総本部 副総本部長</td><td>齊藤 武文 様</td><td>さいとう たけふみ</td></tr>
+      <tr><td>専務執行役員／建築総本部 購買担当</td><td>原田 知明 様</td><td>はらだ ともあき</td></tr>
+      <tr><td>執行役員／安全環境本部長</td><td>塚田 泰三 様</td><td>つかだ たいぞう</td></tr>
+      <tr><td>建築総本部 購買本部長</td><td>山岡 正德 様</td><td>やまおか まさのり</td></tr>
+    </tbody></table>
+    <h3 style="margin-top:14px;">北陸支店 — 8名</h3>
+    <table class="light-table"><thead><tr><th>役職</th><th>氏名</th><th>読み</th></tr></thead><tbody>
+      <tr><td>執行役員／北陸支店長</td><td>角野 淳一郎 様</td><td>かくの じゅんいちろう</td></tr>
+      <tr><td>北陸支店 副支店長</td><td>近藤 秀之 様</td><td>こんどう ひでゆき</td></tr>
+      <tr><td>北陸支店 副支店長</td><td>菅原 竜也 様</td><td>すがはら たつや</td></tr>
+      <tr><td>北陸支店 副支店長</td><td>内山 秀樹 様</td><td>うちやま ひでき</td></tr>
+      <tr><td>北陸支店 副支店長</td><td>陰山 昭徳 様</td><td>かげやま あきのり</td></tr>
+      <tr><td>北陸支店 主席マネージャー</td><td>谷口 豊 様</td><td>たにぐち ゆたか</td></tr>
+      <tr><td>北陸支店 安全環境部長</td><td>佐藤 彰 様</td><td>さとう あきら</td></tr>
+      <tr><td>北陸支店 調達部長</td><td>江口 将司 様</td><td>えぐち まさし</td></tr>
+    </tbody></table>
+    <div class="note-box" style="margin-top:10px;">⚠ 漢字注意：<strong>齊藤</strong>（旧字「齊」）／<strong>山岡 正德</strong>（旧字「德」）／<strong>陰山</strong>（「影」ではない）。</div>
+  </div></div>
+
+  <!-- 関連資料 -->
+  <div class="scene" id="kdocs"><div class="scene-header"><div class="scene-num">📎</div><div><div class="scene-title">関連資料（PDF）</div><div class="scene-time">事前確認用</div></div></div><div class="scene-body">
+    <div class="section-box">
+      <ul>
+        <li>📄 <a href="assets/docs/sokai_giji_2026.pdf" target="_blank" rel="noopener"><strong>総会議事資料 2026</strong>（0423版）</a> — 議案 (1)〜(7) の事業報告・決算・予算等の本体資料</li>
+        <li>📄 <a href="assets/docs/sokai_sankasha_meibo.pdf" target="_blank" rel="noopener"><strong>総会 参加者名簿</strong>（0420s版）</a> — 全国の参加者リスト</li>
+      </ul>
+      <div style="font-size:.78rem;color:#888;margin-top:8px;">※ 当日は最新版に差替の可能性あり。事務局にて要確認。</div>
+    </div>
+  </div></div>
+
 </div>
 </div>
 
@@ -1338,17 +1578,17 @@ const MASTER_SOKAI=[
   {t:'15:55',task:'インカム確認・携帯電源OFFのアナウンス',impl:'司会者'},
   {t:'15:55',task:'★SC来賓 入場（音楽堂 2F控室→邦楽ホール）',impl:'SC来賓ドアマン → 青年部（中橋他）。入場時ドア（のれん）開閉。上馬さんがSC来賓を席に誘導。各補助担当は事前に動線・席次を本人に説明済の前提。'},
   {t:'15:58',task:'開会・司会紹介',impl:'司会者（北陸 辻 匡 総務理事）'},
-  {t:'15:59',task:'2024年度物故会員の報告と黙祷',impl:'司会者'},
+  {t:'15:59',task:'2025年度物故会員の報告と黙祷',impl:'司会者（人数は当日確定／現場死亡者の有無は要事前確認）'},
   {t:'16:00',task:'開会の辞',impl:'北陸 伊藤 潔（きよし）副会長'},
   {t:'16:01',task:'会長挨拶',impl:'全国 青木 茂 会長'},
-  {t:'16:08',task:'議長選出',impl:'北陸 青山 悟 会長'},
-  {t:'16:10',task:'議案(1) 2024年度事業報告',impl:'全国〇〇副会長'},
-  {t:'16:18',task:'議案(2) 2024年度決算報告',impl:'全国〇〇副会長'},
-  {t:'16:21',task:'議案(3) 2024年度会計の認証',impl:'全国〇〇会計監事'},
-  {t:'16:23',task:'議案(4) 2025年度事業計画案',impl:'全国〇〇副会長'},
-  {t:'16:26',task:'議案(5) 2025年度予算案',impl:'全国〇〇副会長'},
-  {t:'16:28',task:'議案(6) 次期総会開催支部の決定',impl:'全国〇〇会計監事'},
-  {t:'16:30',task:'議案(7) 各支部代表提案',impl:''},
+  {t:'16:08',task:'議長選出',impl:'北陸 青山 悟 会長（議長）'},
+  {t:'16:10',task:'議案(1) 2025年度事業報告',impl:'全国 石井（いしい）副会長'},
+  {t:'16:18',task:'議案(2) 2025年度決算報告',impl:'全国 多賀谷（たがや）副会長'},
+  {t:'16:21',task:'議案(3) 2025年度会計の認証',impl:'全国 浅岡（あさおか）会計監事'},
+  {t:'16:23',task:'議案(4) 2026年度事業計画案',impl:'全国 江崎（えさき）副会長 ※「えざき」ではなく「えさき」'},
+  {t:'16:26',task:'議案(5) 2026年度予算案',impl:'全国 多賀谷（たがや）副会長'},
+  {t:'16:28',task:'議案(6) 次期総会開催支部の決定',impl:'全国 青木（あおき）会長 → 北海道支部'},
+  {t:'16:30',task:'議案(7) 各支部代表提案',impl:'各支部からの提案がある場合のみ'},
   {t:'16:31',task:'議長降壇',impl:''},
   {t:'16:32',task:'来賓紹介',impl:'司会者'},
   {t:'16:37',task:'歓迎の辞',impl:'SC 角野 淳一郎 北陸支店長'},
@@ -2095,10 +2335,10 @@ const CHECK_ITEMS=[
    detail:`<strong>解決済（5/7）：</strong> 清水様計画書に基づき、記念写真は <strong>15:00〜15:30 / 音楽堂 B1F 交流ホール</strong> として全体タイムに反映済み。`},
   {id:'c8',cat:'low',title:'✓ 萩野（赤チーム）の二次会会場 = 利恵 確定（5/7）',
    detail:`<strong>確定（5/7）：</strong>最新版 青年部役割説明.pptx slide13（紫チーム）にて 萩野＝利恵 が明記されており確定。<br>紫チーム 利恵 4名体制：石動（リーダー）・青山毅・坪田・萩野。`},
-  {id:'c9',cat:'high',title:'コア資料の総会担当が未確定（〇〇副会長表記）',
-   detail:`議案(1)〜(5)：「全国〇〇副会長」<br>議案(3)・(6)：「全国〇〇会計監事」<br>本番までに担当者の確定が必要。`},
+  {id:'c9',cat:'low',title:'✓ 議案担当者 確定（5/8 議長シナリオ）',
+   detail:`<strong>確定（5/8 議長シナリオ）：</strong><br>議案(1) 2025年度事業報告 → <strong>石井（いしい）副会長</strong><br>議案(2) 2025年度決算報告 → <strong>多賀谷（たがや）副会長</strong><br>議案(3) 2025年度会計認証 → <strong>浅岡（あさおか）会計監事</strong><br>議案(4) 2026年度事業計画案 → <strong>江崎（えさき）副会長</strong>（×えざき）<br>議案(5) 2026年度予算案 → <strong>多賀谷（たがや）副会長</strong><br>議案(6) 次期総会開催支部 → <strong>青木（あおき）会長</strong>（→北海道支部）<br>議案(2)(3) は関連するため一括審議。`},
   {id:'c10',cat:'high',title:'司会台本の物故会員数・現場死亡者の有無',
-   detail:`司会台本に「2025年度は<strong>〇</strong>名の物故会員がおられ、ます」と空欄のまま。<br>SC中村追記「現場で亡くなられた方もいるのか？いないなら消す」も未対応。`},
+   detail:`司会台本に「2025年度は<strong>〇</strong>名の物故会員がおられ、ます」と空欄のまま。<br>SC中村追記「現場で亡くなられた方もいるのか？いないなら消す」も未対応。<br>📋 総会シナリオタブの 05 シーンに反映済み（要差替）。`},
   {id:'c11',cat:'low',title:'✓ 総会開始時刻 統一済み',
    detail:`<strong>解決済：</strong> 全体タイムは「開場 15:15／受付 15:55／開会 15:58／総会 16:00〜」で統一済み。清水様計画書（15:55 SC来賓入場・15:58 開会・16:00 総会本体）に整合。`},
   {id:'c12',cat:'low',title:'✓ リハーサル・支部長会議 時刻 清水様計画書で確定',
