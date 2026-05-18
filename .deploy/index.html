@@ -198,6 +198,34 @@
   .st-org{color:#0f3460;font-size:.7rem;font-weight:bold;}
   .seat-stage{text-align:center;padding:16px;background:linear-gradient(135deg,#1a1a2e,#0f3460);color:#fff;border-radius:10px;margin-bottom:16px;font-size:1rem;letter-spacing:.3em;}
   .seat-mc{text-align:center;font-size:.85rem;color:#1b5e20;margin-bottom:10px;font-weight:bold;}
+  /* ===== Seat Search ===== */
+  .seat-search-box{background:linear-gradient(135deg,#0f3460 0%,#16213e 100%);border-radius:12px;padding:16px 18px;margin-bottom:22px;box-shadow:0 2px 8px rgba(15,52,96,.25);}
+  .seat-search-title{color:#fff;font-size:.95rem;font-weight:bold;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .seat-search-title .ss-icon{background:#e2b714;color:#0f3460;width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:.95rem;}
+  .seat-search-sub{color:#bbd;font-size:.75rem;margin-bottom:10px;line-height:1.5;}
+  .seat-search-input{width:100%;padding:12px 14px;font-size:1rem;border:none;border-radius:8px;outline:none;box-shadow:inset 0 1px 3px rgba(0,0,0,.1);}
+  .seat-search-input:focus{box-shadow:inset 0 1px 3px rgba(0,0,0,.1),0 0 0 3px #e2b71455;}
+  .seat-search-results{margin-top:12px;}
+  .seat-search-meta{color:#bbd;font-size:.75rem;margin-bottom:8px;}
+  .seat-search-hit{background:#fff;border-radius:10px;padding:10px 14px;margin-bottom:8px;display:flex;align-items:center;gap:12px;box-shadow:0 1px 3px rgba(0,0,0,.1);}
+  .seat-search-hit.vip-hit{background:#fffdf5;border-left:4px solid #e2b714;}
+  .seat-search-hit.sc-hit{background:#fff5f5;border-left:4px solid #c62828;}
+  .ssh-table-badge{flex-shrink:0;background:#0f3460;color:#fff;width:62px;height:62px;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:bold;line-height:1.1;}
+  .seat-search-hit.vip-hit .ssh-table-badge{background:#b8860b;}
+  .seat-search-hit.sc-hit .ssh-table-badge{background:#c62828;}
+  .ssh-table-badge .ssh-tn{font-size:1.15rem;}
+  .ssh-table-badge .ssh-sn{font-size:.7rem;opacity:.9;margin-top:2px;}
+  .ssh-info{flex:1;min-width:0;}
+  .ssh-name{font-size:1.05rem;font-weight:bold;color:#0f3460;}
+  .ssh-org{font-size:.75rem;color:#1565c0;font-weight:bold;margin-top:2px;}
+  .ssh-title{font-size:.75rem;color:#666;margin-top:2px;}
+  .ssh-speaker{display:inline-block;background:#c62828;color:#fff;font-size:.7rem;font-weight:bold;padding:2px 7px;border-radius:4px;margin-left:6px;}
+  .ssh-jump{flex-shrink:0;background:#e2b714;color:#0f3460;border:none;padding:8px 12px;border-radius:6px;font-weight:bold;font-size:.78rem;cursor:pointer;white-space:nowrap;}
+  .ssh-jump:hover{background:#c99c12;}
+  .seat-search-empty{color:#fff;font-size:.85rem;padding:8px 0;opacity:.8;}
+  .seat-search-empty.no-input{color:#bbd;}
+  .seat-table.highlight{animation:pulseHighlight 1.6s ease-out 2;}
+  @keyframes pulseHighlight{0%{box-shadow:0 0 0 0 #e2b714aa;}50%{box-shadow:0 0 0 8px #e2b71455;}100%{box-shadow:0 0 0 0 #e2b71400;}}
   .speaker-card{background:#fff;border-radius:10px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,.06);margin-bottom:8px;display:flex;gap:12px;align-items:center;}
   .speaker-card .sp-table{flex-shrink:0;width:48px;height:48px;border-radius:50%;background:#0f3460;color:#fff;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:bold;text-align:center;line-height:1.1;}
   .speaker-card.sp-vip .sp-table{background:#b8860b;}
@@ -743,7 +771,7 @@
     <div class="mc-block"><div class="mc-label">司会者セリフ（来賓退場）</div><div class="mc-text">それでは御来賓の皆様のご退場でございます。<br>御来賓の皆様におかれましては、本総会へのご参加、誠にありがとうございました。<br><br>盛大な拍手でお見送りしたいと存じます。<br>皆様、恐れ入りますが、ご起立をお願い致します。<span class="pause">（拍手・お見送り）</span><br><br>皆様、有難うございました。<br>恐れ入りますが、一度御着席下さい。</div></div>
     <div class="mc-block"><div class="mc-label">司会者セリフ（連絡事項①：会長・副会長）</div><div class="mc-text">この時間をおかりしまして、司会より数点ご連絡をさせて頂きます。<br><br>この後のスケジュールでございますが、<br>この後すぐに、壇上におられます兼喜会会長の皆様と、各支部の副会長の皆様は、清水建設の御来賓の皆様との写真撮影がございます。<br>誠に恐れいりますが、速やかな御移動をお願い致します。<br><br>その他の皆様におかれましては、連絡事項やホテルのカギの受け渡しがございますので今しばらくそのまま御着席を願います。<br><br>それでは、会長、副会長の皆様は御移動をお願い致します。</div></div>
     <div class="mc-block"><div class="mc-label">司会者セリフ（連絡事項②：名刺交換会）</div><div class="mc-text">それでは、連絡事項を申し上げます。<br><br>この後、この会場を出られまして<strong>正面のお部屋</strong>で、御来賓の皆様との名刺交換の場を設けさせて頂いております。<br>この名刺交換は、会長、副会長だけでなく、<strong>全員を対象とした</strong>名刺交換の場であります。<br>お一人でも多くの方に、足を運んで頂けると幸いであります。<br>懇親会におきまして、清水建設御来賓の皆様に食事と会話を楽しんで頂けるよう、<strong>極力名刺交換はこの後の名刺交換会場でお済ませ頂ければ幸いでございます。</strong><br>写真撮影の関係で少しお待たせするかもしれませんが、是非この機会に名刺交換をして頂ければと思います。<br>皆様のご協力、宜しくお願い致します。</div></div>
-    <div class="mc-block"><div class="mc-label">司会者セリフ（連絡事項③：懇親会案内）</div><div class="mc-text">その後、チェックインをお済ませ頂き、<br><strong>18時より懇親会</strong>を始めさせて頂きたいと考えております。<br>会場は、受付のございましたお隣の<br><strong>ANAクラウンプラザホテル金沢 3F 鳳の間</strong>でございます。<span class="pause">（同じ、こちらの会場でございます）</span><br><br>今から懇親会の準備を致しまして、<strong>17時40分ごろ開場</strong>させて頂きたいと思います。<br>タイトなスケジュールでございますが、お時間に御留意頂き、お集まり頂ければ幸いでございます。<br><br>名札の裏に懇親会のテーブルが記載されておりますので、ご確認をお願い致します。<br><br>懇親会におきましては、<strong>各支部テーブル毎に、青年部員が記念写真のご案内</strong>をいたしますので、乾杯の後、<strong>30分程度は、着席にてお食事とお酒をお楽しみ頂き、会場内のご挨拶などはお控え下さればと存じます</strong>。<br>ご理解、ご協力のほどお願い申し上げます。</div></div>
+    <div class="mc-block"><div class="mc-label">司会者セリフ（連絡事項③：懇親会案内）</div><div class="mc-text">その後、チェックインをお済ませ頂き、<br><strong>18時より懇親会</strong>を始めさせて頂きたいと考えております。<br>会場は、受付のございましたお隣の<br><strong>ANAクラウンプラザホテル金沢 3F 鳳の間</strong>でございます。<span class="pause">（同じ、こちらの会場でございます）</span><br><br>今から懇親会の準備を致しまして、<strong>17時40分ごろ開場</strong>させて頂きたいと思います。<br>タイトなスケジュールでございますが、お時間に御留意頂き、お集まり頂ければ幸いでございます。<br><br><span style="background:#fff3e0;padding:4px 8px;border-left:3px solid #c62828;display:inline-block;"><strong>※ 懇親会にご参加の皆様におかれましては、お手元の総会資料を一度お部屋にお戻しいただいた上で、懇親会会場へお越しください。</strong></span><br><br>名札の裏に懇親会のテーブルが記載されておりますので、ご確認をお願い致します。<br><br>懇親会におきましては、<strong>各支部テーブル毎に、青年部員が記念写真のご案内</strong>をいたしますので、乾杯の後、<strong>30分程度は、着席にてお食事とお酒をお楽しみ頂き、会場内のご挨拶などはお控え下さればと存じます</strong>。<br>ご理解、ご協力のほどお願い申し上げます。</div></div>
     <div class="mc-block"><div class="mc-label">司会者セリフ（連絡事項④：明日のゴルフ）</div><div class="mc-text">明日ゴルフをされる方には、資料の中に組み合わせやスタート時間のご案内が同封されております。行き帰りのバスのご案内も載っておりますのでご確認をお願い致します。<br>バスは、ANAクラウンプラザホテル金沢、他 <strong>〇〇〇</strong> に参ります。<strong>〇〇〇〇〇</strong>ではありませんのでご注意をお願い致します。<br>バスは、<strong>〇台</strong>用意してございます。お間違え、乗り遅れのないよう宜しくお願い致します。<br>ゴルフ場からのお帰りは、…</div></div>
     <div class="mc-block"><div class="mc-label">司会者セリフ（連絡事項⑤：カギ受け渡し・終了）</div><div class="mc-text">それでは大変長らくお待たせいたしました。<br>これより事務局が各支部の代表の方へホテルのカギをお渡しさせて頂きます。<br>カギを受け取られた方から皆様順次、名刺交換会場ANAクラウンプラザホテルへご移動をお願い致します。<br><br>それではこれを持ちまして終了とさせて頂きます。<br>本日の総会へのご参加、誠に有難うございました。</div></div>
     <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
@@ -849,7 +877,8 @@
     <div class="role-card"><div class="role-name">芸妓</div><div class="role-count">1名</div><div class="role-person">氷見山</div></div>
     <div class="role-card"><div class="role-name">来賓</div><div class="role-count">1名</div><div class="role-person">中橋</div></div>
     <div class="role-card"><div class="role-name">総務</div><div class="role-count">2名</div><div class="role-person">斉藤・大島</div></div>
-    <div class="role-card" style="grid-column:1/-1;background:linear-gradient(135deg,#e9d5ff 0%,#f3e8ff 100%)"><div class="role-name">🍶 二次会 リエ担当（青年部 5名）</div><div class="role-count">5名</div><div class="role-person" style="font-size:.82rem;line-height:1.5"><strong>リエ（片町）</strong>：鍛治（リーダー）・中橋・在田・田中・石森<br><span style="color:#666;">※【5/12 役員会決定】当初「リエ／セレブR／ANA3階瑞雲」3会場体制 → リエ1箇所に統合</span></div></div>
+    <div class="role-card" style="grid-column:1/-1;background:linear-gradient(135deg,#fce4ec 0%,#f8bbd0 100%)"><div class="role-name">🍶 二次会 リエ担当（青年部 5名・先発）</div><div class="role-count">5名</div><div class="role-person" style="font-size:.82rem;line-height:1.5"><strong>リエ（片町）</strong>：石動・冨久尾・石森・青山（毅士）・鍛治（リーダー）<br><span style="color:#666;">※【5/12 役員会決定】当初「リエ／セレブR／ANA3階瑞雲」3会場体制 → リエ1箇所に統合 ／ <strong>5/14 社長確定でリエ担当を再編</strong></span></div></div>
+    <div class="role-card" style="grid-column:1/-1;background:linear-gradient(135deg,#e3f2fd 0%,#bbdefb 100%)"><div class="role-name">🏨 ANA二次会担当（青年部 3名・残留）</div><div class="role-count">3名</div><div class="role-person" style="font-size:.82rem;line-height:1.5"><strong>ANA（懇親会会場）</strong>：北川 裕章・西能 立・大島 成友<br><span style="color:#666;">※5/14 社長確定。懇親会会場の片付け統括＋残った参加者の案内・対応</span></div></div>
   </div>
 
   <!-- 準備フェーズ -->
@@ -930,7 +959,8 @@
     <div class="tl-item highlight">
       <span class="tl-time">18:37</span><span class="tl-duration">5分</span>
       <div class="tl-title">乾杯</div>
-      <div class="tl-person">SC <ruby>堤<rt>つつみ</rt></ruby> <ruby>義人<rt>よしと</rt></ruby> 副社長</div>
+      <div class="tl-person">SC <ruby>原田<rt>はらだ</rt></ruby> <ruby>知明<rt>ともあき</rt></ruby> 専務</div>
+      <div class="tl-detail" style="font-size:.72rem;color:#c62828;">※堤副社長は総会のみ参加・終了後 小松空港へ → 乾杯は原田専務に変更（5/14 確定）</div>
       <span class="tl-link" onclick="jumpTo('scenario','s7')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item highlight">
@@ -940,50 +970,51 @@
       <span class="tl-link" onclick="jumpTo('scenario','s8')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item">
-      <span class="tl-time">19:12</span><span class="tl-duration">45分</span>
+      <span class="tl-time">19:12</span><span class="tl-duration">40分</span>
       <div class="tl-title">歓談（料理・地酒・記念品紹介／各支部 → SC挨拶）</div>
-      <div class="tl-detail">事務局が順番に会長・社長テーブルへの挨拶を促す</div>
+      <div class="tl-detail">事務局が順番に会長・社長テーブルへの挨拶を促す ／ <strong style="color:#c62828;">19:52 までに着席</strong></div>
       <span class="tl-link" onclick="jumpTo('scenario','s9')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item entertainment">
-      <span class="tl-time">19:57</span><span class="tl-duration">10分</span>
-      <div class="tl-title">芸妓 踊り（さわぎ・金沢風雅）</div>
+      <span class="tl-time">19:52</span><span class="tl-duration">10分</span>
+      <div class="tl-title">芸妓 踊り（さわぎ・金沢風雅）<span style="font-size:.7rem;color:#c62828;font-weight:normal;margin-left:6px;">※5分前倒し</span></div>
       <div class="tl-detail">スポットON（会場は暗くしない）／参加者は着席</div>
       <span class="tl-link" onclick="jumpTo('scenario','s10')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item ceremony">
-      <span class="tl-time">20:07</span><span class="tl-duration">5分</span>
+      <span class="tl-time">20:02</span><span class="tl-duration">5分</span>
       <div class="tl-title">次期開催支部挨拶</div>
       <div class="tl-person">北海道 <ruby>嶋守<rt>しまもり</rt></ruby> <ruby>吉範<rt>よしのり</rt></ruby> 会長</div>
       <span class="tl-link" onclick="jumpTo('scenario','s13')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item ceremony">
-      <span class="tl-time">20:12</span><span class="tl-duration">5分</span>
+      <span class="tl-time">20:07</span><span class="tl-duration">5分</span>
       <div class="tl-title">中締め・万歳</div>
       <div class="tl-person">SC <ruby>齊藤<rt>さいとう</rt></ruby> <ruby>武文<rt>たけふみ</rt></ruby> 副社長</div>
       <span class="tl-link" onclick="jumpTo('scenario','s14')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item ceremony">
-      <span class="tl-time">20:17</span><span class="tl-duration">5分</span>
+      <span class="tl-time">20:12</span><span class="tl-duration">5分</span>
       <div class="tl-title">返礼万歳</div>
       <div class="tl-person">北陸 <ruby>高村<rt>たかむら</rt></ruby> <ruby>明彦<rt>あきひこ</rt></ruby> 副会長</div>
       <span class="tl-link" onclick="jumpTo('scenario','s15')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item ceremony">
-      <span class="tl-time">20:22</span><span class="tl-duration">5分</span>
+      <span class="tl-time">20:17</span><span class="tl-duration">5分</span>
       <div class="tl-title">閉会挨拶</div>
       <div class="tl-person">北陸 <ruby>中橋<rt>なかはし</rt></ruby> <ruby>隆文<rt>たかふみ</rt></ruby> 副会長</div>
       <span class="tl-link" onclick="jumpTo('scenario','s16')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item">
-      <span class="tl-time">20:27</span><span class="tl-duration">3分</span>
+      <span class="tl-time">20:22</span><span class="tl-duration">3分</span>
       <div class="tl-title">来賓退場</div>
       <span class="tl-link" onclick="jumpTo('scenario','s17')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item ceremony">
-      <span class="tl-time">20:30</span>
+      <span class="tl-time">20:25</span>
       <div class="tl-title">閉会</div>
       <div class="tl-person">司会者より閉会の辞</div>
+      <div class="tl-detail" style="font-size:.72rem;">※閉会〜二次会開始まで <strong>5分の移動余裕</strong></div>
       <span class="tl-link" onclick="jumpTo('scenario','s18')">詳細・司会セリフを見る</span>
     </div>
     <div class="tl-item highlight">
@@ -1005,10 +1036,10 @@
         <tr><td>素囃子終了後</td><td></td><td class="off">OFF</td><td class="off">OFF</td><td></td></tr>
         <tr><td>片付け後</td><td class="on">ON</td><td class="on">ON（司会席）</td><td></td><td>徐々に明るく</td></tr>
         <tr><td>18:37 乾杯後</td><td></td><td class="off">OFF</td><td></td><td></td></tr>
-        <tr><td>19:57 踊り開始（さわぎ・金沢風雅）</td><td></td><td class="on">ON</td><td></td><td>会場は暗くしない／参加者は着席</td></tr>
+        <tr><td>19:52 踊り開始（さわぎ・金沢風雅）</td><td></td><td class="on">ON</td><td></td><td>会場は暗くしない／参加者は着席</td></tr>
         <tr><td>踊り終了</td><td class="on">ON</td><td class="off">OFF</td><td class="off">OFF</td><td></td></tr>
-        <tr><td>20:07 次期支部挨拶</td><td></td><td class="on">ON</td><td></td><td></td></tr>
-        <tr><td>20:27 来賓退場</td><td class="off">OFF</td><td></td><td></td><td>退場演出</td></tr>
+        <tr><td>20:02 次期支部挨拶</td><td></td><td class="on">ON</td><td></td><td></td></tr>
+        <tr><td>20:22 来賓退場</td><td class="off">OFF</td><td></td><td></td><td>退場演出</td></tr>
       </tbody>
     </table>
   </div>
@@ -1016,10 +1047,10 @@
   <!-- 要確認事項 -->
   <h2>要確認事項（Q&A）</h2>
   <div class="section-box">
-    <div class="qa-item"><div class="q">Q1. 素囃子・踊りの所要時間は？</div><div class="a">A. 素囃子（18:04〜）と踊り（19:57〜）はそれぞれ約10分。歓談（19:12〜19:57）は45分で各支部 → SC挨拶巡回を含む。</div></div>
+    <div class="qa-item"><div class="q">Q1. 素囃子・踊りの所要時間は？</div><div class="a">A. 素囃子（18:04〜）と踊り（<strong>19:52〜</strong>）はそれぞれ約10分。歓談（19:12〜19:52）は40分で各支部 → SC挨拶巡回を含む。<br><span style="color:#c62828;font-size:.8rem;">※ 5/14 変更：踊り 19:57→<strong>19:52</strong>（5分前倒し）、以降の進行は順次5分繰り上げ／二次会開始 20:30 は据え置き</span></div></div>
     <div class="qa-item"><div class="q">Q2. 各支部挨拶のアテンド人員は？</div><div class="a">A. 各支部に2人配置。連絡調整方法の検討が必要（インカム要検討）。</div></div>
     <div class="qa-item"><div class="q">Q3. SCの方の食事時間は？</div><div class="a">A. ホテル・SC・お茶屋の女将と相談して調整。</div></div>
-    <div class="qa-item"><div class="q">Q4. 二次会設定は？</div><div class="a">A. <strong>2系統 / 全4会場</strong>に分かれます（<strong>【5/12 役員会決定】</strong> 当初の3会場体制から リエ1箇所に統合）：<br>① お茶屋3軒（はん家・八の福・仲の家）：清水建設社長クラス＋親会役員のみ／各8名（合計24名）<br>② リエ（片町）：連合幹部・支部参加者 等／青年部 5名（鍛治R・中橋・在田・田中・石森）／バス1台で移動 → ホテルマイステイズ横で降車<br><strong>青年部 リエ担当 5名：</strong>鍛治（リーダー）・中橋・在田・田中・石森<br>※会計は各支部から後日請求のため、青年部担当は人数確認のみで OK。</div></div>
+    <div class="qa-item"><div class="q">Q4. 二次会設定は？</div><div class="a">A. <strong>2系統 / 全4会場</strong>に分かれます（<strong>【5/12 役員会決定】</strong> 当初の3会場体制から リエ1箇所に統合）：<br>① お茶屋3軒（はん家・八の福・仲の家）：清水建設社長クラス＋親会役員のみ／各8名（合計24名）<br>② リエ（片町）：連合幹部・支部参加者 等／青年部 5名（石動・冨久尾・石森・青山毅士・鍛治R）／バス1台で移動 → ホテルマイステイズ横で降車<br><strong>青年部 リエ担当 5名（5/14 社長確定で再編）：</strong>石動・冨久尾・石森・青山（毅士）・鍛治（リーダー）<br><strong>ANA二次会担当 3名（残留）：</strong>北川 裕章・西能 立・大島 成友<br>※会計は各支部から後日請求のため、青年部担当は人数確認のみで OK。</div></div>
     <div class="qa-item"><div class="q">Q9. 二次会の案内はいつ告知？</div><div class="a">A. <strong>懇親会中の司会では案内しない方針</strong>のため、名札・席上に簡単な印刷物（A3 → クリアファイル等）を事前準備。</div></div>
     <div class="qa-item"><div class="q">Q5. 返礼挨拶は？</div><div class="a">A. 北陸 <ruby>高村<rt>たかむら</rt></ruby> <ruby>明彦<rt>あきひこ</rt></ruby> 副会長に決定。</div></div>
     <div class="qa-item"><div class="q">Q6. 演目の舞台は？</div><div class="a">A. 会場正面の舞台を使用。移動作業は不要。</div></div>
@@ -1035,6 +1066,17 @@
 <!-- ================================================================ -->
 <div class="tab-content" id="tab-seating">
 <div class="container">
+
+  <!-- ▼ 5/14 追加：名前検索でテーブル番号を即特定 -->
+  <div class="seat-search-box">
+    <div class="seat-search-title"><span class="ss-icon">🔍</span> お名前で座席を検索</div>
+    <div class="seat-search-sub">参加者の方から「私の席は？」と聞かれたら、こちらにお名前（漢字 or 一部）を入力してください。該当のテーブル番号がすぐに分かります。スペース・敬称・所属の有無は問いません。</div>
+    <input type="text" class="seat-search-input" id="seat-search-input" placeholder="例：井上、たかむら、はらだ、青木 茂、原田 知明 …" autocomplete="off" />
+    <div class="seat-search-results" id="seat-search-results">
+      <div class="seat-search-empty no-input">↑ お名前を入力すると、候補が表示されます。</div>
+    </div>
+  </div>
+  <!-- ▲ 5/14 追加ここまで -->
 
   <div class="note-box" style="margin-bottom:18px;">各テーブルをクリック（タップ）すると、全メンバーの詳細が表示されます。<br>振り仮名は推定を含みます。実際のご本人に確認のうえご使用ください。</div>
 
@@ -1257,7 +1299,7 @@
   </div></div>
 
   <!-- SCENE 9 -->
-  <div class="scene" id="s9"><div class="scene-header"><div class="scene-num">09</div><div><div class="scene-title">歓談（料理・地酒・記念品紹介）</div><div class="scene-time">19:12〜19:57（45分）</div></div></div><div class="scene-body">
+  <div class="scene" id="s9"><div class="scene-header"><div class="scene-num">09</div><div><div class="scene-title">歓談（料理・地酒・記念品紹介）</div><div class="scene-time">19:12〜19:52（40分）<span style="font-size:.7rem;color:#c62828;margin-left:6px;">※5/14 5分短縮</span></div></div></div><div class="scene-body">
     <div class="slide-label">背景スライド（SLIDE 8 継続表示 ー 歓談中もタイトル維持）</div>
     <img class="scene-slide" src="assets/slides_20260506/slide8.png" alt="SLIDE 8 清水建設全国連合兼喜会 北陸大会 懇親会（歓談中も継続表示）" onclick="openSlide(this.src)">
     <div class="mc-block"><div class="mc-label">司会者セリフ（料理紹介）</div><div class="mc-text">本日は能登復興コースと称しまして、能登の食材をふんだんに使った食事をご用意していただきました。<br>またコース料理とは別に、会場の両端にじわもん料理コーナー、前方には地酒コーナーを設置しております。<br>じわもんとは、石川県、特にここ金沢市周辺の方言で、「地元の食材」や「地元の旬の食材を使った料理」を指す言葉でして、本日は石川県・富山県・福井県・新潟県からそれぞれ5種類のじわもん料理をご用意しました。<br>ラインナップについては、テーブルに用意しておりますメニュー表をご覧ください。</div></div>
@@ -1273,7 +1315,7 @@
   </div></div>
 
   <!-- SCENE 10 (旧 s12 / 踊り) -->
-  <div class="scene" id="s10"><div class="scene-header"><div class="scene-num">10</div><div><div class="scene-title">芸妓 踊り（さわぎ・金沢風雅）</div><div class="scene-time">19:57〜20:07（10分）</div></div></div><div class="scene-body">
+  <div class="scene" id="s10"><div class="scene-header"><div class="scene-num">10</div><div><div class="scene-title">芸妓 踊り（さわぎ・金沢風雅）</div><div class="scene-time">19:52〜20:02（10分）<span style="font-size:.7rem;color:#c62828;margin-left:6px;">※5/14 5分前倒し</span></div></div></div><div class="scene-body">
     <div class="light-cue"><strong>スポットON・行燈ON</strong>（会場は暗くしない）</div>
     <div class="slide-label">背景スライド（SLIDE 9）</div>
     <img class="scene-slide" src="assets/slides_20260506/slide9.png" alt="SLIDE 9 踊り" onclick="openSlide(this.src)">
@@ -1292,7 +1334,7 @@
   </div></div>
 
   <!-- SCENE 11 (旧 s13 / 次期開催) -->
-  <div class="scene" id="s11"><div class="scene-header"><div class="scene-num">11</div><div><div class="scene-title">次期開催支部 会長挨拶</div><div class="scene-time">20:07〜20:12（5分）</div></div></div><div class="scene-body">
+  <div class="scene" id="s11"><div class="scene-header"><div class="scene-num">11</div><div><div class="scene-title">次期開催支部 会長挨拶</div><div class="scene-time">20:02〜20:07（5分）</div></div></div><div class="scene-body">
     <div class="slide-label">① 紹介スライド（SLIDE 10） ー 司会が登壇者を紹介する間</div>
     <img class="scene-slide" src="assets/slides_20260506/slide10.png" alt="SLIDE 10 北海道兼喜会 会長 嶋守吉範 次期開催支部挨拶" onclick="openSlide(this.src)">
     <div class="mc-block"><div class="mc-label">司会者セリフ（紹介）</div><div class="mc-text">引き続きお席にお座りいただき、前方のスクリーンをご覧ください。<br>たったいま、全国連合兼喜会次回北海道開催へのスタートが切られました。<br>ここで次期開催地 北海道兼喜会 会長 <ruby>嶋守<rt>しまもり</rt></ruby><ruby>吉範<rt>よしのり</rt></ruby>（しまもり よしのり）より挨拶申し上げます。<br>嶋守会長お願いいたします。<span class="pause">（拍手）</span></div></div>
@@ -1308,7 +1350,7 @@
   </div></div>
 
   <!-- SCENE 12 (旧 s14 / 中締め) -->
-  <div class="scene" id="s12"><div class="scene-header"><div class="scene-num">12</div><div><div class="scene-title">中締め（万歳三唱）</div><div class="scene-time">20:12〜20:17（5分）</div></div></div><div class="scene-body">
+  <div class="scene" id="s12"><div class="scene-header"><div class="scene-num">12</div><div><div class="scene-title">中締め（万歳三唱）</div><div class="scene-time">20:07〜20:12（5分）</div></div></div><div class="scene-body">
     <div class="slide-label">① 紹介スライド（SLIDE 11） ー 司会が登壇者を紹介する間</div>
     <img class="scene-slide" src="assets/slides_20260506/slide11.png" alt="SLIDE 11 清水建設 副社長 齊藤武文 様 万歳三唱" onclick="openSlide(this.src)">
     <div class="mc-block"><div class="mc-label">司会者セリフ（紹介）</div><div class="mc-text">さて、清水建設様、また全国連合兼喜会の益々のご発展を祈念し、ここで万歳三唱とさせていただきます。<br>まずはご発声を<br>清水建設株式会社　副社長執行役員　土木総本部　副総本部長　<ruby>齊藤<rt>さいとう</rt></ruby>　<ruby>武文<rt>たけふみ</rt></ruby>（さいとう たけふみ）様にお願いいたします。<br>齊藤副社長お願いいたします。<span class="pause">（拍手）</span><br>皆様もどうぞご起立ください。<span class="pause">（起立）</span></div></div>
@@ -1324,7 +1366,7 @@
   </div></div>
 
   <!-- SCENE 13 (旧 s15 / 返礼万歳) -->
-  <div class="scene" id="s13"><div class="scene-header"><div class="scene-num">13</div><div><div class="scene-title">返礼万歳</div><div class="scene-time">20:17〜20:22（5分）</div></div></div><div class="scene-body">
+  <div class="scene" id="s13"><div class="scene-header"><div class="scene-num">13</div><div><div class="scene-title">返礼万歳</div><div class="scene-time">20:12〜20:17（5分）</div></div></div><div class="scene-body">
     <div class="slide-label">① 紹介スライド（SLIDE 12） ー 司会が登壇者を紹介する間</div>
     <img class="scene-slide" src="assets/slides_20260506/slide12.png" alt="SLIDE 12 北陸兼喜会 副会長 高村明彦 万歳返礼" onclick="openSlide(this.src)">
     <div class="mc-block"><div class="mc-label">司会者セリフ（紹介）</div><div class="mc-text">返礼の万歳を北陸兼喜会　副会長　<ruby>高村<rt>たかむら</rt></ruby>　<ruby>明彦<rt>あきひこ</rt></ruby>（たかむら あきひこ）より差し上げます。<br>高村副会長お願いいたします。<span class="pause">（拍手）</span></div></div>
@@ -1338,7 +1380,7 @@
   </div></div>
 
   <!-- SCENE 14 (旧 s16 / 閉会挨拶) -->
-  <div class="scene" id="s14"><div class="scene-header"><div class="scene-num">14</div><div><div class="scene-title">閉会挨拶</div><div class="scene-time">20:22〜20:27（5分）</div></div></div><div class="scene-body">
+  <div class="scene" id="s14"><div class="scene-header"><div class="scene-num">14</div><div><div class="scene-title">閉会挨拶</div><div class="scene-time">20:17〜20:22（5分）</div></div></div><div class="scene-body">
     <div class="slide-label">① 紹介スライド（SLIDE 13） ー 司会が登壇者を紹介する間</div>
     <img class="scene-slide" src="assets/slides_20260506/slide13.png" alt="SLIDE 13 北陸兼喜会 副会長 中橋隆文 中締め" onclick="openSlide(this.src)">
     <div class="mc-block"><div class="mc-label">司会者セリフ（紹介）</div><div class="mc-text">全国連合兼喜会北陸大会は盛会のうちに開催されました。<br>名残惜しいところではありますが、ここで中締めとさせていただきます。<br>中締めは北陸兼喜会　副会長　<ruby>中橋<rt>なかはし</rt></ruby>　<ruby>隆文<rt>たかふみ</rt></ruby>（なかはし たかふみ）よりさせていただきます。中橋副会長お願いいたします。<span class="pause">（拍手）</span></div></div>
@@ -1353,7 +1395,7 @@
   </div></div>
 
   <!-- SCENE 15 (旧 s17 / 来賓退場) -->
-  <div class="scene" id="s15"><div class="scene-header"><div class="scene-num">15</div><div><div class="scene-title">来賓退場</div><div class="scene-time">20:27〜20:30（3分）</div></div></div><div class="scene-body">
+  <div class="scene" id="s15"><div class="scene-header"><div class="scene-num">15</div><div><div class="scene-title">来賓退場</div><div class="scene-time">20:22〜20:25（3分）</div></div></div><div class="scene-body">
     <div class="light-cue"><strong>照明OFF</strong>（退場演出）</div>
     <div class="slide-label">背景スライド（SLIDE 14）</div>
     <img class="scene-slide" src="assets/slides_20260506/slide14.png" alt="SLIDE 14 ありがとうございました" onclick="openSlide(this.src)">
@@ -1366,7 +1408,7 @@
   </div></div>
 
   <!-- SCENE 16 (旧 s18 / 閉会の辞) -->
-  <div class="scene" id="s16"><div class="scene-header"><div class="scene-num">16</div><div><div class="scene-title">閉会の辞</div><div class="scene-time">20:30</div></div></div><div class="scene-body">
+  <div class="scene" id="s16"><div class="scene-header"><div class="scene-num">16</div><div><div class="scene-title">閉会の辞</div><div class="scene-time">20:25<span style="font-size:.7rem;color:#c62828;margin-left:6px;">※閉会〜二次会開始20:30まで 5分の移動余裕</span></div></div></div><div class="scene-body">
     <div class="slide-label">背景スライド（SLIDE 15）</div>
     <img class="scene-slide" src="assets/slides_20260506/slide15.png" alt="SLIDE 15 またお会いしましょう（九州大会 懇親会）" onclick="openSlide(this.src)">
     <div class="mc-block"><div class="mc-label">司会者セリフ</div><div class="mc-text">まだまだお話は尽きないところではございますが、そろそろ懇親会をお開きとさせていただきます。<br>皆様のご協力により素晴らしい時間となりましたことを心よりお礼申し上げます。<br>なお事前にお申し込みされた方々は、それぞれ二次会の会場にお進みください。<br>それでは改めまして、本日はまことにありがとうございました。<span class="pause">（一礼）</span></div></div>
@@ -1381,11 +1423,80 @@
 
   <!-- SCENE 17 (旧 s19 / 二次会) -->
   <div class="scene" id="s17"><div class="scene-header"><div class="scene-num">17</div><div><div class="scene-title">二次会</div><div class="scene-time">20:30〜22:00（約1時間半）</div></div></div><div class="scene-body">
-    <div class="note-box" style="background:linear-gradient(135deg,#fff8e1 0%,#fffde7 100%);border-left:4px solid #f9a825;"><strong>【5/12 役員会決定】二次会はリエ1箇所に統合：</strong><br>当初の「リエ／セレブR／ANA3階瑞雲」3会場体制から、お茶屋さんとの調整がついたため <strong>リエ1箇所に統合</strong>。<br>・お茶屋（はん家・八の福・仲の家）→ SC役員＋北陸兼喜会幹部（各8名）／変更なし<br>・リエ（片町）→ 連合兼喜会幹部・支部参加者 等／<strong>青年部 5名で対応</strong></div>
-    <div class="note-box"><strong>青年部 リエ担当 5名：</strong><br>鍛治（リーダー）／中橋／在田／田中／石森<br>※5名は 20:00 に懇親会を抜け、バス1台で片町（ホテルマイステイズ横）へ移動して受入準備。</div>
+    <div class="note-box" style="background:linear-gradient(135deg,#fff8e1 0%,#fffde7 100%);border-left:4px solid #f9a825;"><strong>【5/12 役員会決定】二次会はリエ1箇所に統合：</strong><br>当初の「リエ／セレブR／ANA3階瑞雲」3会場体制から、お茶屋さんとの調整がついたため <strong>リエ1箇所に統合</strong>。<br>・お茶屋（はん家・八の福・仲の家）→ SC役員＋北陸兼喜会幹部（各8名）／変更なし<br>・リエ（片町）→ 連合兼喜会幹部・支部参加者 等／<strong>青年部 5名で対応</strong><br>・ANA（懇親会会場）→ <strong>青年部 3名で残留対応</strong></div>
+
+    <!-- ▼ 5/14 改訂：二次会 ANA/リエ 担当体制（社長確定） -->
+    <h3 style="margin:18px 0 8px;font-size:1rem;color:#0f3460;border-left:4px solid #0f3460;padding-left:10px;">👥 二次会 担当体制（5/14 社長確定）</h3>
+    <div class="roles-grid" style="margin-bottom:14px;">
+      <div class="role-card" style="background:linear-gradient(135deg,#e3f2fd 0%,#bbdefb 100%);"><div class="role-name">🏨 ANA二次会担当（残留）</div><div class="role-count">3名</div><div class="role-person" style="font-size:.95rem;">北川 裕章 ／ 西能 立 ／ 大島 成友</div></div>
+      <div class="role-card" style="background:linear-gradient(135deg,#fce4ec 0%,#f8bbd0 100%);"><div class="role-name">🍶 リエ二次会担当（先発）</div><div class="role-count">5名</div><div class="role-person" style="font-size:.95rem;">石動 嘉信 ／ 冨久尾 裕喜 ／ 石森 良隆 ／ 青山 毅士 ／ 鍛治 渉</div></div>
+    </div>
+
+    <!-- ▼ 5/14 追記：移動手段と送り出し担当 -->
+    <h3 style="margin:18px 0 8px;font-size:1rem;color:#0f3460;border-left:4px solid #0f3460;padding-left:10px;">🚌 ANA → リエ 移動・送り出し担当（5/14 確定）</h3>
+    <div class="note-box" style="background:#e3f2fd;border-left:4px solid #1565c0;">
+      <strong>移動手段は バス + ジャンボタクシー の 2 系統：</strong><br>
+      ・<strong>バス（1台）</strong>：リエ担当 5名＋一般参加者（リエ行き）<br>
+      ・<strong>ジャンボタクシー</strong>：東京兼喜会のみなさま<br>
+      <span style="color:#c62828;font-size:.85rem;">※同伴①／同伴②（手書きメモ）の運用は当日確認</span>
+    </div>
+    <div class="staff-actions"><div class="sa-title">送り出し担当（ANA側）</div><div class="sa-grid">
+      <div class="sa-item"><span class="sa-role" style="background:#1565c0;">🚌 バス 送り込み</span>操川 さん<br><span style="font-size:.78rem;color:#666;">ANA出発：乗車案内・人数確認・出発合図</span></div>
+      <div class="sa-item"><span class="sa-role" style="background:#1565c0;">🚐 ジャンボタクシー お見送り</span>中橋 隆一郎 さん<br><span style="font-size:.78rem;color:#666;">東京兼喜会のみなさまをJTへ案内</span></div>
+      <div class="sa-item"><span class="sa-role" style="background:#1565c0;">🛗 エレベーター前 待機</span>青山（毅士） さん<br><span style="font-size:.78rem;color:#666;">3階→1階の動線確保・誘導 → 自身もリエ担当として後発合流</span></div>
+    </div></div>
+
+    <h3 style="margin:18px 0 8px;font-size:1rem;color:#0f3460;border-left:4px solid #0f3460;padding-left:10px;">👔 当日の服装ルール（5/14 確定）</h3>
+    <div class="note-box" style="background:#f3e5f5;border-left:4px solid #6a1b9a;">
+      <strong>基本：スーツ＋Yシャツ 必着</strong>（私服 NG）<br>
+      <table style="width:100%;border-collapse:collapse;margin-top:8px;font-size:.88rem;">
+        <thead><tr style="background:#6a1b9a;color:#fff;"><th style="padding:6px 8px;text-align:left;">シーン</th><th style="padding:6px 8px;text-align:left;">着用するもの</th></tr></thead>
+        <tbody>
+          <tr style="background:#fff;"><td style="padding:6px 8px;border-bottom:1px solid #eee;"><strong>外部でお出迎え時</strong><br>（金沢駅・ANA外・リエ入口・路上 等）</td><td style="padding:6px 8px;border-bottom:1px solid #eee;">スーツ＋Yシャツ＋<strong style="color:#1565c0;">スタッフジャンパー（ブルー）</strong></td></tr>
+          <tr style="background:#fafafa;"><td style="padding:6px 8px;"><strong>部屋（会場）内でスタッフ活動時</strong><br>（鳳の間・控室 等）</td><td style="padding:6px 8px;">スーツ＋Yシャツ＋<strong style="color:#c62828;">兼喜会 法被（はっぴ）</strong></td></tr>
+        </tbody>
+      </table>
+      <span style="color:#c62828;font-size:.8rem;">※金沢駅構内ではハッピー着用 NG → 駅対応は青色ジャンパーのみ可（4/26 既出ルールと整合）</span>
+    </div>
+
+    <h3 style="margin:18px 0 8px;font-size:1rem;color:#0f3460;border-left:4px solid #0f3460;padding-left:10px;">📋 二次会 リエ組 支部別名簿（5/14 受領・原本：手書き集計表）</h3>
+    <div class="note-box" style="background:#fff;border:1px solid #ddd;">
+      <table style="width:100%;border-collapse:collapse;font-size:.88rem;">
+        <thead>
+          <tr style="background:#0f3460;color:#fff;">
+            <th style="padding:6px 8px;text-align:left;">支部</th>
+            <th style="padding:6px 8px;text-align:right;">ANA（残留）</th>
+            <th style="padding:6px 8px;text-align:right;background:#c62828;">リエ（移動）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="padding:5px 8px;border-bottom:1px solid #eee;">関東</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">7</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">0</td></tr>
+          <tr style="background:#fafafa;"><td style="padding:5px 8px;border-bottom:1px solid #eee;">東北</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">5</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">1</td></tr>
+          <tr><td style="padding:5px 8px;border-bottom:1px solid #eee;">近畿</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">0</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">10</td></tr>
+          <tr style="background:#fafafa;"><td style="padding:5px 8px;border-bottom:1px solid #eee;">九州</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">0</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">14</td></tr>
+          <tr><td style="padding:5px 8px;border-bottom:1px solid #eee;">名古屋</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">23</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">0</td></tr>
+          <tr style="background:#fafafa;"><td style="padding:5px 8px;border-bottom:1px solid #eee;">東京</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">8</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">14</td></tr>
+          <tr><td style="padding:5px 8px;border-bottom:1px solid #eee;">広島</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">3</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">6</td></tr>
+          <tr style="background:#fafafa;"><td style="padding:5px 8px;border-bottom:1px solid #eee;color:#888;">千葉</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;color:#888;">—</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;color:#888;">—</td></tr>
+          <tr><td style="padding:5px 8px;border-bottom:1px solid #eee;">四国</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">0</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">8</td></tr>
+          <tr style="background:#fafafa;"><td style="padding:5px 8px;border-bottom:1px solid #eee;">横浜</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">0</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">0</td></tr>
+          <tr><td style="padding:5px 8px;border-bottom:1px solid #eee;">北海道</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">0</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">0</td></tr>
+          <tr style="background:#fff3e0;font-weight:bold;"><td style="padding:6px 8px;border-bottom:1px solid #ddd;">小計</td><td style="padding:6px 8px;border-bottom:1px solid #ddd;text-align:right;">46</td><td style="padding:6px 8px;border-bottom:1px solid #ddd;text-align:right;">53</td></tr>
+          <tr><td style="padding:5px 8px;border-bottom:1px solid #eee;color:#1565c0;">＋ 北佐（追加）</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">2</td><td style="padding:5px 8px;border-bottom:1px solid #eee;text-align:right;">5</td></tr>
+          <tr style="background:#c62828;color:#fff;font-weight:bold;font-size:1rem;"><td style="padding:8px;">合計</td><td style="padding:8px;text-align:right;">48</td><td style="padding:8px;text-align:right;">58</td></tr>
+        </tbody>
+      </table>
+      <p style="margin:8px 0 0;font-size:.78rem;color:#666;">※千葉支部は原本（手書き集計表）で空欄のため「—」表示。当日参加者カウントで確定。<br>※「北佐」は原本に手書きで追加された区分（赤線下）。原本写真は事務局保管。</p>
+    </div>
+    <!-- ▲ 5/14 追記ここまで -->
+
     <div class="note-box"><strong>二次会の進行：</strong>二次会会場で全国大会参加者かどうかチェックしながら案内する（登録証で確認）。二次会会場では、おつまみ・スナック類とし、飲み物はリクエストに応じてレセプタントに持って来て貰う。挨拶や乾杯などは無し。1時間から1時間半程度で閉会。会計は支部毎に後日請求（当日の支払いは不要）。</div>
     <div class="staff-actions"><div class="sa-title">スタッフの動き</div><div class="sa-grid">
-      <div class="sa-item"><span class="sa-role">リエ担当（鍛治R・中橋・在田・田中・石森）</span>支部別人数カウント・店側との突合（連合幹部・支部参加者 等）／登録証で参加者チェック</div>
+      <div class="sa-item"><span class="sa-role" style="background:#c2185b;">リエ担当 5名（石動・冨久尾・石森・青山毅士・鍛治R）</span>20:00 に懇親会を抜けバスで片町（ホテルマイステイズ横）へ先発 → リエ会場で支部別人数カウント・店側との突合（連合幹部・支部参加者 等）／登録証で参加者チェック</div>
+      <div class="sa-item"><span class="sa-role" style="background:#1565c0;">ANA二次会担当 3名（北川裕章・西能・大島）</span>懇親会会場に残留：会場片付け統括／残った参加者の案内・対応</div>
+      <div class="sa-item"><span class="sa-role">バス送り込み（操川）</span>ANA出口でリエ行きバス乗車案内・人数確認・出発合図</div>
+      <div class="sa-item"><span class="sa-role">JT見送り（中橋隆一郎）</span>東京兼喜会のみなさまをジャンボタクシーへ案内</div>
+      <div class="sa-item"><span class="sa-role">EV前 待機（青山毅士）</span>3階→1階の動線確保・誘導 → 自身もリエ担当として後発合流</div>
       <div class="sa-item"><span class="sa-role">レセプタント</span>おつまみ配置・飲み物リクエスト対応</div>
     </div></div>
   </div></div>
@@ -1434,35 +1545,35 @@
       <img class="slide-card-img" src="assets/slides_20260506/slide8.png" alt="SLIDE 8" onclick="openSlide(this.src)">
       <div class="slide-card-foot"><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s8'),50)">→ 開宴・写真撮影 s08 へ</span></div></div>
 
-    <div class="slide-card"><div class="slide-card-num">SLIDE 9（19:57〜 踊り）</div>
+    <div class="slide-card"><div class="slide-card-num">SLIDE 9（19:52〜 踊り）</div>
       <img class="slide-card-img" src="assets/slides_20260506/slide9.png" alt="SLIDE 9" onclick="openSlide(this.src)">
       <div class="slide-card-foot"><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s10'),50)">→ 踊り s10 へ</span></div></div>
 
-    <div class="slide-card"><div class="slide-card-num">SLIDE 10（20:07〜 次期開催 嶋守吉範）</div>
+    <div class="slide-card"><div class="slide-card-num">SLIDE 10（20:02〜 次期開催 嶋守吉範）</div>
       <img class="slide-card-img" src="assets/slides_20260506/slide10.png" alt="SLIDE 10" onclick="openSlide(this.src)">
       <div class="slide-card-foot"><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s11'),50)">→ 次期開催 s11 へ</span></div></div>
 
-    <div class="slide-card"><div class="slide-card-num">SLIDE 11（20:12〜 万歳三唱 齊藤武文）</div>
+    <div class="slide-card"><div class="slide-card-num">SLIDE 11（20:07〜 万歳三唱 齊藤武文）</div>
       <img class="slide-card-img" src="assets/slides_20260506/slide11.png" alt="SLIDE 11" onclick="openSlide(this.src)">
       <div class="slide-card-foot"><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s12'),50)">→ 中締め万歳 s12 へ</span></div></div>
 
-    <div class="slide-card"><div class="slide-card-num">SLIDE 12（20:17〜 万歳返礼 高村明彦）</div>
+    <div class="slide-card"><div class="slide-card-num">SLIDE 12（20:12〜 万歳返礼 高村明彦）</div>
       <img class="slide-card-img" src="assets/slides_20260506/slide12.png" alt="SLIDE 12" onclick="openSlide(this.src)">
       <div class="slide-card-foot"><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s13'),50)">→ 返礼万歳 s13 へ</span></div></div>
 
-    <div class="slide-card"><div class="slide-card-num">SLIDE 13（20:22〜 中締め 中橋隆文）</div>
+    <div class="slide-card"><div class="slide-card-num">SLIDE 13（20:17〜 中締め 中橋隆文）</div>
       <img class="slide-card-img" src="assets/slides_20260506/slide13.png" alt="SLIDE 13" onclick="openSlide(this.src)">
       <div class="slide-card-foot"><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s14'),50)">→ 閉会挨拶 s14 へ</span></div></div>
 
-    <div class="slide-card"><div class="slide-card-num">SLIDE 14（20:27〜 来賓退場）</div>
+    <div class="slide-card"><div class="slide-card-num">SLIDE 14（20:22〜 来賓退場）</div>
       <img class="slide-card-img" src="assets/slides_20260506/slide14.png" alt="SLIDE 14" onclick="openSlide(this.src)">
       <div class="slide-card-foot"><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s15'),50)">→ 来賓退場 s15 へ</span></div></div>
 
-    <div class="slide-card"><div class="slide-card-num">SLIDE 15（20:30 閉会の辞）</div>
+    <div class="slide-card"><div class="slide-card-num">SLIDE 15（20:25 閉会の辞）</div>
       <img class="slide-card-img" src="assets/slides_20260506/slide15.png" alt="SLIDE 15" onclick="openSlide(this.src)">
       <div class="slide-card-foot"><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s16'),50)">→ 閉会の辞 s16 へ</span></div></div>
 
-    <div class="slide-card"><div class="slide-card-num">SLIDE 16（20:30 次回引継ぎ）</div>
+    <div class="slide-card"><div class="slide-card-num">SLIDE 16（20:25 次回引継ぎ）</div>
       <img class="slide-card-img" src="assets/slides_20260506/slide16.png" alt="SLIDE 16" onclick="openSlide(this.src)">
       <div class="slide-card-foot"><span class="tl-link" onclick="switchTab('scenario');setTimeout(()=>jumpTo('scenario','s16'),50)">→ 閉会の辞 s16 へ</span></div></div>
   </div>
@@ -1484,7 +1595,13 @@
 
 <div class="footer">
   全国連合兼喜会 第67回定時総会 北陸大会 スタッフオンラインマニュアル<br>
-  最終更新: 2026/05/13rev3（① QRコード一覧 封筒同封フロー追記 ② 司会シナリオ 5/11 docx全面反映 ③ <strong>【5/12 役員会決定】二次会 リエ1箇所に統合（5名体制：鍛治・中橋・在田・田中・石森）</strong>）
+  最終更新: 2026/05/14rev6（⑥ <strong>🆕 座席表に「お名前検索」機能を追加</strong> — 参加者の方から「私の席は？」と聞かれたら、座席表タブの上部の検索ボックスに名前（漢字 or 一部 or ひらがな）を入力 → 該当のテーブル番号と席番号が即表示・「座席表で見る」ボタンで該当テーブルにジャンプ＆展開）<br>
+  最終更新: 2026/05/14rev5（① <strong>乾杯発声 → 原田専務（堤副社長は総会のみ）</strong> ② <strong>懇親会タイム5分前倒し：踊り 19:57→19:52、以降順次／二次会開始 20:30 据え置き</strong> ③ <strong>二次会リエ組 支部別名簿（ANA 48名／リエ 58名・北佐含む）</strong> ④ <strong>二次会担当 再編（社長確定）</strong>：リエ担当5名=石動・冨久尾・石森・青山(毅士)・鍛治／ANA二次会担当3名=北川裕・西能・大島／ANA出発バス送り込み=操川／JT見送り=中橋隆一郎／EV前=青山毅士／服装：スーツ+Yシャツ＋外部=青ジャンパー・室内=法被 ⑤ <strong>総会司会セリフに「総会資料を部屋に戻して懇親会へ」案内 追記</strong>）<br>
+  <span style="font-size:.78rem;color:#888;">過去版: 2026/05/14rev4（旧リエ担当 鍛治・中橋・在田・田中・石森 → 社長確定で再編）／2026/05/13rev3（① QRコード一覧 封筒同封フロー追記 ② 司会シナリオ 5/11 docx全面反映 ③ 【5/12 役員会決定】二次会 リエ1箇所に統合）</span>
+  <div style="margin-top:14px;padding-top:10px;border-top:1px dashed #ccc;font-size:.85rem;color:#333;">
+    📖 このオンラインマニュアルを自分でも作るには →
+    <a href="https://online-manual-howto.pages.dev" target="_blank" rel="noopener" style="color:#0f3460;font-weight:700;text-decoration:underline;">Claude Code 30分手順書 v1</a>
+  </div>
 </div>
 
 <script>
@@ -1555,7 +1672,7 @@ function renderSeating(){
       }
       detail+='</tbody></table>';
       const count=members.length;
-      html+=`<div class="${cls}" onclick="this.classList.toggle('open')">`;
+      html+=`<div class="${cls}" id="seat-T${t}" data-table="${t}" onclick="this.classList.toggle('open')">`;
       html+=`<div class="st-summary"><div><div class="st-num">${label}</div>`;
       html+=`<div style="font-size:.72rem;color:#888;margin-top:2px;">${orgSummary||'（予備）'}</div></div>`;
       html+=`<span class="st-arrow">${count?count+'名 ▼':'—'}</span></div>`;
@@ -1567,6 +1684,146 @@ function renderSeating(){
   root.innerHTML=html;
 }
 document.addEventListener('DOMContentLoaded',renderSeating);
+
+/* =====================================================================
+   座席表 名前検索（5/14 追加） — DOM API で構築（XSS safe）
+   ===================================================================== */
+function buildSeatIndex(){
+  const out=[];
+  for(const t in SEATS){
+    for(const m of SEATS[t]){
+      out.push({table:Number(t),seat:m[0],org:m[1],title:m[2],name:m[3]});
+    }
+  }
+  return out;
+}
+const SEAT_INDEX=buildSeatIndex();
+
+function normalizeQuery(s){
+  if(!s)return '';
+  return String(s)
+    .replace(/[\s　・,，、]/g,'')
+    .replace(/[ぁ-ゖ]/g,ch=>String.fromCharCode(ch.charCodeAt(0)+0x60))
+    .toLowerCase();
+}
+
+const NAME_KANA={
+  '井上　和幸':'いのうえかずゆき','新村　達也':'しんむらたつや','原田　知明':'はらだともあき',
+  '齊藤　武文':'さいとうたけふみ','青山　悟':'あおやまさとる','青木　茂':'あおきしげる',
+  '嶋守　吉範':'しまもりよしのり','高村　明彦':'たかむらあきひこ','中橋　隆文':'なかはしたかふみ',
+  '堤　義人':'つつみよしと','清水　康次郎':'しみずこうじろう','塚田　泰三':'つかだたいぞう',
+  '山岡　正徳':'やまおかまさのり','角野　淳一郎':'かくのじゅんいちろう','近藤　秀之':'こんどうひでゆき',
+  '菅原　竜也':'すがはらたつや','内山　秀樹':'うちやまひでき','陰山　昭徳':'かげやまあきのり',
+  '谷口　豊':'たにぐちゆたか','佐藤　彰':'さとうあきら','江口　将司':'えぐちまさし',
+  '鍛治　渉':'かじわたる','中橋　隆一郎':'なかはしりゅういちろう','北川　裕章':'きたがわひろあき',
+  '西能　立':'さいのうたつる','大島　成友':'おおしましげとも','石動　嘉信':'いするぎよしのぶ',
+  '冨久尾　裕喜':'ふくおひろき','石森　良隆':'いしもりよしたか','青山　毅士':'あおやまたけし',
+  '操川　友佑':'そうかわゆうすけ','在田　吉宏':'ありたよしひろ','田中　陽介':'たなかようすけ',
+  '本田　誠一':'ほんだせいいち','吉田　有祐':'よしだゆうすけ','坪田　大輝':'つぼただいき',
+  '萩野　充弘':'はぎのみつひろ','北川　文洋':'きたがわふみひろ','南　志郎':'みなみしろう',
+  '辻　匡':'つじただし','豊蔵　享一':'とよくらきょういち','栗山　公伸':'くりやまきみのぶ',
+  '伊藤　潔':'いとうきよし'
+};
+
+function searchSeats(q){
+  const nq=normalizeQuery(q);
+  if(!nq) return [];
+  return SEAT_INDEX.filter(m=>{
+    const nName=normalizeQuery(m.name);
+    const nOrg=normalizeQuery(m.org);
+    const nTitle=normalizeQuery(m.title);
+    const kana=NAME_KANA[m.name]?normalizeQuery(NAME_KANA[m.name]):'';
+    return nName.includes(nq)||nOrg.includes(nq)||nTitle.includes(nq)||kana.includes(nq);
+  }).slice(0,30);
+}
+
+// DOM ヘルパー（textContent のみ使用）
+function el(tag,opts){
+  const e=document.createElement(tag);
+  if(opts){
+    if(opts.cls)e.className=opts.cls;
+    if(opts.text!=null)e.textContent=opts.text;
+    if(opts.id)e.id=opts.id;
+  }
+  return e;
+}
+
+function renderSeatSearch(){
+  const input=document.getElementById('seat-search-input');
+  const results=document.getElementById('seat-search-results');
+  if(!input||!results)return;
+  const q=input.value.trim();
+  // クリア
+  while(results.firstChild)results.removeChild(results.firstChild);
+
+  if(!q){
+    results.appendChild(el('div',{cls:'seat-search-empty no-input',text:'↑ お名前を入力すると、候補が表示されます。'}));
+    return;
+  }
+  const hits=searchSeats(q);
+  if(hits.length===0){
+    const empty=el('div',{cls:'seat-search-empty'});
+    empty.appendChild(document.createTextNode('「'+q+'」に該当する方は見つかりませんでした。'));
+    empty.appendChild(el('br'));
+    empty.appendChild(document.createTextNode('姓だけ・名だけ・ひらがなでもお試しください。'));
+    results.appendChild(empty);
+    return;
+  }
+  const meta=el('div',{cls:'seat-search-meta',text:hits.length+'件ヒット'+(hits.length>=30?'（最大30件まで表示）':'')});
+  results.appendChild(meta);
+
+  for(const m of hits){
+    const isVip=VIP.includes(m.table);
+    const isSc=SC_TABLES.includes(m.table);
+    const cls=isVip?'seat-search-hit vip-hit':isSc?'seat-search-hit sc-hit':'seat-search-hit';
+    const hit=el('div',{cls:cls});
+
+    // バッジ
+    const badge=el('div',{cls:'ssh-table-badge'});
+    badge.appendChild(el('div',{cls:'ssh-tn',text:'T'+m.table}));
+    badge.appendChild(el('div',{cls:'ssh-sn',text:'席'+m.seat}));
+    hit.appendChild(badge);
+
+    // 情報
+    const info=el('div',{cls:'ssh-info'});
+    const nameLine=el('div',{cls:'ssh-name',text:m.name});
+    const sp=SPEAKERS[m.name];
+    if(sp){
+      const spTag=el('span',{cls:'ssh-speaker',text:sp});
+      nameLine.appendChild(spTag);
+    }
+    info.appendChild(nameLine);
+    info.appendChild(el('div',{cls:'ssh-org',text:m.org}));
+    if(m.title&&!String(m.title).match(/^[0-9]+$/)){
+      info.appendChild(el('div',{cls:'ssh-title',text:m.title}));
+    }
+    hit.appendChild(info);
+
+    // ジャンプボタン
+    const btn=el('button',{cls:'ssh-jump',text:'座席表で見る'});
+    btn.type='button';
+    btn.addEventListener('click',function(){jumpToSeat(m.table);});
+    hit.appendChild(btn);
+
+    results.appendChild(hit);
+  }
+}
+
+function jumpToSeat(tableNum){
+  const target=document.getElementById('seat-T'+tableNum);
+  if(!target)return;
+  target.classList.add('open');
+  target.classList.add('highlight');
+  setTimeout(function(){target.classList.remove('highlight');},3500);
+  target.scrollIntoView({behavior:'smooth',block:'center'});
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+  const input=document.getElementById('seat-search-input');
+  if(input){
+    input.addEventListener('input',renderSeatSearch);
+  }
+});
 
 /* =====================================================================
    個人別タイムライン & 全体タイムライン
@@ -1634,24 +1891,24 @@ const MASTER_KONSHIN=[
   {t:'18:22',task:'祝辞（15分）',impl:'SC 井上 和幸 会長'},
   {t:'18:37',task:'乾杯（5分）',impl:'SC 原田 知明 専務（建築総本部購買担当・T7席1）。乾杯は日本酒、あらかじめグラスに注がれている。'},
   {t:'18:42',task:'開宴・自席で食事（撮影 30分）',impl:''},
-  {t:'19:12',task:'歓談・料理／お酒紹介・贈答品紹介（45分）',impl:''},
-  {t:'19:57',task:'踊り（さわぎ・風雅）（10分）',impl:'芸妓'},
-  {t:'20:07',task:'次期開催支部挨拶（5分）',impl:'北海道 嶋守 吉範 会長'},
-  {t:'20:12',task:'中締め（万歳）（5分）',impl:'SC 齊藤 武文 副社長執行役員（土木総本部 副総本部長・T6席1）'},
-  {t:'20:17',task:'返礼万歳（5分）',impl:'北陸 高村 明彦 副会長'},
-  {t:'20:22',task:'閉会挨拶（5分）',impl:'北陸 中橋 隆文 副会長'},
-  {t:'20:27',task:'★SC来賓 退場（3分）',impl:'各卓にいるSC北陸（北陸支店副支店長）が誘導。SC調達部・青年部もフォロー。栗山／高村／伊藤／西口 が起点で各卓へ流れる。'},
-  {t:'20:30',task:'閉会',impl:'司会者'},
+  {t:'19:12',task:'歓談・料理／お酒紹介・贈答品紹介（40分）',impl:'※5/14 45分→40分 に短縮'},
+  {t:'19:52',task:'踊り（さわぎ・風雅）（10分）',impl:'芸妓 ※5/14 5分前倒し'},
+  {t:'20:02',task:'次期開催支部挨拶（5分）',impl:'北海道 嶋守 吉範 会長'},
+  {t:'20:07',task:'中締め（万歳）（5分）',impl:'SC 齊藤 武文 副社長執行役員（土木総本部 副総本部長・T6席1）'},
+  {t:'20:12',task:'返礼万歳（5分）',impl:'北陸 高村 明彦 副会長'},
+  {t:'20:17',task:'閉会挨拶（5分）',impl:'北陸 中橋 隆文 副会長'},
+  {t:'20:22',task:'★SC来賓 退場（3分）',impl:'各卓にいるSC北陸（北陸支店副支店長）が誘導。SC調達部・青年部もフォロー。栗山／高村／伊藤／西口 が起点で各卓へ流れる。'},
+  {t:'20:25',task:'閉会',impl:'司会者 ※閉会〜二次会開始 20:30 まで 5分の移動余裕'},
 ];
 
 const MASTER_NIJI=[
-  {t:'20:00',task:'★リエ受入 青年部 5名 先発（懇親会を抜けて片町へ）',impl:'鍛治R・中橋・在田・田中・石森 の 5名 で バス1台で移動しホテルマイステイズ横に到着 → リエへ。【5/12 役員会決定】当初の「リエ／セレブR／ANA3階瑞雲」3会場体制から リエ1箇所に統合。'},
+  {t:'20:00',task:'★リエ受入 青年部 5名 先発（懇親会を抜けて片町へ）',impl:'石動・冨久尾・石森・青山(毅士)・鍛治R の 5名 で バス1台で移動しホテルマイステイズ横に到着 → リエへ。【5/12 役員会決定】当初「リエ／セレブR／ANA3階瑞雲」3会場体制 → リエ1箇所に統合 ／【5/14 社長確定】リエ担当再編・ANA二次会担当（北川裕・西能・大島）と分離。'},
   {t:'20:20',task:'★お茶屋 出迎え担当 先発',impl:'豊蔵享一・辻匡 → はん家／南志郎・北川文洋 → 八の福／朝倉洵平・高橋護・伊藤亮 → 仲の家'},
-  {t:'20:30',task:'二次会開始（リエ 1箇所に統合）',impl:'青年部 5名（鍛治R・中橋・在田・田中・石森）でリエ受入。お茶屋3軒（はん家・八の福・仲の家）と並行運用。会計は支部ごと後日請求のため人数確認のみ。'},
+  {t:'20:30',task:'二次会開始（リエ 1箇所に統合）',impl:'リエ担当 青年部 5名（石動・冨久尾・石森・青山毅士・鍛治R）でリエ受入。お茶屋3軒（はん家・八の福・仲の家）と並行運用。ANA二次会担当 3名（北川裕・西能・大島）が懇親会会場残留。会計は支部ごと後日請求のため人数確認のみ。'},
   {t:'20:30',task:'はん家（西）受入：計8名',impl:'新村SC社長／山岡SC本部長／近藤SC副支店長／八幡SC／青山会長／栗山副会長／豊蔵総務理事〇／辻総務理事〇'},
   {t:'20:30',task:'八の福（東）受入：計8名',impl:'井上SC会長／原田SC専務／角野SC支店長／江口SC部長／高村副会長／南会計理事〇／北川文洋〇／本田'},
   {t:'20:30',task:'仲の家（主計）受入：計8名',impl:'齊藤SC副社長／清水SC専務／塚田SC本部長／菅原SC副支店長／伊藤副会長／朝倉〇／高橋護〇／伊藤亮〇（〇＝20:20先発）'},
-  {t:'20:30',task:'リエ 受入（青年部 5名：鍛治R・中橋・在田・田中・石森）',impl:'連合幹部・支部参加者 等。会計は支部ごと後日請求のため人数確認のみ。'},
+  {t:'20:30',task:'リエ 受入（青年部 5名：石動・冨久尾・石森・青山毅士・鍛治R）',impl:'連合幹部・支部参加者 等。会計は支部ごと後日請求のため人数確認のみ。'},
   {t:'20:30',task:'★【青年部 リエ担当】支部別人数カウント',impl:'担当支部の入店人数をチェック・報告。店側の入店人数と合計が合致するように。'},
   {t:'22:00',task:'二次会閉会',impl:''},
 ];
@@ -1669,12 +1926,12 @@ const STAFF=[
      {t:'18:00',task:'懇親会（歓迎の挨拶 18:14〜）',loc:'ANA 3階 鳳の間'},
      {t:'20:30',task:'二次会：はん家（西）',loc:'お茶屋 はん家',hint:'計8名／新村SC社長・山岡SC本部長・近藤SC副支店長・八幡SC・栗山さん・豊蔵さん〇・辻さん〇'},
    ]},
-  {id:'nakahashi_t',name:'中橋 隆文',full:'中橋 隆文（なかはし たかふみ）',group:'exec',role:'北陸 副会長（閉会挨拶）',company:'中橋タイル',sokai:true,niji:'リエ',
+  {id:'nakahashi_t',name:'中橋 隆文',full:'中橋 隆文（なかはし たかふみ）',group:'exec',role:'北陸 副会長（閉会挨拶）',company:'中橋タイル',sokai:true,niji:'未定※',
    schedule:[
      {t:'13:00',task:'リハーサル'},{t:'14:00',task:'支部長会議'},{t:'15:00',task:'役員集合写真'},
      {t:'16:00',task:'定時総会出席'},
-     {t:'18:00',task:'懇親会（閉会挨拶 20:22〜）',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会：リエ（5名体制で対応）',loc:'リエグループ（片町）',hint:'【5/12 役員会決定】二次会は3会場→リエ1箇所に統合。鍛治・中橋・在田・田中・石森 の5名で対応。'},
+     {t:'18:00',task:'懇親会（閉会挨拶 20:17〜）',loc:'ANA 3階 鳳の間'},
+     {t:'20:30',task:'二次会：リエ（5名体制で対応）',loc:'リエグループ（片町）',hint:'【5/12 役員会決定】二次会は3会場→リエ1箇所に統合。石動・冨久尾・石森・青山毅士・鍛治 の5名で対応【5/14 社長確定で再編】。'},
      {t:'06:30',task:'【翌日】ゴルフコンペ：ANA → 小松CC → 小松空港 → 金沢駅 全行程同行',hint:'2026/5/16(土) 6:30 ANA発のバスに乗車・小松カントリーまで同行 → ゴルフ後バスで小松空港経由で金沢駅まで全員を見送り。日曜に車を取りに行く運用。'},
    ]},
   {id:'ito_kiyoshi',name:'伊藤 潔',full:'伊藤 潔（きよし）',group:'exec',role:'北陸 副会長（開会の辞）',company:'',sokai:true,niji:'仲の家（主計）',
@@ -1693,7 +1950,7 @@ const STAFF=[
   {id:'takamura',name:'高村 明彦',full:'高村 明彦（たかむら あきひこ）',group:'exec',role:'北陸 副会長（返礼万歳）',company:'',sokai:true,niji:'八の福（東）',
    schedule:[
      {t:'13:00',task:'リハーサル'},{t:'16:00',task:'定時総会出席'},
-     {t:'18:00',task:'懇親会（返礼万歳 20:17〜）'},
+     {t:'18:00',task:'懇親会（返礼万歳 20:12〜）'},
      {t:'20:30',task:'二次会：八の福（東）',loc:'お茶屋 八の福',hint:'計8名／井上SC会長・原田SC専務・角野SC支店長・江口SC部長・南さん〇・北川文洋さん?〇・本田さん'},
    ]},
   {id:'toyokura',name:'豊蔵 享一',full:'豊蔵 享一',group:'exec',role:'北陸 総務理事（大会宣言）',company:'',sokai:true,niji:'はん家（西）',welcome:true,
@@ -1732,9 +1989,10 @@ const STAFF=[
      {t:'16:00',task:'案内（支部長）',loc:'音楽堂'},
      {t:'16:00',task:'定時総会出席（トラブル対応で備える／鎌田・谷口と3名体制）'},
      {t:'18:00',task:'懇親会：来賓入場の先導・登壇者声掛け',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会終了後 片付け（ANA 3階 鳳の間）',loc:'ANA 3階 鳳の間',hint:'懇親会会場の片付け統括。【5/12 役員会決定】二次会は3会場→リエ1箇所に統合。リエ担当5名（鍛治・中橋・在田・田中・石森）が20:00 先発した後に残る側。'},
+     {t:'20:20',task:'★ジャンボタクシー お見送り（東京兼喜会のみなさま）',loc:'ANA 出口',hint:'【5/14 社長確定】東京兼喜会のみなさまをジャンボタクシーへ案内・お見送り。'},
+     {t:'20:30',task:'全体統括（残留）：ANA二次会担当 3名（北川裕・西能・大島）の支援＋トラブル対応',loc:'ANA 3階 鳳の間',hint:'リエ担当 5名（石動・冨久尾・石森・青山毅士・鍛治）は 20:00 先発済。全体リーダーとして残留サポート。'},
    ],
-   points:['インカムは終日装着（4名：中橋・北川裕・吉田・西能）','Q出し5分前に登壇者にお声がけ（会長・社長 不在ならイベント進行不可 → リスケ）','会長・社長がトイレへ立たれる際は出入口に大島、トイレ前に斉藤を配置','各案内チームの休憩は中橋が適宜交代（赤チーム）／西能（青チーム）／吉田（緑チーム）','インカム不通時はスマホで電話連絡','参加者とすれ違う際は笑顔で「こんにちは」をルール化','シナリオ進行を妨げる事象は迷わず各リーダーへ即報告','【5/12 役員会決定】二次会はリエ1箇所に統合（リエ担当5名：鍛治・中橋・在田・田中・石森）。中橋Rは懇親会会場の片付け側','翌日 6:30 ゴルフコンペバス出発（西能が乗車確認 → 父・中橋隆文が小松CC・小松空港・金沢駅まで同行）']},
+   points:['インカムは終日装着（4名：中橋・北川裕・吉田・西能）','Q出し5分前に登壇者にお声がけ（会長・社長 不在ならイベント進行不可 → リスケ）','会長・社長がトイレへ立たれる際は出入口に大島、トイレ前に斉藤を配置','各案内チームの休憩は中橋が適宜交代（赤チーム）／西能（青チーム）／吉田（緑チーム）','インカム不通時はスマホで電話連絡','参加者とすれ違う際は笑顔で「こんにちは」をルール化','シナリオ進行を妨げる事象は迷わず各リーダーへ即報告','【5/14 社長確定】中橋Rは「ジャンボタクシー お見送り」担当（東京兼喜会のみなさまをJTへ案内）。リエ担当 5名は石動・冨久尾・石森・青山毅士・鍛治／ANA二次会担当 3名は北川裕・西能・大島','翌日 6:30 ゴルフコンペバス出発（西能が乗車確認 → 父・中橋隆文が小松CC・小松空港・金沢駅まで同行）']},
   {id:'kitagawa_h',name:'北川 裕章',short:'北川裕',full:'北川 裕章',group:'leader',role:'全体サブリーダー兼 懇親会リーダー（副部長）',company:'菱機工業',contact:'080-8692-9503',incom:true,
    schedule:[
      {t:'09:00',task:'集合・リーダー朝礼',loc:'ANA 2階'},
@@ -1743,9 +2001,9 @@ const STAFF=[
      {t:'13:00',task:'懇親会準備（13〜15時はフリー枠だが、実質懇親会の準備対応）'},
      {t:'17:00',task:'懇親会準備',loc:'ANA 3階 鳳の間'},
      {t:'18:00',task:'懇親会：司会者へのQ出し',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'懇親会会場 片付け（懇親会司会終了後）',loc:'ANA 3階 鳳の間',hint:'【5/12 役員会決定】二次会は3会場→リエ1箇所に統合。リエ受入は 5名体制（鍛治・中橋・在田・田中・石森）で対応。'},
+     {t:'20:30',task:'★ANA二次会担当（残留）：懇親会会場 片付け＋残った参加者の対応',loc:'ANA 3階 鳳の間',hint:'【5/14 社長確定】ANA二次会担当 3名（北川裕・西能・大島）として懇親会会場に残留。リエ受入は 5名体制（石動・冨久尾・石森・青山毅士・鍛治）が先発対応。'},
    ],
-   points:['インカムは終日装着（4名：中橋・北川裕・吉田・西能）','Q出しは時間軸基本。登壇者・会長・社長不在の場合は進行不可 → リスケ','各案内チームの休憩は北川裕・吉田が適宜交代','【5/12 役員会決定】二次会はリエ1箇所に統合（リエ担当：鍛治・中橋・在田・田中・石森 の5名）','参加者とすれ違う際は笑顔で「こんにちは」']},
+   points:['インカムは終日装着（4名：中橋・北川裕・吉田・西能）','Q出しは時間軸基本。登壇者・会長・社長不在の場合は進行不可 → リスケ','各案内チームの休憩は北川裕・吉田が適宜交代','【5/12 役員会決定】二次会はリエ1箇所に統合（リエ担当：石動・冨久尾・石森・青山毅士・鍛治 の5名）','参加者とすれ違う際は笑顔で「こんにちは」']},
 
   // ===== 緑チーム：案内（金沢駅→ANA） =====
   {id:'yoshida',name:'吉田 有祐',short:'吉田',full:'吉田 有祐',group:'green',role:'案内リーダー（緑チーム）',company:'三幸電設',contact:'090-7099-3347',incom:true,
@@ -1769,33 +2027,36 @@ const STAFF=[
      {t:'16:00',task:'定時総会出席',loc:'音楽堂2階 邦楽ホール'},
      {t:'18:00',task:'懇親会',loc:'ANA 3階 鳳の間'},
    ]},
-  {id:'misogawa',name:'操川 友佑',short:'操川',full:'操川 友佑',group:'green',role:'②金沢駅兼六園口',company:'城西運輸機工',contact:'090-1631-7437',sokai:true,
+  {id:'misogawa',name:'操川 友佑',short:'操川',full:'操川 友佑',group:'green',role:'②金沢駅兼六園口／二次会バス送り込み',company:'城西運輸機工',contact:'090-1631-7437',sokai:true,
    schedule:[
      {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
      {t:'12:00',task:'全体朝礼'},
      {t:'13:00',task:'案内準備'},
      {t:'14:00',task:'案内 ②金沢駅 兼六園口',loc:'金沢駅'},
      {t:'16:00',task:'定時総会出席'},
-     {t:'18:00',task:'懇親会'},
+     {t:'18:00',task:'懇親会',loc:'ANA 3階 鳳の間'},
+     {t:'20:00',task:'★リエ行きバス 送り込み（ANA出口）',loc:'ANA 出口',hint:'【5/14 社長確定】ANA出発のリエ行きバス（リエ担当5名＋一般参加者）の乗車案内・人数確認・出発合図。'},
    ]},
-  {id:'fukuo',name:'冨久尾 裕喜',short:'冨久尾',full:'冨久尾 裕喜',group:'green',role:'③金沢駅モニュメント',company:'金沢セメント商事',contact:'090-9762-8801',sokai:true,
+  {id:'fukuo',name:'冨久尾 裕喜',short:'冨久尾',full:'冨久尾 裕喜',group:'green',role:'③金沢駅モニュメント／リエ二次会担当',company:'金沢セメント商事',contact:'090-9762-8801',sokai:true,niji:'リエ',
    schedule:[
      {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
      {t:'12:00',task:'全体朝礼'},
      {t:'13:00',task:'案内準備'},
      {t:'14:00',task:'案内 ③金沢駅モニュメント',loc:'金沢駅'},
      {t:'16:00',task:'定時総会出席'},
-     {t:'18:00',task:'懇親会'},
+     {t:'18:00',task:'懇親会',loc:'ANA 3階 鳳の間'},
+     {t:'20:00',task:'★リエ受入 5名 先発（懇親会を抜けて片町へ）',loc:'リエグループ（片町）',hint:'【5/14 社長確定】リエ担当 5名体制（石動・冨久尾・石森・青山毅士・鍛治R）。バス1台で移動。'},
+     {t:'20:30',task:'リエ受入：支部別人数カウント・店側との突合',loc:'リエグループ（片町）',hint:'5名体制（石動・冨久尾・石森・青山毅士・鍛治R）。会計は支部ごと後日請求のため人数確認のみ。'},
    ]},
-  {id:'arita',name:'在田 吉宏',short:'在田',full:'在田 吉宏',group:'green',role:'④ANA曲がり角（青年部副部長）',company:'アリタ',contact:'080-6364-3051',sokai:true,niji:'リエ',
+  {id:'arita',name:'在田 吉宏',short:'在田',full:'在田 吉宏',group:'green',role:'④ANA曲がり角（青年部副部長）',company:'アリタ',contact:'080-6364-3051',sokai:true,niji:'未定※',
    schedule:[
      {t:'12:00',task:'全体朝礼'},
      {t:'13:00',task:'案内準備'},
      {t:'14:00',task:'案内 ④ANA曲がり角',loc:'ANA 周辺'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
-     {t:'20:00',task:'★リエ受入 5名 先発（懇親会を抜けて片町へ）',loc:'リエグループ（片町）',hint:'【5/12 役員会決定】バス1台で移動。鍛治・中橋・在田・田中・石森 の5名体制。'},
-     {t:'20:30',task:'リエ受入：支部別人数カウント・店側との突合',loc:'リエグループ（片町）',hint:'5名体制（鍛治R・中橋・在田・田中・石森）。会計は支部ごと後日請求のため人数確認のみ。'},
+     {t:'20:00',task:'★リエ受入 5名 先発（懇親会を抜けて片町へ）',loc:'リエグループ（片町）',hint:'【5/12 役員会決定】バス1台で移動。石動・冨久尾・石森・青山毅士・鍛治 の5名体制【5/14 社長確定で再編】。'},
+     {t:'20:30',task:'リエ受入：支部別人数カウント・店側との突合',loc:'リエグループ（片町）',hint:'5名体制（石動・冨久尾・石森・青山毅士・鍛治R）【5/14 社長確定で再編】。会計は支部ごと後日請求のため人数確認のみ。'},
    ]},
   {id:'kirihata',name:'桐畑 剛',short:'桐畑',full:'桐畑 剛',group:'green',role:'⑤ANA曲がり角',company:'桐畑',contact:'090-3885-6875',sokai:true,
    schedule:[
@@ -1825,10 +2086,10 @@ const STAFF=[
      {t:'14:00',task:'金沢駅 金沢港口バス乗り場で待機',loc:'金沢駅 金沢港口バス乗り場',hint:'小松空港からのバス到着時間に合わせて待機。バス到着時間は事務局で確認。バスから降りた参加者を ANA まで誘導。'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
-     {t:'20:00',task:'★リエ受入 5名 先発（懇親会を抜けて片町へ）',loc:'リエグループ（片町）',hint:'【5/12 役員会決定】バス1台で移動。鍛治・中橋・在田・田中・石森 の5名体制。'},
-     {t:'20:30',task:'リエ受入：支部別人数カウント・店側との突合',loc:'リエグループ（片町）',hint:'5名体制（鍛治R・中橋・在田・田中・石森）。会計は支部ごと後日請求のため人数確認のみ。'},
+     {t:'20:00',task:'★リエ受入 5名 先発（懇親会を抜けて片町へ）',loc:'リエグループ（片町）',hint:'【5/12 役員会決定】バス1台で移動。石動・冨久尾・石森・青山毅士・鍛治 の5名体制【5/14 社長確定で再編】。'},
+     {t:'20:30',task:'リエ受入：支部別人数カウント・店側との突合',loc:'リエグループ（片町）',hint:'5名体制（石動・冨久尾・石森・青山毅士・鍛治R）【5/14 社長確定で再編】。会計は支部ごと後日請求のため人数確認のみ。'},
    ],
-   points:['金沢港口バス乗り場で小松空港バス到着を待機 → バス組をANAまで誘導（誘導後はそのまま離脱可）','受付の振り分けで本田が忙しい際は西能の指示にも従う','【5/12 役員会決定】二次会はリエ1箇所に統合：20:00 に懇親会を抜け先発／5名体制（鍛治R・中橋・在田・田中・石森）']},
+   points:['金沢港口バス乗り場で小松空港バス到着を待機 → バス組をANAまで誘導（誘導後はそのまま離脱可）','受付の振り分けで本田が忙しい際は西能の指示にも従う','【5/12 役員会決定】二次会はリエ1箇所に統合：20:00 に懇親会を抜け先発／5名体制（石動・冨久尾・石森・青山毅士・鍛治R）【5/14 社長確定で再編】']},
 
   // ===== 青チーム：受付（→17時 黄チーム 案内 音楽堂→ANA） =====
   {id:'sainou',name:'西能 立',short:'西能',full:'西能 立',group:'blue',role:'受付リーダー（青年部幹事）',company:'第一交易',contact:'090-3763-0201',incom:true,
@@ -1840,10 +2101,10 @@ const STAFF=[
      {t:'14:00',task:'受付（全体統括）',loc:'音楽堂'},
      {t:'17:00',task:'懇親会準備',loc:'ANA 3階 鳳の間'},
      {t:'18:00',task:'懇親会：進行',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'二次会終了後 片付け（懇親会会場）',loc:'ANA 3階 鳳の間',hint:'リエ担当外。受付リーダーとして懇親会全体の進行終了後に片付けを統括。'},
+     {t:'20:30',task:'★ANA二次会担当（残留）：懇親会会場 片付け＋残った参加者の対応',loc:'ANA 3階 鳳の間',hint:'【5/14 社長確定】ANA二次会担当 3名（北川裕・西能・大島）として懇親会会場に残留。受付リーダーとして全体の片付けを統括。'},
      {t:'06:30',task:'【翌日】ゴルフコンペ：ANA 出発バスの乗車確認',loc:'ANA 出発口',hint:'2026/5/16(土) 6:30 出発のバス1台。名簿で乗車チェック → 確認後そのまま解散OK。'},
    ],
-   points:['受付の振り分けは才能（西能）の判断で臨機応変に変更可','受付時刻（16時）を過ぎての参加者は大島と斉藤が残って対応','受付の質問対応は西能に集約し、本田が受付フォロー','各担当の休憩は西能が適宜交代','インカムは終日装着（中橋・北川裕・吉田・西能の4名）','参加者とすれ違う際は笑顔で「こんにちは」','二次会はリエ担当外（懇親会会場の片付け側）','翌日6:30 ゴルフコンペバスの乗車確認担当（ANA出発口）']},
+   points:['受付の振り分けは才能（西能）の判断で臨機応変に変更可','受付時刻（16時）を過ぎての参加者は大島と斉藤が残って対応','受付の質問対応は西能に集約し、本田が受付フォロー','各担当の休憩は西能が適宜交代','インカムは終日装着（中橋・北川裕・吉田・西能の4名）','参加者とすれ違う際は笑顔で「こんにちは」','【5/14 社長確定】ANA二次会担当 3名のひとり（北川裕・西能・大島）として懇親会会場に残留・片付け統括','翌日6:30 ゴルフコンペバスの乗車確認担当（ANA出発口）']},
   {id:'oshima',name:'大島 成友',short:'大島',full:'大島 成友',group:'blue',role:'受付（北陸 76名）／16時以降の遅刻対応',company:'日本板硝子S&S',contact:'090-2375-7709',
    schedule:[
      {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
@@ -1852,9 +2113,9 @@ const STAFF=[
      {t:'14:00',task:'受付（北陸 76名担当・大島＋朝倉の2名体制）',loc:'音楽堂'},
      {t:'16:00',task:'受付残り対応（遅刻参加者）：斉藤と2名で対応',loc:'音楽堂'},
      {t:'18:00',task:'懇親会：来賓入場の扉開け／会長・社長がトイレに立たれる際は出入口に待機',loc:'ANA 3階 鳳の間'},
-     {t:'20:30',task:'懇親会会場 片付け（ANA 3階 鳳の間）',loc:'ANA 3階 鳳の間',hint:'【5/12 役員会決定】二次会は3会場→リエ1箇所に統合（リエ担当 5名：鍛治・中橋・在田・田中・石森）。控え室（ANA 2階 テレビ／音楽堂2階 楽屋）の忘れ物チェックも担当。'},
+     {t:'20:30',task:'★ANA二次会担当（残留）：懇親会会場 片付け＋残った参加者の対応',loc:'ANA 3階 鳳の間',hint:'【5/14 社長確定】ANA二次会担当 3名（北川裕・西能・大島）として懇親会会場に残留。控え室（ANA 2階 テレビ／音楽堂2階 楽屋）の忘れ物チェックも担当。'},
    ],
-   points:['★【5/14 前日 13:00〜】資料作り集合（封筒詰め）：総会資料の封筒に <strong>「能登復興関連QRコード一覧」（A4）も同封</strong>する（鍛治社長が印刷物を持参・同席）','16時を過ぎて受付に来る参加者は斉藤とともに残って対応','懇親会では来賓入場の扉開け／会長・社長がトイレに立たれる際は出入口で待機','【5/12 役員会決定】二次会はリエ1箇所に統合（リエ担当：鍛治・中橋・在田・田中・石森 の5名）。懇親会後は片付け＋控え室の忘れ物チェック']},
+   points:['★【5/14 前日 13:00〜】資料作り集合（封筒詰め）：総会資料の封筒に <strong>「能登復興関連QRコード一覧」（A4）も同封</strong>する（鍛治社長が印刷物を持参・同席）','16時を過ぎて受付に来る参加者は斉藤とともに残って対応','懇親会では来賓入場の扉開け／会長・社長がトイレに立たれる際は出入口で待機','【5/14 社長確定】ANA二次会担当 3名のひとり（北川裕・西能・大島）として懇親会会場に残留・片付け＋控え室の忘れ物チェック']},
   {id:'asakura',name:'朝倉 洵平',short:'朝倉',full:'朝倉 洵平',group:'blue',role:'受付（北陸 76名）',company:'朝倉',contact:'080-1253-3892',niji:'仲の家（主計）',welcome:true,
    schedule:[
      {t:'12:00',task:'全体朝礼'},
@@ -1961,10 +2222,10 @@ const STAFF=[
      {t:'14:00',task:'案内 ⑥邦楽ホール エントランス（音楽堂1階／リーダー・インカム）',loc:'音楽堂 1階'},
      {t:'16:00',task:'定時総会出席（赤チーム終了後、インカムを清水建設 調達部 中村さんへ受け渡し）'},
      {t:'18:00',task:'懇親会',loc:'ANA 3階 鳳の間'},
-     {t:'20:00',task:'★リエ受入 リーダーとして懇親会を抜け先発',loc:'リエグループ（片町）',hint:'【5/12 役員会決定】バス1台で移動。鍛治・中橋・在田・田中・石森 の5名体制。'},
-     {t:'20:30',task:'リエ受入（リーダー）：支部別人数カウント・店側との突合',loc:'リエグループ（片町）',hint:'5名体制（鍛治R・中橋・在田・田中・石森）。会計は支部ごと後日請求のため人数確認のみ。'},
+     {t:'20:00',task:'★リエ受入 リーダーとして懇親会を抜け先発',loc:'リエグループ（片町）',hint:'【5/12 役員会決定】バス1台で移動。石動・冨久尾・石森・青山毅士・鍛治 の5名体制【5/14 社長確定で再編】。'},
+     {t:'20:30',task:'リエ受入（リーダー）：支部別人数カウント・店側との突合',loc:'リエグループ（片町）',hint:'5名体制（石動・冨久尾・石森・青山毅士・鍛治R）【5/14 社長確定で再編】。会計は支部ごと後日請求のため人数確認のみ。'},
    ],
-   points:['★【5/14 前日 13:00〜】資料作り集合（封筒詰め）に同席 — 青年部総務（大島・斉藤）と一緒に総会資料を封筒詰め。<strong>能登復興関連QRコード一覧（A4）を必ず同封</strong>（社長自ら印刷してANA持参）','配置変更：当初①横断歩道 → ⑥邦楽ホール エントランス（トラブル多発を想定して変更）','名札を着用していない方に声掛けし、受付状況をインカムで西能と共有','関係者以外の入場をブロック（音楽ホールはほぼ貸切でリハーサル中、関係者以外が紛れ込む可能性）','遅刻参加者は受付を通らず直接会場へ向かう可能性あり','各担当の休憩は中橋が適宜交代','赤チーム終了後、インカムは清水建設 調達部（中村さん）へ受け渡し（懇親会で清水側がインカム2つ使用）','【5/12 役員会決定】リエ受入リーダー：20:00 に懇親会を抜け先発／5名体制（鍛治・中橋・在田・田中・石森）']},
+   points:['★【5/14 前日 13:00〜】資料作り集合（封筒詰め）に同席 — 青年部総務（大島・斉藤）と一緒に総会資料を封筒詰め。<strong>能登復興関連QRコード一覧（A4）を必ず同封</strong>（社長自ら印刷してANA持参）','配置変更：当初①横断歩道 → ⑥邦楽ホール エントランス（トラブル多発を想定して変更）','名札を着用していない方に声掛けし、受付状況をインカムで西能と共有','関係者以外の入場をブロック（音楽ホールはほぼ貸切でリハーサル中、関係者以外が紛れ込む可能性）','遅刻参加者は受付を通らず直接会場へ向かう可能性あり','各担当の休憩は中橋が適宜交代','赤チーム終了後、インカムは清水建設 調達部（中村さん）へ受け渡し（懇親会で清水側がインカム2つ使用）','【5/12 役員会決定 + 5/14 社長確定】リエ受入リーダー：20:00 に懇親会を抜け先発／5名体制（石動・冨久尾・石森・青山毅士・鍛治）']},
   {id:'tsubota',name:'坪田 大輝',short:'坪田',full:'坪田 大輝',group:'red',role:'②エントランス入口（音楽堂1階）',company:'ツボ電気工事',contact:'090-3569-0953',sokai:true,
    schedule:[
      {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
@@ -1974,14 +2235,16 @@ const STAFF=[
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'aoyama_t',name:'青山 毅士',short:'青山(青年部)',full:'青山 毅士',group:'red',role:'③インストエントランス（音楽堂1階）',company:'青山',contact:'090-5172-4333',sokai:true,
+  {id:'aoyama_t',name:'青山 毅士',short:'青山(青年部)',full:'青山 毅士',group:'red',role:'③インストエントランス（音楽堂1階）／EV前 待機＋リエ二次会担当',company:'青山',contact:'090-5172-4333',sokai:true,niji:'リエ',
    schedule:[
      {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
      {t:'12:00',task:'全体朝礼'},
      {t:'13:00',task:'案内準備'},
      {t:'14:00',task:'案内 ③インストエントランス（音楽堂1階）',loc:'音楽堂 1階'},
      {t:'16:00',task:'定時総会出席'},
-     {t:'18:00',task:'懇親会'},
+     {t:'18:00',task:'懇親会',loc:'ANA 3階 鳳の間'},
+     {t:'20:00',task:'★EV前 待機（3階→1階の動線確保・誘導）',loc:'ANA エレベーターホール',hint:'リエ・お茶屋・JT への移動者の動線確保。誘導が一段落したら自身もリエへ後発合流。'},
+     {t:'20:30',task:'リエ受入：支部別人数カウント・店側との突合',loc:'リエグループ（片町）',hint:'5名体制（石動・冨久尾・石森・青山毅士・鍛治R）。会計は支部ごと後日請求のため人数確認のみ。'},
    ]},
   {id:'hagino',name:'萩野 充弘',short:'萩野',full:'萩野 充弘',group:'red',role:'①音楽堂横断歩道（屋外）',company:'萩野塗装',contact:'090-2032-9094',sokai:true,
    schedule:[
@@ -1992,14 +2255,16 @@ const STAFF=[
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
    ]},
-  {id:'isurugi',name:'石動 嘉信',short:'石動',full:'石動 嘉信',group:'red',role:'⑤クローク 奥（音楽堂1階）',company:'イスルギ',contact:'080-2951-0477',sokai:true,
+  {id:'isurugi',name:'石動 嘉信',short:'石動',full:'石動 嘉信',group:'red',role:'⑤クローク 奥（音楽堂1階）／リエ二次会担当',company:'イスルギ',contact:'080-2951-0477',sokai:true,niji:'リエ',
    schedule:[
      {t:'09:00',task:'集合・前日資料の確認等',loc:'ANA 2階'},
      {t:'12:00',task:'全体朝礼'},
      {t:'13:00',task:'案内準備'},
      {t:'14:00',task:'案内 ⑤クローク 奥（音楽堂1階）',loc:'音楽堂 1階'},
      {t:'16:00',task:'定時総会出席'},
-     {t:'18:00',task:'懇親会'},
+     {t:'18:00',task:'懇親会',loc:'ANA 3階 鳳の間'},
+     {t:'20:00',task:'★リエ受入 5名 先発（懇親会を抜けて片町へ）',loc:'リエグループ（片町）',hint:'【5/14 社長確定】リエ担当 5名体制（石動・冨久尾・石森・青山毅士・鍛治R）。バス1台で移動。'},
+     {t:'20:30',task:'リエ受入：支部別人数カウント・店側との突合',loc:'リエグループ（片町）',hint:'5名体制（石動・冨久尾・石森・青山毅士・鍛治R）。会計は支部ごと後日請求のため人数確認のみ。'},
    ]},
   {id:'kitagawa_f',name:'北川 文洋',short:'北川文',full:'北川 文洋',group:'red',role:'④クローク前（音楽堂1階）',company:'北川瀝青工業',contact:'090-2377-5551',sokai:true,niji:'八の福（東）※要確認',welcome:true,
    schedule:[
@@ -2012,15 +2277,15 @@ const STAFF=[
      {t:'20:20',task:'★お茶屋 八の福へ先発（出迎え待機・要確認）',loc:'お茶屋 八の福',hint:'懇親会途中で先に退出。ホテルから移動してお出迎え準備。※事務局より「？」付きで連絡あり、要本人確認。'},
      {t:'20:30',task:'二次会：八の福（東）※要確認',loc:'お茶屋 八の福'},
    ]},
-  {id:'tanaka',name:'田中 陽介',short:'田中',full:'田中 陽介（青年部副部長）',group:'red',role:'⑦邦楽ホール（音楽堂2階）',company:'タッセイ',contact:'090-5686-1343',sokai:true,niji:'リエ',
+  {id:'tanaka',name:'田中 陽介',short:'田中',full:'田中 陽介（青年部副部長）',group:'red',role:'⑦邦楽ホール（音楽堂2階）',company:'タッセイ',contact:'090-5686-1343',sokai:true,niji:'未定※',
    schedule:[
      {t:'12:00',task:'全体朝礼'},
      {t:'13:00',task:'案内準備'},
      {t:'14:00',task:'案内 ⑦邦楽ホール（音楽堂2階）',loc:'音楽堂 2階'},
      {t:'16:00',task:'定時総会出席'},
      {t:'18:00',task:'懇親会'},
-     {t:'20:00',task:'★リエ受入 5名 先発（懇親会を抜けて片町へ）',loc:'リエグループ（片町）',hint:'【5/12 役員会決定】バス1台で移動。鍛治・中橋・在田・田中・石森 の5名体制。'},
-     {t:'20:30',task:'リエ受入：支部別人数カウント・店側との突合',loc:'リエグループ（片町）',hint:'5名体制（鍛治R・中橋・在田・田中・石森）。会計は支部ごと後日請求のため人数確認のみ。'},
+     {t:'20:00',task:'★リエ受入 5名 先発（懇親会を抜けて片町へ）',loc:'リエグループ（片町）',hint:'【5/12 役員会決定】バス1台で移動。石動・冨久尾・石森・青山毅士・鍛治 の5名体制【5/14 社長確定で再編】。'},
+     {t:'20:30',task:'リエ受入：支部別人数カウント・店側との突合',loc:'リエグループ（片町）',hint:'5名体制（石動・冨久尾・石森・青山毅士・鍛治R）【5/14 社長確定で再編】。会計は支部ごと後日請求のため人数確認のみ。'},
    ]},
 ];
 
@@ -2332,7 +2597,7 @@ const CHECK_ITEMS=[
   {id:'c1',cat:'low',title:'✓ 赤チーム番号 PPT版採用で確定済み',
    detail:`<strong>解決済：</strong> PPT(青年部役割説明.pptx slide6) を本マニュアルの正本として採用 + 2026/05/08 内部フロア図ベースに移行。<br>・①萩野＝音楽堂横断歩道（屋外）<br>・②坪田＝エントランス入口<br>・③青山(青)＝インストエントランス<br>・④北川文＝クローク前<br>・⑤石動＝クローク奥<br>・⑥鍛治＝邦楽ホール エントランス（リーダー）<br>・⑦田中＝邦楽ホール（2階）`},
   {id:'c2',cat:'low',title:'✓ 司会シナリオ 太鼓→芸妓 差し替え完了（5/7）',
-   detail:`<strong>解決済（5/7）：</strong> 懇親会フロー本番タイムライン／照明切替表／QAから 太鼓演奏・太鼓体験 を削除し、新スケジュール（19:12〜歓談 / 19:57〜芸妓踊り）に差し替え済み。`},
+   detail:`<strong>解決済（5/7）：</strong> 懇親会フロー本番タイムライン／照明切替表／QAから 太鼓演奏・太鼓体験 を削除し、新スケジュール（19:12〜歓談 / <s>19:57</s>→<strong>19:52</strong>〜芸妓踊り、5/14 5分前倒し）に差し替え済み。`},
   {id:'c3',cat:'low',title:'✓ 吉田の懇親会担当 PPT版（映像・音響）採用',
    detail:`<strong>解決済：</strong> PPT「映像・音響」を採用済み。`},
   {id:'c4',cat:'low',title:'✓ 「芸妓」表記で統一済み',
@@ -2375,8 +2640,8 @@ const CHECK_ITEMS=[
    detail:`<strong>4/26 リーダーミーティング決定事項：</strong> 当日9時集合・前日13時準備の「長老配慮」（桐畑・南など）は不要に。配慮は<strong>遠方の方のみ</strong>（在田＝富山、田中＝福井、谷口＝福井、鎌田＝福井、江川＝富山、石井＝富山、高橋＝新潟、伊藤亮＝新潟、朝倉＝上越）。<br>※当マニュアルでは：<br>　・9時集合（リーダー＋石川県メンバー）：中橋R／北川裕／吉田／西能／鍛治／大湯／操川／冨久尾／桐畑／本田／石森／大島／氷見山／近藤／斉藤／坪田／青山(青)／萩野／石動／北川文洋<br>　・12時集合（遠方）：在田／朝倉／谷口／鎌田／江川／石井／高橋／伊藤亮／田中<br>※前日準備の進捗次第で、当日10時集合に変更可（江口部長の最終判断）。`},
   {id:'c24',cat:'high',title:'開催日が 2026/5/15（金）に変更',
    detail:`<strong>当初予定 2026/4/12（日）→ 2026/5/15（金）に変更</strong>。本マニュアル内の参照を全て更新済み。<br>翌日ゴルフコンペは <strong>2026/5/16（土）</strong>。<br>前日準備は <strong>2026/5/14（木）13:00〜</strong>。<br>各支部・ホテル・お茶屋・リエグループへの日程変更通知の完了確認が必要。`},
-  {id:'c28',cat:'high',title:'✓【5/12 役員会決定】二次会 リエ1箇所に統合（5/13 反映済）',
-   detail:`<strong>反映済（5/13）：</strong> 5/12 青年部役員会で 二次会を 3会場（リエ／セレブR／ANA3階瑞雲）→ <strong>リエ1箇所に統合</strong>することで合意（お茶屋さんとの調整がついた）。<br>本マニュアル全体に反映済：<br>① <strong>MASTER_NIJI</strong>: リエ統合に整理（5名体制：鍛治R・中橋・在田・田中・石森）<br>② <strong>個別スケジュール</strong>: 鍛治・中橋・在田・田中・石森 の niji='リエ' 設定／坪田・青山毅・萩野・石動・冨久尾・大島・北川裕 の二次会担当を解除<br>③ <strong>役割カード／QA Q4／s17 二次会シーン</strong>: 表記を全て「リエ担当 5名」に統一<br>④ <strong>note 注記</strong>: 「【5/12 役員会決定】」プレフィックスで会場統合の経緯を明示<br>議事録: <a href="https://hokuriku-kaneki-yakuin.pages.dev/meetings/20260512/gijiroku.html" target="_blank">5/12 役員会 議事録</a>`},
+  {id:'c28',cat:'high',title:'✓【5/12 役員会 + 5/14 社長確定】二次会 リエ1箇所統合＋担当再編（5/14 反映済）',
+   detail:`<strong>反映済（5/14 rev5）：</strong> 5/12 青年部役員会で 二次会を 3会場（リエ／セレブR／ANA3階瑞雲）→ <strong>リエ1箇所に統合</strong>。さらに <strong>5/14 鍛治社長確定でリエ担当を再編</strong>。<br>本マニュアル全体に反映済：<br>① <strong>リエ担当 5名（先発）</strong>：石動・冨久尾・石森・青山(毅士)・鍛治（リーダー）<br>② <strong>ANA二次会担当 3名（残留）</strong>：北川 裕章・西能 立・大島 成友<br>③ <strong>個別スケジュール</strong>: 石動・冨久尾・青山毅士 の niji を 'リエ' に変更／中橋隆文・在田・田中 の niji='リエ' を解除（未定）／北川裕・西能・大島 を ANA二次会担当 として明示<br>④ <strong>役割カード／QA Q4／s17 二次会シーン</strong>: 全て新体制に統一<br>議事録: <a href="https://hokuriku-kaneki-yakuin.pages.dev/meetings/20260512/gijiroku.html" target="_blank">5/12 役員会 議事録</a>`},
   {id:'c27',cat:'low',title:'✓ 司会シナリオ 5/11 docx 最新版に全面更新（5/13 反映済）',
    detail:`<strong>反映済（5/13）：</strong> 司会シナリオを <code>_source/北陸大会_総会_司会シナリオ_20260511.docx</code> に差替・以下4箇所を更新。<br>① <strong>K03 物故会員報告</strong>：「〇名の方々に対し、また中には<strong>現場で尊い命を失われた方々に対し</strong>、もおられます」を本文に追記（4/22 SC中村追記反映）。現場死亡者なしの場合は赤字部分削除を当日対応。<br>② <strong>K08 来賓ご紹介</strong>：本社7名（井上会長→新村社長→堤副社長→齊藤副社長→原田専務→塚田執行役員→山岡本部長）＋北陸支店8名（角野支店長→近藤・菅原・内山・陰山副支店長→谷口主席M→佐藤安環部長→江口調達部長）の役職名フル記載を反映。<br>③ <strong>K09 歓迎の辞 → QR案内</strong>：語尾「ぜひご活用ください」→「ぜひお時間ある時にお目通しください」に変更。<br>④ <strong>K13 大会宣言</strong>：豊蔵総務理事登壇に「（例年は会長担務 ／ 能登震災の関係で特例）」を併記。<br>配布資料の中身も明示：① 能登復興事務所のあゆみ／② 1年の軌跡／③ 奥能登豪雨／④ 道路啓開 の4種QR + 主な工事の進捗タイムライン（5項目）。`},
   {id:'c26',cat:'high',title:'能登復興関連QRコード一覧 を 5/14 前日 13:00 封筒詰めで同封（5/13 確定）',
